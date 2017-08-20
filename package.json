@@ -1,0 +1,56 @@
+{
+  "name": "wp-campaign-url-builder",
+  "version": "0.0.1",
+  "description": "Generates links for Analytics tools and short link. Enter your Campaign Name, Source, Medium (UTM link) etc. to generate a full link and a short link (trough the Google URL Shortener API) all in once.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reatlat/wp-campaign-url-builder.git"
+  },
+  "keywords": [
+    "analytics",
+    "google",
+    "UTM",
+    "link generator",
+    "tracking link"
+  ],
+  "author": {
+    "name": "Alex Zappa a.k.a. re[at]lat",
+    "email": "reatlat@gmail.com",
+    "url": "https://reatlat.net"
+  },
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/reatlat/wp-campaign-url-builder/issues"
+  },
+  "homepage": "https://github.com/reatlat/wp-campaign-url-builder#readme",
+  "devDependencies": {
+    "coffee-script": "^1.12.7",
+    "gulp": "^3.9.1",
+    "gulp-archiver": "^1.0.0",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-clean": "^0.3.2",
+    "gulp-coffee": "^2.3.4",
+    "gulp-concat": "^2.6.1",
+    "gulp-csso": "^3.0.0",
+    "gulp-include": "^2.3.1",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-notify": "^3.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.6.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-strip-css-comments": "^1.2.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-util": "^3.0.8",
+    "gulp-watch": "^4.3.11",
+    "lodash": "^4.17.4",
+    "node-notifier": "^5.1.2",
+    "node-sass": "^4.5.3",
+    "run-sequence": "^2.1.0",
+    "sigmund": "^1.0.1",
+    "uuid": "^3.1.0"
+  }
+}

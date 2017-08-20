@@ -1,5 +1,70 @@
-# wp-campaign-url-builder
-WordPress plugin - Campaign URL Builder
+# WordPress - Campaign URL Builder
+
+Generates links for Analytics tools and short link.
+Enter your Campaign Name, Source, Medium (UTM link) etc.
+to generate a full link and a short link (trough the Google
+URL Shortener API) all in once.
+
+## Run plugin builder
+- `gulp dev` for local develop
+- `gulp build` for build release, you can find it on `./release` directory
+
+## Prerequistes
+
+### NodeJS & GulpJS
+You must install [NodeJS](https://nodejs.org/en/download/current/) which comes with npm. 
+
+After you should update npm:
+```
+npm install npm -g
+```
+You must install [GulpJS](http://gulpjs.com/)
+```
+npm install gulp-cli -g
+npm install gulp -D
+```
+Install packages
+```
+npm install
+```
+
+### Docker
+
+#### Setup
+First, get docker, and install:
+* [Mac instructions](https://docs.docker.com/docker-for-mac/), [Package](https://download.docker.com/mac/stable/Docker.dmg)
+* Linux: [Ubuntu](https://docs.docker.com/engine/installation/linux/ubuntu/)
+
+Once installed, you can check everything is up and running:
+```
+docker --version
+docker-compose --version
+docker-machine --version (Mac-only)
+```
+##### Linux only
+On Linux, to manage docker as non-root user, add your user to ```docker``` group:
+```
+sudo usermod -aG docker $USER
+```
+and load on startup:
+```
+sudo systemctl enable docker
+```
+And if you are using NetworkManager, add a DNS for Docker and restart:
+```
+echo 'json { "dns": ["8.8.8.8", "8.8.4.4"] }' | sudo tee /etc/docker/daemon.json
+sudo service docker restart
+```
+
+#### Run
+```
+docker-compose up
+```
+
+#### Install DEMO Data (Seed)
+```
+docker-compose exec wordpress bash /docker-scripts/wp-demo-install.sh
+```
 
 # LICENSE
 [![GNU GPL v3.0](./includes/gplv3-127x51.png)](./LICENSE)
