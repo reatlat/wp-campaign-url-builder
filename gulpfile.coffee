@@ -35,7 +35,7 @@ gulp.task 'dev', (callback) ->
   runSequence [
     'clean_temp_folder'
   ], [
-    'styles_scss'
+    'styles'
     'scripts'
     'copy_php'
   ], 'watch', callback
@@ -59,13 +59,27 @@ gulp.task 'build', (callback) ->
 # Tasks
 ###
 
-gulp.task 'styles_scss', ->
-  gulp.src(path.source+'/_styles/**/!(_)*.scss')
+gulp.task 'styles', (callback) ->
+  runSequence [
+    'styles_admin'
+    'styles_public'
+  ], 'zip', callback
+
+gulp.task 'styles_admin', ->
+  gulp.src(path.source+'/_styles/!(_)*-admin.scss')
     .pipe($.sass(errLogToConsole: true).on('error', errorHandler('SASS')))
     .pipe($.autoprefixer('last 2 version'))
     .pipe($.stripCssComments(preserve: false))
     .pipe($.csso(csso_options))
-    .pipe gulp.dest(path.dist)
+    .pipe gulp.dest(path.dist+'/admin/assets/css/')
+
+gulp.task 'styles_public', ->
+  gulp.src(path.source+'/_styles/!(_)*-public.scss')
+    .pipe($.sass(errLogToConsole: true).on('error', errorHandler('SASS')))
+    .pipe($.autoprefixer('last 2 version'))
+    .pipe($.stripCssComments(preserve: false))
+    .pipe($.csso(csso_options))
+    .pipe gulp.dest(path.dist+'/public/assets/css/')
 
 gulp.task 'clean_release_folder', ->
   gulp.src(path.dist, read: false)
@@ -77,22 +91,37 @@ gulp.task 'clean_temp_folder', ->
 
 gulp.task 'scripts', (callback) ->
   runSequence [
-    'coffeeScripts'
-    'javaScripts'
+    'coffeeScripts_admin'
+    'javaScripts_admin'
+    'coffeeScripts_public'
+    'javaScripts_public'
   ], callback
 
-gulp.task 'coffeeScripts', ->
-  gulp.src(path.source+'/_scripts/**/!(_)*.coffee')
+gulp.task 'coffeeScripts_admin', ->
+  gulp.src(path.source+'/_scripts/!(_)*-admin.coffee')
     .pipe($.include(extension: '.coffee').on('error', errorHandler('Include *.coffee')))
     .pipe($.coffee(bare: true).on('error', errorHandler('CoffeeScript')))
     .pipe($.uglify({}))
-    .pipe gulp.dest(path.dist)
+    .pipe gulp.dest(path.dist+'/admin/assets/js/')
 
-gulp.task 'javaScripts', ->
-  gulp.src(path.source+'/_scripts/**/!(_)*.js')
+gulp.task 'javaScripts_admin', ->
+  gulp.src(path.source+'/_scripts/!(_)*-admin.js')
     .pipe($.include(extension: '.js').on('error', errorHandler('Include *.js')))
     .pipe($.uglify({}))
-    .pipe gulp.dest(path.dist)
+    .pipe gulp.dest(path.dist+'/admin/assets/js/')
+
+gulp.task 'coffeeScripts_public', ->
+  gulp.src(path.source+'/_scripts/!(_)*-public.coffee')
+    .pipe($.include(extension: '.coffee').on('error', errorHandler('Include *.coffee')))
+    .pipe($.coffee(bare: true).on('error', errorHandler('CoffeeScript')))
+    .pipe($.uglify({}))
+    .pipe gulp.dest(path.dist+'/public/assets/js/')
+
+gulp.task 'javaScripts_public', ->
+  gulp.src(path.source+'/_scripts/!(_)*-public.js')
+    .pipe($.include(extension: '.js').on('error', errorHandler('Include *.js')))
+    .pipe($.uglify({}))
+    .pipe gulp.dest(path.dist+'/public/assets/js/')
 
 gulp.task 'copy_php', ->
   gulp.src(path.source+'/**/*.php')
