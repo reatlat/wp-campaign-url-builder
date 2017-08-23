@@ -38,6 +38,7 @@ gulp.task 'dev', (callback) ->
     'styles'
     'scripts'
     'copy_php'
+    'copy_images'
   ], 'watch', callback
 
 gulp.task 'build', (callback) ->
@@ -46,9 +47,10 @@ gulp.task 'build', (callback) ->
     'clean_release_folder'
   ], [
     'copy_php'
+    'copy_images'
     'copy_readme'
     'copy_license'
-    'styles_scss'
+    'styles'
     'scripts'
   ], [
     'copy_release_to_temp'
@@ -93,8 +95,10 @@ gulp.task 'scripts', (callback) ->
   runSequence [
     'coffeeScripts_admin'
     'javaScripts_admin'
+    'javaScripts_vendor_admin'
     'coffeeScripts_public'
     'javaScripts_public'
+    'javaScripts_vendor_public'
   ], callback
 
 gulp.task 'coffeeScripts_admin', ->
@@ -110,6 +114,10 @@ gulp.task 'javaScripts_admin', ->
     .pipe($.uglify({}))
     .pipe gulp.dest(path.dist+'/admin/assets/js/')
 
+gulp.task 'javaScripts_vendor_admin', ->
+  gulp.src(path.source+'/_scripts/vendor/admin/*.min.js')
+    .pipe gulp.dest(path.dist+'/admin/assets/js/vendor/')
+
 gulp.task 'coffeeScripts_public', ->
   gulp.src(path.source+'/_scripts/!(_)*-public.coffee')
     .pipe($.include(extension: '.coffee').on('error', errorHandler('Include *.coffee')))
@@ -123,9 +131,17 @@ gulp.task 'javaScripts_public', ->
     .pipe($.uglify({}))
     .pipe gulp.dest(path.dist+'/public/assets/js/')
 
+gulp.task 'javaScripts_vendor_public', ->
+  gulp.src(path.source+'/_scripts/vendor/public/*.min.js')
+    .pipe gulp.dest(path.dist+'/public/assets/js/vendor/')
+
 gulp.task 'copy_php', ->
   gulp.src(path.source+'/**/*.php')
     .pipe($.replace('{% APP_VER %}', app.version))
+    .pipe gulp.dest(path.dist)
+
+gulp.task 'copy_images', ->
+  gulp.src(path.source+'/**/*.{svg,SVG,jpg,JPG,png,PNG,gif,GIF}')
     .pipe gulp.dest(path.dist)
 
 gulp.task 'copy_license', ->
@@ -150,20 +166,20 @@ gulp.task 'zip', ->
     .pipe($.notify(
       title: 'Gulp Archiver'
       message: 'App already archived to zip file'
-      icon: __dirname+'/includes/icon--reatlat.png'))
+      icon: __dirname+'/includes/reatlat-the-real-jedi.png'))
     .pipe gulp.dest(path.release)
 
 gulp.task 'test', ->
   Notification.notify
     title: '!!! Test task for example !!!'
     message: 'All done!\nPlease check result!'
-    icon: __dirname+'/includes/icon--reatlat.png'
+    icon: __dirname+'/includes/reatlat-the-real-jedi.png'
 
 gulp.task 'done', ->
   Notification.notify
     title: 'Congrats!'
     message: 'All done!\nPlease check result!'
-    icon: __dirname+'/includes/icon--reatlat.png'
+    icon: __dirname+'/includes/reatlat-the-real-jedi.png'
 
 gulp.task 'watch', ->
 # Watch all files - *.coffee, *.js and *.scss
@@ -171,7 +187,7 @@ gulp.task 'watch', ->
   console.log '  May the Force be with you'
   console.log ''
   gulp.watch path.source+'/_scripts/**/*.{coffee,js}', [ 'scripts' ]
-  gulp.watch path.source+'/_styles/**/*', [ 'styles_scss' ]
+  gulp.watch path.source+'/_styles/**/*', [ 'styles' ]
   gulp.watch path.source+'/**/*.php', [ 'copy_php' ]
 
 
@@ -184,5 +200,5 @@ errorHandler = (title) ->
     Notification.notify
       title: title
       message: error.message
-      icon: __dirname+'/includes/icon--reatlat.png'
+      icon: __dirname+'/includes/reatlat-the-real-jedi.png'
     @emit 'end'
