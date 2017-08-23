@@ -1,0 +1,177 @@
+/**
+ *                          Animate.scss | Version: 1.0.0
+ * 
+ *   A cross-browser library of CSS animations.
+ *   As easy to use as an easy thing.
+ *   A Scss version of Dan Eden's Animate.css http://daneden.me/animate
+ *
+ *   https://github.com/reatlat/animate.scss
+ *   http://animate-scss.reatlat.net/
+ *                  ____            __    ____   ___             __      
+ *                 /\  _\          /\ \__/\__ \ /\_ \           /\ \__   
+ *       _ __    __\ \ \/      __  \ \ ,_\/_/\ \\//\ \      __  \ \ ,_\  
+ *      /\`'__\/'__`\ \ \    /'__`\ \ \ \/  \ \ \ \ \ \   /'__`\ \ \ \/  
+ *      \ \ \//\  __/\ \ \_ /\ \L\.\_\ \ \_  \_\ \ \_\ \_/\ \L\.\_\ \ \_ 
+ *       \ \_\\ \____\\ \___\ \__/.\_\\ \__\ /\___\/\____\ \__/.\_\\ \__\
+ *        \/_/ \/____/ \/___/\/__/\/_/ \/__/ \/___/\/____/\/__/\/_/ \/__/
+ *                                                                       
+ *   Alex Zappa a.k.a. re[at]lat <reatlat@gmail.com> (http://www.reatlat.net/)
+ *                      Copyright © 2016 | MIT License
+ */
+
+@charset "UTF-8";
+
+/**
+ * Base settings
+ */
+.animated {
+    animation-duration: .5s;
+    //animation-fill-mode: both;
+}
+
+//.animated.infinite {
+//    animation-iteration-count: infinite;
+//}
+//
+//.animated.hinge {
+//    animation-duration: 2s;
+//}
+//
+//.animated.flipOutX,
+//.animated.flipOutY,
+//.animated.bounceIn,
+//.animated.bounceOut {
+//    animation-duration: .75s;
+//}
+
+
+/**
+ * Attention Seekers
+ */
+//@import "animation/bounce";
+//@import "animation/flash";
+//@import "animation/pulse";
+//@import "animation/rubberBand";
+//@import "animation/shake";
+//@import "animation/headShake";
+//@import "animation/swing";
+//@import "animation/tada";
+//@import "animation/wobble";
+//@import "animation/jello";
+
+/**
+ * Bouncing Entrances
+ */
+//@import "animation/bounceIn";
+//@import "animation/bounceInDown";
+//@import "animation/bounceInLeft";
+//@import "animation/bounceInRight";
+//@import "animation/bounceInUp";
+
+/**
+ * Bouncing Exits
+ */
+//@import "animation/bounceOut";
+//@import "animation/bounceOutDown";
+//@import "animation/bounceOutLeft";
+//@import "animation/bounceOutRight";
+//@import "animation/bounceOutUp";
+
+/**
+ * Fading Entrances
+ */
+//@import "animation/fadeIn";
+@import "animation/fadeInDown";
+//@import "animation/fadeInDownBig";
+//@import "animation/fadeInLeft";
+//@import "animation/fadeInLeftBig";
+//@import "animation/fadeInRight";
+//@import "animation/fadeInRightBig";
+@import "animation/fadeInUp";
+//@import "animation/fadeInUpBig";
+
+/**
+ * Fading Exits
+ */
+//@import "animation/fadeOut";
+//@import "animation/fadeOutDown";
+//@import "animation/fadeOutDownBig";
+//@import "animation/fadeOutLeft";
+//@import "animation/fadeOutLeftBig";
+//@import "animation/fadeOutRight";
+//@import "animation/fadeOutRightBig";
+//@import "animation/fadeOutUp";
+//@import "animation/fadeOutUpBig";
+
+/**
+ * Flippers
+ */
+//@import "animation/flip";
+//@import "animation/flipInX";
+//@import "animation/flipInY";
+//@import "animation/flipOutX";
+//@import "animation/flipOutY";
+
+/**
+ * Lightspeed
+ */
+//@import "animation/lightSpeedIn";
+//@import "animation/lightSpeedOut";
+
+/**
+ * Rotating Entrances
+ */
+//@import "animation/rotateIn";
+//@import "animation/rotateInDownLeft";
+//@import "animation/rotateInDownRight";
+//@import "animation/rotateInUpLeft";
+//@import "animation/rotateInUpRight";
+
+/**
+ * Rotating Exits
+ */
+//@import "animation/rotateOut";
+//@import "animation/rotateOutDownLeft";
+//@import "animation/rotateOutDownRight";
+//@import "animation/rotateOutUpLeft";
+//@import "animation/rotateOutUpRight";
+
+/**
+ * Sliding Entrances
+ */
+//@import "animation/slideInUp";
+//@import "animation/slideInDown";
+//@import "animation/slideInLeft";
+//@import "animation/slideInRight";
+/**
+ * Sliding Exits
+ */
+//@import "animation/slideOutUp";
+//@import "animation/slideOutDown";
+//@import "animation/slideOutLeft";
+//@import "animation/slideOutRight";
+
+/**
+ * Zoom Entrances
+ */
+//@import "animation/zoomIn";
+//@import "animation/zoomInDown";
+//@import "animation/zoomInLeft";
+//@import "animation/zoomInRight";
+//@import "animation/zoomInUp";
+
+/**
+ * Zoom Exits
+ */
+//@import "animation/zoomOut";
+//@import "animation/zoomOutDown";
+//@import "animation/zoomOutLeft";
+//@import "animation/zoomOutRight";
+//@import "animation/zoomOutUp";
+
+/**
+ * Specials
+ */
+//@import "animation/hinge";
+//@import "animation/rollIn";
+//@import "animation/rollOut";
