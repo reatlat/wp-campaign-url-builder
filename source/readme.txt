@@ -24,7 +24,7 @@ Available languages :
 == Frequently Asked Questions ==
 
 = Support =
-You can ask question in the support section of this plugin.
+You can ask question in the support section of this plugin or on GitHub <https://github.com/reatlat/wp-campaign-url-builder/issues>
 
 == Screenshots ==
 
@@ -36,5 +36,11 @@ Nothing for now
 
 == Changelog ==
 
+= 1.0.0 =
+* First live release
+* Add validation for Google API key
+* Add links to Google Analytics data (shortlinks)
+
 = 0.0.1 =
 * Initial release
+* beta test
