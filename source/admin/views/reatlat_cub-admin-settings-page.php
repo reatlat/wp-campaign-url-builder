@@ -85,7 +85,7 @@ $plugin->enqueue_notices();
                         </th>
                         <td>
                             <input name="campaign_name" placeholder="Product, promo code, or slogan." type="text" id="campaign_name" value="<?php echo $plugin->campaign_name; ?>" class="regular-text">
-                            <p class="description">The Campaign Name will be formated once submitted.</p>
+                            <p class="description">The Campaign Name will be formatted once submitted.</p>
                         </td>
                     </tr>
 
@@ -96,7 +96,7 @@ $plugin->enqueue_notices();
                         </th>
                         <td>
                             <input name="campaign_term" placeholder="Identify the paid keywords" type="text" id="campaign_term" value="<?php echo $plugin->campaign_term; ?>" class="regular-text">
-                            <p class="description">The Campaign Term will be formated once submitted.</p>
+                            <p class="description">The Campaign Term will be formatted once submitted.</p>
                         </td>
                     </tr>
 
@@ -107,7 +107,7 @@ $plugin->enqueue_notices();
                         </th>
                         <td>
                             <input name="campaign_content" placeholder="Use to differentiate ads" type="text" id="campaign_content" value="<?php echo $plugin->campaign_content; ?>" class="regular-text">
-                            <p class="description">The Campaign Content will be formated once submitted.</p>
+                            <p class="description">The Campaign Content will be formatted once submitted.</p>
                         </td>
                     </tr>
 
@@ -217,14 +217,14 @@ $plugin->enqueue_notices();
                 <tr>
                     <th scope="row"><label for="new_campaign_source">Add new Campaign Source</label></th>
                     <td><input name="new_campaign_source" placeholder="The referrer: (e.g. google, newsletter)" type="text" id="new_campaign_source" value="" class="regular-text">
-                        <p class="description">The Campaign Source will be formated once submitted.</p>
+                        <p class="description">The Campaign Source will be formatted once submitted.</p>
                     </td>
                 </tr>
 
                 <tr>
                     <th scope="row"><label for="new_campaign_medium">Add new Campaign Medium</label></th>
                     <td><input name="new_campaign_medium" placeholder="Marketing medium: (e.g. cpc, banner, email)" type="text" id="new_campaign_medium" value="" class="regular-text">
-                        <p class="description">The Campaign Medium will be formated once submitted.</p>
+                        <p class="description">The Campaign Medium will be formatted once submitted.</p>
                     </td>
                 </tr>
             </table>
@@ -304,11 +304,11 @@ $plugin->enqueue_notices();
             <h3>Google API key</h3>
             <p>
                 You will need to: <br>
-                1. <a target="_blank" href="https://accounts.google.com/SignUp">Create an account</a> on Google or <a href="https://accounts.google.com/signin/">SignIn</a> with exeist account.<br>
+                1. <a target="_blank" href="https://accounts.google.com/SignUp">Create an account</a> on Google or <a href="https://accounts.google.com/signin/">SignIn</a> with existing account.<br>
                 2. <a target="_blank" href="https://console.developers.google.com/">Create a project</a> on Google Developer Console<br>
                 3. <a target="_blank" href="https://console.developers.google.com/apis/credentials">Create an API key</a> on Google Developer Console<br>
                 4. <a target="_blank" href="https://console.developers.google.com/apis/api/urlshortener.googleapis.com/overview">Enable URL Shortener API</a><br>
-                5. Setup plugin for use your own <strong>API key</strong>.
+                5. Setup plugin for using your own <strong>API key</strong>.
             </p>
             <p>
                 Please check <a target="_blank" href="https://developers.google.com/url-shortener/v1/getting_started">Google guide</a>

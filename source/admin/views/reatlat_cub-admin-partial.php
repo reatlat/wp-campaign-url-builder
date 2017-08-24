@@ -22,13 +22,6 @@
         <h4>1.0.0 - 2017/08/22</h4>
         <ul>
             <li>First live release</li>
-            <li>Add validation for Google API key</li>
-            <li>Add links to Google Analytics data (shortlinks)</li>
-        </ul>
-        <h4>0.0.1 - 2017/08/19</h4>
-        <ul>
-            <li>Initial release</li>
-            <li>beta test</li>
         </ul>
     </div>
 
@@ -45,4 +38,18 @@
 
         </div>
 	</div>
+
+
+    <div class="reatlat_promote_widget technologies">
+        <a href="https://github.com/reatlat/wp-campaign-url-builder" target="_blank">
+            <img src="<?php echo plugin_dir_url( __FILE__ ); ?>images/github-octcat.png" alt="">
+        </a>
+        <a href="https://www.gnu.org/licenses/quick-guide-gplv3.en.html" target="_blank">
+            <img src="<?php echo plugin_dir_url( __FILE__ ); ?>images/gplv3.png" alt="">
+        </a>
+        <a href="https://opensource.org/" target="_blank">
+            <img src="<?php echo plugin_dir_url( __FILE__ ); ?>images/opensource.png" alt="">
+        </a>
+    </div>
+
 </div>
