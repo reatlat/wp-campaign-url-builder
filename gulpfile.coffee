@@ -84,11 +84,11 @@ gulp.task 'styles_public', ->
     .pipe gulp.dest(path.dist+'/public/assets/css/')
 
 gulp.task 'clean_release_folder', ->
-  gulp.src(path.dist, read: false)
+  gulp.src(path.release, read: false)
     .pipe $.clean()
 
 gulp.task 'clean_temp_folder', ->
-  gulp.src(path.dist+'/*!(.gitkeep)', read: false)
+  gulp.src(path.temp+'/*!(.gitkeep)', read: false)
     .pipe $.clean()
 
 gulp.task 'scripts', (callback) ->
@@ -158,11 +158,11 @@ gulp.task 'copy_readme', ->
 
 gulp.task 'copy_release_to_temp', ->
   gulp.src(path.release+'/**/*')
-    .pipe gulp.dest(path.temp+'/'+app.name)
+    .pipe gulp.dest(path.temp+'/'+app.name.replace('wp-',''))
 
 gulp.task 'zip', ->
-  gulp.src(path.temp+'/'+app.name+'*/**')
-    .pipe($.archiver(app.name+'-'+app.version+'.zip').on('error', errorHandler('ZIP Compression')))
+  gulp.src(path.temp+'/'+app.name.replace('wp-','')+'*/**')
+    .pipe($.archiver(app.name+'-v'+app.version+'.zip').on('error', errorHandler('ZIP Compression')))
     .pipe($.notify(
       title: 'Gulp Archiver'
       message: 'App already archived to zip file'
