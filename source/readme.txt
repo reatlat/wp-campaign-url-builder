@@ -44,5 +44,9 @@ Nothing for now
 
 == Changelog ==
 
+= 1.0.1 =
+* Input/Output - sanitize, validate, and escape
+* update plugin name
+
 = 1.0.0 =
 * First live release

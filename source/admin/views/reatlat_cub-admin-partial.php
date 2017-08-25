@@ -1,5 +1,5 @@
 <?php 
-    $get_from = $plugin->plugin_real_name;
+    $get_from = esc_attr( $plugin->plugin_real_name );
 ?>
 
 <div class="reatlat_cub_promote_container">
@@ -19,6 +19,11 @@
 
     <div class="reatlat_promote_widget changelog">
         <div class="reatlat_promote_title">Changelog</div>
+        <h4>1.0.1 - 2017/08/25</h4>
+        <ul>
+            <li>Input/Output - sanitize, validate, and escape</li>
+            <li>Update plugin name</li>
+        </ul>
         <h4>1.0.0 - 2017/08/22</h4>
         <ul>
             <li>First live release</li>

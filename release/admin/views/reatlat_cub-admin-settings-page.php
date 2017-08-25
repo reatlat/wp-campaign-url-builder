@@ -18,7 +18,7 @@ $plugin->enqueue_notices();
         </div>
     </div>
 
-	<h1><span class="dashicons dashicons-share-alt"></span> Campaign URL Builder <i class="reatlat_cub_by">by <a href="https://reatlat.net/?utm_source=wp_plugin&utm_medium=title_header&utm_campaign=<?php echo $plugin->plugin_real_name; ?>" target="_blank">re[at]lat</a></i> </h1>
+	<h1><span class="dashicons dashicons-share-alt"></span> Campaign URL Builder <i class="reatlat_cub_by">by <a href="https://reatlat.net/?utm_source=wp_plugin&utm_medium=title_header&utm_campaign=<?php echo esc_attr( $plugin->plugin_real_name ); ?>" target="_blank">re[at]lat</a></i> </h1>
 
 	<ul class="reatlat_cub_tabs">
 		<li><a href="#reatlat_cub_tab-1" class="active"><span class="dashicons dashicons-dashboard"></span> Manage</a></li>
@@ -35,7 +35,7 @@ $plugin->enqueue_notices();
 
                     <tr>
                         <th scope="row"><label for="campaign_page">Website URL <span class="required">*</span></label></th>
-                        <td><input name="campaign_page" placeholder="<?php echo home_url(); ?>" type="text" id="campaign_page" value="<?php echo $plugin->campaign_page; ?>" class="regular-text">
+                        <td><input name="campaign_page" placeholder="<?php echo home_url(); ?>" type="text" id="campaign_page" value="<?php echo esc_attr( $plugin->campaign_page ); ?>" class="regular-text">
                             <p class="description">The full website URL (e.g. <?php echo home_url(); ?>)</p>
                         </td>
                     </tr>
@@ -47,10 +47,8 @@ $plugin->enqueue_notices();
                                 <?php
                                 $sources = $plugin->get_sources();
                                 foreach ($sources as $source) {
-                                    $attributes = "";
-                                    if( $source->source_name == $plugin->campaign_source ) $attributes = " selected='selected' ";
                                 ?>
-                                    <option value="<?php echo $source->source_name; ?>" <?php echo $attributes; ?>><?php echo $source->source_name; ?></option>
+                                    <option value="<?php echo esc_attr( $source->source_name ); ?>" <?php if( $source->source_name === $plugin->campaign_source ) { echo " selected='selected' ";} ?>><?php echo esc_attr( $source->source_name ); ?></option>
                                 <?php
                                 }
                                 ?>
@@ -66,13 +64,11 @@ $plugin->enqueue_notices();
                                 <?php
                                 $mediums = $plugin->get_mediums();
                                 foreach ($mediums as $medium) {
-                                    $attributes = "";
-                                    if( $medium->medium_name == $plugin->campaign_medium ) $attributes = " selected='selected' ";
                                     ?>
-                                    <option value="<?php echo $medium->medium_name; ?>" <?php echo $attributes; ?>><?php echo $medium->medium_name; ?></option>
+                                    <option value="<?php echo esc_attr( $medium->medium_name ); ?>" <?php if( $medium->medium_name === $plugin->campaign_medium ) { echo " selected='selected' "; } ?>><?php echo esc_attr( $medium->medium_name ); ?></option>
                                 <?php
                                 }
-                                 ?>
+                                ?>
                             </select>
                             <p class="description">Marketing medium: (e.g. cpc, banner, email)</p>
 
@@ -84,7 +80,7 @@ $plugin->enqueue_notices();
                             <label for="campaign_name">Campaign Name <span class="required">*</span></label>
                         </th>
                         <td>
-                            <input name="campaign_name" placeholder="Product, promo code, or slogan." type="text" id="campaign_name" value="<?php echo $plugin->campaign_name; ?>" class="regular-text">
+                            <input name="campaign_name" placeholder="Product, promo code, or slogan." type="text" id="campaign_name" value="<?php echo esc_attr( $plugin->campaign_name ); ?>" class="regular-text">
                             <p class="description">The Campaign Name will be formatted once submitted.</p>
                         </td>
                     </tr>
@@ -95,7 +91,7 @@ $plugin->enqueue_notices();
                             <span class="description">(optional)</span>
                         </th>
                         <td>
-                            <input name="campaign_term" placeholder="Identify the paid keywords" type="text" id="campaign_term" value="<?php echo $plugin->campaign_term; ?>" class="regular-text">
+                            <input name="campaign_term" placeholder="Identify the paid keywords" type="text" id="campaign_term" value="<?php echo esc_attr( $plugin->campaign_term ); ?>" class="regular-text">
                             <p class="description">The Campaign Term will be formatted once submitted.</p>
                         </td>
                     </tr>
@@ -106,7 +102,7 @@ $plugin->enqueue_notices();
                             <span class="description">(optional)</span>
                         </th>
                         <td>
-                            <input name="campaign_content" placeholder="Use to differentiate ads" type="text" id="campaign_content" value="<?php echo $plugin->campaign_content; ?>" class="regular-text">
+                            <input name="campaign_content" placeholder="Use to differentiate ads" type="text" id="campaign_content" value="<?php echo esc_attr( $plugin->campaign_content ); ?>" class="regular-text">
                             <p class="description">The Campaign Content will be formatted once submitted.</p>
                         </td>
                     </tr>
@@ -118,8 +114,8 @@ $plugin->enqueue_notices();
                             </label>
                         </th>
                         <td>
-                            <input name="custom_key_1" placeholder="Custom Key" type="text" id="custom_key_1" value="<?php echo $plugin->custom_key_1; ?>" class="regular-text">
-                            <input name="custom_value_1" placeholder="Custom Value" type="text" id="custom_value_1" value="<?php echo $plugin->custom_value_1; ?>" class="regular-text">
+                            <input name="custom_key_1" placeholder="Custom Key" type="text" id="custom_key_1" value="<?php echo esc_attr( $plugin->custom_key_1 ); ?>" class="regular-text">
+                            <input name="custom_value_1" placeholder="Custom Value" type="text" id="custom_value_1" value="<?php echo esc_attr( $plugin->custom_value_1 ); ?>" class="regular-text">
                             <p class="description">It will generate a custom pair "key" and "value".</p>
                         </td>
                     </tr>
@@ -131,8 +127,8 @@ $plugin->enqueue_notices();
                             </label>
                         </th>
                         <td>
-                            <input name="custom_key_2" placeholder="Custom Key" type="text" id="custom_key_2" value="<?php echo $plugin->custom_key_2; ?>" class="regular-text">
-                            <input name="custom_value_2" placeholder="Custom Value" type="text" id="custom_value_2" value="<?php echo $plugin->custom_value_2; ?>" class="regular-text">
+                            <input name="custom_key_2" placeholder="Custom Key" type="text" id="custom_key_2" value="<?php echo esc_attr( $plugin->custom_key_2 ); ?>" class="regular-text">
+                            <input name="custom_value_2" placeholder="Custom Value" type="text" id="custom_value_2" value="<?php echo esc_attr( $plugin->custom_value_2 ); ?>" class="regular-text">
                             <p class="description">It will generate a custom pair "key" and "value".</p>
                         </td>
                     </tr>
@@ -144,8 +140,8 @@ $plugin->enqueue_notices();
                             </label>
                         </th>
                         <td>
-                            <input name="custom_key_3" placeholder="Custom Key" type="text" id="custom_key_3" value="<?php echo $plugin->custom_key_3; ?>" class="regular-text">
-                            <input name="custom_value_3" placeholder="Custom Value" type="text" id="custom_value_3" value="<?php echo $plugin->custom_value_3; ?>" class="regular-text">
+                            <input name="custom_key_3" placeholder="Custom Key" type="text" id="custom_key_3" value="<?php echo esc_attr( $plugin->custom_key_3 ); ?>" class="regular-text">
+                            <input name="custom_value_3" placeholder="Custom Value" type="text" id="custom_value_3" value="<?php echo esc_attr( $plugin->custom_value_3 ); ?>" class="regular-text">
                             <p class="description">It will generate a custom pair "key" and "value".</p>
                         </td>
                     </tr>
@@ -189,17 +185,17 @@ $plugin->enqueue_notices();
                             }
                         ?>
                         <tr class="<?php echo $class; ?> wow fadeInUp">
-                            <?php if ( strpos($link->campaign_short_link, 'https://goo.gl') !== false) { ?>
+                            <?php if ( strpos( esc_url_raw( $link->campaign_short_link ), 'https://goo.gl') !== false) { ?>
                             <td data-info="true" class="campaign_info">
-                                <a target="_blank" title="Open Analytics data" href="<?php echo str_replace('https://goo.gl','https://goo.gl/info', $link->campaign_short_link); ?>"><span class='dashicons dashicons-chart-area'></span></a>
+                                <a target="_blank" title="Open Analytics data" href="<?php echo str_replace('https://goo.gl','https://goo.gl/info', esc_url_raw( $link->campaign_short_link ) ); ?>"><span class='dashicons dashicons-chart-area'></span></a>
                             </td>
                             <?php } else { ?>
                                 <td class="campaign_info"></td>
                             <?php } ?>
-                            <td class="campaign_name"><strong><?php echo $link->campaign_name; ?></strong></td>
-                            <td class="campaign_short_link" <?php if ( $link->campaign_short_link !== 'n/a' ) { ?>title="Copy to clipboard" data-clipboard-text="<?php echo $link->campaign_short_link; ?>" data-copy="true" <?php } ?> ><?php echo $link->campaign_short_link; ?><?php if ( $link->campaign_short_link !== 'n/a' ) { ?><span class="dashicons dashicons-clipboard"></span><?php } ?></td>
-                            <td class="campaign_full_link" title="Copy to clipboard" data-clipboard-text="<?php echo $link->campaign_full_link; ?>" data-copy="true"><?php echo $link->campaign_full_link; ?><span class="dashicons dashicons-clipboard"></span></td>
-                            <td class="user_id"><?php echo get_userdata($link->user_id)->display_name; ?> <small>(<?php echo implode(', ', get_userdata($link->user_id)->roles); ?>)</small></td>
+                            <td class="campaign_name"><strong><?php echo esc_attr( $link->campaign_name ); ?></strong></td>
+                            <td class="campaign_short_link" <?php if ( esc_url_raw( $link->campaign_short_link ) !== 'n/a' ) { ?>title="Copy to clipboard" data-clipboard-text="<?php echo esc_url_raw( $link->campaign_short_link ); ?>" data-copy="true" <?php } ?> ><?php echo esc_url_raw( $link->campaign_short_link ); ?><?php if ( esc_url_raw( $link->campaign_short_link ) !== 'n/a' ) { ?><span class="dashicons dashicons-clipboard"></span><?php } ?></td>
+                            <td class="campaign_full_link" title="Copy to clipboard" data-clipboard-text="<?php echo esc_url_raw( $link->campaign_full_link ); ?>" data-copy="true"><?php echo esc_url_raw( $link->campaign_full_link ); ?><span class="dashicons dashicons-clipboard"></span></td>
+                            <td class="user_id"><?php echo sanitize_user( get_userdata($link->user_id)->display_name ); ?> <small>(<?php echo esc_attr( implode(', ', get_userdata($link->user_id)->roles) ); ?>)</small></td>
                         </tr>
                         <?php
                         }
@@ -239,7 +235,7 @@ $plugin->enqueue_notices();
                             $sources = $plugin->get_sources();
                             foreach ($sources as $source) {
                                 ?>
-                                <option value="<?php echo $source->source_name; ?>"><?php echo $source->source_name; ?></option>
+                                <option value="<?php echo esc_attr( $source->source_name ); ?>"><?php echo esc_attr( $source->source_name ); ?></option>
                                 <?php
                             }
                             ?>
@@ -258,7 +254,7 @@ $plugin->enqueue_notices();
                             $mediums = $plugin->get_mediums();
                             foreach ($mediums as $medium) {
                                 ?>
-                                <option value="<?php echo $medium->medium_name; ?>"><?php echo $medium->medium_name; ?></option>
+                                <option value="<?php echo esc_attr( $medium->medium_name ); ?>"><?php echo esc_attr( $medium->medium_name ); ?></option>
                                 <?php
                             }
                             ?>
@@ -275,11 +271,11 @@ $plugin->enqueue_notices();
                     </th>
                     <td>
                         <?php if ( empty( get_option( $plugin->plugin_name . '_google_api_key' ) ) ) { ?>
-                            <input name="google_api_key" type="text" id="google_api_key" value="<?php echo get_option( $plugin->plugin_name . '_google_api_key' ); ?>" class="regular-text"><br>
+                            <input name="google_api_key" type="text" id="google_api_key" value="<?php echo esc_attr( get_option( $plugin->plugin_name . '_google_api_key' ) ); ?>" class="regular-text"><br>
                             <p class="description">How to get your <a class="reatlat_cub_tab_link" href="#reatlat_cub_tab-3">Google API key</a>?</p>
 
                         <?php } else { ?>
-                            <input name="google_api_key" type="text" disabled id="google_api_key" value="<?php echo get_option( $plugin->plugin_name . '_google_api_key' ); ?>" class="regular-text"><br>
+                            <input name="google_api_key" type="text" disabled id="google_api_key" value="<?php echo esc_attr( get_option( $plugin->plugin_name . '_google_api_key' ) ); ?>" class="regular-text"><br>
                             Reset API key: <input type="checkbox" name="remove_google_api_key" value="1">
                             <p class="description">How to get your <a class="reatlat_cub_tab_link" href="#reatlat_cub_tab-3">Get Google API key</a>?</p>
                         <?php } ?>

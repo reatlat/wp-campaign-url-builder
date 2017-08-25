@@ -14,7 +14,7 @@ class reatlat_cub
     {
 		$this->version = '{% APP_VER %}';
 		$this->plugin_name = 'reatlat_cub';
-		$this->plugin_real_name = 'wp-campaign-url-builder';
+		$this->plugin_real_name = 'campaign-url-builder';
 
 		$this->load_dependencies();
 		$this->set_locale();
