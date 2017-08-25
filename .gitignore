@@ -2,5 +2,6 @@
 .sass-cache/
 node_modules/
 temp/
+test/
 release/wp-campaign-url-builder*
 release/**/*.zip
