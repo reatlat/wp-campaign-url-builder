@@ -122,11 +122,11 @@ class reatlat_cub_Admin {
         if ( empty( $string ) ) return false;
 		if ( $type === 'text' )	return sanitize_text_field( $string );
 		if ( $type === 'number' ) return intval( $string );
-        if ( $type === 'url' && substr($string, 0, 4) !== 'http' )
+        if ( $type === 'url' && substr(esc_url_raw($string), 0, 4) !== 'http' )
         {
             array_push( $this->messages, array( 'Page to link is not a valid url. It has to start with http.', 'warning' ) );
         } else {
-            return $string;
+            return esc_url_raw($string);
         }
         return false;
 	}
