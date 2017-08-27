@@ -5,3 +5,4 @@ temp/
 test/
 release/wp-campaign-url-builder*
 release/**/*.zip
+svn/
