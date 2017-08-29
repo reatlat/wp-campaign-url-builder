@@ -29,6 +29,8 @@ class reatlat_cub
 	 */
 	private function load_dependencies()
     {
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-reatlat_cub-reset.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-reatlat_cub-activator.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-reatlat_cub-loader.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-reatlat_cub-i18n.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-reatlat_cub-admin.php';

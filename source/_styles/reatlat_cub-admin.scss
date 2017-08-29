@@ -5,8 +5,13 @@
 
 #reatlat_cub {
 
+    @import "vendors/toggle-checkbox";
+
     .clickable {
         cursor: pointer;
+    }
+    .unclickable {
+        cursor: default;
     }
 
     label {
@@ -153,6 +158,9 @@
     .reatlat_cub_tabs_container {
         float: left;
         width: 66%;
+
+
+
 
         .reatlat_cub_highlight td {
             color: $theme-color;
