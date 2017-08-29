@@ -109,5 +109,6 @@ class reatlat_cub_Activator extends reatlat_cub
 		}
 
 		add_option( $this->plugin_name . '_google_api_key', '' );
+		add_option( $this->plugin_name . '_keep_settings', true );
 	}
 }
