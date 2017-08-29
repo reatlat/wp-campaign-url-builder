@@ -19,6 +19,11 @@
 
     <div class="reatlat_promote_widget changelog">
         <div class="reatlat_promote_title">Changelog</div>
+        <h4>1.1.0 - 2017/08/29</h4>
+        <ul>
+            <li>Refactor code</li>
+            <li>Add advanced settings</li>
+        </ul>
         <h4>1.0.1 - 2017/08/25</h4>
         <ul>
             <li>Input/Output - sanitize, validate, and escape</li>
@@ -47,13 +52,13 @@
 
     <div class="reatlat_promote_widget technologies">
         <a href="https://github.com/reatlat/wp-campaign-url-builder" target="_blank">
-            <img src="<?php echo plugin_dir_url( __FILE__ ); ?>images/github-octcat.png" alt="">
+            <img src="<?php echo plugin_dir_url( dirname(__FILE__) ); ?>images/github-octcat.png" alt="">
         </a>
         <a href="https://www.gnu.org/licenses/quick-guide-gplv3.en.html" target="_blank">
-            <img src="<?php echo plugin_dir_url( __FILE__ ); ?>images/gplv3.png" alt="">
+            <img src="<?php echo plugin_dir_url( dirname(__FILE__) ); ?>images/gplv3.png" alt="">
         </a>
         <a href="https://opensource.org/" target="_blank">
-            <img src="<?php echo plugin_dir_url( __FILE__ ); ?>images/opensource.png" alt="">
+            <img src="<?php echo plugin_dir_url( dirname(__FILE__) ); ?>images/opensource.png" alt="">
         </a>
     </div>
 
