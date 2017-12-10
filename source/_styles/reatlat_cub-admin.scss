@@ -230,6 +230,47 @@
                 }
             }
         }
+        td.remove_link {
+            position: relative;
+            width: 20px;
+            text-align: center;
+            .remove_link__inner {
+                cursor: pointer;
+                position: absolute;
+                display: inline-block;
+                left: 0;
+                right: 0;
+                text-align: center;
+                margin: auto;
+                top: 0;
+                bottom: 0;
+                .dashicons {
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    text-align: center;
+                    margin: auto;
+                    top: 0;
+                    bottom: 0;
+                    width: 20px;
+                    height: 20px;
+                    line-height: 20px;
+                    &:before {
+                        color: $red;
+                        width: 20px;
+                        height: 20px;
+                        line-height: 20px;
+                    }
+                }
+                &:hover {
+                    color: $white;
+                    background-color: $red;
+                    span:before {
+                        color: $white;
+                    }
+                }
+            }
+        }
         td[data-copy] {
             position: relative;
             cursor: pointer;
