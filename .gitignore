@@ -12,6 +12,7 @@ node_modules
 
 # Work directories
 build/*
+wp-data/*
 temp/*
 release/wp-campaign-url-builder*
 release/**/*.zip
