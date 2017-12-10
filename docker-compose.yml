@@ -3,14 +3,15 @@ version: '2'
 services:
 
   wordpress:
-    image: wordpress:php7.1
+    image: wordpress:php5.6
     depends_on:
       - mysql
     ports:
       - 80:80
       - 443:443
     volumes:
-      - ./temp:/var/www/html/wp-content/plugins/wp-campaign-url-builder
+      #- ./temp:/var/www/html/wp-content/plugins/wp-campaign-url-builder
+      - ./wp-data:/var/www/html
       - ./includes/docker-scripts:/docker-scripts
     environment:
       # WORDPRESS_DB_HOST: # ... (defaults to the IP and port of the linked mysql container)

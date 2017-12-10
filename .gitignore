@@ -1,8 +1,19 @@
-.idea/
-.sass-cache/
-node_modules/
-temp/
-test/
+# Apple macOS
+.DS_Store
+.DS_Store?
+*/.DS_Store
+
+# Node files
+node_modules
+.sass-cache
+
+# IntelliJ IDEA
+.idea
+
+# Work directories
+build/*
+temp/*
 release/wp-campaign-url-builder*
 release/**/*.zip
-svn/
+svn/*
+
