@@ -48,6 +48,9 @@ class reatlat_cub_Admin {
         $this->advanced_show_creator  = (empty($_POST['advanced_show_creator'])  ? '' : self::get_cleaned($_POST['advanced_show_creator'], 'checkbox'));
         $this->submit_advanced        = (empty($_POST['submit_advanced'])        ? '' : 1);
 
+        $this->remove_link_id         = (empty($_POST['remove_link_id'])        ? '' : self::get_cleaned($_POST['remove_link_id'], 'text'));
+        $this->remove_link_id_submit  = (empty($_POST['remove_link_id_submit']) ? '' : 1);
+
         $this->reset_links   = (empty($_POST['reset_links'])   ? '' : self::get_cleaned($_POST['reset_links'], 'checkbox'));
         $this->reset_mediums = (empty($_POST['reset_mediums']) ? '' : self::get_cleaned($_POST['reset_mediums'], 'checkbox'));
         $this->reset_sources = (empty($_POST['reset_sources']) ? '' : self::get_cleaned($_POST['reset_sources'], 'checkbox'));
@@ -138,7 +141,7 @@ class reatlat_cub_Admin {
         {
             array_push( $this->messages, array( 'Page to link is not a valid url. It has to start with http.', 'warning' ) );
         } else {
-            return esc_url_raw($string);
+            return esc_url_raw( strtok($string, '?') );
         }
         return false;
 	}
@@ -361,6 +364,14 @@ class reatlat_cub_Admin {
             $activation = new reatlat_cub_Activator( $this->plugin_name );
             $activation->run();
             unset($activation);
+        }
+    }
+
+    public function remove_link_id()
+    {
+        if (!empty($this->remove_link_id))
+        {
+            $this->db->delete( $this->db->prefix . $this->plugin_name . '_links',array('id' => $this->remove_link_id));
         }
     }
 
