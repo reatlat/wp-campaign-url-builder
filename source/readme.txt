@@ -3,7 +3,7 @@ Contributors: reatlat
 Donate link: https://paypal.me/reatlat
 Tags: utm, tracking link, google analytics, analytics, link generator, googl, google url shortener, minify link
 Requires at least: 3.0.1
-Tested up to: 4.8.1
+Tested up to: 4.9.1
 Requires PHP: 5.6 or later
 Stable tag: 1.2.0
 License: GPLv3 or later
