@@ -8,6 +8,9 @@ $plugin->check_manage_links();
 $plugin->check_settings();
 $plugin->check_advanced();
 $plugin->check_reset();
+
+$plugin->remove_link_id();
+
 $plugin->enqueue_notices();
 
 
