@@ -138,7 +138,9 @@
                 <td>Campaign Name</td>
                 <td>Short Link</td>
                 <td>Full Link</td>
-                <td>Creator</td>
+                <?php if ( get_option( $this->plugin_name . '_show_creator') ) : ?>
+                    <td>Creator</td>
+                <?php endif; ?>
                 <td class="remove_link"></td>
             </tr>
             </thead>
@@ -158,8 +160,10 @@
                     <td class="campaign_name"><strong>Example link</strong></td>
                     <td class="campaign_short_link" title="Copy to clipboard" data-clipboard-text="https://goo.gl/3br2tn" data-copy="true" >https://goo.gl/3br2tn<span class="dashicons dashicons-clipboard"></span></td>
                     <td class="campaign_full_link" title="Copy to clipboard" data-clipboard-text="https://wordpress.org/support/view/plugin-reviews/campaign-url-builder?rate=5#postform" data-copy="true">http://example.com/?utm_source=affiliate&utm_medium=banner&utm_campaign=Example+link<span class="dashicons dashicons-clipboard"></span></td>
-                    <td class="user_id">Alex Zappa <small>(Plugin Author)</small></td>
-                    <td class="remove_link demo"><span class="remove_link__inner"><span class="dashicons dashicons-no-alt"></span></span></td>
+                    <?php if ( get_option( $this->plugin_name . '_show_creator') ) : ?>
+                        <td class="user_id">Alex Zappa <small>(Plugin Author)</small></td>
+                    <?php endif; ?>
+                    <td class="remove_link" title="Remove link"><span class="remove_link__inner demo js-remove-link"><span class="dashicons dashicons-trash"></span></span></td>
                 </tr>
                 <?php
             } else {
@@ -182,8 +186,15 @@
                         <td class="campaign_name"><strong><?php echo esc_attr( $link->campaign_name ); ?></strong></td>
                         <td class="campaign_short_link" <?php if ( esc_url_raw( $link->campaign_short_link ) !== 'n/a' ) { ?>title="Copy to clipboard" data-clipboard-text="<?php echo esc_url_raw( $link->campaign_short_link ); ?>" data-copy="true" <?php } ?> ><?php echo esc_url_raw( $link->campaign_short_link ); ?><?php if ( esc_url_raw( $link->campaign_short_link ) !== 'n/a' ) { ?><span class="dashicons dashicons-clipboard"></span><?php } ?></td>
                         <td class="campaign_full_link" title="Copy to clipboard" data-clipboard-text="<?php echo esc_url_raw( $link->campaign_full_link ); ?>" data-copy="true"><?php echo esc_url_raw( $link->campaign_full_link ); ?><span class="dashicons dashicons-clipboard"></span></td>
-                        <td class="user_id"><?php echo sanitize_user( get_userdata($link->user_id)->display_name ); ?> <small>(<?php echo esc_attr( implode(', ', get_userdata($link->user_id)->roles) ); ?>)</small></td>
-                        <td class="remove_link"><span class="dashicons dashicons-no-alt"></span></td>
+                        <?php if ( get_option( $this->plugin_name . '_show_creator') ) : ?>
+                            <td class="user_id"><?php echo sanitize_user( get_userdata($link->user_id)->display_name ); ?> <small>(<?php echo esc_attr( implode(', ', get_userdata($link->user_id)->roles) ); ?>)</small></td>
+                        <?php endif; ?>
+                        <td class="remove_link" title="Remove link">
+                            <form method="POST">
+                                <input name="remove_link_id" type="number" value="<?php echo esc_attr( $link->id ); ?>" hidden>
+                                <button type="submit" name="remove_link_id_submit" class="remove_link__inner js-remove-link" onclick="return confirm('Campaign URL Builder\n\nRemove link: <?php echo esc_url_raw( $link->campaign_full_link ); ?>\n\nAre you sure?')"><span class="dashicons dashicons-trash"></span></button>
+                            </form>
+                        </td>
                     </tr>
                     <?php
                 }
