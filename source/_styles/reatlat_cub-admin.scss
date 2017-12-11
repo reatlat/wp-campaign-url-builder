@@ -160,12 +160,6 @@
         width: 66%;
 
 
-
-
-        .reatlat_cub_highlight td {
-            color: $theme-color;
-        }
-
         .reatlat_cub_result {
             table{
                 background: transparent;
@@ -235,6 +229,9 @@
             width: 20px;
             text-align: center;
             .remove_link__inner {
+                border: none;
+                width: 100%;
+                background: transparent;
                 cursor: pointer;
                 position: absolute;
                 display: inline-block;
@@ -244,6 +241,7 @@
                 margin: auto;
                 top: 0;
                 bottom: 0;
+                outline: none;
                 .dashicons {
                     position: absolute;
                     left: 0;
