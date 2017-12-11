@@ -17,14 +17,13 @@ $ = require('gulp-load-plugins')(
 # Default paths
 ###
 path         = {}
-path.temp    = './temp'
+path.temp    = './wp-data/wp-content/plugins/campaign-url-builder'
 path.source  = './source'
 path.release = './release'
 path.dist    = path.release
 csso_options = ''
 
-gulp.task 'default', [ 'test' ]
-
+gulp.task 'default', [ 'dev' ]
 
 ###
 # Regular tasks

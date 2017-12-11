@@ -17,6 +17,17 @@
                 </td>
             </tr>
 
+            <tr>
+                <th scope="row">
+                    <label class="unclickable">Author's column in the table of UTM Links</label>
+                </th>
+                <td>
+                    <label class="tgl">
+                        <input type="checkbox" name="advanced_show_creator" <?php checked(get_option( $this->plugin_name . '_show_creator')); ?> />
+                        <span data-on="Enabled" data-off="Disabled"></span>
+                    </label>
+                </td>
+            </tr>
         </table>
 
         <h2 class="title">Google URL Shortener API setting</h2>
