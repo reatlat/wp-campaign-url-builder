@@ -19,6 +19,13 @@
 
     <div class="reatlat_promote_widget changelog">
         <div class="reatlat_promote_title">Changelog</div>
+        <h4>1.2.0 - 2017/12/11</h4>
+        <ul>
+            <li>Add remove link function</li>
+            <li>Add example link</li>
+            <li>Update pattern for url source</li>
+            <li>Bug fixing</li>
+        </ul>
         <h4>1.1.0 - 2017/08/29</h4>
         <ul>
             <li>Refactor code</li>
