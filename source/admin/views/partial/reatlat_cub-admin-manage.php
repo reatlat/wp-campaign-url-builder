@@ -169,13 +169,8 @@
             } else {
                 foreach ( $links as $key => $link )
                 {
-                    $class = 'reatlat_cub_non-highlight';
-                    if( !empty($_POST['submit_manage_links']) ) {
-                        $full_link = $plugin->get_full_link( $_POST['campaign_page'], $_POST['campaign_source'], $_POST['campaign_medium'], $_POST['campaign_name'], $_POST['custom_key_1'], $_POST['custom_value_1'], $_POST['custom_key_2'], $_POST['custom_value_2'], $_POST['custom_key_3'], $_POST['custom_value_3'] );
-                        if( !empty($_POST['submit_manage_links']) && !empty( $full_link ) && $full_link == $link->campaign_full_link ) $class = 'reatlat_cub_highlight';
-                    }
                     ?>
-                    <tr class="<?php echo $class; ?> wow fadeInUp" data-link-id="<?php echo esc_attr( $link->id ); ?>">
+                    <tr class="wow fadeInUp" data-link-id="<?php echo esc_attr( $link->id ); ?>">
                         <?php if ( strpos( esc_url_raw( $link->campaign_short_link ), 'https://goo.gl') !== false) { ?>
                             <td data-info="true" class="campaign_info">
                                 <a target="_blank" title="Open Analytics data" href="<?php echo str_replace('https://goo.gl','https://goo.gl/info', esc_url_raw( $link->campaign_short_link ) ); ?>"><span class='dashicons dashicons-chart-area'></span></a>
