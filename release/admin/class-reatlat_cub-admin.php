@@ -45,7 +45,11 @@ class reatlat_cub_Admin {
         $this->google_api_key         = (empty($_POST['google_api_key'])         ? '' : self::get_cleaned($_POST['google_api_key'], 'text'));
         $this->remove_google_api_key  = (empty($_POST['remove_google_api_key'])  ? '' : self::get_cleaned($_POST['remove_google_api_key'], 'number'));
         $this->advanced_keep_settings = (empty($_POST['advanced_keep_settings']) ? '' : self::get_cleaned($_POST['advanced_keep_settings'], 'checkbox'));
+        $this->advanced_show_creator  = (empty($_POST['advanced_show_creator'])  ? '' : self::get_cleaned($_POST['advanced_show_creator'], 'checkbox'));
         $this->submit_advanced        = (empty($_POST['submit_advanced'])        ? '' : 1);
+
+        $this->remove_link_id         = (empty($_POST['remove_link_id'])        ? '' : self::get_cleaned($_POST['remove_link_id'], 'text'));
+        $this->remove_link_id_submit  = (empty($_POST['remove_link_id_submit']) ? '' : 1);
 
         $this->reset_links   = (empty($_POST['reset_links'])   ? '' : self::get_cleaned($_POST['reset_links'], 'checkbox'));
         $this->reset_mediums = (empty($_POST['reset_mediums']) ? '' : self::get_cleaned($_POST['reset_mediums'], 'checkbox'));
@@ -137,7 +141,7 @@ class reatlat_cub_Admin {
         {
             array_push( $this->messages, array( 'Page to link is not a valid url. It has to start with http.', 'warning' ) );
         } else {
-            return esc_url_raw($string);
+            return esc_url_raw( strtok($string, '?') );
         }
         return false;
 	}
@@ -283,6 +287,7 @@ class reatlat_cub_Admin {
                 array_push( $this->messages, array( 'Option <strong>"Keep settings and data after delete plugin"</strong> was disabled', 'warning' ) );
             }
             update_option( $this->plugin_name . '_keep_settings', $this->advanced_keep_settings );
+            update_option( $this->plugin_name . '_show_creator', $this->advanced_show_creator );
 
             // Google API key
             if ( !empty($this->google_api_key) && $this->google_api_key != get_option( $this->plugin_name . '_google_api_key' ) )
@@ -359,6 +364,14 @@ class reatlat_cub_Admin {
             $activation = new reatlat_cub_Activator( $this->plugin_name );
             $activation->run();
             unset($activation);
+        }
+    }
+
+    public function remove_link_id()
+    {
+        if (!empty($this->remove_link_id))
+        {
+            $this->db->delete( $this->db->prefix . $this->plugin_name . '_links',array('id' => $this->remove_link_id));
         }
     }
 
