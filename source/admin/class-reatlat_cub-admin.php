@@ -21,42 +21,42 @@ class reatlat_cub_Admin {
 
         $this->messages = array();
 
-        $_POST = stripslashes_deep( $_POST );
-        $this->campaign_page       = (empty($_POST['campaign_page'])       ? '' : self::get_cleaned($_POST['campaign_page'], 'url'));
-        $this->campaign_source     = (empty($_POST['campaign_source'])     ? '' : self::get_cleaned($_POST['campaign_source'], 'text'));
-        $this->campaign_medium     = (empty($_POST['campaign_medium'])     ? '' : self::get_cleaned($_POST['campaign_medium'], 'text'));
-        $this->campaign_name       = (empty($_POST['campaign_name'])       ? '' : self::get_cleaned($_POST['campaign_name'], 'text'));
-        $this->campaign_term       = (empty($_POST['campaign_term'])       ? '' : self::get_cleaned($_POST['campaign_term'], 'text'));
-        $this->campaign_content    = (empty($_POST['campaign_content'])    ? '' : self::get_cleaned($_POST['campaign_content'], 'text'));
-        $this->custom_key_1        = (empty($_POST['custom_key_1'])        ? '' : self::get_cleaned($_POST['custom_key_1'], 'text'));
-        $this->custom_value_1      = (empty($_POST['custom_value_1'])      ? '' : self::get_cleaned($_POST['custom_value_1'], 'text'));
-        $this->custom_key_2        = (empty($_POST['custom_key_2'])        ? '' : self::get_cleaned($_POST['custom_key_2'], 'text'));
-        $this->custom_value_2      = (empty($_POST['custom_value_2'])      ? '' : self::get_cleaned($_POST['custom_value_2'], 'text'));
-        $this->custom_key_3        = (empty($_POST['custom_key_3'])        ? '' : self::get_cleaned($_POST['custom_key_3'], 'text'));
-        $this->custom_value_3      = (empty($_POST['custom_value_3'])      ? '' : self::get_cleaned($_POST['custom_value_3'], 'text'));
-        $this->submit_manage_links = (empty($_POST['submit_manage_links']) ? '' : 1);
+        $CLEAN_POST = stripslashes_deep( $_POST );
+        $this->campaign_page       = (empty($CLEAN_POST['campaign_page'])       ? '' : self::get_cleaned($CLEAN_POST['campaign_page'], 'url'));
+        $this->campaign_source     = (empty($CLEAN_POST['campaign_source'])     ? '' : self::get_cleaned($CLEAN_POST['campaign_source'], 'text'));
+        $this->campaign_medium     = (empty($CLEAN_POST['campaign_medium'])     ? '' : self::get_cleaned($CLEAN_POST['campaign_medium'], 'text'));
+        $this->campaign_name       = (empty($CLEAN_POST['campaign_name'])       ? '' : self::get_cleaned($CLEAN_POST['campaign_name'], 'text'));
+        $this->campaign_term       = (empty($CLEAN_POST['campaign_term'])       ? '' : self::get_cleaned($CLEAN_POST['campaign_term'], 'text'));
+        $this->campaign_content    = (empty($CLEAN_POST['campaign_content'])    ? '' : self::get_cleaned($CLEAN_POST['campaign_content'], 'text'));
+        $this->custom_key_1        = (empty($CLEAN_POST['custom_key_1'])        ? '' : self::get_cleaned($CLEAN_POST['custom_key_1'], 'text'));
+        $this->custom_value_1      = (empty($CLEAN_POST['custom_value_1'])      ? '' : self::get_cleaned($CLEAN_POST['custom_value_1'], 'text'));
+        $this->custom_key_2        = (empty($CLEAN_POST['custom_key_2'])        ? '' : self::get_cleaned($CLEAN_POST['custom_key_2'], 'text'));
+        $this->custom_value_2      = (empty($CLEAN_POST['custom_value_2'])      ? '' : self::get_cleaned($CLEAN_POST['custom_value_2'], 'text'));
+        $this->custom_key_3        = (empty($CLEAN_POST['custom_key_3'])        ? '' : self::get_cleaned($CLEAN_POST['custom_key_3'], 'text'));
+        $this->custom_value_3      = (empty($CLEAN_POST['custom_value_3'])      ? '' : self::get_cleaned($CLEAN_POST['custom_value_3'], 'text'));
+        $this->submit_manage_links = (empty($CLEAN_POST['submit_manage_links']) ? '' : 1);
 
-        $this->new_campaign_medium    = (empty($_POST['new_campaign_medium'])    ? '' : self::get_cleaned($_POST['new_campaign_medium'], 'text'));
-        $this->new_campaign_source    = (empty($_POST['new_campaign_source'])    ? '' : self::get_cleaned($_POST['new_campaign_source'], 'text'));
-        $this->remove_campaign_medium = (empty($_POST['remove_campaign_medium']) ? '' : self::get_cleaned($_POST['remove_campaign_medium'], 'text'));
-        $this->remove_campaign_source = (empty($_POST['remove_campaign_source']) ? '' : self::get_cleaned($_POST['remove_campaign_source'], 'text'));
-        $this->submit_settings        = (empty($_POST['submit_settings'])        ? '' : 1);
+        $this->new_campaign_medium    = (empty($CLEAN_POST['new_campaign_medium'])    ? '' : self::get_cleaned($CLEAN_POST['new_campaign_medium'], 'text'));
+        $this->new_campaign_source    = (empty($CLEAN_POST['new_campaign_source'])    ? '' : self::get_cleaned($CLEAN_POST['new_campaign_source'], 'text'));
+        $this->remove_campaign_medium = (empty($CLEAN_POST['remove_campaign_medium']) ? '' : self::get_cleaned($CLEAN_POST['remove_campaign_medium'], 'text'));
+        $this->remove_campaign_source = (empty($CLEAN_POST['remove_campaign_source']) ? '' : self::get_cleaned($CLEAN_POST['remove_campaign_source'], 'text'));
+        $this->submit_settings        = (empty($CLEAN_POST['submit_settings'])        ? '' : 1);
 
-        $this->google_api_key         = (empty($_POST['google_api_key'])         ? '' : self::get_cleaned($_POST['google_api_key'], 'text'));
-        $this->remove_google_api_key  = (empty($_POST['remove_google_api_key'])  ? '' : self::get_cleaned($_POST['remove_google_api_key'], 'number'));
-        $this->advanced_keep_settings = (empty($_POST['advanced_keep_settings']) ? '' : self::get_cleaned($_POST['advanced_keep_settings'], 'checkbox'));
-        $this->advanced_show_creator  = (empty($_POST['advanced_show_creator'])  ? '' : self::get_cleaned($_POST['advanced_show_creator'], 'checkbox'));
-        $this->submit_advanced        = (empty($_POST['submit_advanced'])        ? '' : 1);
+        $this->google_api_key         = (empty($CLEAN_POST['google_api_key'])         ? '' : self::get_cleaned($CLEAN_POST['google_api_key'], 'text'));
+        $this->remove_google_api_key  = (empty($CLEAN_POST['remove_google_api_key'])  ? '' : self::get_cleaned($CLEAN_POST['remove_google_api_key'], 'number'));
+        $this->advanced_keep_settings = (empty($CLEAN_POST['advanced_keep_settings']) ? '' : self::get_cleaned($CLEAN_POST['advanced_keep_settings'], 'checkbox'));
+        $this->advanced_show_creator  = (empty($CLEAN_POST['advanced_show_creator'])  ? '' : self::get_cleaned($CLEAN_POST['advanced_show_creator'], 'checkbox'));
+        $this->submit_advanced        = (empty($CLEAN_POST['submit_advanced'])        ? '' : 1);
 
-        $this->remove_link_id         = (empty($_POST['remove_link_id'])        ? '' : self::get_cleaned($_POST['remove_link_id'], 'text'));
-        $this->remove_link_id_submit  = (empty($_POST['remove_link_id_submit']) ? '' : 1);
+        $this->remove_link_id         = (empty($CLEAN_POST['remove_link_id'])        ? '' : self::get_cleaned($CLEAN_POST['remove_link_id'], 'text'));
+        $this->remove_link_id_submit  = (empty($CLEAN_POST['remove_link_id_submit']) ? '' : 1);
 
-        $this->reset_links   = (empty($_POST['reset_links'])   ? '' : self::get_cleaned($_POST['reset_links'], 'checkbox'));
-        $this->reset_mediums = (empty($_POST['reset_mediums']) ? '' : self::get_cleaned($_POST['reset_mediums'], 'checkbox'));
-        $this->reset_sources = (empty($_POST['reset_sources']) ? '' : self::get_cleaned($_POST['reset_sources'], 'checkbox'));
-        $this->reset_options = (empty($_POST['reset_options']) ? '' : self::get_cleaned($_POST['reset_options'], 'checkbox'));
-        $this->reset_all     = (empty($_POST['reset_all'])     ? '' : self::get_cleaned($_POST['reset_all'], 'checkbox'));
-        $this->submit_reset  = (empty($_POST['submit_reset'])  ? '' : 1);
+        $this->reset_links   = (empty($CLEAN_POST['reset_links'])   ? '' : self::get_cleaned($CLEAN_POST['reset_links'], 'checkbox'));
+        $this->reset_mediums = (empty($CLEAN_POST['reset_mediums']) ? '' : self::get_cleaned($CLEAN_POST['reset_mediums'], 'checkbox'));
+        $this->reset_sources = (empty($CLEAN_POST['reset_sources']) ? '' : self::get_cleaned($CLEAN_POST['reset_sources'], 'checkbox'));
+        $this->reset_options = (empty($CLEAN_POST['reset_options']) ? '' : self::get_cleaned($CLEAN_POST['reset_options'], 'checkbox'));
+        $this->reset_all     = (empty($CLEAN_POST['reset_all'])     ? '' : self::get_cleaned($CLEAN_POST['reset_all'], 'checkbox'));
+        $this->submit_reset  = (empty($CLEAN_POST['submit_reset'])  ? '' : 1);
 
     }
 
