@@ -12,7 +12,7 @@ class reatlat_cub
 	 */
 	public function __construct()
     {
-		$this->version = '1.2.0';
+		$this->version = '1.2.1';
 		$this->plugin_name = 'reatlat_cub';
 		$this->plugin_real_name = 'campaign-url-builder';
 
