@@ -45,6 +45,18 @@
 
             <tr>
                 <th scope="row">
+                    <label class="unclickable"><?php _e("Show only own links for each user", 'campaign-url-builder'); ?> <span class="description"><?php _e("(except for the administrator)", 'campaign-url-builder'); ?></span><span class="dashicons dashicons-editor-help tippy" title="<?php _e('Show only own links for each user, except for the administrator user role. Administrator can manage all links.', 'campaign-url-builder'); ?>"></span></label>
+                </th>
+                <td>
+                    <label class="tgl">
+                        <input type="checkbox" name="advanced_show_useronly" <?php checked(get_option( $this->plugin_name . '_show_useronly')); ?> />
+                        <span data-on="<?php _e('Enabled', 'campaign-url-builder'); ?>" data-off="<?php _e('Disabled', 'campaign-url-builder'); ?>"></span>
+                    </label>
+                </td>
+            </tr>
+
+            <tr>
+                <th scope="row">
                     <label class="unclickable"><?php _e("Show meta boxes on post/page editor", 'campaign-url-builder'); ?> <span class="dashicons dashicons-editor-help tippy" title="<?php _e('When a user edits a post, the edit screen is composed of several default boxes: Editor, Publish, Categories, Tags, etc. These boxes are meta boxes. You can add Campaign-URL-Builder meta boxes to an edit screen of any post type.', 'campaign-url-builder'); ?>"></span></label>
                 </th>
                 <td>

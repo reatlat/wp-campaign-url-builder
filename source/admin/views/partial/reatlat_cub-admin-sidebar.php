@@ -6,7 +6,16 @@
             'version' => '1.3.0',
             'date'    => '2018/XX/XX',
             'changes' => array(
-                __('Coming soon...', 'campaign-url-builder'),
+                __('Update layout', 'campaign-url-builder'),
+                __('Move "create a new tracking link" to own tab', 'campaign-url-builder'),
+                __('Added new advanced settings', 'campaign-url-builder'),
+                __('Added meta boxes', 'campaign-url-builder'),
+                __('Make plugin translatable', 'campaign-url-builder'),
+                sprintf(
+                    __('Added translation to Spanish and Portuguese, big Thank you for %sTihh Gonçalves%s', 'campaign-url-builder'),
+                    '<a target="_blank" href="https://www.tiago.art.br">',
+                    '</a>'
+                ),
             ),
         ),
         array(

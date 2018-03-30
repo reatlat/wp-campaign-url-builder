@@ -112,6 +112,7 @@ class reatlat_cub_Activator extends reatlat_cub
 		add_option( $this->plugin_name . '_keep_settings', true );
 		add_option( $this->plugin_name . '_admin_only', false );
 		add_option( $this->plugin_name . '_show_creator', false );
+		add_option( $this->plugin_name . '_show_useronly', false );
 		add_option( $this->plugin_name . '_metaboxes', true );
 
 	}

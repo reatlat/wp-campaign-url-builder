@@ -47,6 +47,7 @@ class reatlat_cub_Admin {
         $this->advanced_admin_only    = (empty($CLEAN_POST['advanced_admin_only'])    ? '' : self::get_cleaned($CLEAN_POST['advanced_admin_only'], 'checkbox'));
         $this->advanced_keep_settings = (empty($CLEAN_POST['advanced_keep_settings']) ? '' : self::get_cleaned($CLEAN_POST['advanced_keep_settings'], 'checkbox'));
         $this->advanced_show_creator  = (empty($CLEAN_POST['advanced_show_creator'])  ? '' : self::get_cleaned($CLEAN_POST['advanced_show_creator'], 'checkbox'));
+        $this->advanced_show_useronly = (empty($CLEAN_POST['advanced_show_useronly']) ? '' : self::get_cleaned($CLEAN_POST['advanced_show_useronly'], 'checkbox'));
         $this->advanced_metaboxes     = (empty($CLEAN_POST['advanced_metaboxes'])     ? '' : self::get_cleaned($CLEAN_POST['advanced_metaboxes'], 'checkbox'));
         $this->submit_advanced        = (empty($CLEAN_POST['submit_advanced'])        ? '' : 1);
 
@@ -84,14 +85,30 @@ class reatlat_cub_Admin {
     /**
      * Register meta box links list.
      */
-	public function add_meta_box_links()
+	public function add_meta_box__links_list()
     {
         add_meta_box(
-            'reatlat_cub-metabox--links',
+            'reatlat_cub-metabox--links-list',
             __( 'Campaign URL Builder: Existing generated links', 'campaign-url-builder' ),
             function() {
 
-                require plugin_dir_path( __FILE__ ) . 'views/' . $this->plugin_name . '-admin-metabox--links.php';
+                require plugin_dir_path( __FILE__ ) . 'views/' . $this->plugin_name . '-admin-metabox--links-list.php';
+            },
+            null
+        );
+    }
+
+    /**
+     * Register meta box create a tracking link.
+     */
+    public function add_meta_box__create_link()
+    {
+        add_meta_box(
+            'reatlat_cub-metabox--create-link',
+            __( 'Campaign URL Builder: Create a tracking link', 'campaign-url-builder' ),
+            function() {
+
+                require plugin_dir_path( __FILE__ ) . 'views/' . $this->plugin_name . '-admin-metabox--create-link.php';
             },
             null
         );
@@ -273,8 +290,11 @@ class reatlat_cub_Admin {
 
 	public function get_links()
     {
-        return $this->db->get_results( "SELECT * FROM " . $this->db->prefix . $this->plugin_name . "_links ORDER by date DESC" );
-	}
+        if ( current_user_can('administrator') || ! get_option( $this->plugin_name . '_show_useronly' ) )
+            return $this->db->get_results( "SELECT * FROM " . $this->db->prefix . $this->plugin_name . "_links ORDER by date DESC" );
+
+        return $this->db->get_results( "SELECT * FROM " . $this->db->prefix . $this->plugin_name . "_links WHERE user_id = " . get_current_user_id() . " ORDER by date DESC" );
+    }
 
 	public function get_sources()
     {
@@ -329,6 +349,7 @@ class reatlat_cub_Admin {
             update_option( $this->plugin_name . '_admin_only', $this->advanced_admin_only );
             update_option( $this->plugin_name . '_keep_settings', $this->advanced_keep_settings );
             update_option( $this->plugin_name . '_show_creator', $this->advanced_show_creator );
+            update_option( $this->plugin_name . '_show_useronly', $this->advanced_show_useronly );
             update_option( $this->plugin_name . '_metaboxes', $this->advanced_metaboxes );
 
             // Google API key
