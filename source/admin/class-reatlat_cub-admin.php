@@ -44,8 +44,10 @@ class reatlat_cub_Admin {
 
         $this->google_api_key         = (empty($CLEAN_POST['google_api_key'])         ? '' : self::get_cleaned($CLEAN_POST['google_api_key'], 'text'));
         $this->remove_google_api_key  = (empty($CLEAN_POST['remove_google_api_key'])  ? '' : self::get_cleaned($CLEAN_POST['remove_google_api_key'], 'number'));
+        $this->advanced_admin_only    = (empty($CLEAN_POST['advanced_admin_only'])    ? '' : self::get_cleaned($CLEAN_POST['advanced_admin_only'], 'checkbox'));
         $this->advanced_keep_settings = (empty($CLEAN_POST['advanced_keep_settings']) ? '' : self::get_cleaned($CLEAN_POST['advanced_keep_settings'], 'checkbox'));
         $this->advanced_show_creator  = (empty($CLEAN_POST['advanced_show_creator'])  ? '' : self::get_cleaned($CLEAN_POST['advanced_show_creator'], 'checkbox'));
+        $this->advanced_metabox       = (empty($CLEAN_POST['advanced_metabox'])       ? '' : self::get_cleaned($CLEAN_POST['advanced_metabox'], 'checkbox'));
         $this->submit_advanced        = (empty($CLEAN_POST['submit_advanced'])        ? '' : 1);
 
         $this->remove_link_id         = (empty($CLEAN_POST['remove_link_id'])        ? '' : self::get_cleaned($CLEAN_POST['remove_link_id'], 'text'));
@@ -100,11 +102,11 @@ class reatlat_cub_Admin {
 	 */
 	public function enqueue_scripts()
     {
-        wp_enqueue_script( 'wow',                       plugin_dir_url( __FILE__ ) . 'assets/js/vendor/wow.min.js?v=' . rand(), array(), '1.3.0', false );
+        wp_enqueue_script( 'tippy-all',                 plugin_dir_url( __FILE__ ) . 'assets/js/vendor/tippy.all.min.js?v=' . rand(), array(), '2.4.1', false );
         wp_enqueue_script( 'clipboard',                 plugin_dir_url( __FILE__ ) . 'assets/js/vendor/clipboard.min.js?v=' . rand(), array(), '1.7.1', false );
         wp_enqueue_script( 'jquery-validate',           plugin_dir_url( __FILE__ ) . 'assets/js/vendor/jquery.validate.min.js?v=' . rand(), array( 'jquery' ), '1.17.0', false );
         wp_enqueue_script( 'jquery-additional-methods', plugin_dir_url( __FILE__ ) . 'assets/js/vendor/additional-methods.min.js?v=' . rand(), array( 'jquery' ), '1.17.0', false );
-        wp_enqueue_script( $this->plugin_name,                 plugin_dir_url( __FILE__ ) . 'assets/js/reatlat_cub-admin.js?v=' . rand(), array( 'jquery' ), $this->version, false );
+        wp_enqueue_script( $this->plugin_name,                 plugin_dir_url( __FILE__ ) . 'assets/js/reatlat_cub-admin.js?v=' . rand(), array( 'jquery' ), $this->version, true );
 	}
 
 	/**
@@ -308,8 +310,10 @@ class reatlat_cub_Admin {
             {
                 array_push( $this->messages, array( 'Option <strong>"Keep settings and data after delete plugin"</strong> was disabled', 'warning' ) );
             }
+            update_option( $this->plugin_name . '_admin_only', $this->advanced_admin_only );
             update_option( $this->plugin_name . '_keep_settings', $this->advanced_keep_settings );
             update_option( $this->plugin_name . '_show_creator', $this->advanced_show_creator );
+            update_option( $this->plugin_name . '_metabox', $this->advanced_metabox );
 
             // Google API key
             if ( !empty($this->google_api_key) && $this->google_api_key != get_option( $this->plugin_name . '_google_api_key' ) )

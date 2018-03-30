@@ -153,13 +153,26 @@
         &.active {
             display: block;
         }
+
+        label {
+            .dashicons {
+                color: initial;
+                opacity: .6;
+                cursor: help;
+                @include transit();
+                &:hover {
+                    color: $theme-color;
+                }
+            }
+        }
     }
 
     .reatlat_cub_tabs_container {
         float: left;
-        width: 66%;
-
-
+        width: 100%;
+        @media (min-width: $min-width) {
+            width: 66%;
+        }
         .reatlat_cub_result {
             table{
                 background: transparent;
@@ -300,8 +313,11 @@
 
     .reatlat_cub_promote_container {
         float: left;
-        width: 31%;
-        margin-left: 2%;
+        width: 100%;
+        @media (min-width: $min-width) {
+            width: 31%;
+            margin: 0 0 0 2%;
+        }
         .reatlat_promote_widget {
             background-color: $white;
             padding: 10px;
@@ -344,6 +360,10 @@
                 }
             }
             &.changelog {
+                .changelog__container {
+                    max-height: 250px;
+                    overflow: auto;
+                }
                 h4 {
                     margin-bottom: 0;
                 }

@@ -79,14 +79,16 @@
 
     <div class="reatlat_promote_widget changelog">
         <div class="reatlat_promote_title"><?php _e('Changelog', 'campaign-url-builder'); ?></div>
-        <?php foreach ($changelog as $item) : ?>
-        <h4><?php echo $item['version']; ?> - <?php echo $item['date']; ?></h4>
-        <ul>
-            <?php foreach ( $item['changes'] as $change ) : ?>
-            <li><?php echo $change; ?></li>
+        <div class="changelog__container">
+            <?php foreach ($changelog as $item) : ?>
+            <h4><?php echo $item['version']; ?> - <?php echo $item['date']; ?></h4>
+            <ul>
+                <?php foreach ( $item['changes'] as $change ) : ?>
+                <li><?php echo $change; ?></li>
+                <?php endforeach; ?>
+            </ul>
             <?php endforeach; ?>
-        </ul>
-        <?php endforeach; ?>
+        </div>
     </div>
 
 

@@ -1,9 +1,26 @@
 jQuery(function($) {
 
+    var $_GET = function(param) {
+        var vars;
+        vars = {};
+        window.location.href.replace(location.hash, '').replace(/[?&]+([^=&]+)=?([^&]*)?/gi, function(m, key, value) {
+            vars[key] = value !== void 0 ? value : '';
+        });
+        if (param) {
+            if (vars[param]) {
+                return vars[param];
+            } else {
+                return null;
+            }
+        }
+        return vars;
+    };
+
     $( document ).ready(function() {
 
-
 		new Clipboard('td[data-copy]');
+
+        tippy('.tippy', { trigger: 'click' } );
 
 		$('td[data-copy]').on('click', function(e) {
 			e.preventDefault();
@@ -41,15 +58,9 @@ jQuery(function($) {
 			$('.reatlat_cub_tab.' + $(this).attr('href').substr(1) + ', .reatlat_cub_tabs li a[href="' + $(this).attr('href') + '"]').addClass('active');
 		});
 
-		if (window.location.hash.substr(0,17) == '#reatlat_cub_tab-') {
+		if ( $_GET('page') === 'reatlat_cub-settings-page' && window.location.hash.substr(0,17) === '#reatlat_cub_tab-' && window.location.hash.slice(-1) !== '0' )
+		{
 			$('.reatlat_cub_tabs li a[href="' + window.location.hash + '"]').simulateClick();
-		}
-
-		if( $('.reatlat_cub_promote_container').length == 0 || $('.reatlat_cub_promote_container').text().length == 0 ) {
-			$('#reatlat_cub form p.submit').each(function(i) {
-				$(this).find('input[type="submit"]').remove();
-				$(this).html('<div class="reatlat_cub_error">The plugin is <strong>now inactive</strong> because it has been modified to hide original author information.<br>Please contact your administrator.</div>')
-			});
 		}
 
     });

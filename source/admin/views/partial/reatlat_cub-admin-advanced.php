@@ -5,9 +5,23 @@
         <h1 class="title"><?php _e('Advanced settings', 'campaign-url-builder'); ?></h1>
 
         <table class="form-table">
+            <?php if ( current_user_can('administrator') ) : ?>
             <tr>
                 <th scope="row">
-                    <label class="unclickable"><?php _e('Keep settings and data after delete the plugin', 'campaign-url-builder'); ?></label>
+                    <label class="unclickable"><?php _e('Show advanced settings only for Administrators', 'campaign-url-builder'); ?> <span class="dashicons dashicons-editor-help tippy" title="<?php _e('This option will enable advanced settings only for users with editor role Administrators', 'campaign-url-builder'); ?>"></span></label>
+                </th>
+                <td>
+                    <label class="tgl">
+                        <input type="checkbox" name="advanced_admin_only" <?php checked(get_option( $this->plugin_name . '_admin_only')); ?> />
+                        <span data-on="<?php _e('Enabled', 'campaign-url-builder'); ?>" data-off="<?php _e('Disabled', 'campaign-url-builder'); ?>"></span>
+                    </label>
+                </td>
+            </tr>
+            <?php endif; ?>
+
+            <tr>
+                <th scope="row">
+                    <label class="unclickable"><?php _e('Keep settings and data after delete the plugin', 'campaign-url-builder'); ?> <span class="dashicons dashicons-editor-help tippy" title="<?php _e('Enable this option for keep plugin settings and data(links) after you delete the plugin from WP', 'campaign-url-builder'); ?>"></span></label>
                 </th>
                 <td>
                     <label class="tgl">
@@ -19,11 +33,23 @@
 
             <tr>
                 <th scope="row">
-                    <label class="unclickable"><?php _e("Author's column in the table of UTM Links", 'campaign-url-builder'); ?></label>
+                    <label class="unclickable"><?php _e("Author's column in the table of UTM Links", 'campaign-url-builder'); ?> <span class="dashicons dashicons-editor-help tippy" title="<?php _e('Show or hide Author\'s column in the table of UTM Links', 'campaign-url-builder'); ?>"></span></label>
                 </th>
                 <td>
                     <label class="tgl">
                         <input type="checkbox" name="advanced_show_creator" <?php checked(get_option( $this->plugin_name . '_show_creator')); ?> />
+                        <span data-on="<?php _e('Enabled', 'campaign-url-builder'); ?>" data-off="<?php _e('Disabled', 'campaign-url-builder'); ?>"></span>
+                    </label>
+                </td>
+            </tr>
+
+            <tr>
+                <th scope="row">
+                    <label class="unclickable"><?php _e("Show metabox on post/page editor", 'campaign-url-builder'); ?> <span class="dashicons dashicons-editor-help tippy" title="<?php _e('When a user edits a post, the edit screen is composed of several default boxes: Editor, Publish, Categories, Tags, etc. These boxes are meta boxes. You can add Campaign-URL-Builder meta boxes to an edit screen of any post type.', 'campaign-url-builder'); ?>"></span></label>
+                </th>
+                <td>
+                    <label class="tgl">
+                        <input type="checkbox" name="advanced_metabox" <?php checked(get_option( $this->plugin_name . '_metabox')); ?> />
                         <span data-on="<?php _e('Enabled', 'campaign-url-builder'); ?>" data-off="<?php _e('Disabled', 'campaign-url-builder'); ?>"></span>
                     </label>
                 </td>
@@ -70,14 +96,14 @@
 
     <form method="POST" class="reatlat_cub_form">
         <h2 class="title"><span class="required"><?php _e('Danger zone', 'campaign-url-builder'); ?></span></h2>
-        <p><input type="checkbox" name="reset_links"> <label for="reset_links"><?php _e('Delete all campaign-links from DataBase', 'campaign-url-builder'); ?></label> </p>
-        <p><input type="checkbox" name="reset_mediums"> <label for="reset_mediums"><?php _e('Reset to default - Mediums', 'campaign-url-builder'); ?></label> </p>
-        <p><input type="checkbox" name="reset_sources"> <label for="reset_sources"><?php _e('Reset to default - Sources', 'campaign-url-builder'); ?></label> </p>
-        <p><input type="checkbox" name="reset_options"> <label for="reset_options"><?php _e('Reset settings and options to default', 'campaign-url-builder'); ?></label> </p>
-        <p><input type="checkbox" name="reset_all"> <label for="reset_all"><span class="required"><?php _e('Reset All plugin settings and data', 'campaign-url-builder'); ?></span></label> </p>
+        <p><input type="checkbox" id="reset_links" name="reset_links"> <label for="reset_links"><?php _e('Delete all campaign-links from DataBase', 'campaign-url-builder'); ?></label> </p>
+        <p><input type="checkbox" id="reset_mediums" name="reset_mediums"> <label for="reset_mediums"><?php _e('Reset to default - Mediums', 'campaign-url-builder'); ?></label> </p>
+        <p><input type="checkbox" id="reset_sources" name="reset_sources"> <label for="reset_sources"><?php _e('Reset to default - Sources', 'campaign-url-builder'); ?></label> </p>
+        <p><input type="checkbox" id="reset_options" name="reset_options"> <label for="reset_options"><?php _e('Reset settings and options to default', 'campaign-url-builder'); ?></label> </p>
+        <p><input type="checkbox" id="reset_all" name="reset_all"> <label for="reset_all"><span class="required"><?php _e('Reset All plugin settings and data', 'campaign-url-builder'); ?></span></label> </p>
         <p class="submit">
             <input type="submit" onclick="return confirm('Campaign URL Builder\n\nReset settings & data\n\nAre you sure?')" name="submit_reset" id="submit" class="button button-secondary" value="<?php _e('Reset settings & data', 'campaign-url-builder'); ?>">
         </p>
-
     </form>
+
 </div>
