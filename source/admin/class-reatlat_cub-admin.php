@@ -91,7 +91,6 @@ class reatlat_cub_Admin {
             'reatlat_cub-metabox--links-list',
             __( 'Campaign URL Builder: Existing generated links', 'campaign-url-builder' ),
             function() {
-
                 require plugin_dir_path( __FILE__ ) . 'views/' . $this->plugin_name . '-admin-metabox--links-list.php';
             },
             null
@@ -107,11 +106,33 @@ class reatlat_cub_Admin {
             'reatlat_cub-metabox--create-link',
             __( 'Campaign URL Builder: Create a tracking link', 'campaign-url-builder' ),
             function() {
-
                 require plugin_dir_path( __FILE__ ) . 'views/' . $this->plugin_name . '-admin-metabox--create-link.php';
             },
             null
         );
+    }
+
+    /**
+     * Add ajax for  create link form.
+     */
+    public function add_ajax_create_link()
+    {
+        if ( $this->campaign_page && $this->campaign_source && $this->campaign_medium && $this->campaign_name ) {
+
+            self::check_manage_links();
+
+            header( "Content-Type: application/json" );
+            echo json_encode('Link should be created.');
+
+        } else {
+
+            header( "Content-Type: application/json" );
+            echo json_encode('Oops... something wrong!');
+
+        }
+
+        //Don't forget to always exit in the ajax function.
+        exit();
     }
 
 	/**

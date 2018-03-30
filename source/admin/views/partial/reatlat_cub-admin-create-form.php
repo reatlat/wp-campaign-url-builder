@@ -1,9 +1,10 @@
-<form method="POST" id="reatlat_cub_campaign-form" class="reatlat_cub_form">
+<div id="reatlat_cub_campaign-form--create-link" class="reatlat_cub_form">
     <table class="form-table">
 
         <tr>
             <th scope="row"><label for="campaign_page"><?php _e('Website URL', 'campaign-url-builder'); ?> <span class="required">*</span></label></th>
-            <td><input name="campaign_page" placeholder="<?php _e('https://example.com/example-page/', 'campaign-url-builder'); ?>" type="text" id="campaign_page" value="<?php echo esc_attr( $plugin->campaign_page ); ?>" class="regular-text">
+            <td>
+                <input name="campaign_page" placeholder="<?php _e('https://example.com/example-page/', 'campaign-url-builder'); ?>" type="text" id="campaign_page" value="<?php if ( $_GET['page'] !== 'reatlat_cub-settings-page' && $_GET['action'] === 'edit' ) { echo get_permalink(get_the_ID()); } ?>" class="regular-text">
                 <p class="description"><?php _e('The full website URL (e.g. https://example.com/example-page/)', 'campaign-url-builder'); ?></p>
             </td>
         </tr>
@@ -102,7 +103,7 @@
     <p class="reatlat_cub_add_custom-params clickable"><span class="dashicons dashicons-plus"></span> <?php _e('Add additional parameters', 'campaign-url-builder'); ?></p>
 
     <p class="submit">
-        <input type="submit" name="submit_manage_links" id="submit" class="button button-primary" value="<?php _e('Generate Link', 'campaign-url-builder'); ?>">
+        <input type="submit" name="submit_manage_links" id="submit" class="button button-primary js-reatlat_cub--create-link" value="<?php _e('Generate Link', 'campaign-url-builder'); ?>">
     </p>
 
-</form>
+</div>

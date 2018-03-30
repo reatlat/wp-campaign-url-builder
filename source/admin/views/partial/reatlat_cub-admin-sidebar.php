@@ -9,13 +9,14 @@
                 __('Update layout', 'campaign-url-builder'),
                 __('Move "create a new tracking link" to own tab', 'campaign-url-builder'),
                 __('Added new advanced settings', 'campaign-url-builder'),
-                __('Added meta boxes', 'campaign-url-builder'),
                 __('Make plugin translatable', 'campaign-url-builder'),
                 sprintf(
                     __('Added translation to Spanish and Portuguese, big Thank you for %sTihh Gonçalves%s', 'campaign-url-builder'),
                     '<a target="_blank" href="https://www.tiago.art.br">',
                     '</a>'
                 ),
+                __('Added meta box: with links list', 'campaign-url-builder'),
+                __('Added meta box: Link generator (beta testing)', 'campaign-url-builder'),
             ),
         ),
         array(

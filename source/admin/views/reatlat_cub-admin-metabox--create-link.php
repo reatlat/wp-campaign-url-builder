@@ -4,8 +4,6 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 global $wpdb;
 
 $plugin = new reatlat_cub_Admin( $this->plugin_real_name, $this->plugin_name, $this->version );
-$plugin->check_manage_links();
-$plugin->enqueue_notices();
 
 ?>
 
