@@ -245,14 +245,29 @@
                 }
             }
         }
-        td.user_id {
-            width: 110px;
+        td.campaign_name {
+            @media (min-width: $xl) {
+                width: 15%;
+            }
         }
-        td.remove_link {
+        td.campaign_short_link {
+            @media (min-width: $xl) {
+                width: 15%;
+            }
+        }
+        td.campaign_full_link {
+            //width: 15%;
+        }
+        td.campaign_user_id {
+            @media (min-width: $xl) {
+                width: 110px;
+            }
+        }
+        td.campaign_remove_link {
             position: relative;
             width: 20px;
             text-align: center;
-            .remove_link__inner {
+            .campaign_remove_link__inner {
                 border: none;
                 width: 100%;
                 background: transparent;

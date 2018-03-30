@@ -49,7 +49,7 @@
                 </th>
                 <td>
                     <label class="tgl">
-                        <input type="checkbox" name="advanced_metabox" <?php checked(get_option( $this->plugin_name . '_metabox')); ?> />
+                        <input type="checkbox" name="advanced_metaboxes" <?php checked(get_option( $this->plugin_name . '_metaboxes')); ?> />
                         <span data-on="<?php _e('Enabled', 'campaign-url-builder'); ?>" data-off="<?php _e('Disabled', 'campaign-url-builder'); ?>"></span>
                     </label>
                 </td>

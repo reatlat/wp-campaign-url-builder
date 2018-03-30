@@ -47,7 +47,7 @@ class reatlat_cub_Admin {
         $this->advanced_admin_only    = (empty($CLEAN_POST['advanced_admin_only'])    ? '' : self::get_cleaned($CLEAN_POST['advanced_admin_only'], 'checkbox'));
         $this->advanced_keep_settings = (empty($CLEAN_POST['advanced_keep_settings']) ? '' : self::get_cleaned($CLEAN_POST['advanced_keep_settings'], 'checkbox'));
         $this->advanced_show_creator  = (empty($CLEAN_POST['advanced_show_creator'])  ? '' : self::get_cleaned($CLEAN_POST['advanced_show_creator'], 'checkbox'));
-        $this->advanced_metabox       = (empty($CLEAN_POST['advanced_metabox'])       ? '' : self::get_cleaned($CLEAN_POST['advanced_metabox'], 'checkbox'));
+        $this->advanced_metaboxes     = (empty($CLEAN_POST['advanced_metaboxes'])     ? '' : self::get_cleaned($CLEAN_POST['advanced_metaboxes'], 'checkbox'));
         $this->submit_advanced        = (empty($CLEAN_POST['submit_advanced'])        ? '' : 1);
 
         $this->remove_link_id         = (empty($CLEAN_POST['remove_link_id'])        ? '' : self::get_cleaned($CLEAN_POST['remove_link_id'], 'text'));
@@ -329,7 +329,7 @@ class reatlat_cub_Admin {
             update_option( $this->plugin_name . '_admin_only', $this->advanced_admin_only );
             update_option( $this->plugin_name . '_keep_settings', $this->advanced_keep_settings );
             update_option( $this->plugin_name . '_show_creator', $this->advanced_show_creator );
-            update_option( $this->plugin_name . '_metabox', $this->advanced_metabox );
+            update_option( $this->plugin_name . '_metaboxes', $this->advanced_metaboxes );
 
             // Google API key
             if ( !empty($this->google_api_key) && $this->google_api_key != get_option( $this->plugin_name . '_google_api_key' ) )

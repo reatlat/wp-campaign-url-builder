@@ -21,8 +21,9 @@ jQuery(function($) {
 		new Clipboard('td[data-copy]');
 
         tippy('.tippy', { trigger: 'click' } );
+        tippy('.tippy--hover' );
 
-		$('td[data-copy]').on('click', function(e) {
+        $('td[data-copy]').on('click', function(e) {
 			e.preventDefault();
             $('.reatlat_cub_notice').show();
             setTimeout(function () {
