@@ -55,14 +55,16 @@ class reatlat_cub
 	 */
 	private function define_admin_hooks()
     {
-		$plugin_admin = new reatlat_cub_Admin( $this->plugin_real_name, $this->get_plugin_name(), $this->get_version() );
+        $plugin_admin = new reatlat_cub_Admin( $this->plugin_real_name, $this->get_plugin_name(), $this->get_version() );
 
-		$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_submenu_page' );
-		$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_submenu_page' );
-		$this->loader->add_filter( 'plugin_action_links_' . $this->get_plugin_real_name() . '/' . $this->get_plugin_name() . '.php', $plugin_admin, 'add_settings_link' );
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
-		$this->loader->add_action( 'admin_notices', $plugin_admin, 'enqueue_notices' );
+        $this->loader->add_action( 'admin_menu', $plugin_admin, 'add_submenu_page' );
+        $this->loader->add_action( 'admin_menu', $plugin_admin, 'add_submenu_page' );
+        $this->loader->add_filter( 'plugin_action_links_' . $this->get_plugin_real_name() . '/' . $this->get_plugin_name() . '.php', $plugin_admin, 'add_settings_link' );
+        $this->loader->add_action( 'plugins_loaded', $plugin_admin, 'add_plugin_row_meta' );
+        $this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
+        $this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+        $this->loader->add_action( 'admin_notices', $plugin_admin, 'enqueue_notices' );
+
 	}
 
 	/**

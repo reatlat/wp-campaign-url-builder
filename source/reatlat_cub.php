@@ -1,14 +1,15 @@
 <?php
 /**
  * Plugin Name:       Campaign URL Builder
- * Plugin URI:        
+ * Plugin URI:        https://wordpress.org/plugins/campaign-url-builder
  * Description:       Generates links for Analytics tools and short link. Enter your Campaign Name, Source, Medium (UTM link) to generate a full link and a short link (trough the Google URL Shortener API) all in once
  * Version:           {% APP_VER %}
  * Author:            Alex Zappa a.k.a. re[at]lat
  * Author URI:        https://reatlat.net
+ * Donate link:       https://www.paypal.me/reatlat/3
  * License:           GPL-3.0+
  * License URI:       http://www.gnu.org/licenses/gpl-3.0.txt
- * Text Domain:       reatlat_cub
+ * Text Domain:       campaign-url-builder
  * Domain Path:       /languages
  */
 

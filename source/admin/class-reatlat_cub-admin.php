@@ -70,7 +70,13 @@ class reatlat_cub_Admin {
 	 */
 	public function add_submenu_page()
     {
-		add_menu_page( 'Campaign URL Builder', 'Campaign URL Builder', 'edit_posts', $this->plugin_name . '-settings-page', array($this, 'render_settings_page'), 'dashicons-share-alt' );
+		add_menu_page(
+		    __('Campaign URL Builder', $this->plugin_real_name), // page_title
+            __('Campaign URL Builder', $this->plugin_real_name), // menu_title
+            'edit_posts', // capability
+            $this->plugin_name . '-settings-page', array($this, 'render_settings_page'), // menu_slug
+            'dashicons-share-alt' // icon_url
+        );
 	}
 
 	/**
@@ -98,7 +104,7 @@ class reatlat_cub_Admin {
         wp_enqueue_script( 'clipboard',                 plugin_dir_url( __FILE__ ) . 'assets/js/vendor/clipboard.min.js?v=' . rand(), array(), '1.7.1', false );
         wp_enqueue_script( 'jquery-validate',           plugin_dir_url( __FILE__ ) . 'assets/js/vendor/jquery.validate.min.js?v=' . rand(), array( 'jquery' ), '1.17.0', false );
         wp_enqueue_script( 'jquery-additional-methods', plugin_dir_url( __FILE__ ) . 'assets/js/vendor/additional-methods.min.js?v=' . rand(), array( 'jquery' ), '1.17.0', false );
-        wp_enqueue_script( $this->plugin_name,          plugin_dir_url( __FILE__ ) . 'assets/js/reatlat_cub-admin.js?v=' . rand(), array( 'jquery' ), $this->version, false );
+        wp_enqueue_script( $this->plugin_name,                 plugin_dir_url( __FILE__ ) . 'assets/js/reatlat_cub-admin.js?v=' . rand(), array( 'jquery' ), $this->version, false );
 	}
 
 	/**
@@ -119,11 +125,27 @@ class reatlat_cub_Admin {
 	 */
 	public function add_settings_link( $links )
     {
-	    $settings_link = '<a href="admin.php?page=' . $this->plugin_name . '-settings-page">' . __( 'Settings' ) . '</a>';
-	    $settings_link = '<a href="admin.php?page=' . $this->plugin_name . '-settings-page">' . __( 'Settings' ) . '</a>';
+	    $settings_link = '<a href="admin.php?page=' . $this->plugin_name . '-settings-page">' . __( 'Settings', 'campaign-url-builder' ) . '</a>';
 	    array_unshift($links, $settings_link);
 	  	return $links;
 	}
+
+    /**
+     * Print additional links to plugin meta row
+     */
+    public function add_plugin_row_meta()
+    {
+        add_filter( 'plugin_row_meta', function( $links, $file ) {
+            if (strpos($file, $this->plugin_name . '.php') !== false) {
+                $new_links = array(
+                    'donate' => '<a href="https://www.paypal.me/reatlat/' . rand(3, 10) . '" target="_blank"><span class="dashicons dashicons-heart"></span> ' . __('Donate', 'campaign-url-builder') . '</a>',
+                    'rateit' => '<a href="https://wordpress.org/support/view/plugin-reviews/' . $plugin->plugin_real_name . '?rate=5#postform" target="_blank"><span class="dashicons dashicons-star-filled"></span> ' . __('Rate it', 'campaign-url-builder') . '</a>'
+                );
+                $links = array_merge($links, $new_links);
+            }
+            return $links;
+        }, 10, 3 );
+    }
 
 	/**
 	 * clean query string like POST or GET
