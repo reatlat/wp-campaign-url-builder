@@ -45,7 +45,7 @@
 
             <tr>
                 <th scope="row">
-                    <label class="unclickable"><?php _e("Show metabox on post/page editor", 'campaign-url-builder'); ?> <span class="dashicons dashicons-editor-help tippy" title="<?php _e('When a user edits a post, the edit screen is composed of several default boxes: Editor, Publish, Categories, Tags, etc. These boxes are meta boxes. You can add Campaign-URL-Builder meta boxes to an edit screen of any post type.', 'campaign-url-builder'); ?>"></span></label>
+                    <label class="unclickable"><?php _e("Show meta boxes on post/page editor", 'campaign-url-builder'); ?> <span class="dashicons dashicons-editor-help tippy" title="<?php _e('When a user edits a post, the edit screen is composed of several default boxes: Editor, Publish, Categories, Tags, etc. These boxes are meta boxes. You can add Campaign-URL-Builder meta boxes to an edit screen of any post type.', 'campaign-url-builder'); ?>"></span></label>
                 </th>
                 <td>
                     <label class="tgl">
