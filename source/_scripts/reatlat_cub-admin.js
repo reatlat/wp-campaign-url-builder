@@ -2,7 +2,6 @@ jQuery(function($) {
 
     $( document ).ready(function() {
 
-        new WOW().init();
 
 		new Clipboard('td[data-copy]');
 
