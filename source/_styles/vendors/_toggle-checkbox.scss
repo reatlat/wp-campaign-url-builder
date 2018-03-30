@@ -18,6 +18,10 @@ $toggle-disabled-tab-bg: #FFFFFF;
 
   width: 110px;
 
+  @include transit();
+  &:hover {
+    opacity: .8;
+  }
   // add default box-sizing for this scope
   &, &:after, &:before,
   & *, & *:after, & *:before,

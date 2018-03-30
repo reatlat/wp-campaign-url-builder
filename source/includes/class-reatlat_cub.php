@@ -12,9 +12,9 @@ class reatlat_cub
 	 */
 	public function __construct()
     {
-		$this->version = '{% APP_VER %}';
-		$this->plugin_name = 'reatlat_cub';
-		$this->plugin_real_name = 'campaign-url-builder';
+		$this->version          = CUB_VERSION;
+		$this->plugin_name      = CUB_NAME;
+		$this->plugin_real_name = CUB_REAL_NAME;
 
 		$this->load_dependencies();
 		$this->set_locale();
@@ -58,7 +58,7 @@ class reatlat_cub
         $plugin_admin = new reatlat_cub_Admin( $this->plugin_real_name, $this->get_plugin_name(), $this->get_version() );
 
         $this->loader->add_action( 'admin_menu', $plugin_admin, 'add_submenu_page' );
-        $this->loader->add_action( 'admin_menu', $plugin_admin, 'add_submenu_page' );
+        $this->loader->add_action( 'add_meta_boxes', $plugin_admin, 'add_meta_box_links' );
         $this->loader->add_filter( 'plugin_action_links_' . $this->get_plugin_real_name() . '/' . $this->get_plugin_name() . '.php', $plugin_admin, 'add_settings_link' );
         $this->loader->add_action( 'plugins_loaded', $plugin_admin, 'add_plugin_row_meta' );
         $this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );

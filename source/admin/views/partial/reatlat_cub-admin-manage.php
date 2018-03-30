@@ -11,7 +11,7 @@
                     <td><?php _e('Short Link', 'campaign-url-builder'); ?></td>
                     <td><?php _e('Full Link', 'campaign-url-builder'); ?></td>
                     <?php if ( get_option( $this->plugin_name . '_show_creator') ) : ?>
-                        <td><?php _e('Creator', 'campaign-url-builder'); ?></td>
+                        <td class="user_id"><?php _e('Creator', 'campaign-url-builder'); ?></td>
                     <?php endif; ?>
                     <td class="remove_link"></td>
                 </tr>

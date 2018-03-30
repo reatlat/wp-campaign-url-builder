@@ -81,12 +81,28 @@ class reatlat_cub_Admin {
         );
 	}
 
+    /**
+     * Register meta box links list.
+     */
+	public function add_meta_box_links()
+    {
+        add_meta_box(
+            'reatlat_cub-metabox--links',
+            __( 'Campaign URL Builder: Existing generated links', 'campaign-url-builder' ),
+            function() {
+
+                require plugin_dir_path( __FILE__ ) . 'views/' . $this->plugin_name . '-admin-metabox--links.php';
+            },
+            null
+        );
+    }
+
 	/**
 	 * Render settings page for plugin
 	 */
 	public function render_settings_page()
     {
-		require plugin_dir_path( __FILE__ ) . 'views/' . $this->plugin_name . '-admin-settings-page.php';
+        require plugin_dir_path( __FILE__ ) . 'views/' . $this->plugin_name . '-admin-settings-page.php';
 	}
 
 	/**

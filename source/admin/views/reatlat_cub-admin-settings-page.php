@@ -17,14 +17,9 @@ $plugin->enqueue_notices();
 ?>
 <div class="wrap" id="reatlat_cub">
 
-    <div class="reatlat_cub_notice animated fadeInDown" style="display: none;">
-        <div class="reatlat_cub_notice__inner">
-            <h3><span class="dashicons dashicons-share-alt"></span> <?php _e('Campaign URL Builder', 'campaign-url-builder'); ?></h3>
-            <p><?php _e('The link has been copied to clipboard.', 'campaign-url-builder'); ?></p>
-        </div>
-    </div>
+    <?php include dirname( __FILE__ ) . '/partial/reatlat_cub-admin-notice-clipboard.php'; ?>
 
-	<h1><span class="dashicons dashicons-share-alt"></span> <?php _e('Campaign URL Builder', 'campaign-url-builder'); ?> <i class="reatlat_cub_by">by <a href="https://reatlat.net/?utm_source=wp_plugin&utm_medium=title_header&utm_campaign=<?php echo esc_attr( $plugin->plugin_real_name ); ?>" target="_blank">re[at]lat</a></i> </h1>
+    <h1><span class="dashicons dashicons-share-alt"></span> <?php _e('Campaign URL Builder', 'campaign-url-builder'); ?> <i class="reatlat_cub_by">by <a href="https://reatlat.net/?utm_source=wp_plugin&utm_medium=title_header&utm_campaign=<?php echo esc_attr( $plugin->plugin_real_name ); ?>" target="_blank">re[at]lat</a></i> </h1>
 
 	<ul class="reatlat_cub_tabs">
 		<li><a href="#reatlat_cub_tab-0"><span class="dashicons dashicons-plus"></span> <?php _e('Create link', 'campaign-url-builder'); ?></a></li>

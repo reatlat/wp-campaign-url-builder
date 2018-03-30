@@ -47,6 +47,10 @@ function deactivate_reatlat_cub()
 register_activation_hook( __FILE__, 'activate_reatlat_cub' );
 register_deactivation_hook( __FILE__, 'deactivate_reatlat_cub' );
 
+define( 'CUB_VERSION',   '{% APP_VER %}');
+define( 'CUB_NAME',      'reatlat_cub');
+define( 'CUB_REAL_NAME', 'campaign-url-builder');
+
 require plugin_dir_path( __FILE__ ) . 'includes/class-reatlat_cub.php';
 
 $plugin = new reatlat_cub();
