@@ -36,6 +36,7 @@ gulp.task 'dev', (callback) ->
   ], [
     'styles'
     'scripts'
+    'copy_languages'
     'copy_php'
     'copy_images'
   ], 'watch', callback
@@ -45,6 +46,7 @@ gulp.task 'build', (callback) ->
     'clean_temp_folder'
     'clean_release_folder'
   ], [
+    'copy_languages'
     'copy_php'
     'copy_images'
     'copy_readme'
@@ -133,6 +135,10 @@ gulp.task 'javaScripts_public', ->
 gulp.task 'javaScripts_vendor_public', ->
   gulp.src(path.source+'/_scripts/vendor/public/*.min.js')
     .pipe gulp.dest(path.dist+'/public/assets/js/vendor/')
+
+gulp.task 'copy_languages', ->
+  gulp.src(path.source+'/languages/*')
+    .pipe gulp.dest(path.dist+'/languages/')
 
 gulp.task 'copy_php', ->
   gulp.src(path.source+'/**/*.php')
