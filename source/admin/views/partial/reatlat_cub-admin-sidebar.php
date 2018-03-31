@@ -3,20 +3,27 @@
 
     $changelog = array(
         array(
-            'version' => '1.3.0',
-            'date'    => '2018/XX/XX',
+            'version' => '1.3.1',
+            'date'    => '2018/04/XX',
             'changes' => array(
-                __('Update layout', 'campaign-url-builder'),
-                __('Move "create a new tracking link" to own tab', 'campaign-url-builder'),
-                __('Added new advanced settings', 'campaign-url-builder'),
-                __('Make plugin translatable', 'campaign-url-builder'),
                 sprintf(
                     __('Added translation to Spanish and Portuguese, big Thank you for %sTihh Gonçalves%s', 'campaign-url-builder'),
                     '<a target="_blank" href="https://www.tiago.art.br">',
                     '</a>'
                 ),
+            ),
+        ),
+        array(
+            'version' => '1.3.0',
+            'date'    => '2018/04/01',
+            'changes' => array(
+                __('Update layout', 'campaign-url-builder'),
+                __('Move "create a new tracking link" to own tab', 'campaign-url-builder'),
+                __('Added new advanced settings', 'campaign-url-builder'),
+                __('Make plugin translatable', 'campaign-url-builder'),
+                __('Added translation to Russian', 'campaign-url-builder'),
                 __('Added meta box: with links list', 'campaign-url-builder'),
-                __('Added meta box: Link generator (beta testing)', 'campaign-url-builder'),
+                __('Added meta box: Link generator (beta option)', 'campaign-url-builder'),
             ),
         ),
         array(
@@ -78,7 +85,7 @@
             <?php
             printf(
                 __('%sDonate%s to encourage me updating this plugin!', 'campaign-url-builder'),
-                '<a target="_blank" href="https://www.paypal.me/reatlat/' . rand ( 2, 10 ) . '"><strong>',
+                '<a target="_blank" href="https://www.paypal.me/reatlat/' . rand ( 2, 10 ) . 'usd"><strong>',
                 '</strong></a>'
             );
             ?>
@@ -91,12 +98,14 @@
         <div class="reatlat_promote_title"><?php _e('Changelog', 'campaign-url-builder'); ?></div>
         <div class="changelog__container">
             <?php foreach ($changelog as $item) : ?>
+            <?php if ( strpos( $item['date'], 'XX' ) === false ) : ?>
             <h4><?php echo $item['version']; ?> - <?php echo $item['date']; ?></h4>
             <ul>
                 <?php foreach ( $item['changes'] as $change ) : ?>
                 <li><?php echo $change; ?></li>
                 <?php endforeach; ?>
             </ul>
+            <?php endif; ?>
             <?php endforeach; ?>
         </div>
     </div>

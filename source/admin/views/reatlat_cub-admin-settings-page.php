@@ -15,7 +15,7 @@ $plugin->enqueue_notices();
 
 
 ?>
-<div class="wrap" id="reatlat_cub">
+<div class="wrap <?php echo get_locale(); ?>" id="reatlat_cub">
 
     <?php include dirname( __FILE__ ) . '/partial/reatlat_cub-admin-notice-clipboard.php'; ?>
 

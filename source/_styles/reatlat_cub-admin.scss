@@ -7,6 +7,14 @@
 
     @import "vendors/toggle-checkbox";
 
+    &.wrap {
+        &.ru_RU {
+            .tgl {
+                width: 130px;
+            }
+        }
+    }
+
     &.wrap--metabox {
         display: inline-block;
         margin: 0;
@@ -387,7 +395,7 @@
             }
             &.changelog {
                 .changelog__container {
-                    max-height: 230px;
+                    max-height: 250px;
                     overflow: auto;
                 }
                 h4 {
