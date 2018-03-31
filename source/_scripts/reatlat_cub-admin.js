@@ -1,12 +1,29 @@
 jQuery(function($) {
 
-    $( document ).ready(function() {
+    var $_GET = function(param) {
+        var vars;
+        vars = {};
+        window.location.href.replace(location.hash, '').replace(/[?&]+([^=&]+)=?([^&]*)?/gi, function(m, key, value) {
+            vars[key] = value !== void 0 ? value : '';
+        });
+        if (param) {
+            if (vars[param]) {
+                return vars[param];
+            } else {
+                return null;
+            }
+        }
+        return vars;
+    };
 
-        new WOW().init();
+    $( document ).ready(function() {
 
 		new Clipboard('td[data-copy]');
 
-		$('td[data-copy]').on('click', function(e) {
+        tippy('.tippy', { trigger: 'click' } );
+        tippy('.tippy--hover' );
+
+        $('td[data-copy]').on('click', function(e) {
 			e.preventDefault();
             $('.reatlat_cub_notice').show();
             setTimeout(function () {
@@ -14,7 +31,7 @@ jQuery(function($) {
             },450);
 		});
 
-        $( "#reatlat_cub_campaign-form" ).validate({
+        $( '#reatlat_cub_campaign-form' ).validate({
             rules: {
                 campaign_page: {
                     required: true,
@@ -42,16 +59,46 @@ jQuery(function($) {
 			$('.reatlat_cub_tab.' + $(this).attr('href').substr(1) + ', .reatlat_cub_tabs li a[href="' + $(this).attr('href') + '"]').addClass('active');
 		});
 
-		if (window.location.hash.substr(0,17) == '#reatlat_cub_tab-') {
+		if ( $_GET('page') === 'reatlat_cub-settings-page' && window.location.hash.substr(0,17) === '#reatlat_cub_tab-' && window.location.hash.slice(-1) !== '0' )
+		{
 			$('.reatlat_cub_tabs li a[href="' + window.location.hash + '"]').simulateClick();
 		}
 
-		if( $('.reatlat_cub_promote_container').length == 0 || $('.reatlat_cub_promote_container').text().length == 0 ) {
-			$('#reatlat_cub form p.submit').each(function(i) {
-				$(this).find('input[type="submit"]').remove();
-				$(this).html('<div class="reatlat_cub_error">The plugin is <strong>now inactive</strong> because it has been modified to hide original author information.<br>Please contact your administrator.</div>')
-			});
-		}
+        if ( $_GET('page') !== 'reatlat_cub-settings-page' && $_GET('action') === 'edit' )
+        {
+            $('.js-reatlat_cub--create-link').on('click', function () {
+
+                if ( $('input[name="campaign_page"]').val().length > 9 && $('input[name="campaign_page"]').val().includes('//') && $('input[name="campaign_page"]').val().slice(0,4) === 'http' && $('input[name="campaign_name"]').val().length > 1 )
+                {
+                    $.ajax({
+                        type: "POST",
+                        url: ajaxurl,
+                        data: {
+                            action:              'reatlat_cub_create_link',
+                            campaign_page:       $('input[name="campaign_page"]').val(),
+                            campaign_source:     $('select[name="campaign_source"]').val(),
+                            campaign_medium:     $('select[name="campaign_medium"]').val(),
+                            campaign_name:       $('input[name="campaign_name"]').val(),
+                            campaign_term:       $('input[name="campaign_term"]').val(),
+                            campaign_content:    $('input[name="campaign_content"]').val(),
+                            custom_key_1:        $('input[name="custom_key_1"]').val(),
+                            custom_value_1:      $('input[name="custom_value_1"]').val(),
+                            custom_key_2:        $('input[name="custom_key_2"]').val(),
+                            custom_value_2:      $('input[name="custom_value_2"]').val(),
+                            custom_key_3:        $('input[name="custom_key_3"]').val(),
+                            custom_value_3:      $('input[name="custom_value_3"]').val(),
+                            submit_manage_links: $('input[name="submit_manage_links"]').val()
+                        }
+                    }).done(function( msg ) {
+                        console.log( "Ajax respond: " + msg );
+                        return false;
+                    });
+                }
+
+                // do not reload page!
+                return false;
+            });
+        }
 
     });
 

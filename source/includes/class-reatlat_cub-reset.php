@@ -32,6 +32,10 @@ class reatlat_cub_Reset extends reatlat_cub
     {
         delete_option( $this->plugin_name . '_version' );
         delete_option( $this->plugin_name . '_google_api_key' );
+        delete_option( $this->plugin_name . '_admin_only' );
+        delete_option( $this->plugin_name . '_keep_settings' );
+        delete_option( $this->plugin_name . '_show_creator' );
+        delete_option( $this->plugin_name . '_show_useronly' );
     }
 
     public function reset_all()

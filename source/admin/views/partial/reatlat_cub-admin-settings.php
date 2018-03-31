@@ -1,28 +1,28 @@
 <div class="reatlat_cub_container reatlat_cub_tab reatlat_cub_tab-2">
     <form method="POST" class="reatlat_cub_form">
-        <h2 class="title">Add</h2>
+        <h2 class="title"><?php _e('Add', 'campaign-url-builder'); ?></h2>
         <table class="form-table">
             <tr>
-                <th scope="row"><label for="new_campaign_source">Add new Campaign Source</label></th>
-                <td><input name="new_campaign_source" placeholder="The referrer: (e.g. google, newsletter)" type="text" id="new_campaign_source" value="" class="regular-text">
-                    <p class="description">The Campaign Source will be formatted once submitted.</p>
+                <th scope="row"><label for="new_campaign_source"><?php _e('Add new Campaign Source', 'campaign-url-builder'); ?></label></th>
+                <td><input name="new_campaign_source" placeholder="<?php _e('The referrer: (e.g. google, newsletter)', 'campaign-url-builder'); ?>" type="text" id="new_campaign_source" value="" class="regular-text">
+                    <p class="description"><?php _e('The Campaign Source will be formatted once submitted.', 'campaign-url-builder'); ?></p>
                 </td>
             </tr>
 
             <tr>
-                <th scope="row"><label for="new_campaign_medium">Add new Campaign Medium</label></th>
+                <th scope="row"><label for="new_campaign_medium"><?php _e('Add new Campaign Medium', 'campaign-url-builder'); ?></label></th>
                 <td><input name="new_campaign_medium" placeholder="Marketing medium: (e.g. cpc, banner, email)" type="text" id="new_campaign_medium" value="" class="regular-text">
-                    <p class="description">The Campaign Medium will be formatted once submitted.</p>
+                    <p class="description"><?php _e('The Campaign Medium will be formatted once submitted.', 'campaign-url-builder'); ?></p>
                 </td>
             </tr>
         </table>
-        <h2 class="title">Remove</h2>
+        <h2 class="title"><?php _e('Remove', 'campaign-url-builder'); ?></h2>
         <table class="form-table">
             <tr>
-                <th scope="row"><label for="remove_campaign_source">Remove Campaign Source</label></th>
+                <th scope="row"><label for="remove_campaign_source"><?php _e('Remove Campaign Source', 'campaign-url-builder'); ?></label></th>
                 <td>
                     <select name="remove_campaign_source">
-                        <option value="">Select</option>
+                        <option value=""><?php _e('Select', 'campaign-url-builder'); ?></option>
                         <?php
                         $sources = $plugin->get_sources();
                         foreach ($sources as $source) {
@@ -37,11 +37,11 @@
 
             <tr>
                 <th scope="row">
-                    <label for="remove_campaign_medium">Remove Campaign Medium</label>
+                    <label for="remove_campaign_medium"><?php _e('Remove Campaign Medium', 'campaign-url-builder'); ?></label>
                 </th>
                 <td>
                     <select name="remove_campaign_medium">
-                        <option value="">Select</option>
+                        <option value=""><?php _e('Select', 'campaign-url-builder'); ?></option>
                         <?php
                         $mediums = $plugin->get_mediums();
                         foreach ($mediums as $medium) {
@@ -56,7 +56,7 @@
         </table>
 
         <p class="submit">
-            <input type="submit" name="submit_settings" id="submit" class="button button-primary" value="Save Changes">
+            <input type="submit" name="submit_settings" id="submit" class="button button-primary" value="<?php _e('Save Changes', 'campaign-url-builder'); ?>">
         </p>
 
     </form>

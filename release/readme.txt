@@ -1,11 +1,11 @@
 === Campaign URL Builder ===
 Contributors: reatlat
-Donate link: https://paypal.me/reatlat
+Donate link: https://paypal.me/reatlat/5usd
 Tags: utm, tracking link, google analytics, analytics, link generator, googl, google url shortener, minify link
 Requires at least: 3.0.1
 Tested up to: 4.9.4
 Requires PHP: 5.6 or later
-Stable tag: 1.2.1
+Stable tag: 1.3.0
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -21,6 +21,7 @@ URL Shortener API) all in once.
 
 Available languages :
 * English
+* Russian
 
 == Installation ==
 
@@ -44,6 +45,15 @@ on GitHub <https://github.com/reatlat/wp-campaign-url-builder/issues>
 Nothing for now
 
 == Changelog ==
+
+= 1.3.0 =
+* Update layout
+* Move "create a new tracking link" to own tab
+* Added new advanced settings
+* Make plugin translatable
+* Added translation to Russian
+* Added meta box: with links list
+* Added meta box: Link generator (beta option)
 
 = 1.2.1 =
 * Fix problem with global date_format override

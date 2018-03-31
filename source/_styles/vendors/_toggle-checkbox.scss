@@ -16,6 +16,12 @@ $toggle-disabled-tab-bg: #FFFFFF;
   user-select: none;
   margin: 0 0 5px 0;
 
+  width: 110px;
+
+  @include transit();
+  &:hover {
+    opacity: .8;
+  }
   // add default box-sizing for this scope
   &, &:after, &:before,
   & *, & *:after, & *:before,
@@ -48,7 +54,7 @@ $toggle-disabled-tab-bg: #FFFFFF;
 
     &:before {
       position: relative;
-      display: block;
+      //display: block;
       line-height: 1.3rem;
       padding: 0 0.2rem;
       font-size: 1rem;
@@ -56,7 +62,7 @@ $toggle-disabled-tab-bg: #FFFFFF;
 
     &:after {
       position: absolute;
-      display: block;
+      //display: block;
       content: '';
       border-radius: 2rem;
       width: 1.3rem;

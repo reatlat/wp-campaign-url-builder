@@ -7,6 +7,22 @@
 
     @import "vendors/toggle-checkbox";
 
+    &.wrap {
+        &.ru_RU {
+            .tgl {
+                width: 130px;
+            }
+        }
+    }
+
+    &.wrap--metabox {
+        display: inline-block;
+        margin: 0;
+        .reatlat_cub_tabs_container {
+            width: 100%;
+        }
+    }
+
     .clickable {
         cursor: pointer;
     }
@@ -153,13 +169,26 @@
         &.active {
             display: block;
         }
+
+        label {
+            .dashicons {
+                color: initial;
+                opacity: .6;
+                cursor: help;
+                @include transit();
+                &:hover {
+                    color: $theme-color;
+                }
+            }
+        }
     }
 
     .reatlat_cub_tabs_container {
         float: left;
-        width: 66%;
-
-
+        width: 100%;
+        @media (min-width: $min-width) {
+            width: 66%;
+        }
         .reatlat_cub_result {
             table{
                 background: transparent;
@@ -224,11 +253,29 @@
                 }
             }
         }
-        td.remove_link {
+        td.campaign_name {
+            @media (min-width: $xl) {
+                width: 15%;
+            }
+        }
+        td.campaign_short_link {
+            @media (min-width: $xl) {
+                width: 15%;
+            }
+        }
+        td.campaign_full_link {
+            //width: 15%;
+        }
+        td.campaign_user_id {
+            @media (min-width: $xl) {
+                width: 110px;
+            }
+        }
+        td.campaign_remove_link {
             position: relative;
             width: 20px;
             text-align: center;
-            .remove_link__inner {
+            .campaign_remove_link__inner {
                 border: none;
                 width: 100%;
                 background: transparent;
@@ -300,8 +347,11 @@
 
     .reatlat_cub_promote_container {
         float: left;
-        width: 31%;
-        margin-left: 2%;
+        width: 100%;
+        @media (min-width: $min-width) {
+            width: 31%;
+            margin: 0 0 0 2%;
+        }
         .reatlat_promote_widget {
             background-color: $white;
             padding: 10px;
@@ -344,6 +394,10 @@
                 }
             }
             &.changelog {
+                .changelog__container {
+                    max-height: 250px;
+                    overflow: auto;
+                }
                 h4 {
                     margin-bottom: 0;
                 }

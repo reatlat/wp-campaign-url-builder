@@ -14,10 +14,10 @@ if ! which wp > /dev/null; then
     cd /var/www/html
     wp core install --allow-root \
                     --url=localhost \
-                    --title="DEMO WordPress"  \
+                    --title="Campaign URL Builder"  \
                     --admin_user="admin" \
                     --admin_password="admin" \
-                    --admin_email="admin@admin.admin" \
+                    --admin_email="admin@local.host" \
                     --skip-email
 
     # Import Sample Data
