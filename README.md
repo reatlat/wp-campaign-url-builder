@@ -66,5 +66,8 @@ docker-compose up
 docker-compose exec wordpress bash /docker-scripts/wp-demo-install.sh
 ```
 
+## Helpful information
+[Plugin Handbook](https://developer.wordpress.org/plugins/wordpress-org/how-to-use-subversion/)
+
 # LICENSE
 [![GNU GPL v3.0](./includes/gplv3-127x51.png)](./LICENSE)
