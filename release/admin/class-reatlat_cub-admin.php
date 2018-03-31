@@ -44,8 +44,11 @@ class reatlat_cub_Admin {
 
         $this->google_api_key         = (empty($CLEAN_POST['google_api_key'])         ? '' : self::get_cleaned($CLEAN_POST['google_api_key'], 'text'));
         $this->remove_google_api_key  = (empty($CLEAN_POST['remove_google_api_key'])  ? '' : self::get_cleaned($CLEAN_POST['remove_google_api_key'], 'number'));
+        $this->advanced_admin_only    = (empty($CLEAN_POST['advanced_admin_only'])    ? '' : self::get_cleaned($CLEAN_POST['advanced_admin_only'], 'checkbox'));
         $this->advanced_keep_settings = (empty($CLEAN_POST['advanced_keep_settings']) ? '' : self::get_cleaned($CLEAN_POST['advanced_keep_settings'], 'checkbox'));
         $this->advanced_show_creator  = (empty($CLEAN_POST['advanced_show_creator'])  ? '' : self::get_cleaned($CLEAN_POST['advanced_show_creator'], 'checkbox'));
+        $this->advanced_show_useronly = (empty($CLEAN_POST['advanced_show_useronly']) ? '' : self::get_cleaned($CLEAN_POST['advanced_show_useronly'], 'checkbox'));
+        $this->advanced_metaboxes     = (empty($CLEAN_POST['advanced_metaboxes'])     ? '' : self::get_cleaned($CLEAN_POST['advanced_metaboxes'], 'checkbox'));
         $this->submit_advanced        = (empty($CLEAN_POST['submit_advanced'])        ? '' : 1);
 
         $this->remove_link_id         = (empty($CLEAN_POST['remove_link_id'])        ? '' : self::get_cleaned($CLEAN_POST['remove_link_id'], 'text'));
@@ -70,15 +73,74 @@ class reatlat_cub_Admin {
 	 */
 	public function add_submenu_page()
     {
-		add_menu_page( 'Campaign URL Builder', 'Campaign URL Builder', 'edit_posts', $this->plugin_name . '-settings-page', array($this, 'render_settings_page'), 'dashicons-share-alt' );
+		add_menu_page(
+		    __('Campaign URL Builder', $this->plugin_real_name), // page_title
+            __('Campaign URL Builder', $this->plugin_real_name), // menu_title
+            'edit_posts', // capability
+            $this->plugin_name . '-settings-page', array($this, 'render_settings_page'), // menu_slug
+            'dashicons-share-alt' // icon_url
+        );
 	}
+
+    /**
+     * Register meta box links list.
+     */
+	public function add_meta_box__links_list()
+    {
+        add_meta_box(
+            'reatlat_cub-metabox--links-list',
+            __( 'Campaign URL Builder: Existing generated links', 'campaign-url-builder' ),
+            function() {
+                require plugin_dir_path( __FILE__ ) . 'views/' . $this->plugin_name . '-admin-metabox--links-list.php';
+            },
+            null
+        );
+    }
+
+    /**
+     * Register meta box create a tracking link.
+     */
+    public function add_meta_box__create_link()
+    {
+        add_meta_box(
+            'reatlat_cub-metabox--create-link',
+            __( 'Campaign URL Builder: Create a tracking link', 'campaign-url-builder' ),
+            function() {
+                require plugin_dir_path( __FILE__ ) . 'views/' . $this->plugin_name . '-admin-metabox--create-link.php';
+            },
+            null
+        );
+    }
+
+    /**
+     * Add ajax for  create link form.
+     */
+    public function add_ajax_create_link()
+    {
+        if ( $this->campaign_page && $this->campaign_source && $this->campaign_medium && $this->campaign_name ) {
+
+            self::check_manage_links();
+
+            header( "Content-Type: application/json" );
+            echo json_encode('Link should be created.');
+
+        } else {
+
+            header( "Content-Type: application/json" );
+            echo json_encode('Oops... something wrong!');
+
+        }
+
+        //Don't forget to always exit in the ajax function.
+        exit();
+    }
 
 	/**
 	 * Render settings page for plugin
 	 */
 	public function render_settings_page()
     {
-		require plugin_dir_path( __FILE__ ) . 'views/' . $this->plugin_name . '-admin-settings-page.php';
+        require plugin_dir_path( __FILE__ ) . 'views/' . $this->plugin_name . '-admin-settings-page.php';
 	}
 
 	/**
@@ -94,11 +156,11 @@ class reatlat_cub_Admin {
 	 */
 	public function enqueue_scripts()
     {
-        wp_enqueue_script( 'wow',                       plugin_dir_url( __FILE__ ) . 'assets/js/vendor/wow.min.js?v=' . rand(), array(), '1.3.0', false );
+        wp_enqueue_script( 'tippy-all',                 plugin_dir_url( __FILE__ ) . 'assets/js/vendor/tippy.all.min.js?v=' . rand(), array(), '2.4.1', false );
         wp_enqueue_script( 'clipboard',                 plugin_dir_url( __FILE__ ) . 'assets/js/vendor/clipboard.min.js?v=' . rand(), array(), '1.7.1', false );
         wp_enqueue_script( 'jquery-validate',           plugin_dir_url( __FILE__ ) . 'assets/js/vendor/jquery.validate.min.js?v=' . rand(), array( 'jquery' ), '1.17.0', false );
         wp_enqueue_script( 'jquery-additional-methods', plugin_dir_url( __FILE__ ) . 'assets/js/vendor/additional-methods.min.js?v=' . rand(), array( 'jquery' ), '1.17.0', false );
-        wp_enqueue_script( $this->plugin_name,          plugin_dir_url( __FILE__ ) . 'assets/js/reatlat_cub-admin.js?v=' . rand(), array( 'jquery' ), $this->version, false );
+        wp_enqueue_script( $this->plugin_name,                 plugin_dir_url( __FILE__ ) . 'assets/js/reatlat_cub-admin.js?v=' . rand(), array( 'jquery' ), $this->version, true );
 	}
 
 	/**
@@ -119,11 +181,27 @@ class reatlat_cub_Admin {
 	 */
 	public function add_settings_link( $links )
     {
-	    $settings_link = '<a href="admin.php?page=' . $this->plugin_name . '-settings-page">' . __( 'Settings' ) . '</a>';
-	    $settings_link = '<a href="admin.php?page=' . $this->plugin_name . '-settings-page">' . __( 'Settings' ) . '</a>';
+	    $settings_link = '<a href="admin.php?page=' . $this->plugin_name . '-settings-page">' . __( 'Settings', 'campaign-url-builder' ) . '</a>';
 	    array_unshift($links, $settings_link);
 	  	return $links;
 	}
+
+    /**
+     * Print additional links to plugin meta row
+     */
+    public function add_plugin_row_meta()
+    {
+        add_filter( 'plugin_row_meta', function( $links, $file ) {
+            if (strpos($file, $this->plugin_name . '.php') !== false) {
+                $new_links = array(
+                    'donate' => '<a href="https://www.paypal.me/reatlat/' . rand(3, 10) . 'usd" target="_blank"><span class="dashicons dashicons-heart"></span> ' . __('Donate', 'campaign-url-builder') . '</a>',
+                    'rateit' => '<a href="https://wordpress.org/support/view/plugin-reviews/' . $plugin->plugin_real_name . '?rate=5#postform" target="_blank"><span class="dashicons dashicons-star-filled"></span> ' . __('Rate it', 'campaign-url-builder') . '</a>'
+                );
+                $links = array_merge($links, $new_links);
+            }
+            return $links;
+        }, 10, 3 );
+    }
 
 	/**
 	 * clean query string like POST or GET
@@ -233,8 +311,11 @@ class reatlat_cub_Admin {
 
 	public function get_links()
     {
-        return $this->db->get_results( "SELECT * FROM " . $this->db->prefix . $this->plugin_name . "_links ORDER by date DESC" );
-	}
+        if ( current_user_can('administrator') || ! get_option( $this->plugin_name . '_show_useronly' ) )
+            return $this->db->get_results( "SELECT * FROM " . $this->db->prefix . $this->plugin_name . "_links ORDER by date DESC" );
+
+        return $this->db->get_results( "SELECT * FROM " . $this->db->prefix . $this->plugin_name . "_links WHERE user_id = " . get_current_user_id() . " ORDER by date DESC" );
+    }
 
 	public function get_sources()
     {
@@ -286,8 +367,11 @@ class reatlat_cub_Admin {
             {
                 array_push( $this->messages, array( 'Option <strong>"Keep settings and data after delete plugin"</strong> was disabled', 'warning' ) );
             }
+            update_option( $this->plugin_name . '_admin_only', $this->advanced_admin_only );
             update_option( $this->plugin_name . '_keep_settings', $this->advanced_keep_settings );
             update_option( $this->plugin_name . '_show_creator', $this->advanced_show_creator );
+            update_option( $this->plugin_name . '_show_useronly', $this->advanced_show_useronly );
+            update_option( $this->plugin_name . '_metaboxes', $this->advanced_metaboxes );
 
             // Google API key
             if ( !empty($this->google_api_key) && $this->google_api_key != get_option( $this->plugin_name . '_google_api_key' ) )
