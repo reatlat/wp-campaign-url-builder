@@ -3,7 +3,7 @@
 
     $changelog = array(
         array(
-            'version' => '1.3.1',
+            'version' => '1.3.2',
             'date'    => '2018/04/XX',
             'changes' => array(
                 sprintf(
@@ -11,6 +11,14 @@
                     '<a target="_blank" href="https://www.tiago.art.br">',
                     '</a>'
                 ),
+            ),
+        ),
+        array(
+            'version' => '1.3.1',
+            'date'    => '2018/04/05',
+            'changes' => array(
+                __('Fixed error with wrong variable on plugins page', 'campaign-url-builder'),
+                __('Update missing translation strings', 'campaign-url-builder')
             ),
         ),
         array(

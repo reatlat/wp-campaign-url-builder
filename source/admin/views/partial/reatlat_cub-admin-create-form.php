@@ -49,7 +49,7 @@
                 <label for="campaign_name"><?php _e('Campaign Name', 'campaign-url-builder'); ?> <span class="required">*</span></label>
             </th>
             <td>
-                <input name="campaign_name" placeholder="<?php _e('Product, promo code, or slogan.', ''); ?>" type="text" id="campaign_name" value="<?php echo esc_attr( $plugin->campaign_name ); ?>" class="regular-text">
+                <input name="campaign_name" placeholder="<?php _e('Product, promo code, or slogan.', 'campaign-url-builder'); ?>" type="text" id="campaign_name" value="<?php echo esc_attr( $plugin->campaign_name ); ?>" class="regular-text">
                 <p class="description"><?php _e('The Campaign Name will be formatted once submitted.', 'campaign-url-builder'); ?></p>
             </td>
         </tr>
