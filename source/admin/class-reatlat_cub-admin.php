@@ -195,7 +195,7 @@ class reatlat_cub_Admin {
             if (strpos($file, $this->plugin_name . '.php') !== false) {
                 $new_links = array(
                     'donate' => '<a href="https://www.paypal.me/reatlat/' . rand(3, 10) . 'usd" target="_blank"><span class="dashicons dashicons-heart"></span> ' . __('Donate', 'campaign-url-builder') . '</a>',
-                    'rateit' => '<a href="https://wordpress.org/support/view/plugin-reviews/' . $plugin->plugin_real_name . '?rate=5#postform" target="_blank"><span class="dashicons dashicons-star-filled"></span> ' . __('Rate it', 'campaign-url-builder') . '</a>'
+                    'rateit' => '<a href="https://wordpress.org/support/view/plugin-reviews/' . $this->plugin_real_name . '?rate=5#postform" target="_blank"><span class="dashicons dashicons-star-filled"></span> ' . __('Rate it', 'campaign-url-builder') . '</a>'
                 );
                 $links = array_merge($links, $new_links);
             }
