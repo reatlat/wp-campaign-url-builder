@@ -3,9 +3,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Campaign URL Builder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-30 20:54+0000\n"
+"POT-Creation-Date: 2018-04-05 14:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Last-Translator: reatlat <reatlat@gmail.com>\n"
 "Language-Team: \n"
 "Language: \n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "Campaign URL Builder: Create a tracking link"
 msgstr ""
 
-#: admin/class-reatlat_cub-admin.php:184 
+#: admin/class-reatlat_cub-admin.php:184
 #: admin/views/reatlat_cub-admin-settings-page.php:27
 msgid "Settings"
 msgstr ""
@@ -36,8 +36,8 @@ msgid "Rate it"
 msgstr ""
 
 #. Name of the plugin
-#: admin/views/reatlat_cub-admin-settings-page.php:22 
-#: admin/views/partial/reatlat_cub-admin-notice-clipboard.php:3 
+#: admin/views/reatlat_cub-admin-settings-page.php:22
+#: admin/views/partial/reatlat_cub-admin-notice-clipboard.php:3
 #: admin/views/partial/reatlat_cub-admin-links-list.php:64
 msgid "Campaign URL Builder"
 msgstr ""
@@ -54,7 +54,7 @@ msgstr ""
 msgid "Advanced Settings"
 msgstr ""
 
-#: admin/views/reatlat_cub-admin-settings-page.php:31 
+#: admin/views/reatlat_cub-admin-settings-page.php:31
 #: admin/views/partial/reatlat_cub-admin-kb.php:2
 msgid "Knowledge base"
 msgstr ""
@@ -63,104 +63,116 @@ msgstr ""
 msgid "Existing generated links"
 msgstr ""
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:9
-msgid "Update layout"
-msgstr ""
-
 #: admin/views/partial/reatlat_cub-admin-sidebar.php:10
-msgid "Move \"create a new tracking link\" to own tab"
-msgstr ""
-
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:11
-msgid "Added new advanced settings"
-msgstr ""
-
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:12
-msgid "Make plugin translatable"
-msgstr ""
-
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:14
 #, php-format
 msgid ""
 "Added translation to Spanish and Portuguese, big Thank you for %sTihh "
 "Gonçalves%s"
 msgstr ""
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:18
-msgid "Added meta box: with links list"
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:20
+msgid "Fixed error with wrong variable on plugins page"
 msgstr ""
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:19
-msgid "Added meta box: Link generator (beta testing)"
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:21
+msgid "Update missing translation strings"
 msgstr ""
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:26
-msgid "Fix problem with global date_format override"
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:28
+msgid "Update layout"
+msgstr ""
+
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:29
+msgid "Move \"create a new tracking link\" to own tab"
+msgstr ""
+
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:30
+msgid "Added new advanced settings"
+msgstr ""
+
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:31
+msgid "Make plugin translatable"
+msgstr ""
+
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:32
+msgid "Added translation to Russian"
 msgstr ""
 
 #: admin/views/partial/reatlat_cub-admin-sidebar.php:33
-msgid "Add remove link function"
+msgid "Added meta box: with links list"
 msgstr ""
 
 #: admin/views/partial/reatlat_cub-admin-sidebar.php:34
+msgid "Added meta box: Link generator (beta option)"
+msgstr ""
+
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:41
+msgid "Fix problem with global date_format override"
+msgstr ""
+
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:48
+msgid "Add remove link function"
+msgstr ""
+
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:49
 msgid "Add example link"
 msgstr ""
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:35
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:50
 msgid "Update pattern for url source"
 msgstr ""
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:36
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:51
 msgid "Bug fixing"
 msgstr ""
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:43
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:58
 msgid "Refactor code"
 msgstr ""
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:44
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:59
 msgid "Add advanced settings"
 msgstr ""
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:51
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:66
 msgid "Input/Output - sanitize, validate, and escape"
 msgstr ""
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:52
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:67
 msgid "Update plugin name"
 msgstr ""
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:59
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:74
 msgid "First live release"
 msgstr ""
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:67
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:82
 msgid "Like this plugin?"
 msgstr ""
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:71
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:86
 #, php-format
 msgid "%sRate it%s to show your support!"
 msgstr ""
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:80
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:95
 #, php-format
 msgid "%sDonate%s to encourage me updating this plugin!"
 msgstr ""
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:91
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:106
 msgid "Changelog"
 msgstr ""
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:106
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:123
 msgid "Developed by"
 msgstr ""
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:112
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:129
 msgid "Software Engineer"
 msgstr ""
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:113
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:130
 msgid "Homepage"
 msgstr ""
 
@@ -182,18 +194,18 @@ msgid ""
 "Administrators"
 msgstr ""
 
-#: admin/views/partial/reatlat_cub-admin-advanced.php:16 
-#: admin/views/partial/reatlat_cub-admin-advanced.php:29 
-#: admin/views/partial/reatlat_cub-admin-advanced.php:41 
-#: admin/views/partial/reatlat_cub-admin-advanced.php:53 
+#: admin/views/partial/reatlat_cub-admin-advanced.php:16
+#: admin/views/partial/reatlat_cub-admin-advanced.php:29
+#: admin/views/partial/reatlat_cub-admin-advanced.php:41
+#: admin/views/partial/reatlat_cub-admin-advanced.php:53
 #: admin/views/partial/reatlat_cub-admin-advanced.php:65
 msgid "Enabled"
 msgstr ""
 
-#: admin/views/partial/reatlat_cub-admin-advanced.php:16 
-#: admin/views/partial/reatlat_cub-admin-advanced.php:29 
-#: admin/views/partial/reatlat_cub-admin-advanced.php:41 
-#: admin/views/partial/reatlat_cub-admin-advanced.php:53 
+#: admin/views/partial/reatlat_cub-admin-advanced.php:16
+#: admin/views/partial/reatlat_cub-admin-advanced.php:29
+#: admin/views/partial/reatlat_cub-admin-advanced.php:41
+#: admin/views/partial/reatlat_cub-admin-advanced.php:53
 #: admin/views/partial/reatlat_cub-admin-advanced.php:65
 msgid "Disabled"
 msgstr ""
@@ -246,14 +258,14 @@ msgstr ""
 msgid "Google URL Shortener API setting"
 msgstr ""
 
-#: admin/views/partial/reatlat_cub-admin-advanced.php:75 
+#: admin/views/partial/reatlat_cub-admin-advanced.php:75
 #: admin/views/partial/reatlat_cub-admin-kb.php:13
 msgid "Google API key"
 msgstr ""
 
-#: admin/views/partial/reatlat_cub-admin-advanced.php:76 
-#: admin/views/partial/reatlat_cub-admin-create-form.php:60 
-#: admin/views/partial/reatlat_cub-admin-create-form.php:71 
+#: admin/views/partial/reatlat_cub-admin-advanced.php:76
+#: admin/views/partial/reatlat_cub-admin-create-form.php:60
+#: admin/views/partial/reatlat_cub-admin-create-form.php:71
 #: admin/views/partial/reatlat_cub-admin-create-form.php:88
 msgid "(optional)"
 msgstr ""
@@ -275,7 +287,7 @@ msgstr ""
 msgid "%sHow to get your %sGoogle API key%s?%s"
 msgstr ""
 
-#: admin/views/partial/reatlat_cub-admin-advanced.php:102 
+#: admin/views/partial/reatlat_cub-admin-advanced.php:102
 #: admin/views/partial/reatlat_cub-admin-settings.php:59
 msgid "Save Changes"
 msgstr ""
@@ -312,7 +324,7 @@ msgstr ""
 msgid "Stats"
 msgstr ""
 
-#: admin/views/partial/reatlat_cub-admin-links-list.php:7 
+#: admin/views/partial/reatlat_cub-admin-links-list.php:7
 #: admin/views/partial/reatlat_cub-admin-create-form.php:49
 msgid "Campaign Name"
 msgstr ""
@@ -329,7 +341,7 @@ msgstr ""
 msgid "Creator"
 msgstr ""
 
-#: admin/views/partial/reatlat_cub-admin-links-list.php:28 
+#: admin/views/partial/reatlat_cub-admin-links-list.php:28
 #: admin/views/partial/reatlat_cub-admin-links-list.php:48
 msgid "Open Analytics data"
 msgstr ""
@@ -338,7 +350,7 @@ msgstr ""
 msgid "Example link"
 msgstr ""
 
-#: admin/views/partial/reatlat_cub-admin-links-list.php:32 
+#: admin/views/partial/reatlat_cub-admin-links-list.php:32
 #: admin/views/partial/reatlat_cub-admin-links-list.php:33
 msgid "Click cell to copy to clipboard"
 msgstr ""
@@ -347,8 +359,8 @@ msgstr ""
 msgid "Plugin Author"
 msgstr ""
 
-#: admin/views/partial/reatlat_cub-admin-links-list.php:38 
-#: admin/views/partial/reatlat_cub-admin-links-list.php:61 
+#: admin/views/partial/reatlat_cub-admin-links-list.php:38
+#: admin/views/partial/reatlat_cub-admin-links-list.php:61
 #: admin/views/partial/reatlat_cub-admin-links-list.php:64
 msgid "Remove link"
 msgstr ""
@@ -373,7 +385,7 @@ msgstr ""
 msgid "Campaign Source"
 msgstr ""
 
-#: admin/views/partial/reatlat_cub-admin-create-form.php:25 
+#: admin/views/partial/reatlat_cub-admin-create-form.php:25
 #: admin/views/partial/reatlat_cub-admin-settings.php:7
 msgid "The referrer: (e.g. google, newsletter)"
 msgstr ""
@@ -383,7 +395,12 @@ msgid "Campaign Medium"
 msgstr ""
 
 #: admin/views/partial/reatlat_cub-admin-create-form.php:42
+#: admin/views/partial/reatlat_cub-admin-settings.php:14
 msgid "Marketing medium: (e.g. cpc, banner, email)"
+msgstr ""
+
+#: admin/views/partial/reatlat_cub-admin-create-form.php:52
+msgid "Product, promo code, or slogan."
 msgstr ""
 
 #: admin/views/partial/reatlat_cub-admin-create-form.php:53
@@ -508,7 +525,7 @@ msgstr ""
 msgid "Remove Campaign Source"
 msgstr ""
 
-#: admin/views/partial/reatlat_cub-admin-settings.php:25 
+#: admin/views/partial/reatlat_cub-admin-settings.php:25
 #: admin/views/partial/reatlat_cub-admin-settings.php:44
 msgid "Select"
 msgstr ""

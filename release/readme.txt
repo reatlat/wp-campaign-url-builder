@@ -46,6 +46,10 @@ Nothing for now
 
 == Changelog ==
 
+= 1.3.1 =
+* Fixed error with wrong variable on plugins page
+* Update missing translation strings
+
 = 1.3.0 =
 * Update layout
 * Move "create a new tracking link" to own tab

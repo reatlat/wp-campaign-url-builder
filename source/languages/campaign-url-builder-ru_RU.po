@@ -2,11 +2,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Campaign URL Builder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-31 19:24+0000\n"
-"PO-Revision-Date: 2018-03-31 20:54+0000\n"
+"POT-Creation-Date: 2018-04-05 14:10+0000\n"
+"PO-Revision-Date: 2018-04-05 14:12+0000\n"
 "Last-Translator: reatlat <reatlat@gmail.com>\n"
 "Language-Team: Russian\n"
-"Language: ru-RU\n"
+"Language: ru_RU\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10 >= 2 && "
 "n%10<=4 &&(n%100<10||n%100 >= 20)? 1 : 2);\n"
 "MIME-Version: 1.0\n"
@@ -22,7 +22,7 @@ msgstr "Компоновщик URL Компаний: Существующие с
 msgid "Campaign URL Builder: Create a tracking link"
 msgstr "Компоновщик URL Компаний: Создать ссылку отслеживания"
 
-#: admin/class-reatlat_cub-admin.php:184 
+#: admin/class-reatlat_cub-admin.php:184
 #: admin/views/reatlat_cub-admin-settings-page.php:27
 msgid "Settings"
 msgstr "Настройки"
@@ -36,8 +36,8 @@ msgid "Rate it"
 msgstr "Оценить"
 
 #. Name of the plugin
-#: admin/views/reatlat_cub-admin-settings-page.php:22 
-#: admin/views/partial/reatlat_cub-admin-notice-clipboard.php:3 
+#: admin/views/reatlat_cub-admin-settings-page.php:22
+#: admin/views/partial/reatlat_cub-admin-notice-clipboard.php:3
 #: admin/views/partial/reatlat_cub-admin-links-list.php:64
 msgid "Campaign URL Builder"
 msgstr "Компоновщик URL Компаний"
@@ -54,152 +54,133 @@ msgstr "Управление ссылками"
 msgid "Advanced Settings"
 msgstr "Расширенные настройки"
 
-#: admin/views/reatlat_cub-admin-settings-page.php:31 
+#: admin/views/reatlat_cub-admin-settings-page.php:31
 #: admin/views/partial/reatlat_cub-admin-kb.php:2
 msgid "Knowledge base"
 msgstr "База знаний"
 
-#: admin/views/partial/reatlat_cub-admin-create-form.php:5
-msgid "Website URL"
-msgstr "Ссылка на сайт"
+#: admin/views/partial/reatlat_cub-admin-manage.php:3
+msgid "Existing generated links"
+msgstr "Существующие сгенерированные ссылки"
 
-#: admin/views/partial/reatlat_cub-admin-create-form.php:7
-msgid "https://example.com/example-page/"
-msgstr "https://example.com/example-page/"
-
-#: admin/views/partial/reatlat_cub-admin-create-form.php:8
-msgid "The full website URL (e.g. https://example.com/example-page/)"
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:10
+#, php-format
+msgid ""
+"Added translation to Spanish and Portuguese, big Thank you for %sTihh "
+"Gonçalves%s"
 msgstr ""
-"Полный URL адресс веб-сайта (например, https://example.com/example-page/)"
+"Добавлен перевод на испанский и португальский языки, большая благодарность "
+"за перевод %sTihh Gonçalves%s"
 
-#: admin/views/partial/reatlat_cub-admin-create-form.php:13
-msgid "Campaign Source"
-msgstr "Источник кампании"
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:20
+msgid "Fixed error with wrong variable on plugins page"
+msgstr "Исправлена ошибка с ошибочной переменной на странице плагинов"
 
-#: admin/views/partial/reatlat_cub-admin-create-form.php:25 
-#: admin/views/partial/reatlat_cub-admin-settings.php:7
-msgid "The referrer: (e.g. google, newsletter)"
-msgstr "Источник: (например: google, newsletter)"
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:21
+msgid "Update missing translation strings"
+msgstr "Обновление отсутствующих строк перевода"
 
-#: admin/views/partial/reatlat_cub-admin-create-form.php:30
-msgid "Campaign Medium"
-msgstr "Канал кампании"
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:28
+msgid "Update layout"
+msgstr "Обновлён макет"
 
-#: admin/views/partial/reatlat_cub-admin-create-form.php:42
-msgid "Marketing medium: (e.g. cpc, banner, email)"
-msgstr "Маркетинговые каналы: (например, cpc, banner, email)"
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:29
+msgid "Move \"create a new tracking link\" to own tab"
+msgstr "«Создать новую ссылку» перемещенно в собственную вкладку"
 
-#: admin/views/partial/reatlat_cub-admin-create-form.php:49 
-#: admin/views/partial/reatlat_cub-admin-links-list.php:7
-msgid "Campaign Name"
-msgstr "Название кампании"
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:30
+msgid "Added new advanced settings"
+msgstr "Добавлены новые дополнительные настройки"
 
-#: admin/views/partial/reatlat_cub-admin-create-form.php:53
-msgid "The Campaign Name will be formatted once submitted."
-msgstr "Название кампании будет отформатировано после отправки."
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:31
+msgid "Make plugin translatable"
+msgstr "Плагин обновлен и сделан переводимым на другие языки"
 
-#: admin/views/partial/reatlat_cub-admin-create-form.php:59
-msgid "Campaign Term"
-msgstr "Ключевое слово кампании"
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:32
+msgid "Added translation to Russian"
+msgstr "Добавлен перевод на русский язык"
 
-#: admin/views/partial/reatlat_cub-admin-create-form.php:60 
-#: admin/views/partial/reatlat_cub-admin-create-form.php:71 
-#: admin/views/partial/reatlat_cub-admin-create-form.php:88 
-#: admin/views/partial/reatlat_cub-admin-advanced.php:76
-msgid "(optional)"
-msgstr "(необязательный)"
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:33
+msgid "Added meta box: with links list"
+msgstr "Добавлен мета-бокс: со списком ссылок"
 
-#: admin/views/partial/reatlat_cub-admin-create-form.php:63
-msgid "Identify the paid keywords"
-msgstr "поисковый запрос, связанный с этим трафиком"
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:34
+msgid "Added meta box: Link generator (beta option)"
+msgstr "Добавлен мета-бокс: генератор ссылок (бета)"
 
-#: admin/views/partial/reatlat_cub-admin-create-form.php:64
-msgid "The Campaign Term will be formatted once submitted."
-msgstr "Ключевое слово кампании будет отформатирован после отправки."
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:41
+msgid "Fix problem with global date_format override"
+msgstr "Исправлена проблема с глобальным переопределением date_format"
 
-#: admin/views/partial/reatlat_cub-admin-create-form.php:70
-msgid "Campaign Content"
-msgstr "Содержание кампании"
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:48
+msgid "Add remove link function"
+msgstr "Добавлена функция удаления ссылки"
 
-#: admin/views/partial/reatlat_cub-admin-create-form.php:74
-msgid "Use to differentiate ads"
-msgstr "Используется для различения рекламы"
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:49
+msgid "Add example link"
+msgstr "Добавлен пример ссылки"
 
-#: admin/views/partial/reatlat_cub-admin-create-form.php:75
-msgid "The Campaign Content will be formatted once submitted."
-msgstr "Содержимое кампании будет отформатировано после отправки."
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:50
+msgid "Update pattern for url source"
+msgstr "Обновлён шаблон для источника URL"
 
-#: admin/views/partial/reatlat_cub-admin-create-form.php:87
-msgid "Additional Parameters"
-msgstr "Дополнительные параметры"
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:51
+msgid "Bug fixing"
+msgstr "Исправление ошибок"
 
-#: admin/views/partial/reatlat_cub-admin-create-form.php:93
-msgid "Custom Key"
-msgstr "Пользовательский ключ"
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:58
+msgid "Refactor code"
+msgstr "Рефакторинг кода"
 
-#: admin/views/partial/reatlat_cub-admin-create-form.php:94
-msgid "Custom Value"
-msgstr "Пользовательское значение"
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:59
+msgid "Add advanced settings"
+msgstr "Добавлены дополнительные настройки"
 
-#: admin/views/partial/reatlat_cub-admin-create-form.php:95
-msgid "It will generate a custom pair \"key\" and \"value\"."
-msgstr "Будет сгенерированы пользовательские пары «ключ» и «значение»."
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:66
+msgid "Input/Output - sanitize, validate, and escape"
+msgstr "Вход/выход - валидация и проверка данных"
 
-#: admin/views/partial/reatlat_cub-admin-create-form.php:103
-msgid "Add additional parameters"
-msgstr "Добавлены дополнительные параметры"
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:67
+msgid "Update plugin name"
+msgstr "Обновлено имя плагина"
 
-#: admin/views/partial/reatlat_cub-admin-create-form.php:106
-msgid "Generate Link"
-msgstr "Создать ссылку"
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:74
+msgid "First live release"
+msgstr "Первый релиз"
+
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:82
+msgid "Like this plugin?"
+msgstr "Нравится этот плагин?"
+
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:86
+#, php-format
+msgid "%sRate it%s to show your support!"
+msgstr "%sОценить плагин%s, чтобы показать свою поддержку!"
+
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:95
+#, php-format
+msgid "%sDonate%s to encourage me updating this plugin!"
+msgstr "%sСказать спасибо%s, чтобы стимулировать меня обновлять этот плагин!"
+
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:106
+msgid "Changelog"
+msgstr "Журнал изменений"
+
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:123
+msgid "Developed by"
+msgstr "Разработано"
+
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:129
+msgid "Software Engineer"
+msgstr "Инженер-программист"
+
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:130
+msgid "Homepage"
+msgstr "Домашняя страница"
 
 #: admin/views/partial/reatlat_cub-admin-notice-clipboard.php:4
 msgid "The link has been copied to clipboard."
 msgstr "Ссылка скопирована в буфер обмена."
-
-#: admin/views/partial/reatlat_cub-admin-links-list.php:6
-msgid "Stats"
-msgstr "Статистика"
-
-#: admin/views/partial/reatlat_cub-admin-links-list.php:8
-msgid "Short Link"
-msgstr "Короткая ссылка"
-
-#: admin/views/partial/reatlat_cub-admin-links-list.php:9
-msgid "Full Link"
-msgstr "Полная ссылка"
-
-#: admin/views/partial/reatlat_cub-admin-links-list.php:11
-msgid "Creator"
-msgstr "Автор"
-
-#: admin/views/partial/reatlat_cub-admin-links-list.php:28 
-#: admin/views/partial/reatlat_cub-admin-links-list.php:48
-msgid "Open Analytics data"
-msgstr "Открыть статистику"
-
-#: admin/views/partial/reatlat_cub-admin-links-list.php:31
-msgid "Example link"
-msgstr "Пример ссылки"
-
-#: admin/views/partial/reatlat_cub-admin-links-list.php:32 
-#: admin/views/partial/reatlat_cub-admin-links-list.php:33
-msgid "Click cell to copy to clipboard"
-msgstr "Щелкните ячейку, чтобы скопировать в буфер обмена"
-
-#: admin/views/partial/reatlat_cub-admin-links-list.php:35
-msgid "Plugin Author"
-msgstr "Автор плагина"
-
-#: admin/views/partial/reatlat_cub-admin-links-list.php:38 
-#: admin/views/partial/reatlat_cub-admin-links-list.php:61 
-#: admin/views/partial/reatlat_cub-admin-links-list.php:64
-msgid "Remove link"
-msgstr "Удалить ссылку"
-
-#: admin/views/partial/reatlat_cub-admin-links-list.php:64
-msgid "Are you sure?"
-msgstr "Ты уверен?"
 
 #: admin/views/partial/reatlat_cub-admin-advanced.php:5
 msgid "Advanced settings"
@@ -217,18 +198,18 @@ msgstr ""
 "Этот параметр позволяет показывать дополнительные параметры только для "
 "пользователей с ролью Администратора."
 
-#: admin/views/partial/reatlat_cub-admin-advanced.php:16 
-#: admin/views/partial/reatlat_cub-admin-advanced.php:29 
-#: admin/views/partial/reatlat_cub-admin-advanced.php:41 
-#: admin/views/partial/reatlat_cub-admin-advanced.php:53 
+#: admin/views/partial/reatlat_cub-admin-advanced.php:16
+#: admin/views/partial/reatlat_cub-admin-advanced.php:29
+#: admin/views/partial/reatlat_cub-admin-advanced.php:41
+#: admin/views/partial/reatlat_cub-admin-advanced.php:53
 #: admin/views/partial/reatlat_cub-admin-advanced.php:65
 msgid "Enabled"
 msgstr "Включено"
 
-#: admin/views/partial/reatlat_cub-admin-advanced.php:16 
-#: admin/views/partial/reatlat_cub-admin-advanced.php:29 
-#: admin/views/partial/reatlat_cub-admin-advanced.php:41 
-#: admin/views/partial/reatlat_cub-admin-advanced.php:53 
+#: admin/views/partial/reatlat_cub-admin-advanced.php:16
+#: admin/views/partial/reatlat_cub-admin-advanced.php:29
+#: admin/views/partial/reatlat_cub-admin-advanced.php:41
+#: admin/views/partial/reatlat_cub-admin-advanced.php:53
 #: admin/views/partial/reatlat_cub-admin-advanced.php:65
 msgid "Disabled"
 msgstr "Отключено"
@@ -291,10 +272,17 @@ msgstr ""
 msgid "Google URL Shortener API setting"
 msgstr "Настройка API-адаптера Google URL-Shortener"
 
-#: admin/views/partial/reatlat_cub-admin-advanced.php:75 
+#: admin/views/partial/reatlat_cub-admin-advanced.php:75
 #: admin/views/partial/reatlat_cub-admin-kb.php:13
 msgid "Google API key"
 msgstr "Google API ключ"
+
+#: admin/views/partial/reatlat_cub-admin-advanced.php:76
+#: admin/views/partial/reatlat_cub-admin-create-form.php:60
+#: admin/views/partial/reatlat_cub-admin-create-form.php:71
+#: admin/views/partial/reatlat_cub-admin-create-form.php:88
+msgid "(optional)"
+msgstr "(необязательный)"
 
 #: admin/views/partial/reatlat_cub-admin-advanced.php:76
 msgid "keep empty for use default one"
@@ -313,7 +301,7 @@ msgstr "Сбросить ключ API"
 msgid "%sHow to get your %sGoogle API key%s?%s"
 msgstr "%sКак получить свой собственный %sAPI Google API%s?%s"
 
-#: admin/views/partial/reatlat_cub-admin-advanced.php:102 
+#: admin/views/partial/reatlat_cub-admin-advanced.php:102
 #: admin/views/partial/reatlat_cub-admin-settings.php:59
 msgid "Save Changes"
 msgstr "Сохранить изменения"
@@ -346,157 +334,141 @@ msgstr "Сбросить все настройки и данные плагин�
 msgid "Reset settings & data"
 msgstr "Сброс настроек и данных"
 
-#: admin/views/partial/reatlat_cub-admin-settings.php:3
-msgid "Add"
-msgstr "Добавить"
+#: admin/views/partial/reatlat_cub-admin-links-list.php:6
+msgid "Stats"
+msgstr "Статистика"
 
-#: admin/views/partial/reatlat_cub-admin-settings.php:6
-msgid "Add new Campaign Source"
-msgstr "Добавить новый источник кампании"
+#: admin/views/partial/reatlat_cub-admin-links-list.php:7
+#: admin/views/partial/reatlat_cub-admin-create-form.php:49
+msgid "Campaign Name"
+msgstr "Название кампании"
 
-#: admin/views/partial/reatlat_cub-admin-settings.php:8
-msgid "The Campaign Source will be formatted once submitted."
-msgstr "Источник кампании будет отформатирован после отправки."
+#: admin/views/partial/reatlat_cub-admin-links-list.php:8
+msgid "Short Link"
+msgstr "Короткая ссылка"
 
-#: admin/views/partial/reatlat_cub-admin-settings.php:13
-msgid "Add new Campaign Medium"
-msgstr "Добавить новый канал кампании"
+#: admin/views/partial/reatlat_cub-admin-links-list.php:9
+msgid "Full Link"
+msgstr "Полная ссылка"
 
-#: admin/views/partial/reatlat_cub-admin-settings.php:15
-msgid "The Campaign Medium will be formatted once submitted."
-msgstr "Канал кампании будет отформатировано после отправки."
+#: admin/views/partial/reatlat_cub-admin-links-list.php:11
+msgid "Creator"
+msgstr "Автор"
 
-#: admin/views/partial/reatlat_cub-admin-settings.php:19
-msgid "Remove"
-msgstr "Удалить"
+#: admin/views/partial/reatlat_cub-admin-links-list.php:28
+#: admin/views/partial/reatlat_cub-admin-links-list.php:48
+msgid "Open Analytics data"
+msgstr "Открыть статистику"
 
-#: admin/views/partial/reatlat_cub-admin-settings.php:22
-msgid "Remove Campaign Source"
-msgstr "Удалить источник кампании"
+#: admin/views/partial/reatlat_cub-admin-links-list.php:31
+msgid "Example link"
+msgstr "Пример ссылки"
 
-#: admin/views/partial/reatlat_cub-admin-settings.php:25 
-#: admin/views/partial/reatlat_cub-admin-settings.php:44
-msgid "Select"
-msgstr "Выбрать"
+#: admin/views/partial/reatlat_cub-admin-links-list.php:32
+#: admin/views/partial/reatlat_cub-admin-links-list.php:33
+msgid "Click cell to copy to clipboard"
+msgstr "Щелкните ячейку, чтобы скопировать в буфер обмена"
 
-#: admin/views/partial/reatlat_cub-admin-settings.php:40
-msgid "Remove Campaign Medium"
-msgstr "Удалить канал кампании"
+#: admin/views/partial/reatlat_cub-admin-links-list.php:35
+msgid "Plugin Author"
+msgstr "Автор плагина"
 
-#: admin/views/partial/reatlat_cub-admin-manage.php:3
-msgid "Existing generated links"
-msgstr "Существующие сгенерированные ссылки"
+#: admin/views/partial/reatlat_cub-admin-links-list.php:38
+#: admin/views/partial/reatlat_cub-admin-links-list.php:61
+#: admin/views/partial/reatlat_cub-admin-links-list.php:64
+msgid "Remove link"
+msgstr "Удалить ссылку"
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:10
-#, php-format
-msgid ""
-"Added translation to Spanish and Portuguese, big Thank you for %sTihh "
-"Gonçalves%s"
+#: admin/views/partial/reatlat_cub-admin-links-list.php:64
+msgid "Are you sure?"
+msgstr "Ты уверен?"
+
+#: admin/views/partial/reatlat_cub-admin-create-form.php:5
+msgid "Website URL"
+msgstr "Ссылка на сайт"
+
+#: admin/views/partial/reatlat_cub-admin-create-form.php:7
+msgid "https://example.com/example-page/"
+msgstr "https://example.com/example-page/"
+
+#: admin/views/partial/reatlat_cub-admin-create-form.php:8
+msgid "The full website URL (e.g. https://example.com/example-page/)"
 msgstr ""
-"Добавлен перевод на испанский и португальский языки, большая благодарность "
-"за перевод %sTihh Gonçalves%s"
+"Полный URL адресс веб-сайта (например, https://example.com/example-page/)"
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:20
-msgid "Update layout"
-msgstr "Обновлён макет"
+#: admin/views/partial/reatlat_cub-admin-create-form.php:13
+msgid "Campaign Source"
+msgstr "Источник кампании"
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:21
-msgid "Move \"create a new tracking link\" to own tab"
-msgstr "«Создать новую ссылку» перемещенно в собственную вкладку"
+#: admin/views/partial/reatlat_cub-admin-create-form.php:25
+#: admin/views/partial/reatlat_cub-admin-settings.php:7
+msgid "The referrer: (e.g. google, newsletter)"
+msgstr "Источник: (например: google, newsletter)"
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:22
-msgid "Added new advanced settings"
-msgstr "Добавлены новые дополнительные настройки"
+#: admin/views/partial/reatlat_cub-admin-create-form.php:30
+msgid "Campaign Medium"
+msgstr "Канал кампании"
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:23
-msgid "Make plugin translatable"
-msgstr "Плагин обновлен и сделан переводимым на другие языки"
+#: admin/views/partial/reatlat_cub-admin-create-form.php:42
+#: admin/views/partial/reatlat_cub-admin-settings.php:14
+msgid "Marketing medium: (e.g. cpc, banner, email)"
+msgstr "Маркетинговые каналы: (например, cpc, banner, email)"
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:24
-msgid "Added translation to Russian"
-msgstr "Добавлен перевод на русский язык"
+#: admin/views/partial/reatlat_cub-admin-create-form.php:52
+msgid "Product, promo code, or slogan."
+msgstr "Продукт, промо-код или слоган."
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:25
-msgid "Added meta box: with links list"
-msgstr "Добавлен мета-бокс: со списком ссылок"
+#: admin/views/partial/reatlat_cub-admin-create-form.php:53
+msgid "The Campaign Name will be formatted once submitted."
+msgstr "Название кампании будет отформатировано после отправки."
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:26
-msgid "Added meta box: Link generator (beta option)"
-msgstr "Добавлен мета-бокс: генератор ссылок (бета)"
+#: admin/views/partial/reatlat_cub-admin-create-form.php:59
+msgid "Campaign Term"
+msgstr "Ключевое слово кампании"
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:33
-msgid "Fix problem with global date_format override"
-msgstr "Исправлена проблема с глобальным переопределением date_format"
+#: admin/views/partial/reatlat_cub-admin-create-form.php:63
+msgid "Identify the paid keywords"
+msgstr "поисковый запрос, связанный с этим трафиком"
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:40
-msgid "Add remove link function"
-msgstr "Добавлена функция удаления ссылки"
+#: admin/views/partial/reatlat_cub-admin-create-form.php:64
+msgid "The Campaign Term will be formatted once submitted."
+msgstr "Ключевое слово кампании будет отформатирован после отправки."
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:41
-msgid "Add example link"
-msgstr "Добавлен пример ссылки"
+#: admin/views/partial/reatlat_cub-admin-create-form.php:70
+msgid "Campaign Content"
+msgstr "Содержание кампании"
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:42
-msgid "Update pattern for url source"
-msgstr "Обновлён шаблон для источника URL"
+#: admin/views/partial/reatlat_cub-admin-create-form.php:74
+msgid "Use to differentiate ads"
+msgstr "Используется для различения рекламы"
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:43
-msgid "Bug fixing"
-msgstr "Исправление ошибок"
+#: admin/views/partial/reatlat_cub-admin-create-form.php:75
+msgid "The Campaign Content will be formatted once submitted."
+msgstr "Содержимое кампании будет отформатировано после отправки."
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:50
-msgid "Refactor code"
-msgstr "Рефакторинг кода"
+#: admin/views/partial/reatlat_cub-admin-create-form.php:87
+msgid "Additional Parameters"
+msgstr "Дополнительные параметры"
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:51
-msgid "Add advanced settings"
-msgstr "Добавлены дополнительные настройки"
+#: admin/views/partial/reatlat_cub-admin-create-form.php:93
+msgid "Custom Key"
+msgstr "Пользовательский ключ"
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:58
-msgid "Input/Output - sanitize, validate, and escape"
-msgstr "Вход/выход - валидация и проверка данных"
+#: admin/views/partial/reatlat_cub-admin-create-form.php:94
+msgid "Custom Value"
+msgstr "Пользовательское значение"
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:59
-msgid "Update plugin name"
-msgstr "Обновлено имя плагина"
+#: admin/views/partial/reatlat_cub-admin-create-form.php:95
+msgid "It will generate a custom pair \"key\" and \"value\"."
+msgstr "Будет сгенерированы пользовательские пары «ключ» и «значение»."
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:66
-msgid "First live release"
-msgstr "Первый релиз"
+#: admin/views/partial/reatlat_cub-admin-create-form.php:103
+msgid "Add additional parameters"
+msgstr "Добавлены дополнительные параметры"
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:74
-msgid "Like this plugin?"
-msgstr "Нравится этот плагин?"
-
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:78
-#, php-format
-msgid "%sRate it%s to show your support!"
-msgstr "%sОценить плагин%s, чтобы показать свою поддержку!"
-
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:87
-#, php-format
-msgid "%sDonate%s to encourage me updating this plugin!"
-msgstr "%sСказать спасибо%s, чтобы стимулировать меня обновлять этот плагин!"
-
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:98
-msgid "Changelog"
-msgstr "Журнал изменений"
-
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:115
-msgid "Developed by"
-msgstr "Разработано"
-
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:121
-msgid "Software Engineer"
-msgstr "Инженер-программист"
-
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:122
-msgid "Homepage"
-msgstr "Домашняя страница"
-
-#: admin/views/partial/reatlat_cub-admin-create.php:2
-msgid "Create a tracking link"
-msgstr "Создать ссылку отслеживания"
+#: admin/views/partial/reatlat_cub-admin-create-form.php:106
+msgid "Generate Link"
+msgstr "Создать ссылку"
 
 #: admin/views/partial/reatlat_cub-admin-kb.php:3
 msgid "Best Practices"
@@ -541,6 +513,47 @@ msgstr "Настроить плагин для использования ваш
 #, php-format
 msgid "Please check %sGoogle guide%s"
 msgstr "Пожалуйста, проверьте %sинструкции Google%s"
+
+#: admin/views/partial/reatlat_cub-admin-settings.php:3
+msgid "Add"
+msgstr "Добавить"
+
+#: admin/views/partial/reatlat_cub-admin-settings.php:6
+msgid "Add new Campaign Source"
+msgstr "Добавить новый источник кампании"
+
+#: admin/views/partial/reatlat_cub-admin-settings.php:8
+msgid "The Campaign Source will be formatted once submitted."
+msgstr "Источник кампании будет отформатирован после отправки."
+
+#: admin/views/partial/reatlat_cub-admin-settings.php:13
+msgid "Add new Campaign Medium"
+msgstr "Добавить новый канал кампании"
+
+#: admin/views/partial/reatlat_cub-admin-settings.php:15
+msgid "The Campaign Medium will be formatted once submitted."
+msgstr "Канал кампании будет отформатировано после отправки."
+
+#: admin/views/partial/reatlat_cub-admin-settings.php:19
+msgid "Remove"
+msgstr "Удалить"
+
+#: admin/views/partial/reatlat_cub-admin-settings.php:22
+msgid "Remove Campaign Source"
+msgstr "Удалить источник кампании"
+
+#: admin/views/partial/reatlat_cub-admin-settings.php:25
+#: admin/views/partial/reatlat_cub-admin-settings.php:44
+msgid "Select"
+msgstr "Выбрать"
+
+#: admin/views/partial/reatlat_cub-admin-settings.php:40
+msgid "Remove Campaign Medium"
+msgstr "Удалить канал кампании"
+
+#: admin/views/partial/reatlat_cub-admin-create.php:2
+msgid "Create a tracking link"
+msgstr "Создать ссылку отслеживания"
 
 #. Description of the plugin
 msgid ""

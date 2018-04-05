@@ -11,7 +11,7 @@
 
             <tr>
                 <th scope="row"><label for="new_campaign_medium"><?php _e('Add new Campaign Medium', 'campaign-url-builder'); ?></label></th>
-                <td><input name="new_campaign_medium" placeholder="Marketing medium: (e.g. cpc, banner, email)" type="text" id="new_campaign_medium" value="" class="regular-text">
+                <td><input name="new_campaign_medium" placeholder="<?php _e('Marketing medium: (e.g. cpc, banner, email)', 'campaign-url-builder'); ?>" type="text" id="new_campaign_medium" value="" class="regular-text">
                     <p class="description"><?php _e('The Campaign Medium will be formatted once submitted.', 'campaign-url-builder'); ?></p>
                 </td>
             </tr>
