@@ -17,4 +17,5 @@ temp/*
 release/wp-campaign-url-builder*
 release/**/*.zip
 svn/*
+tests/*
 
