@@ -68,35 +68,85 @@
             </tr>
         </table>
 
-        <h2 class="title"><?php _e('Google URL Shortener API setting', 'campaign-url-builder'); ?></h2>
-        <table class="form-table">
-            <tr>
-                <th scope="row">
-                    <label for="google_api_key"><?php _e('Google API key', 'campaign-url-builder'); ?> </label>
-                    <span class="description"><?php _e('(optional)', 'campaign-url-builder'); ?><br><?php _e('keep empty for use default one', 'campaign-url-builder'); ?></span>
-                </th>
-                <td>
-                    <?php if ( empty( get_option( $plugin->plugin_name . '_google_api_key' ) ) ) { ?>
-                        <input name="google_api_key" type="text" id="google_api_key" placeholder="<?php _e('Paste you Google API key here...', 'campaign-url-builder'); ?>" value="" class="regular-text"><br>
-                    <?php } else { ?>
-                        <?php
-                        $visible_google_api_key = str_repeat( '*', strlen( get_option( $plugin->plugin_name . '_google_api_key' ) ) - 5 ) . substr( get_option( $plugin->plugin_name . '_google_api_key' ), - 5 );
-                        ?>
-                        <input name="google_api_key" type="text" disabled id="google_api_key" value="<?php echo esc_attr( $visible_google_api_key ); ?>" class="regular-text"><br>
-                        <?php _e('Reset API key', 'campaign-url-builder'); ?>: <input type="checkbox" name="remove_google_api_key" value="1">
-                    <?php } ?>
-                    <?php
-                    printf(
-                        __('%sHow to get your %sGoogle API key%s?%s', 'campaign-url-builder'),
-                        '<p class="description">',
-                        '<a class="reatlat_cub_tab_link" href="#reatlat_cub_tab-4">',
-                        '</a>',
-                        '</p>'
-                    );
-                    ?>
-                </td>
-            </tr>
-        </table>
+        <h2 class="title"><?php _e('URL Shortener API settings', 'campaign-url-builder'); ?></h2>
+        <div class="reatlat_cub_form__settings--api">
+            <div class="reatlat_cub_form__settings--api__checkbox">
+
+                <div class="reatlat_cub_form__settings--api__bitly pvxs">
+                    <input type="radio" name="advanced_api" id="advanced_api_bitly" required <?php checked(get_option( $this->plugin_name . '_advanced_api') === 'bitly' ); ?> value="bitly" />
+                    <label for="advanced_api_bitly">
+                        <?php _e('Bitly URL Shortener API', 'campaign-url-builder'); ?>
+                    </label>
+                    <div class="radio-if-active">
+                        <table class="form-table">
+                            <tr>
+                                <th scope="row" class="ptn">
+                                    <label for="bitly_api_key"><?php _e('Bitly API key', 'campaign-url-builder'); ?> </label>
+                                    <span class="description"><?php _e('(optional)', 'campaign-url-builder'); ?><br><?php _e('keep empty for use default one', 'campaign-url-builder'); ?></span>
+                                </th>
+                                <td>
+                                    <?php if ( empty( get_option( $plugin->plugin_name . '_bitly_api_key' ) ) ) { ?>
+                                        <input name="bitly_api_key" type="text" id="bitly_api_key" placeholder="<?php _e('Paste you Bitly API key here...', 'campaign-url-builder'); ?>" value="" class="regular-text"><br>
+                                    <?php } else { ?>
+                                        <?php
+                                        $visible_google_api_key = str_repeat( '*', strlen( get_option( $plugin->plugin_name . '_bitly_api_key' ) ) - 5 ) . substr( get_option( $plugin->plugin_name . '_bitly_api_key' ), - 5 );
+                                        ?>
+                                        <input name="bitly_api_key" type="text" disabled id="bitly_api_key" value="<?php echo esc_attr( $visible_bitly_api_key ); ?>" class="regular-text"><br>
+                                        <?php _e('Reset API key', 'campaign-url-builder'); ?>: <input type="checkbox" name="remove_bitly_api_key" value="1">
+                                    <?php } ?>
+                                    <?php
+                                    printf(
+                                        __('%sHow to get your %sBitly API key%s?%s', 'campaign-url-builder'),
+                                        '<p class="description">',
+                                        '<a class="reatlat_cub_tab_link" href="#reatlat_cub_tab-4">',
+                                        '</a>',
+                                        '</p>'
+                                    );
+                                    ?>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="reatlat_cub_form__settings--api__google pvxs">
+                    <input type="radio" name="advanced_api" id="advanced_api_google" required <?php checked(get_option( $this->plugin_name . '_advanced_api') === 'google' ); ?> value="google" />
+                    <label for="advanced_api_google">
+                        <?php _e('Google URL Shortener API', 'campaign-url-builder'); ?>
+                    </label>
+                    <div class="radio-if-active">
+                        <table class="form-table">
+                            <tr>
+                                <th scope="row" class="ptn">
+                                    <label for="google_api_key"><?php _e('Google API key', 'campaign-url-builder'); ?> </label>
+                                    <span class="description"><?php _e('(optional)', 'campaign-url-builder'); ?><br><?php _e('keep empty for use default one', 'campaign-url-builder'); ?></span>
+                                </th>
+                                <td>
+                                    <?php if ( empty( get_option( $plugin->plugin_name . '_google_api_key' ) ) ) { ?>
+                                        <input name="google_api_key" type="text" id="google_api_key" placeholder="<?php _e('Paste you Google API key here...', 'campaign-url-builder'); ?>" value="" class="regular-text"><br>
+                                    <?php } else { ?>
+                                        <?php
+                                        $visible_google_api_key = str_repeat( '*', strlen( get_option( $plugin->plugin_name . '_google_api_key' ) ) - 5 ) . substr( get_option( $plugin->plugin_name . '_google_api_key' ), - 5 );
+                                        ?>
+                                        <input name="google_api_key" type="text" disabled id="google_api_key" value="<?php echo esc_attr( $visible_google_api_key ); ?>" class="regular-text"><br>
+                                        <?php _e('Reset API key', 'campaign-url-builder'); ?>: <input type="checkbox" name="remove_google_api_key" value="1">
+                                    <?php } ?>
+                                    <?php
+                                    printf(
+                                        __('%sHow to get your %sGoogle API key%s?%s', 'campaign-url-builder'),
+                                        '<p class="description">',
+                                        '<a class="reatlat_cub_tab_link" href="#reatlat_cub_tab-4">',
+                                        '</a>',
+                                        '</p>'
+                                    );
+                                    ?>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <p class="submit">
             <input type="submit" name="submit_advanced" id="submit" class="button button-primary" value="<?php _e('Save Changes', 'campaign-url-builder'); ?>">
