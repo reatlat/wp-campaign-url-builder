@@ -106,13 +106,13 @@ gulp.task 'coffeeScripts_admin', ->
   gulp.src(path.source+'/_scripts/!(_)*-admin.coffee')
     .pipe($.include(extension: '.coffee').on('error', errorHandler('Include *.coffee')))
     .pipe($.coffee(bare: true).on('error', errorHandler('CoffeeScript')))
-    .pipe($.uglify({}))
+    .pipe($.uglifyEs({}))
     .pipe gulp.dest(path.dist+'/admin/assets/js/')
 
 gulp.task 'javaScripts_admin', ->
   gulp.src(path.source+'/_scripts/!(_)*-admin.js')
     .pipe($.include(extension: '.js').on('error', errorHandler('Include *.js')))
-    .pipe($.uglify({}))
+    .pipe($.uglifyEs({}))
     .pipe gulp.dest(path.dist+'/admin/assets/js/')
 
 gulp.task 'javaScripts_vendor_admin', ->
@@ -123,13 +123,13 @@ gulp.task 'coffeeScripts_public', ->
   gulp.src(path.source+'/_scripts/!(_)*-public.coffee')
     .pipe($.include(extension: '.coffee').on('error', errorHandler('Include *.coffee')))
     .pipe($.coffee(bare: true).on('error', errorHandler('CoffeeScript')))
-    .pipe($.uglify({}))
+    .pipe($.uglifyEs({}))
     .pipe gulp.dest(path.dist+'/public/assets/js/')
 
 gulp.task 'javaScripts_public', ->
   gulp.src(path.source+'/_scripts/!(_)*-public.js')
     .pipe($.include(extension: '.js').on('error', errorHandler('Include *.js')))
-    .pipe($.uglify({}))
+    .pipe($.uglifyEs({}))
     .pipe gulp.dest(path.dist+'/public/assets/js/')
 
 gulp.task 'javaScripts_vendor_public', ->
