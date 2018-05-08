@@ -94,42 +94,26 @@ gulp.task 'clean_temp_folder', ->
 
 gulp.task 'scripts', (callback) ->
   runSequence [
-    'coffeeScripts_admin'
     'javaScripts_admin'
     'javaScripts_vendor_admin'
-    'coffeeScripts_public'
     'javaScripts_public'
     'javaScripts_vendor_public'
   ], callback
 
-gulp.task 'coffeeScripts_admin', ->
-  gulp.src(path.source+'/_scripts/!(_)*-admin.coffee')
-    .pipe($.include(extension: '.coffee').on('error', errorHandler('Include *.coffee')))
-    .pipe($.coffee(bare: true).on('error', errorHandler('CoffeeScript')))
-    .pipe($.uglifyEs({}))
-    .pipe gulp.dest(path.dist+'/admin/assets/js/')
-
 gulp.task 'javaScripts_admin', ->
   gulp.src(path.source+'/_scripts/!(_)*-admin.js')
     .pipe($.include(extension: '.js').on('error', errorHandler('Include *.js')))
-    .pipe($.uglifyEs({}))
+    .pipe($.uglifyEs.default({output: {comments: /^!/}}))
     .pipe gulp.dest(path.dist+'/admin/assets/js/')
 
 gulp.task 'javaScripts_vendor_admin', ->
   gulp.src(path.source+'/_scripts/vendor/admin/*.min.js')
     .pipe gulp.dest(path.dist+'/admin/assets/js/vendor/')
 
-gulp.task 'coffeeScripts_public', ->
-  gulp.src(path.source+'/_scripts/!(_)*-public.coffee')
-    .pipe($.include(extension: '.coffee').on('error', errorHandler('Include *.coffee')))
-    .pipe($.coffee(bare: true).on('error', errorHandler('CoffeeScript')))
-    .pipe($.uglifyEs({}))
-    .pipe gulp.dest(path.dist+'/public/assets/js/')
-
 gulp.task 'javaScripts_public', ->
   gulp.src(path.source+'/_scripts/!(_)*-public.js')
     .pipe($.include(extension: '.js').on('error', errorHandler('Include *.js')))
-    .pipe($.uglifyEs({}))
+    .pipe($.uglifyEs.default({output: {comments: /^!/}}))
     .pipe gulp.dest(path.dist+'/public/assets/js/')
 
 gulp.task 'javaScripts_vendor_public', ->
