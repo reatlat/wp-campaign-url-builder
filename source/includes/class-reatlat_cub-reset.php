@@ -31,6 +31,8 @@ class reatlat_cub_Reset extends reatlat_cub
     public function reset_options()
     {
         delete_option( $this->plugin_name . '_version' );
+        delete_option( $this->plugin_name . '_advanced_api' );
+        delete_option( $this->plugin_name . '_bitly_api_key' );
         delete_option( $this->plugin_name . '_google_api_key' );
         delete_option( $this->plugin_name . '_admin_only' );
         delete_option( $this->plugin_name . '_keep_settings' );
