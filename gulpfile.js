@@ -18,6 +18,12 @@ const $ = require('gulp-load-plugins')({
   ],
   replaceString: /\bgulp[\-.]/});
 
+const fingerOptions = {
+    base: 'admin/',
+    regex: /(?:admin\/(.*?)["'])|(?:url\(..\/(.*?)\))/g
+};
+
+
 /*
  * Default paths
  */
@@ -59,8 +65,9 @@ gulp.task('build', callback =>
     'copy_license',
     'styles',
     'scripts'
+
   ], [
-    'copy_release_to_temp'
+      'copy_release_to_temp'
   ], 'zip', callback)
 );
 
@@ -172,6 +179,22 @@ gulp.task('copy_release_to_temp', () =>
     .pipe(gulp.dest(path.temp+'/'+app.name.replace('wp-','')))
 );
 
+
+gulp.task('rev-manifest', () =>
+    gulp.src(path.dist+'/admin/**/!(sitemap)*.{xml,json,js,css,ico,gif,png,jpg,svg,eot,ttf,woff,woff2}')
+        .pipe($.rev())
+        .pipe(gulp.dest(path.dist+'/admin/'))
+        .pipe($.revDeleteOriginal())
+        .pipe($.rev.manifest('../../temp/rev-manifest.json'))
+        .pipe(gulp.dest(path.dist+'/admin/'))
+);
+
+gulp.task('fingerprint', () =>
+    gulp.src(path.release+'/**/!(sitemap)*.{php,html,xml,json,css}')
+        .pipe($.fingerprint(require('./temp/rev-manifest.json'), fingerOptions))
+        .pipe(gulp.dest('./temp/'))
+);
+
 gulp.task('zip', () =>
   gulp.src(path.temp+'/'+app.name.replace('wp-','')+'*/**')
     .pipe($.archiver(app.name+'-v'+app.version+'.zip').on('error', errorHandler('ZIP Compression')))
@@ -199,11 +222,11 @@ gulp.task('done', () =>
 );
 
 gulp.task('watch', function() {
-// Watch all files - *.coffee, *.js and *.scss
+// Watch all files -  *.js and *.scss
   console.log('');
   console.log('  May the Force be with you');
   console.log('');
-  gulp.watch(path.source+'/_scripts/**/*.{coffee,js}', [ 'scripts' ]);
+  gulp.watch(path.source+'/_scripts/**/*.js', [ 'scripts' ]);
   gulp.watch(path.source+'/_styles/**/*', [ 'styles' ]);
   return gulp.watch(path.source+'/**/*.php', [ 'copy_php' ]);
 });

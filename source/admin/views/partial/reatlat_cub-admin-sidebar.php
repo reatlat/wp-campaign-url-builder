@@ -161,13 +161,13 @@
 
     <div class="reatlat_promote_widget technologies">
         <a href="https://github.com/reatlat/wp-campaign-url-builder" target="_blank">
-            <img src="<?php echo plugin_dir_url( dirname(__FILE__) ); ?>images/github-octcat.png" alt="">
+            <img src="<?php echo str_replace('/admin', '', plugin_dir_url( dirname(__DIR__) ) ); ?>admin/views/images/github-octcat.png" alt="">
         </a>
         <a href="https://www.gnu.org/licenses/quick-guide-gplv3.en.html" target="_blank">
-            <img src="<?php echo plugin_dir_url( dirname(__FILE__) ); ?>images/gplv3.png" alt="">
+            <img src="<?php echo str_replace('/admin', '', plugin_dir_url( dirname(__DIR__) ) ); ?>admin/views/images/gplv3.png" alt="">
         </a>
         <a href="https://opensource.org/" target="_blank">
-            <img src="<?php echo plugin_dir_url( dirname(__FILE__) ); ?>images/opensource.png" alt="">
+            <img src="<?php echo str_replace('/admin', '', plugin_dir_url( dirname(__DIR__) ) ); ?>admin/views/images/opensource.png" alt="">
         </a>
     </div>
 

@@ -151,7 +151,7 @@ class reatlat_cub_Admin {
 	 */
 	public function enqueue_styles()
     {
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'assets/css/reatlat_cub-admin.css', array(), null, 'all' );
+		wp_enqueue_style( $this->plugin_name, str_replace( '/admin', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/css/reatlat_cub-admin.css', array(), null, 'all' );
 	}
 
 	/**
@@ -159,11 +159,11 @@ class reatlat_cub_Admin {
 	 */
 	public function enqueue_scripts()
     {
-        wp_enqueue_script( 'tippy-all',                 plugin_dir_url( __FILE__ ) . 'assets/js/vendor/tippy.all.min.js', array(), null, false );
-        wp_enqueue_script( 'clipboard',                 plugin_dir_url( __FILE__ ) . 'assets/js/vendor/clipboard.min.js', array(), null, false );
-        wp_enqueue_script( 'jquery-validate',           plugin_dir_url( __FILE__ ) . 'assets/js/vendor/jquery.validate.min.js', array( 'jquery' ), null, false );
-        wp_enqueue_script( 'jquery-additional-methods', plugin_dir_url( __FILE__ ) . 'assets/js/vendor/additional-methods.min.js', array( 'jquery' ), null, false );
-        wp_enqueue_script( $this->plugin_name.'-admin', plugin_dir_url( __FILE__ ) . 'assets/js/reatlat_cub-admin.js', array( 'jquery' ), null, true );
+        wp_enqueue_script( 'tippy-all',                 str_replace( '/admin', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/js/vendor/tippy.all.min.js', array(), null, false );
+        wp_enqueue_script( 'clipboard',                 str_replace( '/admin', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/js/vendor/clipboard.min.js', array(), null, false );
+        wp_enqueue_script( 'jquery-validate',           str_replace( '/admin', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/js/vendor/jquery.validate.min.js', array( 'jquery' ), null, false );
+        wp_enqueue_script( 'jquery-additional-methods', str_replace( '/admin', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/js/vendor/additional-methods.min.js', array( 'jquery' ), null, false );
+        wp_enqueue_script( $this->plugin_name.'-admin', str_replace( '/admin', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/js/reatlat_cub-admin.js', array( 'jquery' ), null, true );
 	}
 
 	/**
