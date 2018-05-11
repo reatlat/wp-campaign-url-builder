@@ -89,7 +89,7 @@
                                         <input name="bitly_api_key" type="text" id="bitly_api_key" placeholder="<?php _e('Paste you Bitly API key here...', 'campaign-url-builder'); ?>" value="" class="regular-text"><br>
                                     <?php } else { ?>
                                         <?php
-                                        $visible_google_api_key = str_repeat( '*', strlen( get_option( $plugin->plugin_name . '_bitly_api_key' ) ) - 5 ) . substr( get_option( $plugin->plugin_name . '_bitly_api_key' ), - 5 );
+                                        $visible_bitly_api_key = str_repeat( '*', strlen( get_option( $plugin->plugin_name . '_bitly_api_key' ) ) - 5 ) . substr( get_option( $plugin->plugin_name . '_bitly_api_key' ), - 5 );
                                         ?>
                                         <input name="bitly_api_key" type="text" disabled id="bitly_api_key" value="<?php echo esc_attr( $visible_bitly_api_key ); ?>" class="regular-text"><br>
                                         <?php _e('Reset API key', 'campaign-url-builder'); ?>: <input type="checkbox" name="remove_bitly_api_key" value="1">
