@@ -397,6 +397,9 @@
                     margin: 0;
                 }
             }
+            &.notice-note {
+                background: #fffbae;
+            }
             &.changelog {
                 .changelog__container {
                     max-height: 250px;
