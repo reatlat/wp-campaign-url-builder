@@ -42,8 +42,11 @@ class reatlat_cub_Admin {
         $this->remove_campaign_source = (empty($CLEAN_POST['remove_campaign_source']) ? '' : self::get_cleaned($CLEAN_POST['remove_campaign_source'], 'text'));
         $this->submit_settings        = (empty($CLEAN_POST['submit_settings'])        ? '' : 1);
 
+        $this->advanced_api           = (empty($CLEAN_POST['advanced_api'])           ? '' : self::get_cleaned($CLEAN_POST['advanced_api'], 'text'));
         $this->google_api_key         = (empty($CLEAN_POST['google_api_key'])         ? '' : self::get_cleaned($CLEAN_POST['google_api_key'], 'text'));
         $this->remove_google_api_key  = (empty($CLEAN_POST['remove_google_api_key'])  ? '' : self::get_cleaned($CLEAN_POST['remove_google_api_key'], 'number'));
+        $this->bitly_api_key          = (empty($CLEAN_POST['bitly_api_key'])          ? '' : self::get_cleaned($CLEAN_POST['bitly_api_key'], 'text'));
+        $this->remove_bitly_api_key   = (empty($CLEAN_POST['remove_bitly_api_key'])   ? '' : self::get_cleaned($CLEAN_POST['remove_bitly_api_key'], 'number'));
         $this->advanced_admin_only    = (empty($CLEAN_POST['advanced_admin_only'])    ? '' : self::get_cleaned($CLEAN_POST['advanced_admin_only'], 'checkbox'));
         $this->advanced_keep_settings = (empty($CLEAN_POST['advanced_keep_settings']) ? '' : self::get_cleaned($CLEAN_POST['advanced_keep_settings'], 'checkbox'));
         $this->advanced_show_creator  = (empty($CLEAN_POST['advanced_show_creator'])  ? '' : self::get_cleaned($CLEAN_POST['advanced_show_creator'], 'checkbox'));
@@ -148,7 +151,7 @@ class reatlat_cub_Admin {
 	 */
 	public function enqueue_styles()
     {
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'assets/css/reatlat_cub-admin.css?v=' . rand(), array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'assets/css/reatlat_cub-admin.css', array(), null, 'all' );
 	}
 
 	/**
@@ -156,11 +159,11 @@ class reatlat_cub_Admin {
 	 */
 	public function enqueue_scripts()
     {
-        wp_enqueue_script( 'tippy-all',                 plugin_dir_url( __FILE__ ) . 'assets/js/vendor/tippy.all.min.js?v=' . rand(), array(), '2.4.1', false );
-        wp_enqueue_script( 'clipboard',                 plugin_dir_url( __FILE__ ) . 'assets/js/vendor/clipboard.min.js?v=' . rand(), array(), '1.7.1', false );
-        wp_enqueue_script( 'jquery-validate',           plugin_dir_url( __FILE__ ) . 'assets/js/vendor/jquery.validate.min.js?v=' . rand(), array( 'jquery' ), '1.17.0', false );
-        wp_enqueue_script( 'jquery-additional-methods', plugin_dir_url( __FILE__ ) . 'assets/js/vendor/additional-methods.min.js?v=' . rand(), array( 'jquery' ), '1.17.0', false );
-        wp_enqueue_script( $this->plugin_name,                 plugin_dir_url( __FILE__ ) . 'assets/js/reatlat_cub-admin.js?v=' . rand(), array( 'jquery' ), $this->version, true );
+        wp_enqueue_script( 'tippy-all',                 plugin_dir_url( __FILE__ ) . 'assets/js/vendor/tippy.all.min.js', array(), null, false );
+        wp_enqueue_script( 'clipboard',                 plugin_dir_url( __FILE__ ) . 'assets/js/vendor/clipboard.min.js', array(), null, false );
+        wp_enqueue_script( 'jquery-validate',           plugin_dir_url( __FILE__ ) . 'assets/js/vendor/jquery.validate.min.js', array( 'jquery' ), null, false );
+        wp_enqueue_script( 'jquery-additional-methods', plugin_dir_url( __FILE__ ) . 'assets/js/vendor/additional-methods.min.js', array( 'jquery' ), null, false );
+        wp_enqueue_script( $this->plugin_name.'-admin', plugin_dir_url( __FILE__ ) . 'assets/js/reatlat_cub-admin.js', array( 'jquery' ), null, true );
 	}
 
 	/**
@@ -217,7 +220,7 @@ class reatlat_cub_Admin {
 		if ( $type === 'checkbox' ) return wp_validate_boolean( $string );
         if ( $type === 'url' && substr(esc_url_raw($string), 0, 4) !== 'http' )
         {
-            array_push( $this->messages, array( 'Page to link is not a valid url. It has to start with http.', 'warning' ) );
+            array_push( $this->messages, array( __('Page to link is not a valid url. It has to start with http.', 'campaign-url-builder'), 'warning' ) );
         } else {
             return esc_url_raw( strtok($string, '?') );
         }
@@ -232,7 +235,7 @@ class reatlat_cub_Admin {
 		} else {
 		    if ( !empty( $this->submit_manage_links ) )
             {
-                array_push( $this->messages, array('Page to link, Source, Medium or Campaign Name ar missing', 'error') );
+                array_push( $this->messages, array( __('Page to link, Source, Medium or Campaign Name ar missing', 'campaign-url-builder'), 'error') );
             }
         }
 	}
@@ -264,7 +267,7 @@ class reatlat_cub_Admin {
                 'date'                => time()
             )
         );
-        array_push( $this->messages, array('A new Campaign Link has been created successfully.', 'success') );
+        array_push( $this->messages, array( __('A new Campaign Link has been created successfully.', 'campaign-url-builder'), 'success') );
 
         $this->campaign_page    = '';
         $this->campaign_source  = '';
@@ -282,32 +285,44 @@ class reatlat_cub_Admin {
 
 	private function get_shortlink($full_link)
     {
-	    $key = get_option( $this->plugin_name . '_google_api_key' ) ? get_option( $this->plugin_name . '_google_api_key' ) : 'AIzaSyC9Kx8WJQ0yCtpi-sIV_-7_3iGzNRRfoWQ';
+        if ( get_option( $this->plugin_name . '_advanced_api' ) === 'google' ) {
+            $key = get_option( $this->plugin_name . '_google_api_key' ) ? get_option( $this->plugin_name . '_google_api_key' ) : 'AIzaSyC9Kx8WJQ0yCtpi-sIV_-7_3iGzNRRfoWQ';
 
-        $result = wp_remote_post( add_query_arg( 'key', $key, 'https://www.googleapis.com/urlshortener/v1/url' ), array(
-            'body' => json_encode( array( 'longUrl' => esc_url_raw( $full_link ) ) ),
-            'headers' => array( 'Content-Type' => 'application/json' ),
-        ) );
+            $result = wp_remote_post( add_query_arg( 'key', $key, 'https://www.googleapis.com/urlshortener/v1/url' ), array(
+                'body' => json_encode( array( 'longUrl' => esc_url_raw( $full_link ) ) ),
+                'headers' => array( 'Content-Type' => 'application/json' ),
+            ) );
 
-        // Return the URL if the request got an error.
-        if ( is_wp_error( $result ) )
-            return 'n/a';
+            // Return the URL if the request got an error.
+            if ( is_wp_error( $result ) )
+                return 'n/a';
 
-        $result = json_decode( $result['body'] );
+            $result = json_decode( $result['body'] );
 
-        if ( isset($result->error->errors[0]->reason) && $result->error->errors[0]->reason === "keyInvalid" )
-        {
-            array_push( $this->messages, array( 'Google API key is not a valid.', 'warning' ) );
-            return 'n/a';
+            if ( isset($result->error->errors[0]->reason) && $result->error->errors[0]->reason === "keyInvalid" )
+            {
+                array_push( $this->messages, array( __('Google API key is not a valid.', 'campaign-url-builder'), 'warning' ) );
+                return 'n/a';
+            }
+
+            if ( $result->id )
+                return $result->id;
+
+        } else { // if ( get_option( $this->plugin_name . '_advanced_api' ) === 'bitly' ) {
+
+            require plugin_dir_path(dirname(__FILE__) ) . 'vendors/bitly.php';
+            $params_bitly = array();
+            $params_bitly['access_token'] = get_option( $this->plugin_name . '_bitly_api_key' ) ? get_option( $this->plugin_name . '_bitly_api_key' ) : '13064f875b10a4e38709f8b963ca9f32acbc0937';
+
+            $params_bitly['longUrl'] = $full_link;
+            $bitly = bitly_get('shorten', $params_bitly);
+
+            if( $bitly['data']['url'] )
+                return $bitly['data']['url'];
         }
 
-        $shortlink = $result->id;
-        if ( $shortlink )
-            return $shortlink;
-
         return 'n/a';
-
-	}
+    }
 
 	public function get_links()
     {
@@ -335,25 +350,25 @@ class reatlat_cub_Admin {
 			if ( !empty($this->new_campaign_medium) )
 			{
 				$this->db->insert( $this->db->prefix . $this->plugin_name . '_mediums',array('medium_name' => $this->new_campaign_medium ));
-				array_push( $this->messages, array( 'New Campaign Medium has been added', 'success' ) );
+				array_push( $this->messages, array( __('New Campaign Medium has been added', 'campaign-url-builder'), 'success' ) );
 			}
 			if ( !empty($this->new_campaign_source) )
 			{
 				$this->db->insert( $this->db->prefix . $this->plugin_name . '_sources',array('source_name' => $this->new_campaign_source ));
-				array_push( $this->messages, array( 'New Campaign Source has been added', 'success' ) );
+				array_push( $this->messages, array( __('New Campaign Source has been added', 'campaign-url-builder'), 'success' ) );
 			}
 
 			// remove source / medium
 			if ( !empty($this->remove_campaign_medium) )
 			{
 				$this->db->delete( $this->db->prefix . $this->plugin_name . '_mediums',array('medium_name' => $this->remove_campaign_medium));
-				array_push( $this->messages, array( 'A Campaign Medium has been removed', 'success' ) );
+				array_push( $this->messages, array( __('A Campaign Medium has been removed', 'campaign-url-builder'), 'success' ) );
 
 			}
 			if ( !empty($this->remove_campaign_source) )
 			{
 				$this->db->delete( $this->db->prefix . $this->plugin_name . '_sources',array('source_name' => $this->remove_campaign_source));
-				array_push( $this->messages, array( 'A Campaign Source has been removed', 'success' ) );
+				array_push( $this->messages, array( __('A Campaign Source has been removed', 'campaign-url-builder'), 'success' ) );
 			}
 		}
 	}
@@ -362,10 +377,9 @@ class reatlat_cub_Admin {
     {
         if (!empty($this->submit_advanced))
         {
-
             if ( ! $this->advanced_keep_settings && $this->advanced_keep_settings !== get_option( $this->plugin_name . '_keep_settings' ) )
             {
-                array_push( $this->messages, array( 'Option <strong>"Keep settings and data after delete plugin"</strong> was disabled', 'warning' ) );
+                array_push( $this->messages, array( __('Option <strong>"Keep settings and data after delete plugin"</strong> was disabled', 'campaign-url-builder'), 'warning' ) );
             }
             update_option( $this->plugin_name . '_admin_only', $this->advanced_admin_only );
             update_option( $this->plugin_name . '_keep_settings', $this->advanced_keep_settings );
@@ -373,11 +387,17 @@ class reatlat_cub_Admin {
             update_option( $this->plugin_name . '_show_useronly', $this->advanced_show_useronly );
             update_option( $this->plugin_name . '_metaboxes', $this->advanced_metaboxes );
 
+            // Choose API endpoint
+            if ( !empty($this->advanced_api) && $this->advanced_api != get_option( $this->plugin_name . '_advanced_api' ) )
+            {
+                update_option( $this->plugin_name . '_advanced_api', $this->advanced_api );
+            }
+
             // Google API key
             if ( !empty($this->google_api_key) && $this->google_api_key != get_option( $this->plugin_name . '_google_api_key' ) )
             {
                 update_option( $this->plugin_name . '_google_api_key', $this->google_api_key );
-                array_push( $this->messages, array( 'The Google API key has been updated.', 'success' ) );
+                array_push( $this->messages, array( __('Google API key has been updated.', 'campaign-url-builder'), 'success' ) );
 
                 $result = wp_remote_post( add_query_arg( 'key', $this->google_api_key, 'https://www.googleapis.com/urlshortener/v1/url' ), array(
                     'body' => json_encode( array( ) ),
@@ -385,24 +405,36 @@ class reatlat_cub_Admin {
                 ) );
 
                 if ( is_wp_error( $result ) )
-                    array_push( $this->messages, array( 'Can\'t check Google API key.', 'error' ) );
+                    array_push( $this->messages, array( __('Can\'t check Google API key.', 'campaign-url-builder'), 'error' ) );
 
                 $result = json_decode( $result['body'] );
 
                 if ( isset($result->error->errors[0]->reason) && $result->error->errors[0]->reason === "keyInvalid" )
                 {
-                    array_push( $this->messages, array( 'Google API key is not a valid.', 'error' ) );
+                    array_push( $this->messages, array( __('Google API key is not a valid.', 'campaign-url-builder'), 'error' ) );
                 }
-
             }
 
             if ( !empty($this->remove_google_api_key) && $this->remove_google_api_key == 1 )
             {
                 update_option( $this->plugin_name . '_google_api_key', '' );
-                array_push( $this->messages, array( 'Google API key is empty now.', 'success' ) );
+                array_push( $this->messages, array( __('Google API key is empty now.', 'campaign-url-builder'), 'success' ) );
             }
 
-            array_push( $this->messages, array( 'Advanced setting has been updated', 'success' ) );
+            // Bitly API key
+            if ( !empty($this->bitly_api_key) && $this->bitly_api_key != get_option( $this->plugin_name . '_bitly_api_key' ) )
+            {
+                update_option( $this->plugin_name . '_bitly_api_key', $this->bitly_api_key );
+                array_push( $this->messages, array( __('Bitly API key has been updated.', 'campaign-url-builder'), 'success' ) );
+            }
+
+            if ( !empty($this->remove_bitly_api_key) && $this->remove_bitly_api_key == 1 )
+            {
+                update_option( $this->plugin_name . '_bitly_api_key', '' );
+                array_push( $this->messages, array( __('Bitly API key is empty now.', 'campaign-url-builder'), 'success' ) );
+            }
+
+            array_push( $this->messages, array( __('Advanced setting has been updated', 'campaign-url-builder'), 'success' ) );
         }
     }
 
@@ -416,31 +448,31 @@ class reatlat_cub_Admin {
             {
                 $this->reset_all = true;
                 $reset->reset_all();
-                array_push( $this->messages, array( 'All plugin settings and data has been reset to default', 'error' ) );
+                array_push( $this->messages, array( __('All plugin settings and data has been reset to default', 'campaign-url-builder'), 'error' ) );
             }
 
             if ( $this->reset_links && ! $this->reset_all )
             {
                 $reset->reset_links();
-                array_push( $this->messages, array( 'All <strong>"campaign-links"</strong> has been deleted', 'warning' ) );
+                array_push( $this->messages, array( __('All <strong>"campaign-links"</strong> has been deleted', 'campaign-url-builder'), 'warning' ) );
             }
 
             if ( $this->reset_mediums && ! $this->reset_all )
             {
                 $reset->reset_mediums();
-                array_push( $this->messages, array( 'All <strong>"Mediums"</strong> has been deleted', 'warning' ) );
+                array_push( $this->messages, array( __('All <strong>"Mediums"</strong> has been deleted', 'campaign-url-builder'), 'warning' ) );
             }
 
             if ( $this->reset_sources && ! $this->reset_all )
             {
                 $reset->reset_sources();
-                array_push( $this->messages, array( 'All <strong>"Sources"</strong> has been deleted', 'warning' ) );
+                array_push( $this->messages, array( __('All <strong>"Sources"</strong> has been deleted', 'campaign-url-builder'), 'warning' ) );
             }
 
             if ( $this->reset_options && ! $this->reset_all )
             {
                 $reset->reset_options();
-                array_push( $this->messages, array( 'All <strong>"Settings & Options"</strong> has been reset to default', 'warning' ) );
+                array_push( $this->messages, array( __('All <strong>"Settings & Options"</strong> has been reset to default', 'campaign-url-builder'), 'warning' ) );
             }
 
             unset($reset);
@@ -463,5 +495,16 @@ class reatlat_cub_Admin {
     {
         //
 	}
+
+	// helpers
+    public function strpos_array( $haystack, $needle, $offset=0 )
+    {
+        if(!is_array($needle)) $needle = array($needle);
+        foreach($needle as $query) {
+            if(strpos($haystack, $query, $offset) !== false)
+                return true; // stop on first true result
+        }
+        return false;
+    }
 
 }
