@@ -125,6 +125,9 @@
                 );
                 ?>
             </p>
+            <p>
+                <?php printf( __('We switch "Campaign URL Builder" to Bitly API endpoint by default (you can %sswitch it back%s to Goo.gl if you want)', 'campaign-url-builder'), '<a class="reatlat_cub_tab_link" href="#reatlat_cub_tab-3">', '</a>'); ?>
+            </p>
         </div>
     </div>
 
