@@ -65,7 +65,10 @@ gulp.task('build', callback =>
     'copy_license',
     'styles',
     'scripts'
-
+  ], [
+      'rev-manifest'
+  ], [
+      'fingerprint'
   ], [
       'copy_release_to_temp'
   ], 'zip', callback)
@@ -192,7 +195,7 @@ gulp.task('rev-manifest', () =>
 gulp.task('fingerprint', () =>
     gulp.src(path.release+'/**/!(sitemap)*.{php,html,xml,json,css}')
         .pipe($.fingerprint(require('./temp/rev-manifest.json'), fingerOptions))
-        .pipe(gulp.dest('./temp/'))
+        .pipe(gulp.dest(path.release))
 );
 
 gulp.task('zip', () =>
