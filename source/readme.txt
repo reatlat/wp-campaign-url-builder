@@ -5,7 +5,7 @@ Tags: utm, tracking link, google analytics, analytics, link generator, googl, go
 Requires at least: 3.0.1
 Tested up to: 4.9.4
 Requires PHP: 5.6 or later
-Stable tag: 1.3.1
+Stable tag: 1.4.0
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -45,6 +45,14 @@ on GitHub <https://github.com/reatlat/wp-campaign-url-builder/issues>
 Nothing for now
 
 == Changelog ==
+
+= 1.4.0 =
+* Improve language translation
+* Include new API endpoint Bitly
+* Switch to Bitly endpoint by default
+* Migrate to ES6
+* Implement fingerprints for assets
+* Improve code
 
 = 1.3.1 =
 * Fixed error with wrong variable on plugins page
