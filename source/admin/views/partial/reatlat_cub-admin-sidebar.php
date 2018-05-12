@@ -3,14 +3,26 @@
 
     $changelog = array(
         array(
-            'version' => '1.3.2',
-            'date'    => '2018/04/XX',
+            'version' => '1.X.X',
+            'date'    => '2018/05/XX',
             'changes' => array(
                 sprintf(
                     __('Added translation to Spanish and Portuguese, big Thank you for %sTihh Gonçalves%s', 'campaign-url-builder'),
                     '<a target="_blank" href="https://www.tiago.art.br">',
                     '</a>'
                 ),
+            ),
+        ),
+        array(
+            'version' => '1.4.0',
+            'date'    => '2018/05/11',
+            'changes' => array(
+                __('Improve language translation', 'campaign-url-builder'),
+                __('Include new API endpoint Bitly', 'campaign-url-builder'),
+                __('Switch to Bitly endpoint by default', 'campaign-url-builder'),
+                __('Migrate to ES6', 'campaign-url-builder'),
+                __('Implement fingerprints for assets', 'campaign-url-builder'),
+                __('Improve code', 'campaign-url-builder'),
             ),
         ),
         array(
@@ -102,6 +114,23 @@
 	</div>
 
 
+    <div class="reatlat_promote_widget notice-note">
+        <div class="reatlat_promote_title"><?php _e('Notice', 'campaign-url-builder'); ?></div>
+        <div class="notice__container">
+            <p>
+                <?php
+                printf( __('Starting March 30, 2018, Google will be turning down support for goo.gl URL shortener. From April 13, 2018 only existing users will be able to create short links on the goo.gl console. You will be able to view your analytics data and download your short link information in csv format for up to one year, until March 30, 2019, when Google will discontinue goo.gl. Previously created links will continue to redirect to their intended destination. Please see this %sblog post%s for more details.', 'campaign-url-builder'),
+                    '<a target="_blank" href="https://developers.googleblog.com/2018/03/transitioning-google-url-shortener.html">',
+                    '</a>'
+                );
+                ?>
+            </p>
+            <p>
+                <?php printf( __('We switch "Campaign URL Builder" to Bitly API endpoint by default (you can %sswitch it back%s to Goo.gl if you want)', 'campaign-url-builder'), '<a class="reatlat_cub_tab_link" href="#reatlat_cub_tab-3">', '</a>'); ?>
+            </p>
+        </div>
+    </div>
+
     <div class="reatlat_promote_widget changelog">
         <div class="reatlat_promote_title"><?php _e('Changelog', 'campaign-url-builder'); ?></div>
         <div class="changelog__container">
@@ -135,13 +164,13 @@
 
     <div class="reatlat_promote_widget technologies">
         <a href="https://github.com/reatlat/wp-campaign-url-builder" target="_blank">
-            <img src="<?php echo plugin_dir_url( dirname(__FILE__) ); ?>images/github-octcat.png" alt="">
+            <img src="<?php echo str_replace('/admin', '', plugin_dir_url( dirname(__DIR__) ) ); ?>admin/views/images/github-octcat.png" alt="">
         </a>
         <a href="https://www.gnu.org/licenses/quick-guide-gplv3.en.html" target="_blank">
-            <img src="<?php echo plugin_dir_url( dirname(__FILE__) ); ?>images/gplv3.png" alt="">
+            <img src="<?php echo str_replace('/admin', '', plugin_dir_url( dirname(__DIR__) ) ); ?>admin/views/images/gplv3.png" alt="">
         </a>
         <a href="https://opensource.org/" target="_blank">
-            <img src="<?php echo plugin_dir_url( dirname(__FILE__) ); ?>images/opensource.png" alt="">
+            <img src="<?php echo str_replace('/admin', '', plugin_dir_url( dirname(__DIR__) ) ); ?>admin/views/images/opensource.png" alt="">
         </a>
     </div>
 

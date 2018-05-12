@@ -14,7 +14,7 @@ node_modules
 build/*
 wp-data/*
 temp/*
-release/wp-campaign-url-builder*
-release/**/*.zip
+release/*
 svn/*
+tests/*
 

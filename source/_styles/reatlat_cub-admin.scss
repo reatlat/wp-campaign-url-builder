@@ -1,11 +1,12 @@
 @import "vars";
 @import "mixins/import-now";
-@import "vendors/import-now";
 
 
 #reatlat_cub {
 
-    @import "vendors/toggle-checkbox";
+    @import "vendors/import-now";
+
+    @import "radio-button";
 
     &.wrap {
         &.ru_RU {
@@ -35,6 +36,9 @@
             color: $red;
             position: relative;
             margin-left: 5px;
+        }
+        &.label--full-width {
+            display: block;
         }
     }
     input.error {
@@ -392,6 +396,9 @@
                 h4 {
                     margin: 0;
                 }
+            }
+            &.notice-note {
+                background: #fffbae;
             }
             &.changelog {
                 .changelog__container {

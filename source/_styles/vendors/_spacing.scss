@@ -1,0 +1,95 @@
+/**
+ * Spacing classes
+ * Should be used to modify the default spacing between objects (not between nodes of the same object)
+ * Please use judiciously@mixin  You want to be using defaults most of the time, these are exceptions!
+ * <type><location><size>
+ *
+ *spacing helpers
+ *p,m = padding,margin
+ *a,t,r,b,l,h,v = all,top,right,bottom,left,horizontal,vertical
+ *s,m,l,n = small($spaceS),medium($spaceM),large($spaceL),none(0)
+ */
+$null:               rem(0px) !important !default;
+$extra-small:        rem(5px) !important !default;
+$small:             rem(10px) !important !default;
+$medium:            rem(15px) !important !default;
+$large:             rem(25px) !important !default;
+$extra-large:       rem(40px) !important !default;
+$extra-extra-large: rem(60px) !important !default;
+
+
+.ptn, .pvn, .pan { padding-top:     $null; }
+.prn, .phn, .pan { padding-right:   $null; }
+.pbn, .pvn, .pan { padding-bottom:  $null; }
+.pln, .phn, .pan { padding-left:    $null; }
+.mtn, .mvn, .man { margin-top:      $null; }
+.mrn, .mhn, .man { margin-right:    $null; }
+.mbn, .mvn, .man { margin-bottom:   $null; }
+.mln, .mhn, .man { margin-left:     $null; }
+
+
+.ptxs, .pvxs, .paxs { padding-top:     $extra-small; }
+.prxs, .phxs, .paxs { padding-right:   $extra-small; }
+.pbxs, .pvxs, .paxs { padding-bottom:  $extra-small; }
+.plxs, .phxs, .paxs { padding-left:    $extra-small; }
+.mtxs, .mvxs, .maxs { margin-top:      $extra-small; }
+.mrxs, .mhxs, .maxs { margin-right:    $extra-small; }
+.mbxs, .mvxs, .maxs { margin-bottom:   $extra-small; }
+.mlxs, .mhxs, .maxs { margin-left:     $extra-small; }
+
+
+.ptsm, .pvsm, .pasm { padding-top:     $small; }
+.prsm, .phsm, .pasm { padding-right:   $small; }
+.pbsm, .pvsm, .pasm { padding-bottom:  $small; }
+.plsm, .phsm, .pasm { padding-left:    $small; }
+.mtsm, .mvsm, .masm { margin-top:      $small; }
+.mrsm, .mhsm, .masm { margin-right:    $small; }
+.mbsm, .mvsm, .masm { margin-bottom:   $small; }
+.mlsm, .mhsm, .masm { margin-left:     $small; }
+
+
+.ptmd, .pvmd, .pamd { padding-top:     $medium; }
+.prmd, .phmd, .pamd { padding-right:   $medium; }
+.pbmd, .pvmd, .pamd { padding-bottom:  $medium; }
+.plmd, .phmd, .pamd { padding-left:    $medium; }
+.mtmd, .mvmd, .mamd { margin-top:      $medium; }
+.mrmd, .mhmd, .mamd { margin-right:    $medium; }
+.mbmd, .mvmd, .mamd { margin-bottom:   $medium; }
+.mlmd, .mhmd, .mamd { margin-left:     $medium; }
+
+
+.ptlg, .pvlg, .palg { padding-top:     $large; }
+.prlg, .phlg, .palg { padding-right:   $large; }
+.pblg, .pvlg, .palg { padding-bottom:  $large; }
+.pllg, .phlg, .palg { padding-left:    $large; }
+.mtlg, .mvlg, .malg { margin-top:      $large; }
+.mrlg, .mhlg, .malg { margin-right:    $large; }
+.mblg, .mvlg, .malg { margin-bottom:   $large; }
+.mllg, .mhlg, .malg { margin-left:     $large; }
+
+
+.mtxl, .mvxl, .maxl { margin-top:     $extra-large; }
+.mbxl, .mvxl, .maxl { margin-bottom:  $extra-large; }
+.mlxl, .mhxl, .maxl { margin-left:    $extra-large; }
+.mrxl, .mhxl, .maxl { margin-right:   $extra-large; }
+.ptxl, .pvxl, .paxl { padding-top:    $extra-large; }
+.pbxl, .pvxl, .paxl { padding-bottom: $extra-large; }
+.plxl, .phxl, .paxl { padding-left:   $extra-large; }
+.prxl, .phxl, .paxl { padding-right:  $extra-large; }
+
+
+.mtxxl, .mvxxl, .maxxl { margin-top:     $extra-extra-large; }
+.mbxxl, .mvxxl, .maxxl { margin-bottom:  $extra-extra-large; }
+.mlxxl, .mhxxl, .maxxl { margin-left:    $extra-extra-large; }
+.mrxxl, .mhxxl, .maxxl { margin-right:   $extra-extra-large; }
+.ptxxl, .pvxxl, .paxxl { padding-top:    $extra-extra-large; }
+.pbxxl, .pvxxl, .paxxl { padding-bottom: $extra-extra-large; }
+.plxxl, .phxxl, .paxxl { padding-left:   $extra-extra-large; }
+.prxxl, .phxxl, .paxxl { padding-right:  $extra-extra-large; }
+
+
+// margin-auto
+.mla, .mha, .maa { margin-left:   auto !important; }
+.mra, .mha, .maa { margin-right:  auto !important; }
+.mta, .mva, .maa { margin-top:    auto !important; }
+.mba, .mva, .maa { margin-bottom: auto !important; }

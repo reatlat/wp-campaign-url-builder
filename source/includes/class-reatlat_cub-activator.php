@@ -108,6 +108,8 @@ class reatlat_cub_Activator extends reatlat_cub
 			}
 		}
 
+		add_option( $this->plugin_name . '_advanced_api', 'bitly' );
+		add_option( $this->plugin_name . '_bitly_api_key', '' );
 		add_option( $this->plugin_name . '_google_api_key', '' );
 		add_option( $this->plugin_name . '_keep_settings', true );
 		add_option( $this->plugin_name . '_admin_only', false );
