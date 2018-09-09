@@ -14,6 +14,15 @@
             ),
         ),
         array(
+            'version' => '1.4.1',
+            'date'    => '2018/09/10',
+            'changes' => array(
+                __('Fixed not working button preview post', 'campaign-url-builder'),
+                __('Fixed bug with plugin removal function', 'campaign-url-builder'),
+                __('Minor bug fixes', 'campaign-url-builder'),
+            ),
+        ),
+        array(
             'version' => '1.4.0',
             'date'    => '2018/05/11',
             'changes' => array(
