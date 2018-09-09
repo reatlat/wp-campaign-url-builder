@@ -1,4 +1,12 @@
 # WordPress - Campaign URL Builder
+[![](https://img.shields.io/badge/release-1.4.1-green.svg)](https://github.com/reatlat/wp-campaign-url-builder/releases/tag/v1.4.1)
+[![](https://img.shields.io/badge/npm-6.1.0-red.svg?logo=npm)](https://nodejs.org/en/)
+[![](https://img.shields.io/badge/Gulp-%5E3.9.1-DA4648.svg?logo=gulp)](https://gulpjs.com/)
+[![](https://img.shields.io/badge/Sass-ready-ff69b4.svg?logo=sass)](https://sass-lang.com/)
+[![](https://img.shields.io/badge/Docker-ready-blue.svg?logo=docker)](https://hub.docker.com/_/wordpress/)
+[![](https://img.shields.io/badge/PHP_5.6-ready-777BB4.svg?logo=php)](https://php.net/)
+[![](https://img.shields.io/badge/PHP_7.2-ready-777BB4.svg?logo=php)](https://php.net/)
+[![](https://img.shields.io/badge/WordPress-4.9.8-blue.svg?logo=wordpress)](https://wordpress.org/)
 
 Generates links for Analytics tools and short link.
 Enter your Campaign Name, Source, Medium (UTM link) etc.
