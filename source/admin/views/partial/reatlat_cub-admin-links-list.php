@@ -10,7 +10,7 @@
             <?php if ( get_option( $this->plugin_name . '_show_creator') ) : ?>
                 <td class="campaign_user_id"><?php _e('Creator', 'campaign-url-builder'); ?></td>
             <?php endif; ?>
-            <?php if ( $_GET['page'] === 'reatlat_cub-settings-page' ) : ?>
+            <?php if ( isset($_GET['page']) && ['page'] === 'reatlat_cub-settings-page' ) : ?>
             <td class="campaign_remove_link"></td>
             <?php endif; ?>
         </tr>
@@ -34,7 +34,7 @@
                 <?php if ( get_option( $this->plugin_name . '_show_creator') ) : ?>
                     <td class="campaign_user_id">Alex Zappa<br><small>(<?php _e('Plugin Author', 'campaign-url-builder'); ?>)</small></td>
                 <?php endif; ?>
-                <?php if ( $_GET['page'] === 'reatlat_cub-settings-page' ) : ?>
+                <?php if ( isset($_GET['page']) && $_GET['page'] === 'reatlat_cub-settings-page' ) : ?>
                 <td class="campaign_remove_link tippy--hover" title="<?php _e('Remove link', 'campaign-url-builder'); ?>"><span class="campaign_remove_link__inner demo js-remove-link"><span class="dashicons dashicons-trash"></span></span></td>
                 <?php endif; ?>
             </tr>
@@ -73,7 +73,7 @@
                         <td class="campaign_user_id"><?php echo sanitize_user( get_userdata($link->user_id)->display_name ); ?><br><small>(<?php echo esc_attr( implode(', ', get_userdata($link->user_id)->roles) ); ?>)</small></td>
                     <?php endif; ?>
 
-                    <?php if ( $_GET['page'] === 'reatlat_cub-settings-page' ) : ?>
+                    <?php if ( isset($_GET['page']) && $_GET['page'] === 'reatlat_cub-settings-page' ) : ?>
                     <td class="campaign_remove_link tippy--hover" title="<?php _e('Remove link','campaign-url-builder'); ?>">
                         <form method="POST">
                             <input name="remove_link_id" type="number" value="<?php echo esc_attr( $link->id ); ?>" hidden>
