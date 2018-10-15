@@ -122,15 +122,30 @@ class reatlat_cub_Admin {
     {
         if ( $this->campaign_page && $this->campaign_source && $this->campaign_medium && $this->campaign_name ) {
 
-            self::check_manage_links();
+            $link = self::add_link();
+
+            $response = array(
+                "result"              => true,
+                "campaign_full_link"  => $link["campaign_full_link"],
+                "campaign_short_link" => $link["campaign_short_link"],
+                "campaign_name"       => $link["campaign_name"],
+                "user_id"             => $link["user_id"],
+                "user_name"           => $link["user_name"],
+                "user_role"           => $link["user_role"]
+            );
 
             header( "Content-Type: application/json" );
-            echo json_encode('Link should be created.');
+            echo json_encode($response);
 
         } else {
 
+            $response = array(
+                "result" => false,
+                "message" => "Sorry, something went wrong. Please try again."
+            );
+
             header( "Content-Type: application/json" );
-            echo json_encode('Oops... something wrong!');
+            echo json_encode($response);
 
         }
 
@@ -257,16 +272,28 @@ class reatlat_cub_Admin {
 
         $campaign_short_link = self::get_shortlink( $campaign_full_link );
 
+        $current_user = wp_get_current_user();
+
         $this->db->insert(
             $this->db->prefix . $this->plugin_name . '_links',
             array(
                 'campaign_name'       => $this->campaign_name,
                 'campaign_full_link'  => $campaign_full_link,
                 'campaign_short_link' => $campaign_short_link,
-                'user_id'             => get_current_user_id(),
+                'user_id'             => $current_user->ID,
                 'date'                => time()
             )
         );
+
+        $response = array(
+            "campaign_full_link"  => $campaign_full_link,
+            "campaign_short_link" => $campaign_short_link,
+            "campaign_name"       => $this->campaign_name,
+            "user_id"             => $current_user->ID,
+            "user_name"           => $current_user->user_login,
+            "user_role"           => get_userdata($current_user->ID)->roles
+        );
+
         array_push( $this->messages, array( __('A new Campaign Link has been created successfully.', 'campaign-url-builder'), 'success') );
 
         $this->campaign_page    = '';
@@ -281,6 +308,8 @@ class reatlat_cub_Admin {
         $this->custom_value_2   = '';
         $this->custom_key_3     = '';
         $this->custom_value_3   = '';
+
+        return $response;
 	}
 
 	private function get_shortlink($full_link)

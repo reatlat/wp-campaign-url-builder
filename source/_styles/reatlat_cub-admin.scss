@@ -113,6 +113,20 @@
                 margin: 10px 0 0;
             }
         }
+
+        &--clipboard {
+
+        }
+        &--success {
+
+        }
+        &--error {
+            .reatlat_cub_notice__inner {
+                border: 1px solid $red;
+                background: lighten($red, 50%);
+            }
+
+        }
     }
 
     .reatlat_cub_tabs {

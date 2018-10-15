@@ -1,6 +1,6 @@
 {
   "name": "wp-campaign-url-builder",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "Generates links for Analytics tools and short link. Enter your Campaign Name, Source, Medium (UTM link) etc. to generate a full link and a short link (trough the Google URL Shortener API) all in once.",
   "main": "index.js",
   "scripts": {
@@ -43,21 +43,21 @@
     "gulp-include": "^2.3.1",
     "gulp-load-plugins": "^1.5.0",
     "gulp-notify": "^3.2.0",
-    "gulp-rename": "^1.2.2",
+    "gulp-rename": "^1.4.0",
     "gulp-replace": "^0.6.1",
     "gulp-rev": "^8.1.1",
     "gulp-rev-delete-original": "^0.2.3",
     "gulp-sass": "^3.2.1",
     "gulp-strip-css-comments": "^1.2.0",
-    "gulp-uglify": "^3.0.0",
-    "gulp-uglify-es": "^1.0.1",
+    "gulp-uglify": "^3.0.1",
+    "gulp-uglify-es": "^1.0.4",
     "gulp-util": "^3.0.8",
     "gulp-watch": "^4.3.11",
-    "lodash": "^4.17.10",
+    "lodash": "^4.17.11",
     "node-notifier": "^5.2.1",
-    "node-sass": "^4.9.0",
+    "node-sass": "^4.9.3",
     "run-sequence": "^2.2.1",
     "sigmund": "^1.0.1",
-    "uuid": "^3.2.1"
+    "uuid": "^3.3.2"
   }
 }
