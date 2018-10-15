@@ -25,9 +25,9 @@ jQuery(function($) {
 
         $('td[data-copy]').on('click', function(e) {
 			e.preventDefault();
-            $('.reatlat_cub_notice').show();
+            $('.reatlat_cub_notice--clipboard').show();
             setTimeout(function () {
-                $('.reatlat_cub_notice').fadeOut("slow");
+                $('.reatlat_cub_notice--clipboard').fadeOut("slow");
             },450);
 		});
 
@@ -90,7 +90,22 @@ jQuery(function($) {
                             submit_manage_links: $('input[name="submit_manage_links"]').val()
                         }
                     }).done(function( msg ) {
-                        console.log( "Ajax respond: " + msg );
+                        console.log( "WP Campaign URL Builder: ", msg );
+                        if (msg.result) {
+                            $('.reatlat_cub_notice--create-and-clipboard').show();
+                            setTimeout(function () {
+                                $('.reatlat_cub_notice--create-and-clipboard').fadeOut("slow");
+                            },450);
+
+                            //TODO: JS append url to table
+
+
+                        } else {
+                            $('.reatlat_cub_notice--error').show();
+                            setTimeout(function () {
+                                $('.reatlat_cub_notice--error').fadeOut("slow");
+                            },1000);
+                        }
                         return false;
                     });
                 }
