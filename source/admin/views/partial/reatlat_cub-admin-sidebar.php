@@ -14,6 +14,14 @@
             ),
         ),
         array(
+            'version' => '1.4.2',
+            'date'    => '2018/10/15',
+            'changes' => array(
+                __('Added notification about created link on page/post editor', 'campaign-url-builder'),
+                __('Update AJAX-function for link creation', 'campaign-url-builder'),
+            ),
+        ),
+        array(
             'version' => '1.4.1',
             'date'    => '2018/09/10',
             'changes' => array(
