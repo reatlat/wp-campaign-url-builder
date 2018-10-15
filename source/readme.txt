@@ -5,7 +5,7 @@ Tags: utm, tracking link, google analytics, analytics, link generator, googl, go
 Requires at least: 3.0.1
 Tested up to: 4.9.8
 Requires PHP: 5.6 or later
-Stable tag: 1.4.1
+Stable tag: 1.4.2
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -45,6 +45,10 @@ on GitHub <https://github.com/reatlat/wp-campaign-url-builder/issues>
 Nothing for now
 
 == Changelog ==
+
+= 1.4.2 =
+* Added notification about created link on page/post editor
+* Update AJAX-function for link creation
 
 = 1.4.1 =
 * Fixed bug with plugin removal function
