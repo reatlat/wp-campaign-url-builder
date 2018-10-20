@@ -234,7 +234,10 @@
                 display: none;
             }
             &.reatlat_cub_yellow-highlight {
-                background: #fffbae;
+                background: #fbffce;
+                &:nth-child(odd) {
+                    background: #fffbae;
+                }
             }
         }
         td.campaign_info {

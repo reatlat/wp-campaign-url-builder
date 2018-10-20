@@ -15,7 +15,7 @@
             <?php endif; ?>
         </tr>
         </thead>
-        <tbody>
+        <tbody class="reatlat_cub_links-list">
         <?php
 
         $links = $plugin->get_links();

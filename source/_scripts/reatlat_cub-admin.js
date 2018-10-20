@@ -106,9 +106,11 @@ jQuery(function($) {
                                     tableRow += '<td class="campaign_short_link">n/a</td>';
                                 }
                                 tableRow += '<td class="campaign_full_link tippy--hover" data-clipboard-text="' + msg.campaign_full_link + '" data-copy="true" data-original-title="Click cell to copy to clipboard">' + msg.campaign_full_link + '<span class="dashicons dashicons-clipboard"></span></td> ';
-                                tableRow += '<td></td>';
+                                if ( $('td.campaign_user_id').length ) {
+                                    tableRow += '<td></td>';
+                                }
                                 tableRow += '</tr>';
-                            $('.reatlat_cub_link-on-list.first-link').before(tableRow);
+                            $('.reatlat_cub_links-list').prepend(tableRow);
 
                         } else {
                             $('.reatlat_cub_notice--error').show();
