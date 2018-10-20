@@ -6,11 +6,10 @@
 
     <div id="reatlat_cub_campaign-form--create-link" class="reatlat_cub_form">
         <table class="form-table">
-
             <tr>
                 <th scope="row"><label for="campaign_page"><?php _e('Website URL', 'campaign-url-builder'); ?> <span class="required">*</span></label></th>
                 <td>
-                    <input name="campaign_page" placeholder="<?php _e('https://example.com/example-page/', 'campaign-url-builder'); ?>" type="text" id="campaign_page" value="<?php if ( ! empty(get_permalink()) ) { echo get_permalink(); } ?>" class="regular-text">
+                    <input name="campaign_page" placeholder="<?php _e('https://example.com/example-page/', 'campaign-url-builder'); ?>" type="text" id="campaign_page" value="<?php if ( ! empty(get_permalink()) ) { echo get_permalink(); } ?>" class="regular-text js-reatlat_cub--autocomplete-link">
                     <p class="description"><?php _e('The full website URL (e.g. https://example.com/example-page/)', 'campaign-url-builder'); ?></p>
                 </td>
             </tr>

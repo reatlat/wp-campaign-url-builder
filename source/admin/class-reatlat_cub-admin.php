@@ -116,7 +116,7 @@ class reatlat_cub_Admin {
     }
 
     /**
-     * Add ajax for  create link form.
+     * Add ajax for create link form.
      */
     public function add_ajax_create_link()
     {
@@ -153,6 +153,41 @@ class reatlat_cub_Admin {
         exit();
     }
 
+    /**
+     * Autocomplete for campaign link field
+     */
+    public function autocomplete_link_js()
+    {
+        $args = array(
+            'post_type'      => ['post', 'page'],
+            'post_status'    => 'publish',
+            'posts_per_page' => -1 // all posts
+        );
+
+        $posts = get_posts( $args );
+
+        if( $posts ) :
+            foreach( $posts as $k => $post ) {
+                $source[$k]['id']    = $post->ID;
+                $source[$k]['label'] = $post->post_title; // The name of the post
+                $source[$k]['value'] = get_permalink( $post->ID );
+            }
+
+            ?>
+            <script type="text/javascript">
+                jQuery(document).ready(function($){
+                    var posts = <?php echo json_encode( array_values( $source ) ); ?>;
+                    $('input.js-reatlat_cub--autocomplete-link').autocomplete({
+                        source: posts,
+                        minLength: 2
+                    });
+                });
+            </script>
+            <?php
+        endif;
+    }
+
+
 	/**
 	 * Render settings page for plugin
 	 */
@@ -179,6 +214,10 @@ class reatlat_cub_Admin {
         wp_enqueue_script( 'jquery-validate',           str_replace( '/admin', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/js/vendor/jquery.validate.min.js', array( 'jquery' ), null, false );
         wp_enqueue_script( 'jquery-additional-methods', str_replace( '/admin', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/js/vendor/additional-methods.min.js', array( 'jquery' ), null, false );
         wp_enqueue_script( $this->plugin_name.'-admin', str_replace( '/admin', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/js/reatlat_cub-admin.js', array( 'jquery' ), null, true );
+
+        // Enqueue jQuery UI and autocomplete
+        wp_enqueue_script( 'jquery-ui-core' );
+        wp_enqueue_script( 'jquery-ui-autocomplete' );
 	}
 
 	/**

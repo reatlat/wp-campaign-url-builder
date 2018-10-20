@@ -69,6 +69,7 @@ class reatlat_cub
         $this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
         $this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
         $this->loader->add_action( 'admin_notices', $plugin_admin, 'enqueue_notices' );
+        $this->loader->add_action( 'admin_footer', $plugin_admin, 'autocomplete_link_js' );
 	}
 
 	/**
