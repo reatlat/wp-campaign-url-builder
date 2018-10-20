@@ -33,6 +33,8 @@ $plugin->enqueue_notices();
 
 	<div class="reatlat_cub_tabs_container">
 
+        <button name="export_to_csv" class="export_to_csv js-export_to_csv"><span class="dashicons dashicons-media-spreadsheet"></span> <?php _e('Export CSV', 'campaign-url-builder'); ?></button>
+
         <?php include dirname( __FILE__ ) . '/partial/reatlat_cub-admin-create.php'; ?>
         <?php include dirname( __FILE__ ) . '/partial/reatlat_cub-admin-manage.php'; ?>
         <?php include dirname( __FILE__ ) . '/partial/reatlat_cub-admin-settings.php'; ?>
