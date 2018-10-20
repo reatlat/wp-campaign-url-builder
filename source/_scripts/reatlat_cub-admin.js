@@ -92,13 +92,25 @@ jQuery(function($) {
                     }).done(function( msg ) {
                         console.log( "WP Campaign URL Builder: ", msg );
                         if (msg.result) {
-                            $('.reatlat_cub_notice--create-and-clipboard').show();
+                            $('.reatlat_cub_notice--success').show();
                             setTimeout(function () {
-                                $('.reatlat_cub_notice--create-and-clipboard').fadeOut("slow");
+                                $('.reatlat_cub_notice--success').fadeOut("slow");
                             },450);
 
-                            //TODO: JS append url to table
-
+                            var tableRow = '<tr class="reatlat_cub_yellow-highlight animated fadeInUp">';
+                                tableRow += '<td class="campaign_info"></td>';
+                                tableRow += '<td class="campaign_name"><strong>' + msg.campaign_name + '</strong></td>';
+                                if ( msg.campaign_short_link.length > 6 ) {
+                                    tableRow += '<td class="campaign_short_link tippy--hover" data-clipboard-text="' + msg.campaign_short_link + '" data-copy="true" data-original-title="Click cell to copy to clipboard">' + msg.campaign_short_link + '<span class="dashicons dashicons-clipboard"></span></td>';
+                                } else {
+                                    tableRow += '<td class="campaign_short_link">n/a</td>';
+                                }
+                                tableRow += '<td class="campaign_full_link tippy--hover" data-clipboard-text="' + msg.campaign_full_link + '" data-copy="true" data-original-title="Click cell to copy to clipboard">' + msg.campaign_full_link + '<span class="dashicons dashicons-clipboard"></span></td> ';
+                                if ( $('td.campaign_user_id').length ) {
+                                    tableRow += '<td></td>';
+                                }
+                                tableRow += '</tr>';
+                            $('.reatlat_cub_links-list').prepend(tableRow);
 
                         } else {
                             $('.reatlat_cub_notice--error').show();

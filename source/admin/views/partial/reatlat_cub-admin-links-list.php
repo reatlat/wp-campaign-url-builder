@@ -10,12 +10,12 @@
             <?php if ( get_option( $this->plugin_name . '_show_creator') ) : ?>
                 <td class="campaign_user_id"><?php _e('Creator', 'campaign-url-builder'); ?></td>
             <?php endif; ?>
-            <?php if ( isset($_GET['page']) && ['page'] === 'reatlat_cub-settings-page' ) : ?>
+            <?php if ( isset($_GET['page']) && $_GET['page'] === 'reatlat_cub-settings-page' ) : ?>
             <td class="campaign_remove_link"></td>
             <?php endif; ?>
         </tr>
         </thead>
-        <tbody>
+        <tbody class="reatlat_cub_links-list">
         <?php
 
         $links = $plugin->get_links();
@@ -24,7 +24,7 @@
         {
             // Demo example link
             ?>
-            <tr class="reatlat_cub_non-highlight wow fadeInUp">
+            <tr class="reatlat_cub_link-on-list first-link reatlat_cub_non-highlight" data-link-key="0">
                 <td data-info="true" class="campaign_info tippy--hover" title="<?php _e('Open Analytics data', 'campaign-url-builder'); ?>">
                     <a target="_blank" href="https://goo.gl/info/3br2tn"><span class='dashicons dashicons-chart-area'></span></a>
                 </td>
@@ -43,7 +43,7 @@
             foreach ( $links as $key => $link )
             {
                 ?>
-                <tr class="wow fadeInUp" data-link-id="<?php echo esc_attr( $link->id ); ?>">
+                <tr class="reatlat_cub_link-on-list <?php if ( $key === 0 ) { echo 'first-link'; } ?>" data-link-key="<?php echo $key; ?>" data-link-id="<?php echo esc_attr( $link->id ); ?>">
 
                     <?php if ( $plugin->strpos_array( esc_url_raw( $link->campaign_short_link ), array('://goo.gl', '://bit.ly') ) ) : ?>
                         <td data-info="true" class="campaign_info tippy--hover" title="<?php _e('Open Analytics data', 'campaign-url-builder'); ?>">

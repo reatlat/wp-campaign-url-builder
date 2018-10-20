@@ -233,6 +233,12 @@
             &.reatlat_cub_custom-params {
                 display: none;
             }
+            &.reatlat_cub_yellow-highlight {
+                background: #fbffce;
+                &:nth-child(odd) {
+                    background: #fffbae;
+                }
+            }
         }
         td.campaign_info {
             position: relative;

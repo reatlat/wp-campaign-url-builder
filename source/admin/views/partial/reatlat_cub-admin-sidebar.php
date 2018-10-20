@@ -14,6 +14,15 @@
             ),
         ),
         array(
+            'version' => '1.4.3',
+            'date'    => '2018/10/20',
+            'changes' => array(
+                __('Compatibility with WordPress 5.0 and Gutenberg Editor', 'campaign-url-builder'),
+                __('Fixed not working notification', 'campaign-url-builder'),
+                __('Update AJAX-function for link creation', 'campaign-url-builder'),
+            ),
+        ),
+        array(
             'version' => '1.4.2',
             'date'    => '2018/10/15',
             'changes' => array(
