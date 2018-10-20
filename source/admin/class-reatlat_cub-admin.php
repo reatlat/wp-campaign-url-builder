@@ -192,6 +192,36 @@ class reatlat_cub_Admin {
      */
     public function ajax_export_csv()
     {
+        $links = self::get_links();
+
+        $array = array(
+            array('#', 'URL_ID', 'CAMPAIGN_NAME', 'SHORT_URL', 'SHORT_URL_INFO', 'FULL_URL', 'USERNAME', 'USER_ROLE')
+        );
+
+        if ( count($links) > 0 )
+        {
+            foreach ( $links as $key => $link )
+            {
+                $info_link = strtr($link->campaign_short_link, array(
+                    '://goo.gl' => '://goo.gl/info',
+                    '://bit.ly' => '://bit.ly/info'
+                ));
+
+                $username = sanitize_user( get_userdata($link->user_id)->display_name );
+                $userrole = implode(', ', get_userdata($link->user_id)->roles);
+
+                array_push($array, array(
+                    $key + 1,
+                    $link->id,
+                    $link->campaign_name,
+                    $link->campaign_short_link,
+                    $info_link,
+                    $link->campaign_full_link,
+                    $username,
+                    $userrole
+                ));
+            }
+        }
 
         echo self::array2csv($array);
 
@@ -209,7 +239,7 @@ class reatlat_cub_Admin {
         }
         ob_start();
         $df = fopen("php://output", 'w');
-        fputcsv($df, array_keys(reset($array)));
+        //fputcsv($df, array_keys(reset($array))); // optional row with IDs
         foreach ($array as $row) {
             fputcsv($df, $row);
         }
