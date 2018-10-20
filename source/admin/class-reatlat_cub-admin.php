@@ -118,7 +118,7 @@ class reatlat_cub_Admin {
     /**
      * Add ajax for create link form.
      */
-    public function add_ajax_create_link()
+    public function ajax_create_link()
     {
         if ( $this->campaign_page && $this->campaign_source && $this->campaign_medium && $this->campaign_name ) {
 
@@ -187,6 +187,35 @@ class reatlat_cub_Admin {
         endif;
     }
 
+    /**
+     * Add ajax for export csv
+     */
+    public function ajax_export_csv()
+    {
+
+        echo self::array2csv($array);
+
+        //Don't forget to always exit in the ajax function.
+        exit();
+    }
+
+    /**
+     * Convert array to csv format
+     */
+    public function array2csv(array &$array)
+    {
+        if (count($array) == 0) {
+            return null;
+        }
+        ob_start();
+        $df = fopen("php://output", 'w');
+        fputcsv($df, array_keys(reset($array)));
+        foreach ($array as $row) {
+            fputcsv($df, $row);
+        }
+        fclose($df);
+        return ob_get_clean();
+    }
 
 	/**
 	 * Render settings page for plugin
