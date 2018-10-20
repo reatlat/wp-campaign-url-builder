@@ -118,7 +118,7 @@ class reatlat_cub_Admin {
     /**
      * Add ajax for create link form.
      */
-    public function add_ajax_create_link()
+    public function ajax_create_link()
     {
         if ( $this->campaign_page && $this->campaign_source && $this->campaign_medium && $this->campaign_name ) {
 
@@ -187,6 +187,65 @@ class reatlat_cub_Admin {
         endif;
     }
 
+    /**
+     * Add ajax for export csv
+     */
+    public function ajax_export_csv()
+    {
+        $links = self::get_links();
+
+        $array = array(
+            array('#', 'URL_ID', 'CAMPAIGN_NAME', 'SHORT_URL', 'SHORT_URL_INFO', 'FULL_URL', 'USERNAME', 'USER_ROLE')
+        );
+
+        if ( count($links) > 0 )
+        {
+            foreach ( $links as $key => $link )
+            {
+                $info_link = strtr($link->campaign_short_link, array(
+                    '://goo.gl' => '://goo.gl/info',
+                    '://bit.ly' => '://bit.ly/info'
+                ));
+
+                $username = sanitize_user( get_userdata($link->user_id)->display_name );
+                $userrole = implode(', ', get_userdata($link->user_id)->roles);
+
+                array_push($array, array(
+                    $key + 1,
+                    $link->id,
+                    $link->campaign_name,
+                    $link->campaign_short_link,
+                    $info_link,
+                    $link->campaign_full_link,
+                    $username,
+                    $userrole
+                ));
+            }
+        }
+
+        echo self::array2csv($array);
+
+        //Don't forget to always exit in the ajax function.
+        exit();
+    }
+
+    /**
+     * Convert array to csv format
+     */
+    public function array2csv(array &$array)
+    {
+        if (count($array) == 0) {
+            return null;
+        }
+        ob_start();
+        $df = fopen("php://output", 'w');
+        //fputcsv($df, array_keys(reset($array))); // optional row with IDs
+        foreach ($array as $row) {
+            fputcsv($df, $row);
+        }
+        fclose($df);
+        return ob_get_clean();
+    }
 
 	/**
 	 * Render settings page for plugin

@@ -207,7 +207,19 @@
         @media (min-width: $min-width) {
             width: 66%;
         }
+        position: relative;
+
+        .export_to_csv {
+            cursor: pointer;
+            position: absolute;
+            top: 30px;
+            right: 1px;
+            line-height: 20px;
+            user-select: none;
+        }
+
         .reatlat_cub_result {
+            position: relative;
             table{
                 background: transparent;
                 thead {

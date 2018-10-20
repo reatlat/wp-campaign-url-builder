@@ -90,7 +90,6 @@ jQuery(function($) {
                             submit_manage_links: $('input[name="submit_manage_links"]').val()
                         }
                     }).done(function( msg ) {
-                        console.log( "WP Campaign URL Builder: ", msg );
                         if (msg.result) {
                             $('.reatlat_cub_notice--success').show();
                             setTimeout(function () {
@@ -127,7 +126,45 @@ jQuery(function($) {
             });
         }
 
+        $('.js-export_to_csv').on('click', function () {
+            $.ajax({
+                type: "POST",
+                url: ajaxurl,
+                data: {
+                    action: 'reatlat_cub_export_csv'
+                }
+            }).done(function( data ) {
+                var timestamp, element;
+
+                timestamp = new Date();
+
+                element = document.createElement('a');
+                element.setAttribute('href', 'data:application/octet-stream,' + encodeURIComponent(data));
+                element.setAttribute('download', 'UTM_links_' + formatDate(timestamp) + '-' + Math.floor(timestamp.getTime() / 1000) + '.csv');
+                element.style.display = 'none';
+
+                document.body.appendChild(element);
+
+                element.click();
+
+                document.body.removeChild(element);
+            });
+            return false;
+        });
+
     });
+
+    function formatDate(date) {
+        var d = new Date(date),
+            month = '' + (d.getMonth() + 1),
+            day = '' + d.getDate(),
+            year = d.getFullYear();
+
+        if (month.length < 2) month = '0' + month;
+        if (day.length < 2) day = '0' + day;
+
+        return [year, month, day].join('-');
+    }
 
     $.fn.simulateClick = function() {
         return this.each(function() {

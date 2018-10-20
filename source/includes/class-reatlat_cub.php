@@ -62,8 +62,9 @@ class reatlat_cub
         {
             $this->loader->add_action( 'add_meta_boxes', $plugin_admin, 'add_meta_box__create_link' );
             $this->loader->add_action( 'add_meta_boxes', $plugin_admin, 'add_meta_box__links_list' );
-            $this->loader->add_action( 'wp_ajax_' . $this->get_plugin_name() . '_create_link', $plugin_admin, 'add_ajax_create_link' );
+            $this->loader->add_action( 'wp_ajax_' . $this->get_plugin_name() . '_create_link', $plugin_admin, 'ajax_create_link' );
         }
+        $this->loader->add_action( 'wp_ajax_' . $this->get_plugin_name() . '_export_csv', $plugin_admin, 'ajax_export_csv' );
         $this->loader->add_filter( 'plugin_action_links_' . $this->get_plugin_real_name() . '/' . $this->get_plugin_name() . '.php', $plugin_admin, 'add_settings_link' );
         $this->loader->add_action( 'plugins_loaded', $plugin_admin, 'add_plugin_row_meta' );
         $this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
