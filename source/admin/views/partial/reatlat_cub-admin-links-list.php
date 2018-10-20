@@ -10,7 +10,7 @@
             <?php if ( get_option( $this->plugin_name . '_show_creator') ) : ?>
                 <td class="campaign_user_id"><?php _e('Creator', 'campaign-url-builder'); ?></td>
             <?php endif; ?>
-            <?php if ( isset($_GET['page']) && ['page'] === 'reatlat_cub-settings-page' ) : ?>
+            <?php if ( isset($_GET['page']) && $_GET['page'] === 'reatlat_cub-settings-page' ) : ?>
             <td class="campaign_remove_link"></td>
             <?php endif; ?>
         </tr>
