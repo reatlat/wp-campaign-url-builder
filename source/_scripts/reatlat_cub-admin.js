@@ -92,9 +92,9 @@ jQuery(function($) {
                     }).done(function( msg ) {
                         console.log( "WP Campaign URL Builder: ", msg );
                         if (msg.result) {
-                            $('.reatlat_cub_notice--create-and-clipboard').show();
+                            $('.reatlat_cub_notice--success').show();
                             setTimeout(function () {
-                                $('.reatlat_cub_notice--create-and-clipboard').fadeOut("slow");
+                                $('.reatlat_cub_notice--success').fadeOut("slow");
                             },450);
 
                             //TODO: JS append url to table
