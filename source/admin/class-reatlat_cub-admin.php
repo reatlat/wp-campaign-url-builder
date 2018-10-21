@@ -444,7 +444,7 @@ class reatlat_cub_Admin {
             $params_bitly['longUrl'] = $full_link;
             $bitly = bitly_get('shorten', $params_bitly);
 
-            if( $bitly['data']['url'] )
+            if( isset($bitly['data']['url']) && $bitly['data']['url'] )
                 return $bitly['data']['url'];
         }
 
