@@ -5,7 +5,7 @@ Tags: utm, tracking link, google analytics, analytics, link generator, googl, go
 Requires at least: 3.0.1
 Tested up to: 5.0.0
 Requires PHP: 5.6 or later
-Stable tag: 1.4.3
+Stable tag: 1.5.0
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -45,6 +45,12 @@ on GitHub <https://github.com/reatlat/wp-campaign-url-builder/issues>
 Nothing for now
 
 == Changelog ==
+
+= 1.5.0 =
+* Added autocomplete function for link suggestion
+* Added pagination for links table
+* Added Export UTM lins list to CSV file
+* Fixed backend error for empty Bit.ly respond
 
 = 1.4.3 =
 * Compatibility with WordPress 5.0 and Gutenberg Editor

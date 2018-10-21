@@ -116,9 +116,9 @@ class reatlat_cub_Admin {
     }
 
     /**
-     * Add ajax for  create link form.
+     * Add ajax for create link form.
      */
-    public function add_ajax_create_link()
+    public function ajax_create_link()
     {
         if ( $this->campaign_page && $this->campaign_source && $this->campaign_medium && $this->campaign_name ) {
 
@@ -153,6 +153,100 @@ class reatlat_cub_Admin {
         exit();
     }
 
+    /**
+     * Autocomplete for campaign link field
+     */
+    public function autocomplete_link_js()
+    {
+        $args = array(
+            'post_type'      => ['post', 'page'],
+            'post_status'    => 'publish',
+            'posts_per_page' => -1 // all posts
+        );
+
+        $posts = get_posts( $args );
+
+        if( $posts ) :
+            foreach( $posts as $k => $post ) {
+                $source[$k]['id']    = $post->ID;
+                $source[$k]['label'] = $post->post_title; // The name of the post
+                $source[$k]['value'] = get_permalink( $post->ID );
+            }
+
+            ?>
+            <script type="text/javascript">
+                jQuery(document).ready(function($){
+                    var posts = <?php echo json_encode( array_values( $source ) ); ?>;
+                    $('input.js-reatlat_cub--autocomplete-link').autocomplete({
+                        source: posts,
+                        minLength: 2
+                    });
+                });
+            </script>
+            <?php
+        endif;
+    }
+
+    /**
+     * Add ajax for export csv
+     */
+    public function ajax_export_csv()
+    {
+        $links = self::get_links();
+
+        $array = array(
+            array('#', 'URL_ID', 'CAMPAIGN_NAME', 'SHORT_URL', 'SHORT_URL_INFO', 'FULL_URL', 'USERNAME', 'USER_ROLE')
+        );
+
+        if ( count($links) > 0 )
+        {
+            foreach ( $links as $key => $link )
+            {
+                $info_link = strtr($link->campaign_short_link, array(
+                    '://goo.gl' => '://goo.gl/info',
+                    '://bit.ly' => '://bit.ly/info'
+                ));
+
+                $username = sanitize_user( get_userdata($link->user_id)->display_name );
+                $userrole = implode(', ', get_userdata($link->user_id)->roles);
+
+                array_push($array, array(
+                    $key + 1,
+                    $link->id,
+                    $link->campaign_name,
+                    $link->campaign_short_link,
+                    $info_link,
+                    $link->campaign_full_link,
+                    $username,
+                    $userrole
+                ));
+            }
+        }
+
+        echo self::array2csv($array);
+
+        //Don't forget to always exit in the ajax function.
+        exit();
+    }
+
+    /**
+     * Convert array to csv format
+     */
+    public function array2csv(array &$array)
+    {
+        if (count($array) == 0) {
+            return null;
+        }
+        ob_start();
+        $df = fopen("php://output", 'w');
+        //fputcsv($df, array_keys(reset($array))); // optional row with IDs
+        foreach ($array as $row) {
+            fputcsv($df, $row);
+        }
+        fclose($df);
+        return ob_get_clean();
+    }
+
 	/**
 	 * Render settings page for plugin
 	 */
@@ -179,6 +273,10 @@ class reatlat_cub_Admin {
         wp_enqueue_script( 'jquery-validate',           str_replace( '/admin', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/js/vendor/jquery.validate.min.js', array( 'jquery' ), null, false );
         wp_enqueue_script( 'jquery-additional-methods', str_replace( '/admin', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/js/vendor/additional-methods.min.js', array( 'jquery' ), null, false );
         wp_enqueue_script( $this->plugin_name.'-admin', str_replace( '/admin', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/js/reatlat_cub-admin.js', array( 'jquery' ), null, true );
+
+        // Enqueue jQuery UI and autocomplete
+        wp_enqueue_script( 'jquery-ui-core' );
+        wp_enqueue_script( 'jquery-ui-autocomplete' );
 	}
 
 	/**
@@ -346,7 +444,7 @@ class reatlat_cub_Admin {
             $params_bitly['longUrl'] = $full_link;
             $bitly = bitly_get('shorten', $params_bitly);
 
-            if( $bitly['data']['url'] )
+            if( isset($bitly['data']['url']) && $bitly['data']['url'] )
                 return $bitly['data']['url'];
         }
 

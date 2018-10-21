@@ -14,6 +14,16 @@
             ),
         ),
         array(
+            'version' => '1.5.0',
+            'date'    => '2018/10/21',
+            'changes' => array(
+                __('Added autocomplete function for link suggestion', 'campaign-url-builder'),
+                __('Added pagination for links table', 'campaign-url-builder'),
+                __('Added Export UTM lins list to CSV file', 'campaign-url-builder'),
+                __('Fixed backend error for empty Bit.ly respond', 'campaign-url-builder'),
+            ),
+        ),
+        array(
             'version' => '1.4.3',
             'date'    => '2018/10/20',
             'changes' => array(
