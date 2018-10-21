@@ -1,17 +1,17 @@
 <div class="reatlat_cub_result">
 
-    <table class="wp-list-table widefat fixed striped pages">
+    <table id="reatlat_cub_result__table" class="wp-list-table widefat fixed striped pages reatlat_cub_result__table">
         <thead>
-        <tr>
-            <td class="campaign_info"><?php _e('Stats', 'campaign-url-builder'); ?></td>
-            <td class="campaign_name"><?php _e('Campaign Name', 'campaign-url-builder'); ?></td>
-            <td class="campaign_short_link"><?php _e('Short Link', 'campaign-url-builder'); ?></td>
-            <td class="campaign_full_link"><?php _e('Full Link', 'campaign-url-builder'); ?></td>
+        <tr class="reatlat_cub_result__table__headrow">
+            <th class="campaign_info"><?php _e('Stats', 'campaign-url-builder'); ?></th>
+            <th class="campaign_name"><?php _e('Campaign Name', 'campaign-url-builder'); ?></th>
+            <th class="campaign_short_link"><?php _e('Short Link', 'campaign-url-builder'); ?></th>
+            <th class="campaign_full_link"><?php _e('Full Link', 'campaign-url-builder'); ?></th>
             <?php if ( get_option( $this->plugin_name . '_show_creator') ) : ?>
-                <td class="campaign_user_id"><?php _e('Creator', 'campaign-url-builder'); ?></td>
+                <th class="campaign_user_id"><?php _e('Creator', 'campaign-url-builder'); ?></th>
             <?php endif; ?>
             <?php if ( isset($_GET['page']) && $_GET['page'] === 'reatlat_cub-settings-page' ) : ?>
-            <td class="campaign_remove_link"></td>
+            <th class="campaign_remove_link"></th>
             <?php endif; ?>
         </tr>
         </thead>
