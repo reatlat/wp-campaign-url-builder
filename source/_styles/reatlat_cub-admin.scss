@@ -21,6 +21,10 @@
         margin: 0;
         .reatlat_cub_tabs_container {
             width: 100%;
+
+            table {
+                margin-top: 12px;
+            }
         }
     }
 
@@ -220,6 +224,10 @@
                 .dashicons {
                     color: $default;
                 }
+            }
+
+            &--metabox {
+                top: 0;
             }
         }
 

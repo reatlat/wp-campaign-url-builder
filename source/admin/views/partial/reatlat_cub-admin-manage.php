@@ -2,7 +2,7 @@
 
     <h3><?php _e('Existing generated links', 'campaign-url-builder'); ?></h3>
 
-    <div class="reatlat_cub_result__table_pagination" data-current-page="1">
+    <div class="reatlat_cub_result__table_pagination" data-rows-per-page="15" data-current-page="1">
         <span class="table_pagination__currentpage"></span>&nbsp;
         <button name="sortTable--prev" class="js-sortTable--prev"><span class="dashicons dashicons-arrow-left-alt2"></span></button>
         <button name="sortTable--next" class="js-sortTable--next"><span class="dashicons dashicons-arrow-right-alt2"></span></button>
