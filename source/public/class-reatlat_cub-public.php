@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class reatlat_cub_Public
 {
@@ -27,4 +27,47 @@ class reatlat_cub_Public
     {
 		// wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'assets/css/reatlat_plugin_name-public.css', array(), $this->version, 'all' );
 	}
+
+	/**
+     * Register Shortcodes
+     */
+	public function register_shortcodes()
+    {
+        function shortcode_frontend_link_generator_form( $atts ) {
+            $atts = shortcode_atts( array(
+                'wrapper' => '', // set specific CSS classes for add specific stile for your form
+                'form' => '', // set specific CSS classes for add specific stile for your form
+                'type' => 'default', // default | simple | advanced | preset
+                'utm_source' => '',
+                'utm_medium' => '',
+                'utm_campaign' => '',
+                'utm_term' => '',
+                'utm_content' => '',
+                '' => '',
+                '' => '',
+                '' => '',
+                'recaptcha' => 'false',
+                'inline-style' => 'false'
+            ), $atts, 'Campaign-URL-Builder' );
+
+            ob_start();
+            ?>
+
+            <div class="Campaign-URL-Builder Campaign-URL-Builder--form-wrapper <?php echo $atts['wrapper']; ?>" <?php if ( $atts['inline-style'] !== 'false' ) { echo 'style="' . $atts['inline-style'] . '"'; } ?>>
+                <form action="#" method="post" class="Campaign-URL-Builder--form-wrapper__form <?php echo $atts['form']; ?>">
+                    <input type="text">
+                    <input type="submit" value="send">
+                </form>
+            </div>
+
+            <?php
+            $content = ob_get_contents();
+            ob_end_clean();
+
+            return $content;
+
+        }
+        add_shortcode( 'Campaign-URL-Builder', 'shortcode_frontend_link_generator_form' );
+    }
+
 }
