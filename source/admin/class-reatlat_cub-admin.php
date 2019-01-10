@@ -141,7 +141,13 @@ class reatlat_cub_Admin {
 
             $response = array(
                 "result" => false,
-                "message" => "Sorry, something went wrong. Please try again."
+                "message" => "Sorry, something went wrong. Please try again.",
+                "request" => array(
+                    "campaign_page" => $this->campaign_page,
+                    "campaign_source" => $this->campaign_source,
+                    "campaign_medium" => $this->campaign_medium,
+                    "campaign_name" => $this->campaign_name
+                )
             );
 
             header( "Content-Type: application/json" );
