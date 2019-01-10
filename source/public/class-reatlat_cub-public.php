@@ -27,7 +27,9 @@ class reatlat_cub_Public
             $this->plugin_name . '-public-script',
             strtoupper($this->plugin_name) . '_APP',
             array(
-                'AJAXURL' => admin_url( 'admin-ajax.php' )
+                'AJAXURL' => admin_url( 'admin-ajax.php' ),
+                'SC_ACTION' => $this->plugin_name . '_sc_create_link',
+                'DEBUG_JS' => true
             )
         );
 	}
@@ -123,16 +125,24 @@ class reatlat_cub_Public
                            value="<?php echo esc_attr( $atts['utm_content'] ); ?>"
                            <?php if ( $atts['type'] === 'preset' && $atts['utm_content'] ) : ?>readonly="readonly"<?php endif; ?>>
 
-                    <?php if ( $atts['custom_parameters'] ) : ?>
-                        <input id="custom_parameters"
-                               class="regular-text"
-                               name="custom_parameters"
-                               type="<?php if( $atts['hidden'] && in_array('custom_parameters', $atts['hidden'] )) { echo 'hidden'; } else { echo 'text'; } ?>"
-                               value="<?php echo esc_attr( $atts['custom_parameters'] ); ?>"
-                               <?php if ( $atts['type'] === 'preset' && $atts['custom_parameters'] ) : ?>readonly="readonly"<?php endif; ?>>
-                    <?php endif; ?>
 
-                    <input type="submit" value="send">
+                    <?php for ($x = 1; $x <= 3; $x++) : ?>
+                        <input id="custom_key_<?php echo $x; ?>"
+                               class="regular-text"
+                               name="custom_key_<?php echo $x; ?>"
+                               type="text"
+                               value=""
+                               readonly="readonly">
+                        <input id="custom_value_<?php echo $x; ?>"
+                               class="regular-text"
+                               name="custom_value_<?php echo $x; ?>"
+                               type="text"
+                               value=""
+                               readonly="readonly">
+                    <?php endfor; ?>
+
+
+                    <input class="js-reatlat_cub--create-link" type="submit" name="submit_manage_links" id="submit_manage_links" value="<?php _e('Get a link', 'campaign-url-builder'); ?>">
 
                 </form>
 

@@ -79,10 +79,16 @@ class reatlat_cub
 	 */
 	private function define_public_hooks()
     {
-		$plugin_public = new reatlat_cub_Public( $this->get_plugin_name(), $this->get_version() );
+        $plugin_admin = new reatlat_cub_Admin( $this->plugin_real_name, $this->get_plugin_name(), $this->get_version() );
+        $plugin_public = new reatlat_cub_Public( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'init', $plugin_public, 'register_shortcodes' );
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
+
+        $this->loader->add_action( 'wp_ajax_' . $this->get_plugin_name() . '_sc_create_link', $plugin_admin, 'ajax_create_link' );
+        // TODO: make option to eneble Anonymous user Ajax form settings
+        $this->loader->add_action( 'wp_ajax_nopriv_' . $this->get_plugin_name() . '_sc_create_link', $plugin_admin, 'ajax_create_link' );
+
+        $this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 	}
 
