@@ -17,7 +17,19 @@ class reatlat_cub_Public
 	 */
 	function enqueue_scripts()
     {
-		// wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'assets/js/reatlat_plugin_name-public.js', array( 'jquery' ), $this->version, true );
+        wp_enqueue_script( 'clipboard',                 str_replace( '/public', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/js/vendor/clipboard.min.js', array(), null, false );
+        wp_enqueue_script( 'jquery-validate',           str_replace( '/public', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/js/vendor/jquery.validate.min.js', array( 'jquery' ), null, false );
+        wp_enqueue_script( 'jquery-additional-methods', str_replace( '/public', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/js/vendor/additional-methods.min.js', array( 'jquery' ), null, false );
+
+        wp_enqueue_script( $this->plugin_name . '-public-script', str_replace( '/public', '', plugin_dir_url( __FILE__ ) ) . 'public/assets/js/reatlat_cub-public.js', array( 'jquery' ), null, true );
+
+        wp_localize_script(
+            $this->plugin_name . '-public-script',
+            strtoupper($this->plugin_name) . '_APP',
+            array(
+                'AJAXURL' => admin_url( 'admin-ajax.php' )
+            )
+        );
 	}
 
 	/**
@@ -123,6 +135,20 @@ class reatlat_cub_Public
                     <input type="submit" value="send">
 
                 </form>
+
+                <div class="Campaign-URL-Builder--form-wrapper__link-container">
+
+                </div>
+
+                <div class="Campaign-URL-Builder--form-wrapper__notification">
+                    <div class="notification--success">
+
+                    </div>
+                    <div class="notification--error">
+
+                    </div>
+                </div>
+
             </div>
 
             <?php
