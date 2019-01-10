@@ -412,7 +412,8 @@ class reatlat_cub_Admin {
 
 	private function get_shortlink($full_link)
     {
-        if ( get_option( $this->plugin_name . '_advanced_api' ) === 'google' ) {
+        // TODO: remove Google endpoint in March 2019
+        if ( ( date('Y') < 2020 && date('m') < 3 ) && get_option( $this->plugin_name . '_advanced_api' ) === 'google' ) {
             $key = get_option( $this->plugin_name . '_google_api_key' ) ? get_option( $this->plugin_name . '_google_api_key' ) : 'AIzaSyC9Kx8WJQ0yCtpi-sIV_-7_3iGzNRRfoWQ';
 
             $result = wp_remote_post( add_query_arg( 'key', $key, 'https://www.googleapis.com/urlshortener/v1/url' ), array(
