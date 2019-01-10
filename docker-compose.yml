@@ -25,12 +25,12 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root_password
 
-  #phpmyadmin:
-  #  image: phpmyadmin/phpmyadmin
-  #  links:
-  #    - mysql:db
-  #  ports:
-  #    - 8181:80
-  #  environment:
-  #    MYSQL_USERNAME: root
-  #    MYSQL_ROOT_PASSWORD: root_password
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    links:
+      - mysql:db
+    ports:
+      - 8181:80
+    environment:
+      MYSQL_USERNAME: root
+      MYSQL_ROOT_PASSWORD: root_password
