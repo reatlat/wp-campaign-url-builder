@@ -142,6 +142,19 @@
             display: inline-block;
             margin: 0;
             padding: 0;
+            &.new-feature {
+                position: relative;
+                &:after {
+                    position: absolute;
+                    right: 5px;
+                    top: 2px;
+                    font-weight: bold;
+                    content: 'NEW';
+                    color: $theme-color;
+                    font-size: 10px;
+                    line-height: 1;
+                }
+            }
             &:focus,
             &:active,
             &:hover,
