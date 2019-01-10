@@ -109,10 +109,12 @@
                     </div>
                 </div>
 
+                <?php // TODO: remove Google endpoint option in March 2019 ?>
+                <?php if ( date('Y') < 2020 && date('m') < 3 ) : ?>
                 <div class="reatlat_cub_form__settings--api__google pvxs">
                     <input type="radio" name="advanced_api" id="advanced_api_google" required <?php checked(get_option( $this->plugin_name . '_advanced_api') === 'google' ); ?> value="google" />
                     <label for="advanced_api_google">
-                        <?php _e('Google URL Shortener API', 'campaign-url-builder'); ?>
+                        <?php _e('Google URL Shortener API (Supported up to March 2019)', 'campaign-url-builder'); ?>
                     </label>
                     <div class="radio-if-active">
                         <table class="form-table">
@@ -145,6 +147,7 @@
                         </table>
                     </div>
                 </div>
+                <?php endif; ?>
             </div>
         </div>
 
