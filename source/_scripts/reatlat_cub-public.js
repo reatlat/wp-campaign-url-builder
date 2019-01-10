@@ -1,34 +1,85 @@
 jQuery(function ($) {
     $(document).ready(function () {
 
+        class Campaign_URL_Builder {
+            constructor() {
+                this.location = window.location;
+                this.plugin_name = 'Campaign-URL-Builder';
+                this.ajax_url = REATLAT_CUB_APP.AJAXURL;
+                this.shortcode_action = REATLAT_CUB_APP.SC_ACTION;
+                this.debug_js = REATLAT_CUB_APP.DEBUG_JS;
+                this._init(this);
+            }
 
-        if (is_shortcode_form_active()) {
+            /**
+             * Initial scripts and triggers
+             * @private
+             */
+            _init() {
+                this._debugLog('debug log activated');
 
-            new Clipboard('td[data-copy]');
+                if (this._is_shortcode_form_active()) {
 
-            // $('#reatlat_cub_campaign-form').validate({
-            //     rules: {
-            //         campaign_page: {
-            //             required: true,
-            //             url: true
-            //         },
-            //         campaign_name: {
-            //             required: true
-            //         }
-            //     }
-            // });
+                    this._triggers(this);
 
+                }
+            }
 
-            $('.js-reatlat_cub--create-link').on('click', function () {
+            /**
+             * FormValidator
+             * TODO: have to check it twice!
+             * @private
+             */
+            _formValidator() {
+                $('#reatlat_cub_campaign-form').validate({
+                    rules: {
+                        campaign_page: {
+                            required: true,
+                            url: true
+                        },
+                        campaign_name: {
+                            required: true
+                        }
+                    }
+                });
+            }
 
-                console.log('trigger .js-reatlat_cub--create-link');
+            /**
+             * init Clipboard script
+             * TODO: have to check it twice!
+             * @private
+             */
+            _copyToClipboard() {
+                new Clipboard('td[data-copy]');
+            }
+
+            /**
+             * event/click triggers
+             * @param self
+             * @private
+             */
+            _triggers(self) {
+                $('.js-reatlat_cub--create-link').on('click', function () {
+                    self._debugLog('trigger .js-reatlat_cub--create-link');
+                    self._formAjaxPost(self);
+                    // do not reload page!
+                    return false;
+                });
+            }
+
+            /**
+             * Form Ajax Post request
+             * @param self
+             * @private
+             */
+            _formAjaxPost(self) {
 
                 if ($('input[name="campaign_page"]').val().length > 9 && $('input[name="campaign_page"]').val().includes('//') && $('input[name="campaign_page"]').val().slice(0, 4) === 'http' && $('input[name="campaign_name"]').val().length > 1) {
                     $.ajax({
                         type: "POST",
-                        url: REATLAT_CUB_APP.AJAXURL,
+                        url: self.ajax_url,
                         data: {
-                            action: 'reatlat_cub_create_link',
+                            action: self.shortcode_action,
                             campaign_page: $('input[name="campaign_page"]').val(),
                             campaign_source: $('input[name="campaign_source"]').val(),
                             campaign_medium: $('input[name="campaign_medium"]').val(),
@@ -44,7 +95,7 @@ jQuery(function ($) {
                             submit_manage_links: $('input[name="submit_manage_links"]').val()
                         }
                     }).done(function (msg) {
-                        console.log('All done your link is ', msg);
+                        self._debugLog('AJAX Success, respond:', msg);
                         if (msg.result) {
                             // $('.reatlat_cub_notice--success').show();
                             // setTimeout(function () {
@@ -77,21 +128,32 @@ jQuery(function ($) {
                         return false;
                     });
                 } else {
-                    console.log('Shit happened');
+                    self._debugLog('Something wrong, looks like one of important parameters empty 🤔');
                 }
 
-                // do not reload page!
-                return false;
-            });
+            }
+
+            /**
+             * Debug Log
+             * @param args
+             */
+            _debugLog(...args) {
+                if (this.debug_js) {
+                    console.log('🦄 ' + this.plugin_name + ' =>\n', ...args);
+                }
+            }
+
+            /**
+             * Check is Campaign-URL-Builder shortcode used on current page
+             * @returns {boolean}
+             */
+            _is_shortcode_form_active() {
+                return Boolean($('.Campaign-URL-Builder').length);
+            }
+
         }
 
-        /**
-         * Check is Campaign-URL-Builder shortcode used on current page
-         * @returns {boolean}
-         */
-        function is_shortcode_form_active() {
-            return Boolean($('.Campaign-URL-Builder').length);
-        }
+        window['Campaign-URL-Builder'] = new Campaign_URL_Builder();
 
     })
 });
