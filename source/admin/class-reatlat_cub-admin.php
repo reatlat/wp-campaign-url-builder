@@ -54,6 +54,13 @@ class reatlat_cub_Admin {
         $this->advanced_metaboxes     = (empty($CLEAN_POST['advanced_metaboxes'])     ? '' : self::get_cleaned($CLEAN_POST['advanced_metaboxes'], 'checkbox'));
         $this->submit_advanced        = (empty($CLEAN_POST['submit_advanced'])        ? '' : 1);
 
+        $this->shortcode_activator       = (empty($CLEAN_POST['shortcode_activator'])       ? '' : self::get_cleaned($CLEAN_POST['shortcode_activator'], 'checkbox'));
+        $this->shortcode_anonymous       = (empty($CLEAN_POST['shortcode_anonymous'])       ? '' : self::get_cleaned($CLEAN_POST['shortcode_anonymous'], 'checkbox'));
+        $this->shortcode_recaptcha       = (empty($CLEAN_POST['shortcode_recaptcha'])       ? '' : self::get_cleaned($CLEAN_POST['shortcode_recaptcha'], 'checkbox'));
+        $this->recaptcha_site_key        = (empty($CLEAN_POST['recaptcha_site_key'])        ? '' : self::get_cleaned($CLEAN_POST['recaptcha_site_key'], 'text'));
+        $this->recaptcha_secret_key      = (empty($CLEAN_POST['recaptcha_secret_key'])      ? '' : self::get_cleaned($CLEAN_POST['recaptcha_secret_key'], 'text'));
+        $this->submit_shortcode_settings = (empty($CLEAN_POST['submit_shortcode_settings']) ? '' : 1);
+
         $this->remove_link_id         = (empty($CLEAN_POST['remove_link_id'])        ? '' : self::get_cleaned($CLEAN_POST['remove_link_id'], 'text'));
         $this->remove_link_id_submit  = (empty($CLEAN_POST['remove_link_id_submit']) ? '' : 1);
 
@@ -141,7 +148,13 @@ class reatlat_cub_Admin {
 
             $response = array(
                 "result" => false,
-                "message" => "Sorry, something went wrong. Please try again."
+                "message" => "Sorry, something went wrong. Please try again.",
+                "request" => array(
+                    "campaign_page" => $this->campaign_page,
+                    "campaign_source" => $this->campaign_source,
+                    "campaign_medium" => $this->campaign_medium,
+                    "campaign_name" => $this->campaign_name
+                )
             );
 
             header( "Content-Type: application/json" );
@@ -158,6 +171,7 @@ class reatlat_cub_Admin {
      */
     public function autocomplete_link_js()
     {
+        // TODO: add support custom post type
         $args = array(
             'post_type'      => ['post', 'page'],
             'post_status'    => 'publish',
@@ -563,6 +577,14 @@ class reatlat_cub_Admin {
             }
 
             array_push( $this->messages, array( __('Advanced setting has been updated', 'campaign-url-builder'), 'success' ) );
+        }
+    }
+
+    public function check_shortcode_settings()
+    {
+        if (!empty($this->submit_shortcode_settings))
+        {
+            // do something
         }
     }
 

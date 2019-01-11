@@ -98,7 +98,7 @@
                                     printf(
                                         __('%sHow to get your %sBitly API key%s?%s', 'campaign-url-builder'),
                                         '<p class="description">',
-                                        '<a class="reatlat_cub_tab_link" href="#reatlat_cub_tab-4">',
+                                        '<a class="reatlat_cub_tab_link" href="#reatlat_cub_tab-5">',
                                         '</a>',
                                         '</p>'
                                     );
@@ -157,6 +157,8 @@
 
     </form>
 
+    <?php if ( current_user_can('administrator') ) : ?>
+
     <hr>
 
     <form method="POST" class="reatlat_cub_form">
@@ -170,5 +172,5 @@
             <input type="submit" onclick="return confirm('Campaign URL Builder\n\nReset settings & data\n\nAre you sure?')" name="submit_reset" id="submit" class="button button-secondary" value="<?php _e('Reset settings & data', 'campaign-url-builder'); ?>">
         </p>
     </form>
-
+    <?php endif; ?>
 </div>

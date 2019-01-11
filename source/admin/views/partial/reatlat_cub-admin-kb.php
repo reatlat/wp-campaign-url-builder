@@ -1,4 +1,4 @@
-<div class="reatlat_cub_container reatlat_cub_tab reatlat_cub_tab-4">
+<div class="reatlat_cub_container reatlat_cub_tab reatlat_cub_tab-5">
     <h2 class="title"><?php _e('Knowledge base', 'campaign-url-builder'); ?></h2>
     <h3><?php _e('Best Practices', 'campaign-url-builder'); ?></h3>
     <p>
