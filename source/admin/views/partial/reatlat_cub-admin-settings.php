@@ -17,6 +17,9 @@
             </tr>
         </table>
         <h2 class="title"><?php _e('Remove', 'campaign-url-builder'); ?></h2>
+
+        <?php if ( current_user_can('administrator') || ! get_option( $this->plugin_name . '_admin_only' ) ) : ?>
+
         <table class="form-table">
             <tr>
                 <th scope="row"><label for="remove_campaign_source"><?php _e('Remove Campaign Source', 'campaign-url-builder'); ?></label></th>
@@ -54,6 +57,12 @@
                 </td>
             </tr>
         </table>
+
+        <?php else : ?>
+
+            <h3 class="alert"><span class="dashicons dashicons-lock alert"></span><?php _e('Remove option available only for Administrator', 'campaign-url-builder'); ?></h3>
+
+        <?php endif; ?>
 
         <p class="submit">
             <input type="submit" name="submit_settings" id="submit" class="button button-primary" value="<?php _e('Save Changes', 'campaign-url-builder'); ?>">
