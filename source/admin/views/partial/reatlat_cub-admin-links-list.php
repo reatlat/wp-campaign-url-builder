@@ -48,6 +48,7 @@
                     <?php if ( $plugin->strpos_array( esc_url_raw( $link->campaign_short_link ), array('://goo.gl', '://bit.ly') ) ) : ?>
                         <td data-info="true" class="campaign_info tippy--hover" title="<?php _e('Open Analytics data', 'campaign-url-builder'); ?>">
                             <?php
+                                //TODO: add support for custom domains
                                 $info_link = strtr($link->campaign_short_link, array(
                                     '://goo.gl' => '://goo.gl/info',
                                     '://bit.ly' => '://bit.ly/info'
@@ -77,6 +78,7 @@
                         <?php endif; ?>
                     <?php endif; ?>
 
+                    <?php //TODO: show remove button only for admin or for user who create link ?>
                     <?php if ( isset($_GET['page']) && $_GET['page'] === 'reatlat_cub-settings-page' ) : ?>
                     <td class="campaign_remove_link tippy--hover" title="<?php _e('Remove link','campaign-url-builder'); ?>">
                         <form method="POST">
