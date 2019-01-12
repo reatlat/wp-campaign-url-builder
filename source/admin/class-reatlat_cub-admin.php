@@ -59,6 +59,7 @@ class reatlat_cub_Admin {
         $this->shortcode_recaptcha       = (empty($CLEAN_POST['shortcode_recaptcha'])       ? '' : self::get_cleaned($CLEAN_POST['shortcode_recaptcha'], 'checkbox'));
         $this->recaptcha_site_key        = (empty($CLEAN_POST['recaptcha_site_key'])        ? '' : self::get_cleaned($CLEAN_POST['recaptcha_site_key'], 'text'));
         $this->recaptcha_secret_key      = (empty($CLEAN_POST['recaptcha_secret_key'])      ? '' : self::get_cleaned($CLEAN_POST['recaptcha_secret_key'], 'text'));
+        $this->remove_recaptcha_keys     = (empty($CLEAN_POST['remove_recaptcha_keys'])     ? '' : self::get_cleaned($CLEAN_POST['remove_recaptcha_keys'], 'number'));
         $this->submit_shortcode_settings = (empty($CLEAN_POST['submit_shortcode_settings']) ? '' : 1);
 
         $this->remove_link_id         = (empty($CLEAN_POST['remove_link_id'])        ? '' : self::get_cleaned($CLEAN_POST['remove_link_id'], 'text'));
@@ -584,7 +585,27 @@ class reatlat_cub_Admin {
     {
         if (!empty($this->submit_shortcode_settings))
         {
-            // do something
+            update_option( $this->plugin_name . '_shortcode_activator', $this->shortcode_activator );
+            update_option( $this->plugin_name . '_shortcode_anonymous', $this->shortcode_anonymous );
+            update_option( $this->plugin_name . '_shortcode_recaptcha', $this->shortcode_recaptcha );
+
+            if ( !empty($this->remove_recaptcha_keys) && $this->remove_recaptcha_keys == 1 ) :
+                update_option( $this->plugin_name . '_recaptcha_site_key', '' );
+                update_option( $this->plugin_name . '_recaptcha_secret_key', '' );
+                array_push( $this->messages, array( __('Google reCaptcha API keys is empty now.', 'campaign-url-builder'), 'success' ) );
+            else :
+                if ( !empty($this->recaptcha_site_key) && $this->recaptcha_site_key != get_option( $this->plugin_name . '_recaptcha_site_key' ) )
+                {
+                    update_option( $this->plugin_name . '_recaptcha_site_key', $this->recaptcha_site_key );
+                }
+
+                if ( !empty($this->recaptcha_secret_key) && $this->recaptcha_secret_key != get_option( $this->plugin_name . '_recaptcha_secret_key' ) )
+                {
+                    update_option( $this->plugin_name . '_recaptcha_secret_key', $this->recaptcha_secret_key );
+                }
+            endif;
+
+            array_push( $this->messages, array( __('Shortcodes setting has been updated', 'campaign-url-builder'), 'success' ) );
         }
     }
 

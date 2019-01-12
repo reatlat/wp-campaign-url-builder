@@ -21,7 +21,7 @@ $get_from = esc_attr( $plugin->plugin_real_name );
                 </th>
                 <td>
                     <label class="tgl">
-                        <input type="checkbox" name="shortcode_activator" <?php checked(get_option( $this->plugin_name . '_activator')); ?> />
+                        <input type="checkbox" name="shortcode_activator" <?php checked(get_option( $this->plugin_name . '_shortcode_activator')); ?> />
                         <span data-on="<?php _e('Enabled', 'campaign-url-builder'); ?>" data-off="<?php _e('Disabled', 'campaign-url-builder'); ?>"></span>
                     </label>
                 </td>
@@ -33,7 +33,7 @@ $get_from = esc_attr( $plugin->plugin_real_name );
                 </th>
                 <td>
                     <label class="tgl">
-                        <input type="checkbox" name="shortcode_anonymous" <?php checked(get_option( $this->plugin_name . '_anonymous')); ?> />
+                        <input type="checkbox" name="shortcode_anonymous" <?php checked(get_option( $this->plugin_name . '_shortcode_anonymous')); ?> />
                         <span data-on="<?php _e('Enabled', 'campaign-url-builder'); ?>" data-off="<?php _e('Disabled', 'campaign-url-builder'); ?>"></span>
                     </label>
                 </td>
@@ -45,7 +45,7 @@ $get_from = esc_attr( $plugin->plugin_real_name );
                 </th>
                 <td>
                     <label class="tgl">
-                        <input type="checkbox" name="shortcode_recaptcha" <?php checked(get_option( $this->plugin_name . '_recaptcha')); ?> />
+                        <input type="checkbox" name="shortcode_recaptcha" <?php checked(get_option( $this->plugin_name . '_shortcode_recaptcha')); ?> />
                         <span data-on="<?php _e('Enabled', 'campaign-url-builder'); ?>" data-off="<?php _e('Disabled', 'campaign-url-builder'); ?>"></span>
                     </label>
                 </td>
@@ -57,8 +57,28 @@ $get_from = esc_attr( $plugin->plugin_real_name );
                     <span class="description"><?php _e('(optional)', 'campaign-url-builder'); ?><br><?php _e('if keep empty, recaptcha will be disabled', 'campaign-url-builder'); ?></span>
                 </th>
                 <td>
-                    <input name="recaptcha_site_key" type="text" id="recaptcha_site_key" placeholder="<?php _e('Site Key', 'campaign-url-builder'); ?>" value="" class="regular-text"><br>
-                    <input name="recaptcha_secret_key" type="text" id="recaptcha_secret_key" placeholder="<?php _e('Secret Key', 'campaign-url-builder'); ?>" value="" class="regular-text"><br>
+                    <?php if ( empty( get_option( $plugin->plugin_name . '_recaptcha_site_key' ) ) ) : ?>
+                        <input name="recaptcha_site_key" type="text" id="recaptcha_site_key" placeholder="<?php _e('Site key', 'campaign-url-builder'); ?>" value="" class="regular-text"><br>
+                    <?php else : ?>
+                        <?php
+                        $visible_recaptcha_site_key = str_repeat( '*', strlen( get_option( $plugin->plugin_name . '_recaptcha_site_key' ) ) - 5 ) . substr( get_option( $plugin->plugin_name . '_recaptcha_site_key' ), - 5 );
+                        ?>
+                        <input name="recaptcha_site_key" type="text" disabled id="recaptcha_site_key" value="<?php echo esc_attr( $visible_recaptcha_site_key ); ?>" class="regular-text"><br>
+                    <?php endif; ?>
+
+                    <?php if ( empty( get_option( $plugin->plugin_name . '_recaptcha_secret_key' ) ) ) : ?>
+                        <input name="recaptcha_secret_key" type="text" id="recaptcha_secret_key" placeholder="<?php _e('Secret key', 'campaign-url-builder'); ?>" value="" class="regular-text"><br>
+                    <?php else : ?>
+                        <?php
+                        $visible_recaptcha_secret_key = str_repeat( '*', strlen( get_option( $plugin->plugin_name . '_recaptcha_secret_key' ) ) - 5 ) . substr( get_option( $plugin->plugin_name . '_recaptcha_secret_key' ), - 5 );
+                        ?>
+                        <input name="recaptcha_secret_key" type="text" disabled id="recaptcha_secret_key" value="<?php echo esc_attr( $visible_recaptcha_secret_key ); ?>" class="regular-text"><br>
+                    <?php endif; ?>
+
+                    <?php if ( !empty( get_option( $plugin->plugin_name . '_recaptcha_site_key' ) ) || !empty( get_option( $plugin->plugin_name . '_recaptcha_secret_key' ) ) ) : ?>
+                        <?php _e('Reset API keys', 'campaign-url-builder'); ?>: <input type="checkbox" name="remove_recaptcha_keys" value="1">
+                    <?php endif; ?>
+
                     <p class="description">
                         <?php _e('Register your website with Google to get required API keys and enter them above.', 'campaign-url-builder'); ?>
                         <a href="https://www.google.com/recaptcha/admin#list" target="_blank"><?php _e('Get the API Keys', 'campaign-url-builder'); ?></a>

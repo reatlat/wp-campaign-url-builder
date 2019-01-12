@@ -7,6 +7,7 @@ $plugin = new reatlat_cub_Admin( $this->plugin_real_name, $this->plugin_name, $t
 $plugin->check_manage_links();
 $plugin->check_settings();
 $plugin->check_advanced();
+$plugin->check_shortcode_settings();
 $plugin->check_reset();
 
 $plugin->remove_link_id();
