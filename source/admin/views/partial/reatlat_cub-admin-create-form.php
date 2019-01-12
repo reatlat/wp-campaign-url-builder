@@ -107,6 +107,8 @@
 
         <p class="reatlat_cub_add_custom-params clickable"><span class="dashicons dashicons-plus"></span> <?php _e('Add additional parameters', 'campaign-url-builder'); ?></p>
 
+        <?php wp_nonce_field('submit_manage_links', 'Campaign-URL-Builder__submit_manage_links--nonce'); ?>
+
         <p class="submit">
             <input type="submit" name="submit_manage_links" id="submit_manage_links" class="button button-primary js-reatlat_cub--create-link" value="<?php _e('Generate Link', 'campaign-url-builder'); ?>">
         </p>

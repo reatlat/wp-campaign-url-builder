@@ -64,6 +64,8 @@
 
         <?php endif; ?>
 
+        <?php wp_nonce_field('submit_settings', 'Campaign-URL-Builder__submit_settings--nonce'); ?>
+
         <p class="submit">
             <input type="submit" name="submit_settings" id="submit" class="button button-primary" value="<?php _e('Save Changes', 'campaign-url-builder'); ?>">
         </p>

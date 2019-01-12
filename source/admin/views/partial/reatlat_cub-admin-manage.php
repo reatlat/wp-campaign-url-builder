@@ -8,6 +8,8 @@
         <button name="sortTable--next" class="js-sortTable--next"><span class="dashicons dashicons-arrow-right-alt2"></span></button>
     </div>
 
+    <?php wp_nonce_field('reatlat_cub_export_csv', 'Campaign-URL-Builder__export_to_csv--nonce'); ?>
+
     <button name="export_to_csv" class="export_to_csv js-export_to_csv"><span class="dashicons dashicons-media-spreadsheet"></span> <?php _e('Export CSV', 'campaign-url-builder'); ?></button>
 
     <?php include dirname( __FILE__ ) . '/reatlat_cub-admin-links-list.php'; ?>

@@ -92,6 +92,7 @@ jQuery(function ($) {
                             custom_value_2: $('input[name="custom_value_2"]').val(),
                             custom_key_3: $('input[name="custom_key_3"]').val(),
                             custom_value_3: $('input[name="custom_value_3"]').val(),
+                            "Campaign-URL-Builder__submit_manage_links--nonce": $('input[name="Campaign-URL-Builder__submit_manage_links--nonce"]').val(),
                             submit_manage_links: $('input[name="submit_manage_links"]').val()
                         }
                     }).done(function (msg) {

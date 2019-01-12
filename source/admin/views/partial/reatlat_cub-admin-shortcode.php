@@ -90,6 +90,8 @@ $get_from = esc_attr( $plugin->plugin_real_name );
 
         </table>
 
+        <?php wp_nonce_field('submit_shortcode_settings', 'Campaign-URL-Builder__submit_shortcode_settings--nonce'); ?>
+
         <p class="submit">
             <input type="submit" name="submit_shortcode_settings" id="submit" class="button button-primary" value="<?php _e('Save Changes', 'campaign-url-builder'); ?>">
         </p>

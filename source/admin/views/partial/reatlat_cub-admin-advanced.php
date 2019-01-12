@@ -151,6 +151,8 @@
             </div>
         </div>
 
+        <?php wp_nonce_field('submit_advanced', 'Campaign-URL-Builder__submit_advanced--nonce'); ?>
+
         <p class="submit">
             <input type="submit" name="submit_advanced" id="submit" class="button button-primary" value="<?php _e('Save Changes', 'campaign-url-builder'); ?>">
         </p>
@@ -168,6 +170,7 @@
         <p><input type="checkbox" id="reset_sources" name="reset_sources"> <label for="reset_sources"><?php _e('Reset to default - Sources', 'campaign-url-builder'); ?></label> </p>
         <p><input type="checkbox" id="reset_options" name="reset_options"> <label for="reset_options"><?php _e('Reset settings and options to default', 'campaign-url-builder'); ?></label> </p>
         <p><input type="checkbox" id="reset_all" name="reset_all"> <label for="reset_all"><span class="required"><?php _e('Reset All plugin settings and data', 'campaign-url-builder'); ?></span></label> </p>
+        <?php wp_nonce_field('submit_reset', 'Campaign-URL-Builder__submit_reset--nonce'); ?>
         <p class="submit">
             <input type="submit" onclick="return confirm('Campaign URL Builder\n\nReset settings & data\n\nAre you sure?')" name="submit_reset" id="submit" class="button button-secondary" value="<?php _e('Reset settings & data', 'campaign-url-builder'); ?>">
         </p>

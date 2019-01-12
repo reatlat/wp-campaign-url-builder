@@ -82,6 +82,7 @@ class reatlat_cub_Public
                 }
             }
 
+
             ob_start();
 
             ?>
@@ -143,16 +144,17 @@ class reatlat_cub_Public
                                class="regular-text <?php echo $atts['input-class']; ?>"
                                name="custom_key_<?php echo $x+1; ?>"
                                type="hidden"
-                               value="<?php if ( !empty($atts['custom_parameters'][$x]) ) { echo $atts['custom_parameters'][$x][0]; } ?>"
+                               value="<?php if ( isset( $atts['custom_parameters'][$x][0] ) ) { echo $atts['custom_parameters'][$x][0]; } ?>"
                                readonly="readonly">
                         <input id="custom_value_<?php echo $x+1; ?>"
                                class="regular-text <?php echo $atts['input-class']; ?>"
                                name="custom_value_<?php echo $x+1; ?>"
                                type="hidden"
-                               value="<?php if ( !empty($atts['custom_parameters'][$x]) ) { echo $atts['custom_parameters'][$x][1]; } ?>"
+                               value="<?php if ( isset( $atts['custom_parameters'][$x][1] ) ) { echo $atts['custom_parameters'][$x][1]; } ?>"
                                readonly="readonly">
                     <?php endfor; ?>
 
+                    <?php wp_nonce_field('submit_manage_links', 'Campaign-URL-Builder__submit_manage_links--nonce'); ?>
 
                     <input class="js-reatlat_cub--create-link" type="submit" name="submit_manage_links" id="submit_manage_links" value="<?php _e('Get a link', 'campaign-url-builder'); ?>">
 
