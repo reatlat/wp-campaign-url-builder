@@ -18,10 +18,11 @@ jQuery(function ($) {
             _init() {
                 this._debugLog('debug log activated');
 
-                if (this._is_shortcode_form_active()) {
-
+                if (this._is_shortcode_form_active())
+                {
                     this._triggers(this);
-
+                    this._copyToClipboard();
+                    this._tippy();
                 }
             }
 
@@ -46,11 +47,11 @@ jQuery(function ($) {
 
             /**
              * init Clipboard script
-             * TODO: have to check it twice!
              * @private
              */
             _copyToClipboard() {
-                new Clipboard('td[data-copy]');
+                this._debugLog('copy to clipboard activated');
+                new Clipboard('[data-copy]');
             }
 
             /**
@@ -65,6 +66,15 @@ jQuery(function ($) {
                     // do not reload page!
                     return false;
                 });
+            }
+
+            _tippy() {
+                if ( typeof tippy === "function" ) {
+                    tippy('.cub-tippy', {
+                        trigger: 'click',
+                        placement: 'left',
+                    });
+                }
             }
 
             /**
@@ -104,22 +114,12 @@ jQuery(function ($) {
                                 $('.Campaign-URL-Builder .notification--success').fadeOut("slow");
                             }, 450);
 
-                            // var tableRow = '<tr class="reatlat_cub_yellow-highlight animated fadeInUp">';
-                            // tableRow += '<td class="campaign_info"></td>';
-                            // tableRow += '<td class="campaign_name"><strong>' + msg.campaign_name + '</strong></td>';
-                            // if (msg.campaign_short_link.length > 6) {
-                            //     tableRow += '<td class="campaign_short_link tippy--hover" data-clipboard-text="' + msg.campaign_short_link + '" data-copy="true" data-original-title="Click cell to copy to clipboard">' + msg.campaign_short_link + '<span class="dashicons dashicons-clipboard"></span></td>';
-                            // } else {
-                            //     tableRow += '<td class="campaign_short_link">n/a</td>';
-                            // }
-                            // tableRow += '<td class="campaign_full_link tippy--hover" data-clipboard-text="' + msg.campaign_full_link + '" data-copy="true" data-original-title="Click cell to copy to clipboard">' + msg.campaign_full_link + '<span class="dashicons dashicons-clipboard"></span></td> ';
-                            // if ($('td.campaign_user_id').length) {
-                            //     tableRow += '<td></td>';
-                            // }
-                            // tableRow += '</tr>';
-                            // $(tableRow).insertAfter('.reatlat_cub_result__table tbody tr.reatlat_cub_result__table__headrow');
+                            let link = msg.campaign_short_link;
 
-                            //TODO: tippy('.tippy--hover' );
+                            $('.Campaign-URL-Builder--form-wrapper__form').slideUp();
+                            $('.link-container--result').addClass('result-success');
+                            $('.Campaign-URL-Builder--form-wrapper__link-container .link-container--result__link').html(link);
+                            $('.link-container--result__copy').attr("data-clipboard-text", link);
 
                         } else {
                             $('.Campaign-URL-Builder .notification--error').show();

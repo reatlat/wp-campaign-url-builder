@@ -2,6 +2,7 @@
 @import "mixins/import-now";
 
 .Campaign-URL-Builder {
+    margin-bottom: 25px;
     .Campaign-URL-Builder--form-wrapper__form {
         .input-regular-text {
             margin-bottom: 10px;
@@ -37,6 +38,46 @@
 
     }
 
+    .Campaign-URL-Builder--form-wrapper__link-container {
+        .link-container--result {
+            position: relative;
+            //display: none;
+            background: mix($white, $default, 80%);
+            border: 1px solid mix($default, $white, 50%);
+            margin: 10px 0;
+            padding: 10px;
+            p {
+                margin: 0;
+            }
+
+            .link-container--result__link {
+                text-align: center;
+            }
+
+            .link-container--result__copy {
+                display: none;
+                position: absolute;
+                top: 0;
+                right: 5px;
+                padding: 0 10px;
+                cursor: pointer;
+                height: 100%;
+                .dashicons {
+                    position: relative;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    //line-height: 1.2;
+                }
+            }
+
+            &.result-success {
+                .link-container--result__copy {
+                    display: block;
+                }
+            }
+        }
+    }
+
     .Campaign-URL-Builder--form-wrapper__notification {
         position: relative;
         width: 100%;
@@ -46,7 +87,7 @@
         width: 100%;
         position: absolute;
         display: none;
-        background: mix($green, $white, 50%);;
+        background: mix($green, $white, 50%);
         border: 1px solid $green;
         margin: 10px 0;
         padding: 10px;
@@ -58,7 +99,7 @@
         width: 100%;
         position: absolute;
         display: none;
-        background: mix($red, $white, 50%);;
+        background: mix($red, $white, 50%);
         border: 1px solid $red;
         margin: 10px 0;
         padding: 10px;

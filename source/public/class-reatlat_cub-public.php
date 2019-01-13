@@ -17,6 +17,7 @@ class reatlat_cub_Public
 	 */
 	function enqueue_scripts()
     {
+        wp_enqueue_script( 'tippy-all',                 str_replace( '/public', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/js/vendor/tippy.all.min.js', array(), null, false );
         wp_enqueue_script( 'clipboard',                 str_replace( '/public', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/js/vendor/clipboard.min.js', array(), null, false );
         wp_enqueue_script( 'jquery-validate',           str_replace( '/public', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/js/vendor/jquery.validate.min.js', array( 'jquery' ), null, false );
         wp_enqueue_script( 'jquery-additional-methods', str_replace( '/public', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/js/vendor/additional-methods.min.js', array( 'jquery' ), null, false );
@@ -163,13 +164,16 @@ class reatlat_cub_Public
                 </form>
 
                 <div class="Campaign-URL-Builder--form-wrapper__link-container">
+                    <div class="link-container--result">
+                        <div class="link-container--result__link"><?php _e('Click button above to get a link', 'campaign-url-builder'); ?></div>
+                        <div class="link-container--result__copy cub-tippy" data-clipboard-text="" data-copy="true" title="<?php _e('The link has been copied to clipboard.', 'campaign-url-builder'); ?>">
+                            <span class="dashicons dashicons-clipboard"></span>
+                        </div>
+                    </div>
 
                 </div>
 
                 <div class="Campaign-URL-Builder--form-wrapper__notification">
-                    <div class="notification--result">
-
-                    </div>
                     <div class="notification--success">
                         <p>
                             <?php _e('Success', 'campaign-url-builder'); ?>
