@@ -183,6 +183,7 @@
         </div>
     </div>
 
+    <?php //TODO: make news feed with reatlat API endpoint ?>
 
 	<div class="reatlat_promote_widget">
 		<div class="reatlat_promote_title"><?php _e('Developed by', 'campaign-url-builder'); ?></div>

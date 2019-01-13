@@ -679,9 +679,16 @@ class reatlat_cub_Admin {
         }
     }
 
-	public function get_promote_content( $from )
+	public function get_promote_content( $url, $arg = array() )
     {
-        //
+        //TODO: make news feed with reatlat API endpoint
+        //TODO: create my own REST API on https://api.reatlat.net
+
+        $request = wp_remote_get( $url, $arg );
+
+        $response = wp_remote_retrieve_body( $request );
+
+        return $response;
 	}
 
 	// helpers
