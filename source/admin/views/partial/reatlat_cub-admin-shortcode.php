@@ -6,7 +6,7 @@ $get_from = esc_attr( $plugin->plugin_real_name );
     <h1 class="title"><?php _e('Shortcode settings', 'campaign-url-builder'); ?></h1>
 
     <p class="description">
-        <?php _e('Shortcode works only if you use your own Bitly API key', 'campaign-url-builder'); ?>.
+        <?php _e('Shortcode works only if you use your own Bitly API key or Goo.gl API Key', 'campaign-url-builder'); ?>.
         How to get your <a class="reatlat_cub_tab_link" href="#reatlat_cub_tab-5"><?php _e('Bitly API key', 'campaign-url-builder'); ?></a>?
     </p>
 
@@ -39,6 +39,8 @@ $get_from = esc_attr( $plugin->plugin_real_name );
                 </td>
             </tr>
 
+            <?php // TODO: implement recaptcha ajax, perhaps with third party plugin :) ?>
+            <!--
             <tr>
                 <th scope="row">
                     <label class="unclickable"><?php _e("Google reCaptcha", 'campaign-url-builder'); ?> <span class="dashicons dashicons-editor-help tippy" title="<?php _e('Activate Google reCaptcha version 3', 'campaign-url-builder'); ?>"></span></label>
@@ -87,6 +89,7 @@ $get_from = esc_attr( $plugin->plugin_real_name );
 
             </tr>
 
+            -->
 
         </table>
 
