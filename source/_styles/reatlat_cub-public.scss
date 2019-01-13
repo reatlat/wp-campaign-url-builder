@@ -1,0 +1,69 @@
+@import "vars";
+@import "mixins/import-now";
+
+.Campaign-URL-Builder {
+    .Campaign-URL-Builder--form-wrapper__form {
+        .input-regular-text {
+            margin-bottom: 10px;
+            &.campaign_page {
+
+            }
+            &.campaign_source {
+
+            }
+            &.campaign_medium {
+
+            }
+            &.campaign_name {
+
+            }
+            &.campaign_term {
+
+            }
+            &.campaign_content {
+
+            }
+            &.custom_key {
+
+            }
+            &.custom_value {
+
+            }
+        }
+
+        .input-submit-button {
+            width: 100%;
+        }
+
+    }
+
+    .Campaign-URL-Builder--form-wrapper__notification {
+        position: relative;
+        width: 100%;
+    }
+
+    .notification--success {
+        width: 100%;
+        position: absolute;
+        display: none;
+        background: mix($green, $white, 50%);;
+        border: 1px solid $green;
+        margin: 10px 0;
+        padding: 10px;
+        p {
+            margin: 0;
+        }
+    }
+    .notification--error {
+        width: 100%;
+        position: absolute;
+        display: none;
+        background: mix($red, $white, 50%);;
+        border: 1px solid $red;
+        margin: 10px 0;
+        padding: 10px;
+        p {
+            margin: 0;
+        }
+    }
+}

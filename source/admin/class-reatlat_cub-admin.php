@@ -56,6 +56,7 @@ class reatlat_cub_Admin {
 
         $this->shortcode_activator       = (empty($CLEAN_POST['shortcode_activator'])       ? '' : self::get_cleaned($CLEAN_POST['shortcode_activator'], 'checkbox'));
         $this->shortcode_anonymous       = (empty($CLEAN_POST['shortcode_anonymous'])       ? '' : self::get_cleaned($CLEAN_POST['shortcode_anonymous'], 'checkbox'));
+        $this->shortcode_styles          = (empty($CLEAN_POST['shortcode_styles'])          ? '' : self::get_cleaned($CLEAN_POST['shortcode_styles'], 'checkbox'));
         $this->shortcode_recaptcha       = (empty($CLEAN_POST['shortcode_recaptcha'])       ? '' : self::get_cleaned($CLEAN_POST['shortcode_recaptcha'], 'checkbox'));
         $this->recaptcha_site_key        = (empty($CLEAN_POST['recaptcha_site_key'])        ? '' : self::get_cleaned($CLEAN_POST['recaptcha_site_key'], 'text'));
         $this->recaptcha_secret_key      = (empty($CLEAN_POST['recaptcha_secret_key'])      ? '' : self::get_cleaned($CLEAN_POST['recaptcha_secret_key'], 'text'));
@@ -599,6 +600,7 @@ class reatlat_cub_Admin {
             {
                 update_option( $this->plugin_name . '_shortcode_activator', $this->shortcode_activator );
                 update_option( $this->plugin_name . '_shortcode_anonymous', $this->shortcode_anonymous );
+                update_option( $this->plugin_name . '_shortcode_styles', $this->shortcode_styles );
                 update_option( $this->plugin_name . '_shortcode_recaptcha', $this->shortcode_recaptcha );
 
                 if ( !empty($this->remove_recaptcha_keys) && $this->remove_recaptcha_keys == 1 ) :

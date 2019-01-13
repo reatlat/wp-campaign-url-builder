@@ -12,6 +12,12 @@ $get_from = esc_attr( $plugin->plugin_real_name );
 
     <?php if ( current_user_can('administrator') || ! get_option( $this->plugin_name . '_admin_only' ) ) : ?>
 
+    <?php // TODO: remove Google in March 2019 ?>
+
+    <?php if ( ! ( get_option( $this->plugin_name . '_google_api_key' ) || get_option( $this->plugin_name . '_bitly_api_key' ) ) ) : ?>
+        <h4><?php _e('Shortcodes status','campaign-url-builder'); ?>: <span class="alert"><?php _e('Disabled', 'campaign-url-builder'); ?></span> - <?php _e('For reason, you use default API key for Bitly or Goo.gl', 'campaign-url-builder'); ?></h4>
+    <?php endif; ?>
+
     <form method="POST" class="reatlat_cub_form">
 
         <table class="form-table">
@@ -34,6 +40,18 @@ $get_from = esc_attr( $plugin->plugin_real_name );
                 <td>
                     <label class="tgl">
                         <input type="checkbox" name="shortcode_anonymous" <?php checked(get_option( $this->plugin_name . '_shortcode_anonymous')); ?> />
+                        <span data-on="<?php _e('Enabled', 'campaign-url-builder'); ?>" data-off="<?php _e('Disabled', 'campaign-url-builder'); ?>"></span>
+                    </label>
+                </td>
+            </tr>
+
+            <tr>
+                <th scope="row">
+                    <label class="unclickable"><?php _e('Default styles', 'campaign-url-builder'); ?> <span class="dashicons dashicons-editor-help tippy" title="<?php _e('Use default CSS styles for front-end shortcoes.', 'campaign-url-builder'); ?>"></span></label>
+                </th>
+                <td>
+                    <label class="tgl">
+                        <input type="checkbox" name="shortcode_styles" <?php checked(get_option( $this->plugin_name . '_shortcode_styles')); ?> />
                         <span data-on="<?php _e('Enabled', 'campaign-url-builder'); ?>" data-off="<?php _e('Disabled', 'campaign-url-builder'); ?>"></span>
                     </label>
                 </td>

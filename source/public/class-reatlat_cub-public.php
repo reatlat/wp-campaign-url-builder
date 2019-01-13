@@ -39,7 +39,9 @@ class reatlat_cub_Public
 	 */
 	function enqueue_styles()
     {
-		// wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'assets/css/reatlat_plugin_name-public.css', array(), $this->version, 'all' );
+        if ( get_option( $this->plugin_name . '_shortcode_styles' ) ) {
+            wp_enqueue_style( $this->plugin_name, str_replace( '/public', '', plugin_dir_url( __FILE__ ) ) . 'public/assets/css/reatlat_cub-public.css', array(), $this->version, 'all' );
+        }
 	}
 
 	/**
@@ -91,39 +93,39 @@ class reatlat_cub_Public
                 <form action="#" method="post" class="Campaign-URL-Builder--form-wrapper__form <?php echo $atts['form']; ?>" <?php if ( $atts['form-inline-style'] ) { echo 'style="' . $atts['form-inline-style'] . '"'; } ?>>
 
                     <input id="campaign_page"
-                           class="regular-text <?php echo $atts['input-class']; ?>"
+                           class="campaign_page input-regular-text <?php echo $atts['input-class']; ?>"
                            name="campaign_page"
-                           placeholder="<?php _e('https://example.com/example-page/', 'campaign-url-builder'); ?>"
+                           placeholder="<?php _e('Website URL', 'campaign-url-builder'); ?>"
                            type="<?php if( $atts['hidden'] && in_array('campaign_page', $atts['hidden'] )) { echo 'hidden'; } else { echo 'text'; } ?>"
                            value="<?php if ( $atts['campaign_page'] ) { echo esc_attr( $atts['campaign_page'] ); } else { echo get_permalink(); } ?>"
                            <?php if ( $atts['type'] === 'preset' && $atts['campaign_page'] ) : ?>readonly="readonly"<?php endif; ?>>
 
                     <input id="campaign_source"
-                           class="regular-text <?php echo $atts['input-class']; ?>"
+                           class="campaign_source input-regular-text <?php echo $atts['input-class']; ?>"
                            name="campaign_source"
-                           placeholder="<?php _e('utm_source', 'campaign-url-builder'); ?>"
+                           placeholder="<?php _e('Campaign Source', 'campaign-url-builder'); ?>"
                            type="<?php if( $atts['hidden'] && in_array('utm_source', $atts['hidden'] )) { echo 'hidden'; } else { echo 'text'; } ?>"
                            value="<?php echo esc_attr( $atts['utm_source'] ) ?>"
                            <?php if ( $atts['type'] === 'preset' && $atts['utm_source'] ) : ?>readonly="readonly"<?php endif; ?>>
 
                     <input id="campaign_medium"
-                           class="regular-text <?php echo $atts['input-class']; ?>"
+                           class="campaign_medium input-regular-text <?php echo $atts['input-class']; ?>"
                            name="campaign_medium"
-                           placeholder="<?php _e('utm_medium', 'campaign-url-builder'); ?>"
+                           placeholder="<?php _e('Campaign Medium', 'campaign-url-builder'); ?>"
                            type="<?php if( $atts['hidden'] && in_array('utm_medium', $atts['hidden'] )) { echo 'hidden'; } else { echo 'text'; } ?>"
                            value="<?php echo esc_attr( $atts['utm_medium'] ) ?>"
                            <?php if ( $atts['type'] === 'preset' && $atts['utm_medium'] ) : ?>readonly="readonly"<?php endif; ?>>
 
                     <input id="campaign_name"
-                           class="regular-text <?php echo $atts['input-class']; ?>"
+                           class="campaign_name input-regular-text <?php echo $atts['input-class']; ?>"
                            name="campaign_name"
-                           placeholder="<?php _e('Product, promo code, or slogan.', 'campaign-url-builder'); ?>"
+                           placeholder="<?php _e('Campaign Name, Product, promo code, or slogan.', 'campaign-url-builder'); ?>"
                            type="<?php if( $atts['hidden'] && in_array('utm_campaign', $atts['hidden'] )) { echo 'hidden'; } else { echo 'text'; } ?>"
                            value="<?php echo esc_attr( $atts['utm_campaign'] ); ?>"
                            <?php if ( $atts['type'] === 'preset' && $atts['utm_campaign'] ) : ?>readonly="readonly"<?php endif; ?>>
 
                     <input id="campaign_term"
-                           class="regular-text <?php echo $atts['input-class']; ?>"
+                           class="campaign_term input-regular-text <?php echo $atts['input-class']; ?>"
                            name="campaign_term"
                            placeholder="<?php _e('Identify the paid keywords', 'campaign-url-builder'); ?>"
                            type="<?php if( $atts['hidden'] && in_array('utm_term', $atts['hidden'] )) { echo 'hidden'; } else { echo 'text'; } ?>"
@@ -131,7 +133,7 @@ class reatlat_cub_Public
                            <?php if ( $atts['type'] === 'preset' && $atts['utm_term'] ) : ?>readonly="readonly"<?php endif; ?>>
 
                     <input id="campaign_content"
-                           class="regular-text <?php echo $atts['input-class']; ?>"
+                           class="campaign_content input-regular-text <?php echo $atts['input-class']; ?>"
                            name="campaign_content"
                            placeholder="<?php _e('Use to differentiate ads', 'campaign-url-builder'); ?>"
                            type="<?php if( $atts['hidden'] && in_array('utm_content', $atts['hidden'] )) { echo 'hidden'; } else { echo 'text'; } ?>"
@@ -141,13 +143,13 @@ class reatlat_cub_Public
 
                     <?php for ($x = 0; $x <= 2; $x++) : ?>
                         <input id="custom_key_<?php echo $x+1; ?>"
-                               class="regular-text <?php echo $atts['input-class']; ?>"
+                               class="custom_key input-regular-text <?php echo $atts['input-class']; ?>"
                                name="custom_key_<?php echo $x+1; ?>"
                                type="hidden"
                                value="<?php if ( isset( $atts['custom_parameters'][$x][0] ) ) { echo $atts['custom_parameters'][$x][0]; } ?>"
                                readonly="readonly">
                         <input id="custom_value_<?php echo $x+1; ?>"
-                               class="regular-text <?php echo $atts['input-class']; ?>"
+                               class="custom_value input-regular-text <?php echo $atts['input-class']; ?>"
                                name="custom_value_<?php echo $x+1; ?>"
                                type="hidden"
                                value="<?php if ( isset( $atts['custom_parameters'][$x][1] ) ) { echo $atts['custom_parameters'][$x][1]; } ?>"
@@ -156,7 +158,7 @@ class reatlat_cub_Public
 
                     <?php wp_nonce_field('submit_manage_links', 'Campaign-URL-Builder__submit_manage_links--nonce'); ?>
 
-                    <input class="js-reatlat_cub--create-link" type="submit" name="submit_manage_links" id="submit_manage_links" value="<?php _e('Get a link', 'campaign-url-builder'); ?>">
+                    <input class="input-submit-button js-reatlat_cub--create-link" type="submit" name="submit_manage_links" id="submit_manage_links" value="<?php _e('Get a link', 'campaign-url-builder'); ?>">
 
                 </form>
 
@@ -165,11 +167,18 @@ class reatlat_cub_Public
                 </div>
 
                 <div class="Campaign-URL-Builder--form-wrapper__notification">
-                    <div class="notification--success">
+                    <div class="notification--result">
 
                     </div>
+                    <div class="notification--success">
+                        <p>
+                            <?php _e('Success', 'campaign-url-builder'); ?>
+                        </p>
+                    </div>
                     <div class="notification--error">
-
+                        <p>
+                            <?php _e('Sorry, something went wrong. Please try again.', 'campaign-url-builder'); ?>
+                        </p>
                     </div>
                 </div>
 

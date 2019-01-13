@@ -74,6 +74,7 @@ jQuery(function ($) {
              */
             _formAjaxPost(self) {
 
+                //TODO: addd validayion form
                 if ($('input[name="campaign_page"]').val().length > 9 && $('input[name="campaign_page"]').val().includes('//') && $('input[name="campaign_page"]').val().slice(0, 4) === 'http' && $('input[name="campaign_name"]').val().length > 1) {
                     $.ajax({
                         type: "POST",
@@ -98,11 +99,11 @@ jQuery(function ($) {
                     }).done(function (msg) {
                         self._debugLog('AJAX Success, respond:', msg);
                         if (msg.result) {
-                            // $('.reatlat_cub_notice--success').show();
-                            // setTimeout(function () {
-                            //     $('.reatlat_cub_notice--success').fadeOut("slow");
-                            // }, 450);
-                            //
+                            $('.Campaign-URL-Builder .notification--success').show();
+                            setTimeout(function () {
+                                $('.Campaign-URL-Builder .notification--success').fadeOut("slow");
+                            }, 450);
+
                             // var tableRow = '<tr class="reatlat_cub_yellow-highlight animated fadeInUp">';
                             // tableRow += '<td class="campaign_info"></td>';
                             // tableRow += '<td class="campaign_name"><strong>' + msg.campaign_name + '</strong></td>';
@@ -121,9 +122,9 @@ jQuery(function ($) {
                             //TODO: tippy('.tippy--hover' );
 
                         } else {
-                            $('.reatlat_cub_notice--error').show();
+                            $('.Campaign-URL-Builder .notification--error').show();
                             setTimeout(function () {
-                                $('.reatlat_cub_notice--error').fadeOut("slow");
+                                $('.Campaign-URL-Builder .notification--error').fadeOut("slow");
                             }, 1000);
                         }
                         return false;
