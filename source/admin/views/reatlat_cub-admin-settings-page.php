@@ -31,6 +31,7 @@ $plugin->enqueue_notices();
         <?php endif; ?>
         <li class="new-feature"><a href="#reatlat_cub_tab-4"><span class="dashicons dashicons-editor-code"></span> <?php _e('Shortcode', 'campaign-url-builder'); ?></a></li>
         <li><a href="#reatlat_cub_tab-5"><span class="dashicons dashicons-welcome-learn-more"></span> <?php _e('Knowledge base', 'campaign-url-builder'); ?></a></li>
+        <li><a href="#reatlat_cub_tab-6"><span class="dashicons dashicons-info"></span> <?php _e('About', 'campaign-url-builder'); ?></a></li>
 	</ul>
 
 	<div class="reatlat_cub_tabs_container">
@@ -43,6 +44,7 @@ $plugin->enqueue_notices();
         <?php endif; ?>
         <?php include dirname( __FILE__ ) . '/partial/reatlat_cub-admin-shortcode.php'; ?>
         <?php include dirname( __FILE__ ) . '/partial/reatlat_cub-admin-kb.php'; ?>
+        <?php include dirname( __FILE__ ) . '/partial/reatlat_cub-admin-about.php'; ?>
 
 	</div>
 

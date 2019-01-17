@@ -58,6 +58,38 @@
         overflow: hidden;
         width: 100%;
         margin: 15px 0;
+
+        .changelog {
+            .changelog__container {
+                max-height: 220px;
+                overflow: auto;
+                border: 1px solid rgba(0,0,0,.1);
+                background: $white;
+                padding: 10px;
+                h4:nth-of-type(1) {
+                    margin-top: 0;
+                }
+                // fix for show scrollbar for OSX systems
+                &::-webkit-scrollbar {
+                    -webkit-appearance: none;
+                    width: 7px;
+                    background: rgba(0,0,0,.1);
+                }
+                &::-webkit-scrollbar-thumb {
+                    border-radius: 4px;
+                    background-color: rgba(0,0,0,.5);
+                    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+                }
+            }
+            h4 {
+                margin-bottom: 0;
+            }
+            ul {
+                list-style: initial;
+                margin-left: 25px;
+                margin-top: 5px;
+            }
+        }
     }
 
     h1 span.dashicons {
@@ -311,7 +343,7 @@
             &.reatlat_cub_yellow-highlight {
                 background: #fbffce;
                 &:nth-child(odd) {
-                    background: #fffbae;
+                    background: $parchment;
                 }
             }
         }
@@ -498,22 +530,50 @@
                     margin: 0;
                 }
             }
-            &.notice-note {
-                background: #fffbae;
+            &.buymeacoffee {
+                background: $sunflower;
+                a {
+                    display: block;
+                    text-align: center;
+                    padding: 10px;
+                    @include transit();
+                    &:hover {
+                        transform: scale(1.15);
+                    }
+                    img {
+                        margin: auto;
+                        max-width: 300px;
+                    }
+                }
             }
-            &.changelog {
-                .changelog__container {
-                    max-height: 250px;
-                    overflow: auto;
+            &.rateus {
+                background: linear-gradient(to bottom, $blue 0%, $blue calc(50% + 20px), $deepsea calc(50% + 20px), $deepsea 100%);
+                a {
+                    min-height: 100px;
+                    display: block;
+                    text-align: center;
+                    @include transit();
+                    .reatlat_promote_title {
+                        display: block;
+                        color: $sunflower;
+                        padding: 10px 0 0;
+                        margin: auto;
+                    }
+                    img {
+                        margin: auto;
+                        max-width: 200px;
+                        @include transit();
+                    }
+                    &:hover img {
+                        transform: scale(1.15);
+                    }
                 }
-                h4 {
-                    margin-bottom: 0;
-                }
-                ul {
-                    list-style: initial;
-                    margin-left: 25px;
-                    margin-top: 5px;
-                }
+            }
+            &.notice-note {
+                background: $parchment;
+            }
+            &.news-note {
+                background: mix($theme-color, $white, 30%);
             }
             &.technologies {
                 text-align: center;

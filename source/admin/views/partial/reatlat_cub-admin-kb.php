@@ -7,6 +7,18 @@
 
     <hr>
 
+    <h3><?php _e('Frontend - Shortcodes', 'campaign-url-builder'); ?></h3>
+    <p>Coming soon...</p>
+
+    <hr>
+
+    <h3><?php _e('Languages and String translation', 'campaign-url-builder'); ?></h3>
+    <p>
+        <?php printf(__('Missing your language? Needs update string translations? Use %sLoco Translate%s plugin.', 'campaign-url-builder'), '<a target="_blank" href="https://wordpress.org/plugins/loco-translate/">', '</a>'); ?>
+    </p>
+
+    <hr>
+
     <h3><?php _e('Google API key', 'campaign-url-builder'); ?></h3>
     <p>
         <?php _e('You will need to', 'campaign-url-builder'); ?>: <br>
@@ -46,12 +58,5 @@
             '</a>'
             );
         ?>
-    </p>
-
-    <hr>
-
-    <h3><?php _e('Debug info', 'campaign-url-builder'); ?></h3>
-    <p>
-        <?php _e('Coming soon...', 'campaign-url-builder'); ?>
     </p>
 </div>
