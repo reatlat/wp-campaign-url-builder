@@ -1,4 +1,6 @@
 <?php
+$get_from = esc_attr( $plugin->plugin_real_name );
+
 $changelog = array(
     array(
         'version' => '1.X.X',
@@ -134,7 +136,13 @@ $changelog = array(
 ?>
 
 <div class="reatlat_cub_container reatlat_cub_tab reatlat_cub_tab-6">
-    <h2 class="title"><?php _e('About', 'campaign-url-builder'); ?></h2>
+    <h2 class="title"><?php _e('About Campaign URL Builder', 'campaign-url-builder'); ?></h2>
+
+    <p>
+        <?php _e('This plugin allows you to easily add campaign parameters to URLs so you can track Custom Campaigns in Google Analytics. Also, you can easily create short links and easily share it on social networks.', 'campaign-url-builder'); ?>
+    </p>
+
+    <hr>
 
     <h3><?php _e('Changelog', 'campaign-url-builder'); ?></h3>
     <div class="changelog">
@@ -158,4 +166,34 @@ $changelog = array(
     <p>
         <?php _e('Coming soon...', 'campaign-url-builder'); ?>
     </p>
+
+    <hr>
+
+    <div class="reatlat_cub_container__widget">
+        <div class="reatlat_promote_title"><?php _e('Developed by', 'campaign-url-builder'); ?></div>
+        <div class="author-card">
+            <a target="_blank" href="https://reatlat.net/?utm_source=wp_plugin&utm_medium=authorcard_sidebar&utm_campaign=<?php echo $get_from; ?>">
+                <img src="<?php echo get_avatar_url('reatlat@gmail.com', array("size"=>160) ); ?>" alt="Alex Zappa a.k.a. re[at]lat">
+            </a>
+            <h3>Alex Zappa <small>a.k.a. re[at]lat</small></h3>
+            <h4><?php _e('Software Engineer', 'campaign-url-builder'); ?></h4>
+            <p><a target="_blank" href="https://reatlat.net/?utm_source=wp_plugin&utm_medium=logo_sidebar&utm_campaign=<?php echo $get_from; ?>"><?php _e('Homepage', 'campaign-url-builder'); ?></a> | <a target="_blank" href="https://github.com/reatlat">GitHub</a></p>
+
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="reatlat_cub_container__widget technologies">
+        <a href="https://github.com/reatlat/wp-campaign-url-builder" target="_blank">
+            <img src="<?php echo str_replace('/admin', '', plugin_dir_url( dirname(__DIR__) ) ); ?>admin/views/images/github-octcat.png" alt="">
+        </a>
+        <a href="https://www.gnu.org/licenses/quick-guide-gplv3.en.html" target="_blank">
+            <img src="<?php echo str_replace('/admin', '', plugin_dir_url( dirname(__DIR__) ) ); ?>admin/views/images/gplv3.png" alt="">
+        </a>
+        <a href="https://opensource.org/" target="_blank">
+            <img src="<?php echo str_replace('/admin', '', plugin_dir_url( dirname(__DIR__) ) ); ?>admin/views/images/opensource.png" alt="">
+        </a>
+    </div>
+
 </div>

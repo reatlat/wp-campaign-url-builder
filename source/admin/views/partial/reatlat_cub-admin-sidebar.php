@@ -12,33 +12,34 @@
             <p>
                 <?php
                 printf( __('Starting March 2019, Campaign URL Builder plugin will be turning down support for goo.gl URL shortener. Previously created links will continue to redirect to their intended destination. Please see this %sblog post%s for more details.', 'campaign-url-builder'),
-                    '<a target="_blank" href="https://developers.googleblog.com/2018/03/transitioning-google-url-shortener.html">',
+                    '<a target="_blank" href="https://reatlat.net/?utm_source=wp_plugin&utm_medium=logo_sidebar&utm_campaign=' . $get_from . '">',
                     '</a>'
                 );
                 ?>
             </p>
         </div>
     </div>
-    
+
     <div class="reatlat_promote_widget news-note">
         <div class="reatlat_promote_title"><span class="dashicons dashicons-megaphone"></span> <?php _e('News', 'campaign-url-builder'); ?></div>
         <div class="notice__container">
             <p>
                 <?php
                 printf( __('Introducing a new feature. Frontend %sshortcodes%s. More information in %sblog post%s.', 'campaign-url-builder'),
-                    '<a href="#reatlat_cub_tab-4">',
+                    '<a class="reatlat_cub_tab_link" href="#reatlat_cub_tab-4">',
                     '</a>',
-                    '<a target="_blank" href="https://reatlat.net">',
+                    '<a target="_blank" href="https://reatlat.net/?utm_source=wp_plugin&utm_medium=logo_sidebar&utm_campaign=' . $get_from . '">',
                     '</a>'
                 );
                 ?>
             </p>
             <p>
                 <?php
-                printf( __('The changelog move to %sAbout%s tab.','campaign-url-builder'),
-                    '<a target="_blank" href="#reatlat_cub_tab-6">',
+                printf( __('The changelog, about developer, technologies cards moved to %sAbout%s tab.','campaign-url-builder'),
+                    '<a class="reatlat_cub_tab_link" href="#reatlat_cub_tab-6">',
                     '</a>'); ?>
             </p>
+
         </div>
     </div>
 
@@ -57,30 +58,14 @@
 
 
 
-	<div class="reatlat_promote_widget">
-		<div class="reatlat_promote_title"><?php _e('Developed by', 'campaign-url-builder'); ?></div>
-        <div class="author-card">
-            <a target="_blank" href="https://reatlat.net/?utm_source=wp_plugin&utm_medium=authorcard_sidebar&utm_campaign=<?php echo $get_from; ?>">
-                <img src="<?php echo get_avatar_url('reatlat@gmail.com', array("size"=>160) ); ?>" alt="Alex Zappa a.k.a. re[at]lat">
+	<div class="reatlat_promote_widget author-card">
+            <a target="_blank" href="https://reatlat.net/contact/?utm_source=wp_plugin&utm_medium=authorcard_sidebar&utm_campaign=<?php echo $get_from; ?>">
+                <img src="<?php echo str_replace('/admin', '', plugin_dir_url( dirname(__DIR__) ) ); ?>admin/views/images/help-sign.png" alt="">
+                <h2 class="mtn"><?php _e('Looking for WordPress Developer?', 'campaign-url-builder'); ?></h2>
+                <h3><?php _e('Hire me to make custom integration for your WordPress project.', 'campaign-url-builder'); ?></h3>
             </a>
-            <h3>Alex Zappa <small>a.k.a. re[at]lat</small></h3>
-            <h4><?php _e('Software Engineer', 'campaign-url-builder'); ?></h4>
-            <p><a target="_blank" href="https://reatlat.net/?utm_source=wp_plugin&utm_medium=logo_sidebar&utm_campaign=<?php echo $get_from; ?>"><?php _e('Homepage', 'campaign-url-builder'); ?></a> | <a target="_blank" href="https://github.com/reatlat">GitHub</a></p>
-
-        </div>
 	</div>
 
 
-    <div class="reatlat_promote_widget technologies">
-        <a href="https://github.com/reatlat/wp-campaign-url-builder" target="_blank">
-            <img src="<?php echo str_replace('/admin', '', plugin_dir_url( dirname(__DIR__) ) ); ?>admin/views/images/github-octcat.png" alt="">
-        </a>
-        <a href="https://www.gnu.org/licenses/quick-guide-gplv3.en.html" target="_blank">
-            <img src="<?php echo str_replace('/admin', '', plugin_dir_url( dirname(__DIR__) ) ); ?>admin/views/images/gplv3.png" alt="">
-        </a>
-        <a href="https://opensource.org/" target="_blank">
-            <img src="<?php echo str_replace('/admin', '', plugin_dir_url( dirname(__DIR__) ) ); ?>admin/views/images/opensource.png" alt="">
-        </a>
-    </div>
 
 </div>

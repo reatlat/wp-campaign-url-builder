@@ -59,6 +59,42 @@
         width: 100%;
         margin: 15px 0;
 
+        .reatlat_cub_container__widget {
+            background-color: $white;
+            padding: 10px;
+            margin: 15px 0;
+            border: 1px solid #E5E5E5;
+            position: relative;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+            overflow: hidden;
+
+            // Author card item
+            .author-card {
+                img {
+                    float: left;
+                    width: 80px;
+                    height: 80px;
+                    margin-right: 15px;
+                }
+                h3 {
+                    padding-top: 5px;
+                    margin-bottom: 0;
+                }
+                h4 {
+                    margin: 0;
+                }
+            }
+
+            &.technologies {
+                text-align: center;
+                img {
+                    //width: 20%;
+                    padding: 0 3%;
+                    max-width: 100px;
+                }
+            }
+        }
+
         .changelog {
             .changelog__container {
                 max-height: 220px;
@@ -514,22 +550,7 @@
                 text-decoration: none;
             }
 
-            // Author card item
-            .author-card {
-                img {
-                    float: left;
-                    width: 80px;
-                    height: 80px;
-                    margin-right: 15px;
-                }
-                h3 {
-                    padding-top: 5px;
-                    margin-bottom: 0;
-                }
-                h4 {
-                    margin: 0;
-                }
-            }
+
             &.buymeacoffee {
                 background: $sunflower;
                 a {
@@ -543,6 +564,7 @@
                     img {
                         margin: auto;
                         max-width: 300px;
+                        width: 100%;
                     }
                 }
             }
@@ -575,11 +597,24 @@
             &.news-note {
                 background: mix($theme-color, $white, 30%);
             }
-            &.technologies {
-                text-align: center;
+
+            &.author-card {
+                background: linear-gradient(to bottom, $white 0, $white 60%, rgba($black, .1));
+                a {
+                    display: block;
+                }
                 img {
-                    width: 20%;
-                    padding: 0 3%;
+                    float: left;
+                    width: 80px;
+                    height: 80px;
+                    margin-right: 15px;
+                }
+                h3 {
+                    padding-top: 5px;
+                    margin-bottom: 0;
+                }
+                h4 {
+                    margin: 0;
                 }
             }
         }
