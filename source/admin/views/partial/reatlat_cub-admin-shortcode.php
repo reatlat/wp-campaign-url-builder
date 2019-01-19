@@ -7,7 +7,7 @@ $get_from = esc_attr( $plugin->plugin_real_name );
 
     <p class="description">
         <?php _e('Shortcode works only if you use your own Bitly API key or Goo.gl API Key', 'campaign-url-builder'); ?>.
-        How to get your <a class="reatlat_cub_tab_link" href="#reatlat_cub_tab-5"><?php _e('Bitly API key', 'campaign-url-builder'); ?></a>?
+        How to get your <a target="_blank" href=https://reatlat.net/how-do-i-find-my-bitly-oauth-access-token/?utm_source=wp_plugin&utm_medium=shortcode_tab&utm_campaign=<?php echo $get_from; ?>"><?php _e('Bitly API key', 'campaign-url-builder'); ?></a>?
     </p>
 
     <?php if ( current_user_can('administrator') || ! get_option( $this->plugin_name . '_admin_only' ) ) : ?>
@@ -129,7 +129,7 @@ $get_from = esc_attr( $plugin->plugin_real_name );
 
     <h3><?php _e('Tools', 'campaign-url-builder'); ?></h3>
     <p>
-        <a class="button button-primary button-shortcode-generator" href="https://reatlat.net/wp-plugin-campaign-url-builder/#generator?utm_source=wp_plugin&utm_medium=shortcard+tab&utm_campaign=<?php echo $get_from; ?>" target="_blank"><span class="dashicons dashicons-hammer"></span><?php _e('Shortcode generator', 'campaign-url-builder'); ?></a>
+        <a class="button button-primary button-shortcode-generator" href="https://reatlat.net/wp-plugin-campaign-url-builder/#generator?utm_source=wp_plugin&utm_medium=shortcode_tab&utm_campaign=<?php echo $get_from; ?>" target="_blank"><span class="dashicons dashicons-hammer"></span><?php _e('Shortcode generator', 'campaign-url-builder'); ?></a>
     </p>
 
     <hr>

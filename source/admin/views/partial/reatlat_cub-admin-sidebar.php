@@ -12,7 +12,7 @@
             <p>
                 <?php
                 printf( __('Starting March 2019, Campaign URL Builder plugin will be turning down support for goo.gl URL shortener. Previously created links will continue to redirect to their intended destination. Please see this %sblog post%s for more details.', 'campaign-url-builder'),
-                    '<a target="_blank" href="https://reatlat.net/?utm_source=wp_plugin&utm_medium=logo_sidebar&utm_campaign=' . $get_from . '">',
+                    '<a target="_blank" href="https://reatlat.net/transitioning-google-url-shortener-to-bitly/?utm_source=wp_plugin&utm_medium=notice_sidebar&utm_campaign=' . $get_from . '">',
                     '</a>'
                 );
                 ?>
@@ -28,7 +28,7 @@
                 printf( __('Introducing a new feature. Frontend %sshortcodes%s. More information in %sblog post%s.', 'campaign-url-builder'),
                     '<a class="reatlat_cub_tab_link" href="#reatlat_cub_tab-4">',
                     '</a>',
-                    '<a target="_blank" href="https://reatlat.net/?utm_source=wp_plugin&utm_medium=logo_sidebar&utm_campaign=' . $get_from . '">',
+                    '<a target="_blank" href="https://reatlat.net/campaign-url-builder-introducing-shortcodes/?utm_source=wp_plugin&utm_medium=news_sidebar&utm_campaign=' . $get_from . '">',
                     '</a>'
                 );
                 ?>
@@ -56,8 +56,6 @@
         </a>
     </div>
 
-
-
 	<div class="reatlat_promote_widget author-card">
             <a target="_blank" href="https://reatlat.net/contact/?utm_source=wp_plugin&utm_medium=authorcard_sidebar&utm_campaign=<?php echo $get_from; ?>">
                 <img src="<?php echo str_replace('/admin', '', plugin_dir_url( dirname(__DIR__) ) ); ?>admin/views/images/help-sign.png" alt="">
@@ -65,7 +63,5 @@
                 <h3><?php _e('Hire me to make custom integration for your WordPress project.', 'campaign-url-builder'); ?></h3>
             </a>
 	</div>
-
-
 
 </div>
