@@ -2,73 +2,74 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Campaign URL Builder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-11 19:09+0000\n"
-"PO-Revision-Date: 2018-05-12 00:35+0000\n"
-"Last-Translator: reatlat <reatlat@gmail.com>\n"
+"POT-Creation-Date: 2019-01-19 23:08+0000\n"
+"PO-Revision-Date: 2019-01-19 23:38+0000\n"
+"Last-Translator: admin <admin@local.host>\n"
 "Language-Team: Russian\n"
-"Language: ru-RU\n"
+"Language: ru_RU\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10 >= 2 && "
 "n%10<=4 &&(n%100<10||n%100 >= 20)? 1 : 2);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Loco https://localise.biz/"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.2.0; wp-4.9.9"
 
-#: admin/class-reatlat_cub-admin.php:95
+#: admin/class-reatlat_cub-admin.php:104
 msgid "Campaign URL Builder: Existing generated links"
 msgstr "Компоновщик URL Компаний: Существующие сгенерированные ссылки"
 
-#: admin/class-reatlat_cub-admin.php:110
+#: admin/class-reatlat_cub-admin.php:119
 msgid "Campaign URL Builder: Create a tracking link"
 msgstr "Компоновщик URL Компаний: Создать ссылку отслеживания"
 
-#: admin/class-reatlat_cub-admin.php:187 
-#: admin/views/reatlat_cub-admin-settings-page.php:27
+#: admin/class-reatlat_cub-admin.php:322
+#: admin/views/reatlat_cub-admin-settings-page.php:28
 msgid "Settings"
 msgstr "Настройки"
 
-#: admin/class-reatlat_cub-admin.php:200
+#: admin/class-reatlat_cub-admin.php:335
 msgid "Donate"
 msgstr "Сказать спасибо"
 
-#: admin/class-reatlat_cub-admin.php:201
+#: admin/class-reatlat_cub-admin.php:336
 msgid "Rate it"
 msgstr "Оценить"
 
-#: admin/class-reatlat_cub-admin.php:223
+#: admin/class-reatlat_cub-admin.php:358
 msgid "Page to link is not a valid url. It has to start with http."
 msgstr ""
 "Страница для ссылки - не действительный URL. Он должен начинаться с http."
 
-#: admin/class-reatlat_cub-admin.php:238
+#: admin/class-reatlat_cub-admin.php:373
 msgid "Page to link, Source, Medium or Campaign Name ar missing"
 msgstr "Страница для ссылки, Источник, Канал или Название кампании отсутствуют"
 
-#: admin/class-reatlat_cub-admin.php:270
+#: admin/class-reatlat_cub-admin.php:418
 msgid "A new Campaign Link has been created successfully."
 msgstr "Новая ссылка на кампанию была успешно создана."
 
-#: admin/class-reatlat_cub-admin.php:304 admin/class-reatlat_cub-admin.php:414
+#: admin/class-reatlat_cub-admin.php:455 admin/class-reatlat_cub-admin.php:568
 msgid "Google API key is not a valid."
 msgstr "Ключ API Google недействителен."
 
-#: admin/class-reatlat_cub-admin.php:353
+#: admin/class-reatlat_cub-admin.php:505
 msgid "New Campaign Medium has been added"
 msgstr "Добавлена новый канал кампании"
 
-#: admin/class-reatlat_cub-admin.php:358
+#: admin/class-reatlat_cub-admin.php:510
 msgid "New Campaign Source has been added"
 msgstr "Добавлен новый источник кампании"
 
-#: admin/class-reatlat_cub-admin.php:365
+#: admin/class-reatlat_cub-admin.php:517
 msgid "A Campaign Medium has been removed"
 msgstr "Канал кампании удален"
 
-#: admin/class-reatlat_cub-admin.php:371
+#: admin/class-reatlat_cub-admin.php:523
 msgid "A Campaign Source has been removed"
 msgstr "Источник кампании удален"
 
-#: admin/class-reatlat_cub-admin.php:382
+#: admin/class-reatlat_cub-admin.php:536
 msgid ""
 "Option <strong>\"Keep settings and data after delete plugin\"</strong> was "
 "disabled"
@@ -76,223 +77,375 @@ msgstr ""
 "<strong>\"Сохранять настройки и данные после удаления плагина\"</ strong> "
 "отключен"
 
-#: admin/class-reatlat_cub-admin.php:400
+#: admin/class-reatlat_cub-admin.php:554
 msgid "Google API key has been updated."
 msgstr "Ключ API Google обновлен."
 
-#: admin/class-reatlat_cub-admin.php:408
+#: admin/class-reatlat_cub-admin.php:562
 msgid "Can't check Google API key."
 msgstr "Невозможно проверить ключ API Google."
 
-#: admin/class-reatlat_cub-admin.php:421
+#: admin/class-reatlat_cub-admin.php:575
 msgid "Google API key is empty now."
 msgstr "Google API ключ отсутсвует."
 
-#: admin/class-reatlat_cub-admin.php:428
+#: admin/class-reatlat_cub-admin.php:582
 msgid "Bitly API key has been updated."
 msgstr "Обновлен Bitly API ключ."
 
-#: admin/class-reatlat_cub-admin.php:434
+#: admin/class-reatlat_cub-admin.php:588
 msgid "Bitly API key is empty now."
 msgstr "Bitly API ключ отсутсвует."
 
-#: admin/class-reatlat_cub-admin.php:437
+#: admin/class-reatlat_cub-admin.php:591
 msgid "Advanced setting has been updated"
 msgstr "Обновлены расширенные настройки"
 
-#: admin/class-reatlat_cub-admin.php:451
+#: admin/class-reatlat_cub-admin.php:609
+msgid "Google reCaptcha API keys is empty now."
+msgstr "Ключи Google reCaptcha API теперь пусты."
+
+#: admin/class-reatlat_cub-admin.php:622
+msgid "Shortcodes setting has been updated"
+msgstr "Настройки шорткодов обновлены"
+
+#: admin/class-reatlat_cub-admin.php:638
 msgid "All plugin settings and data has been reset to default"
 msgstr "Все настройки и данные плагина сброшены до значения по умолчанию"
 
-#: admin/class-reatlat_cub-admin.php:457
+#: admin/class-reatlat_cub-admin.php:644
 msgid "All <strong>\"campaign-links\"</strong> has been deleted"
 msgstr "Все <strong>\"ссылки кампании\"</ strong> удалены."
 
-#: admin/class-reatlat_cub-admin.php:463
+#: admin/class-reatlat_cub-admin.php:650
 msgid "All <strong>\"Mediums\"</strong> has been deleted"
 msgstr "Все <strong>\"Каналы\"</ strong> удалены."
 
-#: admin/class-reatlat_cub-admin.php:469
+#: admin/class-reatlat_cub-admin.php:656
 msgid "All <strong>\"Sources\"</strong> has been deleted"
 msgstr "Все <strong>\"Источники\"</ strong> удалены."
 
-#: admin/class-reatlat_cub-admin.php:475
+#: admin/class-reatlat_cub-admin.php:662
 msgid "All <strong>\"Settings & Options\"</strong> has been reset to default"
 msgstr ""
 "Все <strong>\"Настройки и параметры\"</ strong> сброшены до значения по "
 "умолчанию."
 
-#. Name of the plugin
-#: admin/views/reatlat_cub-admin-settings-page.php:22 
-#: admin/views/partial/reatlat_cub-admin-notice-clipboard.php:3 
-#: admin/views/partial/reatlat_cub-admin-links-list.php:80
-msgid "Campaign URL Builder"
-msgstr "Компоновщик URL Компаний"
-
-#: admin/views/reatlat_cub-admin-settings-page.php:25
-msgid "Create link"
-msgstr "Создать ссылку"
-
-#: admin/views/reatlat_cub-admin-settings-page.php:26
-msgid "Manage links"
-msgstr "Управление ссылками"
-
-#: admin/views/reatlat_cub-admin-settings-page.php:29
-msgid "Advanced Settings"
-msgstr "Расширенные настройки"
-
-#: admin/views/reatlat_cub-admin-settings-page.php:31 
-#: admin/views/partial/reatlat_cub-admin-kb.php:2
-msgid "Knowledge base"
-msgstr "База знаний"
-
-#: admin/views/partial/reatlat_cub-admin-create-form.php:5
+#: public/class-reatlat_cub-public.php:99
+#: admin/views/partial/reatlat_cub-admin-create-form.php:10
 msgid "Website URL"
 msgstr "Ссылка на сайт"
 
-#: admin/views/partial/reatlat_cub-admin-create-form.php:7
-msgid "https://example.com/example-page/"
-msgstr "https://example.com/example-page/"
-
-#: admin/views/partial/reatlat_cub-admin-create-form.php:8
-msgid "The full website URL (e.g. https://example.com/example-page/)"
-msgstr ""
-"Полный URL адресс веб-сайта (например, https://example.com/example-page/)"
-
-#: admin/views/partial/reatlat_cub-admin-create-form.php:13
+#: public/class-reatlat_cub-public.php:107
+#: admin/views/partial/reatlat_cub-admin-create-form.php:18
 msgid "Campaign Source"
 msgstr "Источник кампании"
 
-#: admin/views/partial/reatlat_cub-admin-create-form.php:25 
-#: admin/views/partial/reatlat_cub-admin-settings.php:7
-msgid "The referrer: (e.g. google, newsletter)"
-msgstr "Источник: (например: google, newsletter)"
-
-#: admin/views/partial/reatlat_cub-admin-create-form.php:30
+#: public/class-reatlat_cub-public.php:115
+#: admin/views/partial/reatlat_cub-admin-create-form.php:35
 msgid "Campaign Medium"
 msgstr "Канал кампании"
 
-#: admin/views/partial/reatlat_cub-admin-create-form.php:42 
-#: admin/views/partial/reatlat_cub-admin-settings.php:14
-msgid "Marketing medium: (e.g. cpc, banner, email)"
-msgstr "Маркетинговые каналы: (например, cpc, banner, email)"
+#: public/class-reatlat_cub-public.php:123
+msgid "Campaign Name, Product, promo code, or slogan."
+msgstr "Название кампании, продукт, промо-код или слоган."
 
-#: admin/views/partial/reatlat_cub-admin-create-form.php:49 
-#: admin/views/partial/reatlat_cub-admin-links-list.php:7
-msgid "Campaign Name"
-msgstr "Название кампании"
-
-#: admin/views/partial/reatlat_cub-admin-create-form.php:52
-msgid "Product, promo code, or slogan."
-msgstr "Продукт, промо-код или слоган."
-
-#: admin/views/partial/reatlat_cub-admin-create-form.php:53
-msgid "The Campaign Name will be formatted once submitted."
-msgstr "Название кампании будет отформатировано после отправки."
-
-#: admin/views/partial/reatlat_cub-admin-create-form.php:59
-msgid "Campaign Term"
-msgstr "Ключевое слово кампании"
-
-#: admin/views/partial/reatlat_cub-admin-create-form.php:60 
-#: admin/views/partial/reatlat_cub-admin-create-form.php:71 
-#: admin/views/partial/reatlat_cub-admin-create-form.php:88 
-#: admin/views/partial/reatlat_cub-admin-advanced.php:85 
-#: admin/views/partial/reatlat_cub-admin-advanced.php:122
-msgid "(optional)"
-msgstr "(необязательный)"
-
-#: admin/views/partial/reatlat_cub-admin-create-form.php:63
+#: public/class-reatlat_cub-public.php:131
+#: admin/views/partial/reatlat_cub-admin-create-form.php:68
 msgid "Identify the paid keywords"
 msgstr "поисковый запрос, связанный с этим трафиком"
 
-#: admin/views/partial/reatlat_cub-admin-create-form.php:64
-msgid "The Campaign Term will be formatted once submitted."
-msgstr "Ключевое слово кампании будет отформатирован после отправки."
-
-#: admin/views/partial/reatlat_cub-admin-create-form.php:70
-msgid "Campaign Content"
-msgstr "Содержание кампании"
-
-#: admin/views/partial/reatlat_cub-admin-create-form.php:74
+#: public/class-reatlat_cub-public.php:139
+#: admin/views/partial/reatlat_cub-admin-create-form.php:79
 msgid "Use to differentiate ads"
 msgstr "Используется для различения рекламы"
 
-#: admin/views/partial/reatlat_cub-admin-create-form.php:75
-msgid "The Campaign Content will be formatted once submitted."
-msgstr "Содержимое кампании будет отформатировано после отправки."
+#: public/class-reatlat_cub-public.php:162
+msgid "Get a link"
+msgstr "Получить ссылку"
 
-#: admin/views/partial/reatlat_cub-admin-create-form.php:87
-msgid "Additional Parameters"
-msgstr "Дополнительные параметры"
+#: public/class-reatlat_cub-public.php:168
+msgid "Click button above to get a link"
+msgstr "Нажмите кнопку выше, чтобы получить ссылку"
 
-#: admin/views/partial/reatlat_cub-admin-create-form.php:93
-msgid "Custom Key"
-msgstr "Пользовательский ключ"
-
-#: admin/views/partial/reatlat_cub-admin-create-form.php:94
-msgid "Custom Value"
-msgstr "Пользовательское значение"
-
-#: admin/views/partial/reatlat_cub-admin-create-form.php:95
-msgid "It will generate a custom pair \"key\" and \"value\"."
-msgstr "Будет сгенерированы пользовательские пары «ключ» и «значение»."
-
-#: admin/views/partial/reatlat_cub-admin-create-form.php:103
-msgid "Add additional parameters"
-msgstr "Добавлены дополнительные параметры"
-
-#: admin/views/partial/reatlat_cub-admin-create-form.php:106
-msgid "Generate Link"
-msgstr "Создать ссылку"
-
+#: public/class-reatlat_cub-public.php:169
 #: admin/views/partial/reatlat_cub-admin-notice-clipboard.php:4
 msgid "The link has been copied to clipboard."
 msgstr "Ссылка скопирована в буфер обмена."
 
-#: admin/views/partial/reatlat_cub-admin-links-list.php:6
-msgid "Stats"
-msgstr "Статистика"
+#: public/class-reatlat_cub-public.php:179
+msgid "Success"
+msgstr "Успех"
 
-#: admin/views/partial/reatlat_cub-admin-links-list.php:8
-msgid "Short Link"
-msgstr "Короткая ссылка"
+#: public/class-reatlat_cub-public.php:184
+#: admin/views/partial/reatlat_cub-admin-notice-clipboard.php:18
+msgid "Sorry, something went wrong. Please try again."
+msgstr "Извините, что-то пошло не так. Пожалуйста, попробуйте еще раз."
 
-#: admin/views/partial/reatlat_cub-admin-links-list.php:9
-msgid "Full Link"
-msgstr "Полная ссылка"
+#. Name of the plugin
+#: admin/views/reatlat_cub-admin-settings-page.php:23
+#: admin/views/partial/reatlat_cub-admin-notice-clipboard.php:3
+#: admin/views/partial/reatlat_cub-admin-notice-clipboard.php:10
+#: admin/views/partial/reatlat_cub-admin-notice-clipboard.php:17
+#: admin/views/partial/reatlat_cub-admin-links-list.php:86
+msgid "Campaign URL Builder"
+msgstr "Компоновщик URL Компаний"
 
-#: admin/views/partial/reatlat_cub-admin-links-list.php:11
-msgid "Creator"
-msgstr "Автор"
+#: admin/views/reatlat_cub-admin-settings-page.php:26
+msgid "Create link"
+msgstr "Создать ссылку"
 
-#: admin/views/partial/reatlat_cub-admin-links-list.php:28 
-#: admin/views/partial/reatlat_cub-admin-links-list.php:49
-msgid "Open Analytics data"
-msgstr "Открыть статистику"
+#: admin/views/reatlat_cub-admin-settings-page.php:27
+msgid "Manage links"
+msgstr "Управление ссылками"
 
-#: admin/views/partial/reatlat_cub-admin-links-list.php:31
-msgid "Example link"
-msgstr "Пример ссылки"
+#: admin/views/reatlat_cub-admin-settings-page.php:30
+msgid "Advanced Settings"
+msgstr "Расширенные настройки"
 
-#: admin/views/partial/reatlat_cub-admin-links-list.php:32 
-#: admin/views/partial/reatlat_cub-admin-links-list.php:33
-msgid "Click cell to copy to clipboard"
-msgstr "Щелкните ячейку, чтобы скопировать в буфер обмена"
+#: admin/views/reatlat_cub-admin-settings-page.php:32
+msgid "Shortcode"
+msgstr "Шорткод"
 
-#: admin/views/partial/reatlat_cub-admin-links-list.php:35
-msgid "Plugin Author"
-msgstr "Автор плагина"
+#: admin/views/reatlat_cub-admin-settings-page.php:33
+#: admin/views/partial/reatlat_cub-admin-kb.php:5
+msgid "Knowledge base"
+msgstr "База знаний"
 
-#: admin/views/partial/reatlat_cub-admin-links-list.php:38 
-#: admin/views/partial/reatlat_cub-admin-links-list.php:77 
-#: admin/views/partial/reatlat_cub-admin-links-list.php:80
-msgid "Remove link"
-msgstr "Удалить ссылку"
+#: admin/views/reatlat_cub-admin-settings-page.php:34
+msgid "About"
+msgstr "О плагине"
 
-#: admin/views/partial/reatlat_cub-admin-links-list.php:80
-msgid "Are you sure?"
-msgstr "Ты уверен?"
+#: admin/views/partial/reatlat_cub-admin-manage.php:3
+msgid "Existing generated links"
+msgstr "Существующие сгенерированные ссылки"
+
+#: admin/views/partial/reatlat_cub-admin-manage.php:13
+msgid "Export CSV"
+msgstr "Экспорт CSV"
+
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:10
+msgid "Notice"
+msgstr "Уведомление"
+
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:14
+#, php-format
+msgid ""
+"Starting March 2019, Campaign URL Builder plugin will be turning down "
+"support for goo.gl URL shortener. Previously created links will continue to "
+"redirect to their intended destination. Please see this %sblog post%s for "
+"more details."
+msgstr ""
+"Начиная с марта 2019 года плагин Campaign URL Builder прекращает поддержку "
+"сокращения ссылок с goo.gl. Ранее созданные ссылки будут продолжать "
+"перенаправлять по назначению. Пожалуйста, смотрите эту %sстатью%s для более "
+"подробной информации."
+
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:24
+msgid "News"
+msgstr "Новости"
+
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:28
+#, php-format
+msgid ""
+"Introducing a new feature. Frontend %sshortcodes%s. More information in "
+"%sblog post%s."
+msgstr ""
+"Представляем новую функцию. Фронтенд %sшорткод%s. Больше информации в "
+"%sстатье%s."
+
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:38
+#, php-format
+msgid ""
+"The changelog, about developer, technologies cards moved to %sAbout%s tab."
+msgstr ""
+"Список изменений, посвященный разработчикам, технологиям карт, перенесен на "
+"вкладку %sО плагине%s."
+
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:47
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:48
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:55
+msgid "Buy me a coffee"
+msgstr "Купи мне кофе"
+
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:54
+msgid "Rate it to show your support!"
+msgstr "Оцените плагин, чтобы показать вашу поддержку!"
+
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:62
+msgid "Looking for WordPress Developer?"
+msgstr "Ищете разработчика WordPress?"
+
+#: admin/views/partial/reatlat_cub-admin-sidebar.php:63
+msgid "Hire me to make custom integration for your WordPress project."
+msgstr ""
+"Наймите меня, чтобы сделать пользовательскую интеграцию для вашего WordPress "
+"проекта."
+
+#: admin/views/partial/reatlat_cub-admin-shortcode.php:6
+msgid "Shortcode settings"
+msgstr "Настройки шорткода"
+
+#: admin/views/partial/reatlat_cub-admin-shortcode.php:9
+msgid ""
+"Shortcode works only if you use your own Bitly API key or Goo.gl API Key"
+msgstr ""
+"Шорткод работает, только если вы используете свой собственный ключ API Bitly "
+"или ключ API Goo.gl"
+
+#: admin/views/partial/reatlat_cub-admin-shortcode.php:10
+#: admin/views/partial/reatlat_cub-admin-advanced.php:84
+#: admin/views/partial/reatlat_cub-admin-kb.php:38
+msgid "Bitly API key"
+msgstr "Bitly API ключ"
+
+#: admin/views/partial/reatlat_cub-admin-shortcode.php:18
+msgid "Shortcodes status"
+msgstr "Состояние шорткодов"
+
+#: admin/views/partial/reatlat_cub-admin-shortcode.php:18
+#: admin/views/partial/reatlat_cub-admin-shortcode.php:31
+#: admin/views/partial/reatlat_cub-admin-shortcode.php:43
+#: admin/views/partial/reatlat_cub-admin-shortcode.php:55
+#: admin/views/partial/reatlat_cub-admin-shortcode.php:69
+#: admin/views/partial/reatlat_cub-admin-advanced.php:16
+#: admin/views/partial/reatlat_cub-admin-advanced.php:29
+#: admin/views/partial/reatlat_cub-admin-advanced.php:41
+#: admin/views/partial/reatlat_cub-admin-advanced.php:53
+#: admin/views/partial/reatlat_cub-admin-advanced.php:65
+msgid "Disabled"
+msgstr "Отключено"
+
+#: admin/views/partial/reatlat_cub-admin-shortcode.php:18
+msgid "For reason, you use default API key for Bitly or Goo.gl"
+msgstr "По причине, вы используете ключ API по умолчанию для Bitly или Goo.gl"
+
+#: admin/views/partial/reatlat_cub-admin-shortcode.php:26
+msgid "Front-end shortcodes (global)"
+msgstr "Шорткоды (глобальные)"
+
+#: admin/views/partial/reatlat_cub-admin-shortcode.php:26
+msgid ""
+"This option will enable front-end shortcodes globaly for all visitors(except "
+"anonymous)."
+msgstr ""
+"Эта опция включает глобальные шорткоды для всех посетителей (кроме анонимных)"
+"."
+
+#: admin/views/partial/reatlat_cub-admin-shortcode.php:31
+#: admin/views/partial/reatlat_cub-admin-shortcode.php:43
+#: admin/views/partial/reatlat_cub-admin-shortcode.php:55
+#: admin/views/partial/reatlat_cub-admin-shortcode.php:69
+#: admin/views/partial/reatlat_cub-admin-advanced.php:16
+#: admin/views/partial/reatlat_cub-admin-advanced.php:29
+#: admin/views/partial/reatlat_cub-admin-advanced.php:41
+#: admin/views/partial/reatlat_cub-admin-advanced.php:53
+#: admin/views/partial/reatlat_cub-admin-advanced.php:65
+msgid "Enabled"
+msgstr "Включено"
+
+#: admin/views/partial/reatlat_cub-admin-shortcode.php:38
+msgid "Allow anonymous users"
+msgstr "Разрешить анонимных пользователей"
+
+#: admin/views/partial/reatlat_cub-admin-shortcode.php:38
+msgid "Any website visitor can generate a link"
+msgstr "Любой посетитель сайта может создать ссылку"
+
+#: admin/views/partial/reatlat_cub-admin-shortcode.php:50
+msgid "Default styles"
+msgstr "Стили по умолчанию"
+
+#: admin/views/partial/reatlat_cub-admin-shortcode.php:50
+msgid "Use default CSS styles for front-end shortcoes."
+msgstr "Используйте стили CSS по умолчанию для коротких ссылок."
+
+#: admin/views/partial/reatlat_cub-admin-shortcode.php:64
+msgid "Google reCaptcha"
+msgstr "Google reCaptcha"
+
+#: admin/views/partial/reatlat_cub-admin-shortcode.php:64
+msgid "Activate Google reCaptcha version 3"
+msgstr "Активируйте Google reCaptcha версию 3"
+
+#: admin/views/partial/reatlat_cub-admin-shortcode.php:76
+msgid "reCaptcha v3 API keys"
+msgstr "reCaptcha v3 API ключ"
+
+#: admin/views/partial/reatlat_cub-admin-shortcode.php:77
+#: admin/views/partial/reatlat_cub-admin-advanced.php:85
+#: admin/views/partial/reatlat_cub-admin-advanced.php:124
+#: admin/views/partial/reatlat_cub-admin-create-form.php:65
+#: admin/views/partial/reatlat_cub-admin-create-form.php:76
+#: admin/views/partial/reatlat_cub-admin-create-form.php:93
+msgid "(optional)"
+msgstr "(необязательный)"
+
+#: admin/views/partial/reatlat_cub-admin-shortcode.php:77
+msgid "if keep empty, recaptcha will be disabled"
+msgstr "если оставить пустым, recaptcha будет отключен"
+
+#: admin/views/partial/reatlat_cub-admin-shortcode.php:81
+msgid "Site key"
+msgstr "Ключ сайта"
+
+#: admin/views/partial/reatlat_cub-admin-shortcode.php:90
+msgid "Secret key"
+msgstr "Секретный ключ"
+
+#: admin/views/partial/reatlat_cub-admin-shortcode.php:99
+msgid "Reset API keys"
+msgstr "Сбросить ключи API"
+
+#: admin/views/partial/reatlat_cub-admin-shortcode.php:103
+msgid ""
+"Register your website with Google to get required API keys and enter them "
+"above."
+msgstr ""
+"Зарегистрируйте свой сайт в Google, чтобы получить необходимые ключи API и "
+"введите их выше."
+
+#: admin/views/partial/reatlat_cub-admin-shortcode.php:104
+msgid "Get the API Keys"
+msgstr "Получить ключи API"
+
+#: admin/views/partial/reatlat_cub-admin-shortcode.php:117
+#: admin/views/partial/reatlat_cub-admin-advanced.php:157
+#: admin/views/partial/reatlat_cub-admin-settings.php:70
+msgid "Save Changes"
+msgstr "Сохранить изменения"
+
+#: admin/views/partial/reatlat_cub-admin-shortcode.php:124
+msgid "Shortcode setting available only for Administrator"
+msgstr "Настройка шорткода доступна только для администратора"
+
+#: admin/views/partial/reatlat_cub-admin-shortcode.php:130
+msgid "Tools"
+msgstr "Утилиты"
+
+#: admin/views/partial/reatlat_cub-admin-shortcode.php:132
+msgid "Shortcode generator"
+msgstr "Генератор коротких кодов"
+
+#: admin/views/partial/reatlat_cub-admin-shortcode.php:137
+msgid "Examples"
+msgstr "Примеры"
+
+#: admin/views/partial/reatlat_cub-admin-shortcode.php:138
+msgid "Simple example:"
+msgstr "Простой пример:"
+
+#: admin/views/partial/reatlat_cub-admin-shortcode.php:146
+msgid "Advanced example:"
+msgstr "Расширенный пример:"
+
+#: admin/views/partial/reatlat_cub-admin-shortcode.php:154
+msgid "PHP example:"
+msgstr "PHP пример:"
+
+#: admin/views/partial/reatlat_cub-admin-notice-clipboard.php:11
+msgid "The UTM link has been created. Please check result."
+msgstr "Ссылка UTM создана. Пожалуйста, проверьте результат."
 
 #: admin/views/partial/reatlat_cub-admin-advanced.php:5
 msgid "Advanced settings"
@@ -309,22 +462,6 @@ msgid ""
 msgstr ""
 "Этот параметр позволяет показывать дополнительные параметры только для "
 "пользователей с ролью Администратора."
-
-#: admin/views/partial/reatlat_cub-admin-advanced.php:16 
-#: admin/views/partial/reatlat_cub-admin-advanced.php:29 
-#: admin/views/partial/reatlat_cub-admin-advanced.php:41 
-#: admin/views/partial/reatlat_cub-admin-advanced.php:53 
-#: admin/views/partial/reatlat_cub-admin-advanced.php:65
-msgid "Enabled"
-msgstr "Включено"
-
-#: admin/views/partial/reatlat_cub-admin-advanced.php:16 
-#: admin/views/partial/reatlat_cub-admin-advanced.php:29 
-#: admin/views/partial/reatlat_cub-admin-advanced.php:41 
-#: admin/views/partial/reatlat_cub-admin-advanced.php:53 
-#: admin/views/partial/reatlat_cub-admin-advanced.php:65
-msgid "Disabled"
-msgstr "Отключено"
 
 #: admin/views/partial/reatlat_cub-admin-advanced.php:24
 msgid "Keep settings and data after delete the plugin"
@@ -388,13 +525,8 @@ msgstr "Выбор сервиса для коротких ссылок"
 msgid "Bitly URL Shortener API"
 msgstr "API-интерфейс сокращения ссылок Bitly"
 
-#: admin/views/partial/reatlat_cub-admin-advanced.php:84 
-#: admin/views/partial/reatlat_cub-admin-kb.php:25
-msgid "Bitly API key"
-msgstr "Bitly API ключ"
-
-#: admin/views/partial/reatlat_cub-admin-advanced.php:85 
-#: admin/views/partial/reatlat_cub-admin-advanced.php:122
+#: admin/views/partial/reatlat_cub-admin-advanced.php:85
+#: admin/views/partial/reatlat_cub-admin-advanced.php:124
 msgid "keep empty for use default one"
 msgstr "оставить пустым для использования ключа по умолчанию"
 
@@ -402,8 +534,8 @@ msgstr "оставить пустым для использования ключ
 msgid "Paste you Bitly API key here..."
 msgstr "Вставьте ключ Bitly API здесь ..."
 
-#: admin/views/partial/reatlat_cub-admin-advanced.php:95 
-#: admin/views/partial/reatlat_cub-admin-advanced.php:132
+#: admin/views/partial/reatlat_cub-admin-advanced.php:95
+#: admin/views/partial/reatlat_cub-admin-advanced.php:134
 msgid "Reset API key"
 msgstr "Сбросить ключ API"
 
@@ -412,56 +544,243 @@ msgstr "Сбросить ключ API"
 msgid "%sHow to get your %sBitly API key%s?%s"
 msgstr "%sКак получить ключ %sBitly API%s?%s"
 
-#: admin/views/partial/reatlat_cub-admin-advanced.php:115
-msgid "Google URL Shortener API"
-msgstr "API-интерфейс сокращения URL-адресов Google"
+#: admin/views/partial/reatlat_cub-admin-advanced.php:117
+msgid "Google URL Shortener API (Supported up to March 2019)"
+msgstr "Google URL Shortener API (поддерживается до марта 2019 года)"
 
-#: admin/views/partial/reatlat_cub-admin-advanced.php:121 
-#: admin/views/partial/reatlat_cub-admin-kb.php:10
+#: admin/views/partial/reatlat_cub-admin-advanced.php:123
 msgid "Google API key"
 msgstr "Google API ключ"
 
-#: admin/views/partial/reatlat_cub-admin-advanced.php:126
+#: admin/views/partial/reatlat_cub-admin-advanced.php:128
 msgid "Paste you Google API key here..."
 msgstr "Вставьте ключ Google API здесь ..."
 
-#: admin/views/partial/reatlat_cub-admin-advanced.php:136
+#: admin/views/partial/reatlat_cub-admin-advanced.php:138
 #, php-format
 msgid "%sHow to get your %sGoogle API key%s?%s"
 msgstr "%sКак получить свой собственный %sAPI Google API%s?%s"
 
-#: admin/views/partial/reatlat_cub-admin-advanced.php:152 
-#: admin/views/partial/reatlat_cub-admin-settings.php:59
-msgid "Save Changes"
-msgstr "Сохранить изменения"
-
-#: admin/views/partial/reatlat_cub-admin-advanced.php:160
+#: admin/views/partial/reatlat_cub-admin-advanced.php:167
 msgid "Danger zone"
 msgstr "Опасная зона"
 
-#: admin/views/partial/reatlat_cub-admin-advanced.php:161
+#: admin/views/partial/reatlat_cub-admin-advanced.php:168
 msgid "Delete all campaign-links from DataBase"
 msgstr "Удалить все ссылки кампании из базы данных"
 
-#: admin/views/partial/reatlat_cub-admin-advanced.php:162
+#: admin/views/partial/reatlat_cub-admin-advanced.php:169
 msgid "Reset to default - Mediums"
 msgstr "Сбросить настройки по умолчанию - Каналы"
 
-#: admin/views/partial/reatlat_cub-admin-advanced.php:163
+#: admin/views/partial/reatlat_cub-admin-advanced.php:170
 msgid "Reset to default - Sources"
 msgstr "Сбросить настройки по умолчанию - Источники"
 
-#: admin/views/partial/reatlat_cub-admin-advanced.php:164
+#: admin/views/partial/reatlat_cub-admin-advanced.php:171
 msgid "Reset settings and options to default"
 msgstr "Сбросить настройки и параметры по умолчанию"
 
-#: admin/views/partial/reatlat_cub-admin-advanced.php:165
+#: admin/views/partial/reatlat_cub-admin-advanced.php:172
 msgid "Reset All plugin settings and data"
 msgstr "Сбросить все настройки и данные плагина"
 
-#: admin/views/partial/reatlat_cub-admin-advanced.php:167
+#: admin/views/partial/reatlat_cub-admin-advanced.php:175
 msgid "Reset settings & data"
 msgstr "Сброс настроек и данных"
+
+#: admin/views/partial/reatlat_cub-admin-links-list.php:6
+msgid "Stats"
+msgstr "Статистика"
+
+#: admin/views/partial/reatlat_cub-admin-links-list.php:7
+#: admin/views/partial/reatlat_cub-admin-create-form.php:54
+msgid "Campaign Name"
+msgstr "Название кампании"
+
+#: admin/views/partial/reatlat_cub-admin-links-list.php:8
+msgid "Short Link"
+msgstr "Короткая ссылка"
+
+#: admin/views/partial/reatlat_cub-admin-links-list.php:9
+msgid "Full Link"
+msgstr "Полная ссылка"
+
+#: admin/views/partial/reatlat_cub-admin-links-list.php:11
+msgid "Creator"
+msgstr "Автор"
+
+#: admin/views/partial/reatlat_cub-admin-links-list.php:28
+#: admin/views/partial/reatlat_cub-admin-links-list.php:49
+msgid "Open Analytics data"
+msgstr "Открыть статистику"
+
+#: admin/views/partial/reatlat_cub-admin-links-list.php:31
+msgid "Example link"
+msgstr "Пример ссылки"
+
+#: admin/views/partial/reatlat_cub-admin-links-list.php:32
+#: admin/views/partial/reatlat_cub-admin-links-list.php:33
+#: admin/views/partial/reatlat_cub-admin-links-list.php:66
+#: admin/views/partial/reatlat_cub-admin-links-list.php:71
+msgid "Click cell to copy to clipboard"
+msgstr "Щелкните ячейку, чтобы скопировать в буфер обмена"
+
+#: admin/views/partial/reatlat_cub-admin-links-list.php:35
+msgid "Plugin Author"
+msgstr "Автор плагина"
+
+#: admin/views/partial/reatlat_cub-admin-links-list.php:38
+#: admin/views/partial/reatlat_cub-admin-links-list.php:83
+#: admin/views/partial/reatlat_cub-admin-links-list.php:86
+msgid "Remove link"
+msgstr "Удалить ссылку"
+
+#: admin/views/partial/reatlat_cub-admin-links-list.php:75
+msgid "Anonymous"
+msgstr "Анонимы"
+
+#: admin/views/partial/reatlat_cub-admin-links-list.php:86
+msgid "Are you sure?"
+msgstr "Ты уверен?"
+
+#: admin/views/partial/reatlat_cub-admin-create-form.php:3
+msgid "You can use this section only if the post is published"
+msgstr ""
+"Вы можете использовать этот раздел, только если публикация опубликована"
+
+#: admin/views/partial/reatlat_cub-admin-create-form.php:12
+msgid "https://example.com/example-page/"
+msgstr "https://example.com/example-page/"
+
+#: admin/views/partial/reatlat_cub-admin-create-form.php:13
+msgid "The full website URL (e.g. https://example.com/example-page/)"
+msgstr ""
+"Полный URL адресс веб-сайта (например, https://example.com/example-page/)"
+
+#: admin/views/partial/reatlat_cub-admin-create-form.php:30
+#: admin/views/partial/reatlat_cub-admin-settings.php:7
+msgid "The referrer: (e.g. google, newsletter)"
+msgstr "Источник: (например: google, newsletter)"
+
+#: admin/views/partial/reatlat_cub-admin-create-form.php:47
+#: admin/views/partial/reatlat_cub-admin-settings.php:14
+msgid "Marketing medium: (e.g. cpc, banner, email)"
+msgstr "Маркетинговые каналы: (например, cpc, banner, email)"
+
+#: admin/views/partial/reatlat_cub-admin-create-form.php:57
+msgid "Product, promo code, or slogan."
+msgstr "Продукт, промо-код или слоган."
+
+#: admin/views/partial/reatlat_cub-admin-create-form.php:58
+msgid "The Campaign Name will be formatted once submitted."
+msgstr "Название кампании будет отформатировано после отправки."
+
+#: admin/views/partial/reatlat_cub-admin-create-form.php:64
+msgid "Campaign Term"
+msgstr "Ключевое слово кампании"
+
+#: admin/views/partial/reatlat_cub-admin-create-form.php:69
+msgid "The Campaign Term will be formatted once submitted."
+msgstr "Ключевое слово кампании будет отформатирован после отправки."
+
+#: admin/views/partial/reatlat_cub-admin-create-form.php:75
+msgid "Campaign Content"
+msgstr "Содержание кампании"
+
+#: admin/views/partial/reatlat_cub-admin-create-form.php:80
+msgid "The Campaign Content will be formatted once submitted."
+msgstr "Содержимое кампании будет отформатировано после отправки."
+
+#: admin/views/partial/reatlat_cub-admin-create-form.php:92
+msgid "Additional Parameters"
+msgstr "Дополнительные параметры"
+
+#: admin/views/partial/reatlat_cub-admin-create-form.php:98
+msgid "Custom Key"
+msgstr "Пользовательский ключ"
+
+#: admin/views/partial/reatlat_cub-admin-create-form.php:99
+msgid "Custom Value"
+msgstr "Пользовательское значение"
+
+#: admin/views/partial/reatlat_cub-admin-create-form.php:100
+msgid "It will generate a custom pair \"key\" and \"value\"."
+msgstr "Будет сгенерированы пользовательские пары «ключ» и «значение»."
+
+#: admin/views/partial/reatlat_cub-admin-create-form.php:108
+msgid "Add additional parameters"
+msgstr "Добавлены дополнительные параметры"
+
+#: admin/views/partial/reatlat_cub-admin-create-form.php:113
+msgid "Generate Link"
+msgstr "Создать ссылку"
+
+#: admin/views/partial/reatlat_cub-admin-kb.php:6
+msgid "Best Practices"
+msgstr "Лучшие практики"
+
+#: admin/views/partial/reatlat_cub-admin-kb.php:8
+#, php-format
+msgid "%sBest practices%s for creating your Campaign."
+msgstr "%sЛучшие практики%s для создания вашей кампании."
+
+#: admin/views/partial/reatlat_cub-admin-kb.php:13
+msgid "Frontend - Shortcodes"
+msgstr "Фронтенд - Шорткоды"
+
+#: admin/views/partial/reatlat_cub-admin-kb.php:16
+#, php-format
+msgid ""
+"Shortcode option, works well, but still needs improvements. Read this "
+"%sarticle%s about all shortcode features."
+msgstr ""
+"Опция шорткода, работает хорошо, но все еще нуждается в улучшениях. Прочтите "
+"этой %sстатье%s обо всех функциях шорткода."
+
+#: admin/views/partial/reatlat_cub-admin-kb.php:23
+#, php-format
+msgid ""
+"If you have ideas how improve it or add new features, please feel free left "
+"a %s5 star review and feedback%s."
+msgstr ""
+"Если у вас есть идеи, как улучшить его или добавить новые функции, "
+"пожалуйста, оставьте %s5 звездный отзыв%s."
+
+#: admin/views/partial/reatlat_cub-admin-kb.php:31
+msgid "Languages and String translation"
+msgstr "Языки и перевод строк"
+
+#: admin/views/partial/reatlat_cub-admin-kb.php:33
+#, php-format
+msgid ""
+"Missing your language? Needs update string translations? Use %sLoco "
+"Translate%s plugin."
+msgstr ""
+"Скучаете по своему языку? Нужно обновить перевод строки? Используйте плагин "
+"%sLoco Translate%s."
+
+#: admin/views/partial/reatlat_cub-admin-kb.php:40
+msgid "How do I get my own Bitly OAuth access token?"
+msgstr "Как получить собственный токен доступа Bitly OAuth?"
+
+#: admin/views/partial/reatlat_cub-admin-kb.php:41
+msgid "read article"
+msgstr "читать статью"
+
+#: admin/views/partial/reatlat_cub-admin-kb.php:46
+msgid "You did not find an answer?"
+msgstr "Вы не нашли ответа?"
+
+#: admin/views/partial/reatlat_cub-admin-kb.php:49
+#, php-format
+msgid ""
+"Then you should visit the %ssupport page%s of the plugin on %swordpress."
+"org%s or in the %sofficial wiki page%s of the plugin hosted on %sgithub."
+"com%s."
+msgstr ""
+"Вы можете посетить страницу %sподдерки%s плагина на %swordpress.org%s или "
+"%sОфициальный Вики%s плагина, размещенного на %sgithub.com%s."
 
 #: admin/views/partial/reatlat_cub-admin-settings.php:3
 msgid "Add"
@@ -487,24 +806,24 @@ msgstr "Канал кампании будет отформатировано п
 msgid "Remove"
 msgstr "Удалить"
 
-#: admin/views/partial/reatlat_cub-admin-settings.php:22
+#: admin/views/partial/reatlat_cub-admin-settings.php:25
 msgid "Remove Campaign Source"
 msgstr "Удалить источник кампании"
 
-#: admin/views/partial/reatlat_cub-admin-settings.php:25 
-#: admin/views/partial/reatlat_cub-admin-settings.php:44
+#: admin/views/partial/reatlat_cub-admin-settings.php:28
+#: admin/views/partial/reatlat_cub-admin-settings.php:47
 msgid "Select"
 msgstr "Выбрать"
 
-#: admin/views/partial/reatlat_cub-admin-settings.php:40
+#: admin/views/partial/reatlat_cub-admin-settings.php:43
 msgid "Remove Campaign Medium"
 msgstr "Удалить канал кампании"
 
-#: admin/views/partial/reatlat_cub-admin-manage.php:3
-msgid "Existing generated links"
-msgstr "Существующие сгенерированные ссылки"
+#: admin/views/partial/reatlat_cub-admin-settings.php:63
+msgid "Remove option available only for Administrator"
+msgstr "Опция удаления доступна только для администратора"
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:10
+#: admin/views/partial/reatlat_cub-admin-about.php:10
 #, php-format
 msgid ""
 "Added translation to Spanish and Portuguese, big Thank you for %sTihh "
@@ -513,265 +832,209 @@ msgstr ""
 "Добавлен перевод на испанский и португальский языки, большая благодарность "
 "за перевод %sTihh Gonçalves%s"
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:20
+#: admin/views/partial/reatlat_cub-admin-about.php:20
+msgid "Fix Security Vulnerability - Missing Validation"
+msgstr "Исправить уязвимость безопасности - (отсутствует проверка)"
+
+#: admin/views/partial/reatlat_cub-admin-about.php:21
+msgid "Added Security Nonces for all POST requests"
+msgstr "Добавлены одноразовые номера безопасности для всех запросов POST"
+
+#: admin/views/partial/reatlat_cub-admin-about.php:22
+msgid "Initial Frontend shortcodes"
+msgstr "Добавлена поддержка шорткодов"
+
+#: admin/views/partial/reatlat_cub-admin-about.php:23
+msgid "Minor changes"
+msgstr "Мелкие исправления"
+
+#: admin/views/partial/reatlat_cub-admin-about.php:30
+msgid "Added autocomplete function for link suggestion"
+msgstr "Добавлена функция автозаполнения для ссылки"
+
+#: admin/views/partial/reatlat_cub-admin-about.php:31
+msgid "Added pagination for links table"
+msgstr "Добавлена пагинация для таблиц ссылок"
+
+#: admin/views/partial/reatlat_cub-admin-about.php:32
+msgid "Added Export UTM lins list to CSV file"
+msgstr "Добавлен экспорт списока UTM ссылок в файл CSV"
+
+#: admin/views/partial/reatlat_cub-admin-about.php:33
+msgid "Fixed backend error for empty Bit.ly respond"
+msgstr "Исправлена ошибка в бэкэнде для пустого ответа Bit.ly"
+
+#: admin/views/partial/reatlat_cub-admin-about.php:40
+msgid "Compatibility with WordPress 5.0 and Gutenberg Editor"
+msgstr "Совместимость с WordPress 5.0 и редактором Гутенберга"
+
+#: admin/views/partial/reatlat_cub-admin-about.php:41
+msgid "Fixed not working notification"
+msgstr "Исправлено не работающие уведомления"
+
+#: admin/views/partial/reatlat_cub-admin-about.php:42
+#: admin/views/partial/reatlat_cub-admin-about.php:50
+msgid "Update AJAX-function for link creation"
+msgstr "Обновление AJAX-функции для создания ссылок"
+
+#: admin/views/partial/reatlat_cub-admin-about.php:49
+msgid "Added notification about created link on page/post editor"
+msgstr "Добавлено уведомление о созданной ссылке в редакторе страниц / постов"
+
+#: admin/views/partial/reatlat_cub-admin-about.php:57
+msgid "Fixed not working button preview post"
+msgstr "Исправлена не работающая кнопка предварительного просмотра поста"
+
+#: admin/views/partial/reatlat_cub-admin-about.php:58
+msgid "Fixed bug with plugin removal function"
+msgstr "Исправлена ошибка с функцией удаления плагина"
+
+#: admin/views/partial/reatlat_cub-admin-about.php:59
+msgid "Minor bug fixes"
+msgstr "Мелкие исправления"
+
+#: admin/views/partial/reatlat_cub-admin-about.php:66
 msgid "Improve language translation"
 msgstr "Улучшение перевода"
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:21
+#: admin/views/partial/reatlat_cub-admin-about.php:67
 msgid "Include new API endpoint Bitly"
 msgstr "Добавлен новый сервис сокращения ссылок Bitly"
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:22
+#: admin/views/partial/reatlat_cub-admin-about.php:68
 msgid "Switch to Bitly endpoint by default"
 msgstr "Установлен Bitly сервис коротких ссылок по умолчанию"
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:23
+#: admin/views/partial/reatlat_cub-admin-about.php:69
 msgid "Migrate to ES6"
 msgstr "Миграция к ES6 "
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:24
+#: admin/views/partial/reatlat_cub-admin-about.php:70
 msgid "Implement fingerprints for assets"
 msgstr "Внедрили отпечатки для статических фалов плагина"
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:25
+#: admin/views/partial/reatlat_cub-admin-about.php:71
 msgid "Improve code"
 msgstr "Улучшен код"
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:32
+#: admin/views/partial/reatlat_cub-admin-about.php:78
 msgid "Fixed error with wrong variable on plugins page"
 msgstr "Исправлена ошибка с ошибочной переменной на странице плагинов"
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:33
+#: admin/views/partial/reatlat_cub-admin-about.php:79
 msgid "Update missing translation strings"
 msgstr "Обновление отсутствующих строк перевода"
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:40
+#: admin/views/partial/reatlat_cub-admin-about.php:86
 msgid "Update layout"
 msgstr "Обновлён макет"
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:41
+#: admin/views/partial/reatlat_cub-admin-about.php:87
 msgid "Move \"create a new tracking link\" to own tab"
 msgstr "«Создать новую ссылку» перемещенно в собственную вкладку"
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:42
+#: admin/views/partial/reatlat_cub-admin-about.php:88
 msgid "Added new advanced settings"
 msgstr "Добавлены новые дополнительные настройки"
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:43
+#: admin/views/partial/reatlat_cub-admin-about.php:89
 msgid "Make plugin translatable"
 msgstr "Плагин обновлен и сделан переводимым на другие языки"
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:44
+#: admin/views/partial/reatlat_cub-admin-about.php:90
 msgid "Added translation to Russian"
 msgstr "Добавлен перевод на русский язык"
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:45
+#: admin/views/partial/reatlat_cub-admin-about.php:91
 msgid "Added meta box: with links list"
 msgstr "Добавлен мета-бокс: со списком ссылок"
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:46
+#: admin/views/partial/reatlat_cub-admin-about.php:92
 msgid "Added meta box: Link generator (beta option)"
 msgstr "Добавлен мета-бокс: генератор ссылок (бета)"
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:53
+#: admin/views/partial/reatlat_cub-admin-about.php:99
 msgid "Fix problem with global date_format override"
 msgstr "Исправлена проблема с глобальным переопределением date_format"
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:60
+#: admin/views/partial/reatlat_cub-admin-about.php:106
 msgid "Add remove link function"
 msgstr "Добавлена функция удаления ссылки"
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:61
+#: admin/views/partial/reatlat_cub-admin-about.php:107
 msgid "Add example link"
 msgstr "Добавлен пример ссылки"
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:62
+#: admin/views/partial/reatlat_cub-admin-about.php:108
 msgid "Update pattern for url source"
 msgstr "Обновлён шаблон для источника URL"
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:63
+#: admin/views/partial/reatlat_cub-admin-about.php:109
 msgid "Bug fixing"
 msgstr "Исправление ошибок"
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:70
+#: admin/views/partial/reatlat_cub-admin-about.php:116
 msgid "Refactor code"
 msgstr "Рефакторинг кода"
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:71
+#: admin/views/partial/reatlat_cub-admin-about.php:117
 msgid "Add advanced settings"
 msgstr "Добавлены дополнительные настройки"
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:78
+#: admin/views/partial/reatlat_cub-admin-about.php:124
 msgid "Input/Output - sanitize, validate, and escape"
 msgstr "Вход/выход - валидация и проверка данных"
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:79
+#: admin/views/partial/reatlat_cub-admin-about.php:125
 msgid "Update plugin name"
 msgstr "Обновлено имя плагина"
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:86
+#: admin/views/partial/reatlat_cub-admin-about.php:132
 msgid "First live release"
 msgstr "Первый релиз"
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:94
-msgid "Like this plugin?"
-msgstr "Нравится этот плагин?"
+#: admin/views/partial/reatlat_cub-admin-about.php:139
+msgid "About Campaign URL Builder"
+msgstr "О плагине Campaign URL Builder"
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:98
-#, php-format
-msgid "%sRate it%s to show your support!"
-msgstr "%sОценить плагин%s, чтобы показать свою поддержку!"
-
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:107
-#, php-format
-msgid "%sDonate%s to encourage me updating this plugin!"
-msgstr "%sСказать спасибо%s, чтобы стимулировать меня обновлять этот плагин!"
-
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:118
-msgid "Notice"
-msgstr "Уведомление"
-
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:122
-#, php-format
+#: admin/views/partial/reatlat_cub-admin-about.php:142
 msgid ""
-"Starting March 30, 2018, Google will be turning down support for goo.gl URL "
-"shortener. From April 13, 2018 only existing users will be able to create "
-"short links on the goo.gl console. You will be able to view your analytics "
-"data and download your short link information in csv format for up to one "
-"year, until March 30, 2019, when Google will discontinue goo.gl. Previously "
-"created links will continue to redirect to their intended destination. "
-"Please see this %sblog post%s for more details."
+"This plugin allows you to easily add campaign parameters to URLs so you can "
+"track Custom Campaigns in Google Analytics. Also, you can easily create "
+"short links and easily share it on social networks."
 msgstr ""
-"Начиная с 30 марта 2018 года Google откажется от поддержки сокращения URL-"
-"адресов goo.gl. С 13 апреля 2018 года только существующие пользователи "
-"смогут создавать короткие ссылки на консоли goo.gl. Вы сможете просматривать "
-"свои аналитические данные и загружать информацию о коротких ссылках в "
-"формате csv на срок до одного года, до 30 марта 2019 года, когда Google "
-"прекратит поддержку goo.gl сервис. Ранее созданные ссылки будут продолжать "
-"перенаправляться к месту назначения. Подробнее см. этот %sблог пост%s."
+"Этот плагин позволяет легко добавлять параметры ГЕЬ кампаний в URL-адреса, "
+"чтобы вы могли отслеживать пользовательские кампании в Google Analytics. "
+"Также вы можете легко создавать короткие ссылки и легко делиться ими в "
+"социальных сетях."
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:129
-#, php-format
-msgid ""
-"We switch \"Campaign URL Builder\" to Bitly API endpoint by default (you can "
-"%sswitch it back%s to Goo.gl if you want)"
-msgstr ""
-"\"Компановщик URL кампании\" переключен на новую API отк компании Bitly по "
-"умолчанию (вы можете %sвернуть настройки обратно%s на Goo.gl)"
-
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:135
+#: admin/views/partial/reatlat_cub-admin-about.php:147
 msgid "Changelog"
 msgstr "Журнал изменений"
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:152
+#: admin/views/partial/reatlat_cub-admin-about.php:165
+msgid "Debug info"
+msgstr "Отладочная информация"
+
+#: admin/views/partial/reatlat_cub-admin-about.php:167
+msgid "Coming soon..."
+msgstr "Скоро..."
+
+#: admin/views/partial/reatlat_cub-admin-about.php:173
 msgid "Developed by"
 msgstr "Разработано"
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:158
+#: admin/views/partial/reatlat_cub-admin-about.php:179
 msgid "Software Engineer"
 msgstr "Инженер-программист"
 
-#: admin/views/partial/reatlat_cub-admin-sidebar.php:159
+#: admin/views/partial/reatlat_cub-admin-about.php:180
 msgid "Homepage"
 msgstr "Домашняя страница"
 
 #: admin/views/partial/reatlat_cub-admin-create.php:2
 msgid "Create a tracking link"
 msgstr "Создать ссылку отслеживания"
-
-#: admin/views/partial/reatlat_cub-admin-kb.php:3
-msgid "Best Practices"
-msgstr "Лучшие практики"
-
-#: admin/views/partial/reatlat_cub-admin-kb.php:5
-#, php-format
-msgid "%sBest practices%s for creating your Campaign."
-msgstr "%sЛучшие практики%s для создания вашей кампании."
-
-#: admin/views/partial/reatlat_cub-admin-kb.php:12
-msgid "You will need to"
-msgstr "Для получения собственного Google API  ключа, Вам нужно будет"
-
-#: admin/views/partial/reatlat_cub-admin-kb.php:13
-#, php-format
-msgid "%sCreate an account%s on Google or %sSignIn%s with existing account"
-msgstr ""
-"%sСоздать учетную запись%s в Google или %sвойти%s в существующую учетную "
-"запись"
-
-#: admin/views/partial/reatlat_cub-admin-kb.php:14
-#, php-format
-msgid "%sCreate a project%s on Google Developer Console"
-msgstr "%sСоздать проект%s в консоли разработчика Google"
-
-#: admin/views/partial/reatlat_cub-admin-kb.php:15
-#, php-format
-msgid "%sCreate an API key%s on Google Developer Console"
-msgstr "%sСоздать ключ API%s в консоли разработчика Google"
-
-#: admin/views/partial/reatlat_cub-admin-kb.php:16
-msgid "Enable URL Shortener API"
-msgstr "Включить API-интерфейс сокращения URL-адресов"
-
-#: admin/views/partial/reatlat_cub-admin-kb.php:17
-#, php-format
-msgid "Setup plugin for using your own %sAPI key%s"
-msgstr "Настроить плагин для использования вашего собственного %sключа API%s"
-
-#: admin/views/partial/reatlat_cub-admin-kb.php:20
-#, php-format
-msgid "Please check %sGoogle guide%s"
-msgstr "Пожалуйста, проверьте %sинструкции Google%s"
-
-#: admin/views/partial/reatlat_cub-admin-kb.php:27
-msgid ""
-"Set up the Bitly is not that easy, but doable in a few steps. You will need "
-"to"
-msgstr ""
-"Настроить Bitly сервис не так просто, но выполнимо в несколько шагов. Вам "
-"нужно будет"
-
-#: admin/views/partial/reatlat_cub-admin-kb.php:28
-#, php-format
-msgid "%sCreate an account%s on bitly.com"
-msgstr "%sСоздать учетную запись%s на bitly.com"
-
-#: admin/views/partial/reatlat_cub-admin-kb.php:29
-#, php-format
-msgid ""
-"%sCreate a Generic Access Token%s dedicated to communicate with bitly API."
-msgstr ""
-"%sСоздать общий токен(ключ) доступа%s, предназначенный для связи с Bitly API."
-
-#: admin/views/partial/reatlat_cub-admin-kb.php:30
-#, php-format
-msgid ""
-"Once your application is set up you will be able to retrieve the %sToken%s."
-msgstr ""
-"После того, как приложение будет настроено, вы сможете получить %sAPI "
-"Token%s."
-
-#: admin/views/partial/reatlat_cub-admin-kb.php:35
-msgid "You did not find an answer?"
-msgstr "Вы не нашли ответа?"
-
-#: admin/views/partial/reatlat_cub-admin-kb.php:38
-#, php-format
-msgid ""
-"Then you should visit the %ssupport page%s of the plugin on %swordpress."
-"org%s or in the %sofficial wiki page%s of the plugin hosted on %sgithub."
-"com%s."
-msgstr ""
-"Вы можете посетить страницу %sподдерки%s плагина на %swordpress.org%s или "
-"%sОфициальный Вики%s плагина, размещенного на %sgithub.com%s."
-
-#: admin/views/partial/reatlat_cub-admin-kb.php:53
-msgid "Debug info"
-msgstr "Отладочная информация"
-
-#: admin/views/partial/reatlat_cub-admin-kb.php:55
-msgid "Coming soon..."
-msgstr "Скоро..."
 
 #. Description of the plugin
 msgid ""
@@ -794,4 +1057,4 @@ msgstr "Alex Zappa a.k.a. re[at]lat"
 
 #. Author URI of the plugin
 msgid "https://reatlat.net"
-msgstr "https://reatlat.net"
+msgstr "https://reatlat.net/ru"

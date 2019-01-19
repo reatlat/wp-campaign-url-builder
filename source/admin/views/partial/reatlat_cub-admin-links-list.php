@@ -48,6 +48,7 @@
                     <?php if ( $plugin->strpos_array( esc_url_raw( $link->campaign_short_link ), array('://goo.gl', '://bit.ly') ) ) : ?>
                         <td data-info="true" class="campaign_info tippy--hover" title="<?php _e('Open Analytics data', 'campaign-url-builder'); ?>">
                             <?php
+                                //TODO: add support for custom domains
                                 $info_link = strtr($link->campaign_short_link, array(
                                     '://goo.gl' => '://goo.gl/info',
                                     '://bit.ly' => '://bit.ly/info'
@@ -62,17 +63,22 @@
                     <td class="campaign_name"><strong><?php echo esc_attr( $link->campaign_name ); ?></strong></td>
 
                     <?php if ( esc_attr( $link->campaign_short_link ) !== 'n/a' ) : ?>
-                        <td class="campaign_short_link tippy--hover" title="<?php _e('Click cell to copy to clipboard', ''); ?>" data-clipboard-text="<?php echo esc_url_raw( $link->campaign_short_link ); ?>" data-copy="true"><?php echo esc_url_raw( $link->campaign_short_link ); ?><span class="dashicons dashicons-clipboard"></span></td>
+                        <td class="campaign_short_link tippy--hover" title="<?php _e('Click cell to copy to clipboard', 'campaign-url-builder'); ?>" data-clipboard-text="<?php echo esc_url_raw( $link->campaign_short_link ); ?>" data-copy="true"><?php echo esc_url_raw( $link->campaign_short_link ); ?><span class="dashicons dashicons-clipboard"></span></td>
                     <?php else : ?>
                         <td class="campaign_short_link"><?php echo esc_attr( $link->campaign_short_link ); ?></td>
                     <?php endif; ?>
 
-                    <td class="campaign_full_link tippy--hover" title="<?php _e('Click cell to copy to clipboard', ''); ?>" data-clipboard-text="<?php echo esc_url_raw( $link->campaign_full_link ); ?>" data-copy="true"><?php echo esc_url_raw( $link->campaign_full_link ); ?><span class="dashicons dashicons-clipboard"></span></td>
+                    <td class="campaign_full_link tippy--hover" title="<?php _e('Click cell to copy to clipboard', 'campaign-url-builder'); ?>" data-clipboard-text="<?php echo esc_url_raw( $link->campaign_full_link ); ?>" data-copy="true"><?php echo esc_url_raw( $link->campaign_full_link ); ?><span class="dashicons dashicons-clipboard"></span></td>
 
                     <?php if ( get_option( $this->plugin_name . '_show_creator') ) : ?>
-                        <td class="campaign_user_id"><?php echo sanitize_user( get_userdata($link->user_id)->display_name ); ?><br><small>(<?php echo esc_attr( implode(', ', get_userdata($link->user_id)->roles) ); ?>)</small></td>
+                        <?php if ( $link->user_id == 0 ) : ?>
+                            <td class="campaign_user_id"><?php _e('Anonymous', 'campaign-url-builder'); ?><br><small>(frontend-ajax)</small></td>
+                        <?php else : ?>
+                            <td class="campaign_user_id"><?php echo sanitize_user( get_userdata($link->user_id)->display_name ); ?><br><small>(<?php echo esc_attr( implode(', ', get_userdata($link->user_id)->roles) ); ?>)</small></td>
+                        <?php endif; ?>
                     <?php endif; ?>
 
+                    <?php //TODO: show remove button only for admin or for user who create link ?>
                     <?php if ( isset($_GET['page']) && $_GET['page'] === 'reatlat_cub-settings-page' ) : ?>
                     <td class="campaign_remove_link tippy--hover" title="<?php _e('Remove link','campaign-url-builder'); ?>">
                         <form method="POST">

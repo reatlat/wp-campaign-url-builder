@@ -98,7 +98,7 @@
                                     printf(
                                         __('%sHow to get your %sBitly API key%s?%s', 'campaign-url-builder'),
                                         '<p class="description">',
-                                        '<a class="reatlat_cub_tab_link" href="#reatlat_cub_tab-4">',
+                                        '<a class="reatlat_cub_tab_link" href="#reatlat_cub_tab-5">',
                                         '</a>',
                                         '</p>'
                                     );
@@ -109,10 +109,12 @@
                     </div>
                 </div>
 
+                <?php // TODO: remove Google endpoint option in March 2019 ?>
+                <?php if ( date('Y') < 2020 && date('m') < 3 ) : ?>
                 <div class="reatlat_cub_form__settings--api__google pvxs">
                     <input type="radio" name="advanced_api" id="advanced_api_google" required <?php checked(get_option( $this->plugin_name . '_advanced_api') === 'google' ); ?> value="google" />
                     <label for="advanced_api_google">
-                        <?php _e('Google URL Shortener API', 'campaign-url-builder'); ?>
+                        <?php _e('Google URL Shortener API (Supported up to March 2019)', 'campaign-url-builder'); ?>
                     </label>
                     <div class="radio-if-active">
                         <table class="form-table">
@@ -145,14 +147,19 @@
                         </table>
                     </div>
                 </div>
+                <?php endif; ?>
             </div>
         </div>
+
+        <?php wp_nonce_field('submit_advanced', 'Campaign-URL-Builder__submit_advanced--nonce'); ?>
 
         <p class="submit">
             <input type="submit" name="submit_advanced" id="submit" class="button button-primary" value="<?php _e('Save Changes', 'campaign-url-builder'); ?>">
         </p>
 
     </form>
+
+    <?php if ( current_user_can('administrator') ) : ?>
 
     <hr>
 
@@ -163,9 +170,10 @@
         <p><input type="checkbox" id="reset_sources" name="reset_sources"> <label for="reset_sources"><?php _e('Reset to default - Sources', 'campaign-url-builder'); ?></label> </p>
         <p><input type="checkbox" id="reset_options" name="reset_options"> <label for="reset_options"><?php _e('Reset settings and options to default', 'campaign-url-builder'); ?></label> </p>
         <p><input type="checkbox" id="reset_all" name="reset_all"> <label for="reset_all"><span class="required"><?php _e('Reset All plugin settings and data', 'campaign-url-builder'); ?></span></label> </p>
+        <?php wp_nonce_field('submit_reset', 'Campaign-URL-Builder__submit_reset--nonce'); ?>
         <p class="submit">
             <input type="submit" onclick="return confirm('Campaign URL Builder\n\nReset settings & data\n\nAre you sure?')" name="submit_reset" id="submit" class="button button-secondary" value="<?php _e('Reset settings & data', 'campaign-url-builder'); ?>">
         </p>
     </form>
-
+    <?php endif; ?>
 </div>

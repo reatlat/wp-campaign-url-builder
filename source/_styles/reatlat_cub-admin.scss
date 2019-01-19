@@ -58,6 +58,74 @@
         overflow: hidden;
         width: 100%;
         margin: 15px 0;
+
+        .reatlat_cub_container__widget {
+            background-color: $white;
+            padding: 10px;
+            margin: 15px 0;
+            border: 1px solid #E5E5E5;
+            position: relative;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+            overflow: hidden;
+
+            // Author card item
+            .author-card {
+                img {
+                    float: left;
+                    width: 80px;
+                    height: 80px;
+                    margin-right: 15px;
+                }
+                h3 {
+                    padding-top: 5px;
+                    margin-bottom: 0;
+                }
+                h4 {
+                    margin: 0;
+                }
+            }
+
+            &.technologies {
+                text-align: center;
+                img {
+                    //width: 20%;
+                    padding: 0 3%;
+                    max-width: 100px;
+                }
+            }
+        }
+
+        .changelog {
+            .changelog__container {
+                max-height: 220px;
+                overflow: auto;
+                border: 1px solid rgba(0,0,0,.1);
+                background: $white;
+                padding: 10px;
+                h4:nth-of-type(1) {
+                    margin-top: 0;
+                }
+                // fix for show scrollbar for OSX systems
+                &::-webkit-scrollbar {
+                    -webkit-appearance: none;
+                    width: 7px;
+                    background: rgba(0,0,0,.1);
+                }
+                &::-webkit-scrollbar-thumb {
+                    border-radius: 4px;
+                    background-color: rgba(0,0,0,.5);
+                    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+                }
+            }
+            h4 {
+                margin-bottom: 0;
+            }
+            ul {
+                list-style: initial;
+                margin-left: 25px;
+                margin-top: 5px;
+            }
+        }
     }
 
     h1 span.dashicons {
@@ -89,6 +157,9 @@
 
     .dashicons {
         color: $theme-color;
+        &.alert {
+            color: $red;
+        }
     }
 
     .reatlat_cub_form {
@@ -142,6 +213,36 @@
             display: inline-block;
             margin: 0;
             padding: 0;
+            &.new-feature {
+                position: relative;
+                a {
+                    &:after {
+                        z-index: 10;
+                        position: absolute;
+                        right: 2px;
+                        top: 0px;
+                        font-weight: bold;
+                        content: 'NEW';
+                        color: white;
+                        padding: 2px 3px;
+                        background: lighten($theme-color, 3%);
+                        display: inline-block;
+                        font-size: 9px;
+                        line-height: 1;
+                    }
+                    &.active {
+                        &:after {
+                            background: transparent !important;
+                            color: $theme-color !important;
+                        }
+                    }
+                    &:hover {
+                        &:after {
+                            background: lighten($theme-color, 6%);
+                        }
+                    }
+                }
+            }
             &:focus,
             &:active,
             &:hover,
@@ -202,6 +303,14 @@
                     color: $theme-color;
                 }
             }
+        }
+
+        .reatlat_cub__shortcode-example {
+                font-family: monospace;
+                font-size: 12px;
+                background: rgba(black,.05);
+                padding: 15px;
+                cursor: text;
         }
     }
 
@@ -270,7 +379,7 @@
             &.reatlat_cub_yellow-highlight {
                 background: #fbffce;
                 &:nth-child(odd) {
-                    background: #fffbae;
+                    background: $parchment;
                 }
             }
         }
@@ -441,8 +550,59 @@
                 text-decoration: none;
             }
 
-            // Author card item
-            .author-card {
+
+            &.buymeacoffee {
+                background: $sunflower;
+                a {
+                    display: block;
+                    text-align: center;
+                    padding: 10px;
+                    @include transit();
+                    &:hover {
+                        transform: scale(1.15);
+                    }
+                    img {
+                        margin: auto;
+                        max-width: 300px;
+                        width: 100%;
+                    }
+                }
+            }
+            &.rateus {
+                background: linear-gradient(to bottom, $blue 0%, $blue calc(50% + 20px), $deepsea calc(50% + 20px), $deepsea 100%);
+                a {
+                    min-height: 100px;
+                    display: block;
+                    text-align: center;
+                    @include transit();
+                    .reatlat_promote_title {
+                        display: block;
+                        color: $sunflower;
+                        padding: 10px 0 0;
+                        margin: auto;
+                    }
+                    img {
+                        margin: auto;
+                        max-width: 200px;
+                        @include transit();
+                    }
+                    &:hover img {
+                        transform: scale(1.15);
+                    }
+                }
+            }
+            &.notice-note {
+                background: $parchment;
+            }
+            &.news-note {
+                background: mix($theme-color, $white, 30%);
+            }
+
+            &.author-card {
+                background: linear-gradient(to bottom, $white 0, $white 60%, rgba($black, .1));
+                a {
+                    display: block;
+                }
                 img {
                     float: left;
                     width: 80px;
@@ -457,30 +617,20 @@
                     margin: 0;
                 }
             }
-            &.notice-note {
-                background: #fffbae;
-            }
-            &.changelog {
-                .changelog__container {
-                    max-height: 250px;
-                    overflow: auto;
-                }
-                h4 {
-                    margin-bottom: 0;
-                }
-                ul {
-                    list-style: initial;
-                    margin-left: 25px;
-                    margin-top: 5px;
-                }
-            }
-            &.technologies {
-                text-align: center;
-                img {
-                    width: 20%;
-                    padding: 0 3%;
-                }
+        }
+    }
+
+    .button {
+        &.button-shortcode-generator {
+            .dashicons {
+                color: white;
+                margin: 3px 5px 0 0;
             }
         }
+    }
+
+    // colors
+    .alert {
+        color: $red;
     }
 }

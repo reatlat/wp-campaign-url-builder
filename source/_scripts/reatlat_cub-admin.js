@@ -84,6 +84,7 @@ jQuery(function ($) {
                             custom_value_2: $('input[name="custom_value_2"]').val(),
                             custom_key_3: $('input[name="custom_key_3"]').val(),
                             custom_value_3: $('input[name="custom_value_3"]').val(),
+                            "Campaign-URL-Builder__submit_manage_links--nonce": $('input[name="Campaign-URL-Builder__submit_manage_links--nonce"]').val(),
                             submit_manage_links: $('input[name="submit_manage_links"]').val()
                         }
                     }).done(function (msg) {
@@ -131,23 +132,28 @@ jQuery(function ($) {
                     type: "POST",
                     url: ajaxurl,
                     data: {
-                        action: 'reatlat_cub_export_csv'
+                        action: 'reatlat_cub_export_csv',
+                        "Campaign-URL-Builder__export_to_csv--nonce": $('input[name="Campaign-URL-Builder__export_to_csv--nonce"]').val()
                     }
                 }).done(function (data) {
-                    var timestamp, element;
+                    if ( data !== 'error' ) {
+                        var timestamp, element;
 
-                    timestamp = new Date();
+                        timestamp = new Date();
 
-                    element = document.createElement('a');
-                    element.setAttribute('href', 'data:application/octet-stream,' + encodeURIComponent(data));
-                    element.setAttribute('download', 'UTM_links_' + formatDate(timestamp) + '-' + Math.floor(timestamp.getTime() / 1000) + '.csv');
-                    element.style.display = 'none';
+                        element = document.createElement('a');
+                        element.setAttribute('href', 'data:application/octet-stream,' + encodeURIComponent(data));
+                        element.setAttribute('download', 'UTM_links_' + formatDate(timestamp) + '-' + Math.floor(timestamp.getTime() / 1000) + '.csv');
+                        element.style.display = 'none';
 
-                    document.body.appendChild(element);
+                        document.body.appendChild(element);
 
-                    element.click();
+                        element.click();
 
-                    document.body.removeChild(element);
+                        document.body.removeChild(element);
+                    } else {
+                        console.log('Export to CSV status:  ' + data);
+                    }
                 });
             }
             return false;

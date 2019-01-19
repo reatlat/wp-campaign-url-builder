@@ -1,6 +1,6 @@
 {
   "name": "wp-campaign-url-builder",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "Generates links for Analytics tools and short link. Enter your Campaign Name, Source, Medium (UTM link) etc. to generate a full link and a short link (trough the Google URL Shortener API) all in once.",
   "main": "index.js",
   "scripts": {
@@ -40,6 +40,7 @@
     "gulp-concat": "^2.6.1",
     "gulp-csso": "^3.0.1",
     "gulp-fingerprint": "^0.3.2",
+    "gulp-if": "^2.0.2",
     "gulp-include": "^2.3.1",
     "gulp-load-plugins": "^1.5.0",
     "gulp-notify": "^3.2.0",
