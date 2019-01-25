@@ -6,6 +6,7 @@ class reatlat_cub_Admin {
 	private $plugin_name;
 	private $version;
 	private $messages;
+	private $debug;
 
 	/**
 	 * constructor
@@ -15,6 +16,7 @@ class reatlat_cub_Admin {
 		$this->plugin_real_name = $plugin_real_name;
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
+		$this->debug = CUB_PLUGIN_DEBUG ? '' : '.min';
 
 		global $wpdb;
         $this->db = $wpdb;
@@ -282,7 +284,7 @@ class reatlat_cub_Admin {
 	 */
 	public function enqueue_styles()
     {
-		wp_enqueue_style( $this->plugin_name, str_replace( '/admin', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/css/reatlat_cub-admin.css', array(), null, 'all' );
+		wp_enqueue_style( $this->plugin_name, str_replace( '/admin', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/css/reatlat_cub-admin' . $this->debug . '.css', array(), null, 'all' );
 	}
 
 	/**
@@ -294,7 +296,7 @@ class reatlat_cub_Admin {
         wp_enqueue_script( 'clipboard',                 str_replace( '/admin', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/js/vendor/clipboard.min.js', array(), null, false );
         wp_enqueue_script( 'jquery-validate',           str_replace( '/admin', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/js/vendor/jquery.validate.min.js', array( 'jquery' ), null, false );
         wp_enqueue_script( 'jquery-additional-methods', str_replace( '/admin', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/js/vendor/additional-methods.min.js', array( 'jquery' ), null, false );
-        wp_enqueue_script( $this->plugin_name.'-admin', str_replace( '/admin', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/js/reatlat_cub-admin.js', array( 'jquery' ), null, true );
+        wp_enqueue_script( $this->plugin_name.'-admin', str_replace( '/admin', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/js/reatlat_cub-admin' . $this->debug . '.js', array( 'jquery' ), null, true );
 
         // Enqueue jQuery UI and autocomplete
         wp_enqueue_script( 'jquery-ui-core' );
@@ -378,6 +380,7 @@ class reatlat_cub_Admin {
 
 	public function get_full_link()
     {
+        //TODO: add pregmatch for keep anchor links
         $campaign_term    = $this->campaign_term ? '&utm_term=' . urlencode($this->campaign_term) : '';
         $campaign_content = $this->campaign_content ? '&utm_content=' . urlencode($this->campaign_content) : '';
 		$custom_pair_1    = ( $this->custom_key_1 && $this->custom_value_1 ) ? '&' . urlencode($this->custom_key_1) . '=' . urlencode($this->custom_value_1) : '';
