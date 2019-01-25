@@ -50,6 +50,10 @@ register_deactivation_hook( __FILE__, 'deactivate_reatlat_cub' );
 define( 'CUB_VERSION',   '{% APP_VER %}');
 define( 'CUB_NAME',      'reatlat_cub');
 define( 'CUB_REAL_NAME', 'campaign-url-builder');
+if ( ! defined( 'CUB_PLUGIN_DEBUG_JS' ) )
+{
+    define( 'CUB_PLUGIN_DEBUG_JS', false);
+}
 
 require plugin_dir_path( __FILE__ ) . 'includes/class-reatlat_cub.php';
 
