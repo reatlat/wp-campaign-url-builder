@@ -68,10 +68,10 @@ gulp.task('build', function (callback) {
         'copy_license',
         'styles',
         'scripts'
-    ], [
-        'rev-manifest'
-    ], [
-        'fingerprint'
+    // ], [
+    //     'rev-manifest'
+    // ], [
+    //     'fingerprint'
     ], [
         'copy_release_to_temp'
     ], 'zip', callback)
