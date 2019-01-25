@@ -107,7 +107,12 @@ jQuery(function ($) {
                                 tableRow += '<td></td>';
                             }
                             tableRow += '</tr>';
-                            $(tableRow).insertAfter('.reatlat_cub_result__table tbody tr.reatlat_cub_result__table__headrow');
+
+                            if ( $('.reatlat_cub_result__table_pagination').attr('data-page-count') > 1 ) {
+                                $(tableRow).insertAfter('.reatlat_cub_result__table tbody tr.reatlat_cub_result__table__headrow');
+                            } else {
+                                $(tableRow).insertBefore('.reatlat_cub_result__table tbody tr.reatlat_cub_link-on-list.first-link');
+                            }
 
                             //TODO: tippy('.tippy--hover' );
 
