@@ -129,7 +129,7 @@ $get_from = esc_attr( $plugin->plugin_real_name );
 
     <h3><?php _e('Tools', 'campaign-url-builder'); ?></h3>
     <p>
-        <a class="button button-primary button-shortcode-generator" href="https://reatlat.net/wp-plugin-campaign-url-builder/#generator?utm_source=wp_plugin&utm_medium=shortcode_tab&utm_campaign=<?php echo $get_from; ?>" target="_blank"><span class="dashicons dashicons-hammer"></span><?php _e('Shortcode generator', 'campaign-url-builder'); ?></a>
+        <a class="button button-primary button-shortcode-generator" href="https://reatlat.net/wp-plugin-campaign-url-builder/?utm_source=wp_plugin&utm_medium=shortcode_tab&utm_campaign=<?php echo $get_from; ?>#generator" target="_blank"><span class="dashicons dashicons-hammer"></span><?php _e('Shortcode generator', 'campaign-url-builder'); ?></a>
     </p>
 
     <hr>
