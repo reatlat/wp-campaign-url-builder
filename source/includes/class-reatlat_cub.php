@@ -89,10 +89,11 @@ class reatlat_cub
             if ( get_option( $this->plugin_name . '_shortcode_anonymous') ) :
                 $this->loader->add_action( 'wp_ajax_nopriv_' . $this->get_plugin_name() . '_sc_create_link', $plugin_admin, 'ajax_create_link' );
             endif;
-        endif;
 
-        $this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+            // load all scripts only if shortcodes activated
+            $this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
+            $this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+        endif;
 	}
 
 	/**
