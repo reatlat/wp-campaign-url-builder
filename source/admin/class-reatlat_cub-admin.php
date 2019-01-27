@@ -44,17 +44,19 @@ class reatlat_cub_Admin {
         $this->remove_campaign_source = (empty($CLEAN_POST['remove_campaign_source']) ? '' : self::get_cleaned($CLEAN_POST['remove_campaign_source'], 'text'));
         $this->submit_settings        = (empty($CLEAN_POST['submit_settings'])        ? '' : 1);
 
-        $this->advanced_api           = (empty($CLEAN_POST['advanced_api'])           ? '' : self::get_cleaned($CLEAN_POST['advanced_api'], 'text'));
-        $this->google_api_key         = (empty($CLEAN_POST['google_api_key'])         ? '' : self::get_cleaned($CLEAN_POST['google_api_key'], 'text'));
-        $this->remove_google_api_key  = (empty($CLEAN_POST['remove_google_api_key'])  ? '' : self::get_cleaned($CLEAN_POST['remove_google_api_key'], 'number'));
-        $this->bitly_api_key          = (empty($CLEAN_POST['bitly_api_key'])          ? '' : self::get_cleaned($CLEAN_POST['bitly_api_key'], 'text'));
-        $this->remove_bitly_api_key   = (empty($CLEAN_POST['remove_bitly_api_key'])   ? '' : self::get_cleaned($CLEAN_POST['remove_bitly_api_key'], 'number'));
-        $this->advanced_admin_only    = (empty($CLEAN_POST['advanced_admin_only'])    ? '' : self::get_cleaned($CLEAN_POST['advanced_admin_only'], 'checkbox'));
-        $this->advanced_keep_settings = (empty($CLEAN_POST['advanced_keep_settings']) ? '' : self::get_cleaned($CLEAN_POST['advanced_keep_settings'], 'checkbox'));
-        $this->advanced_show_creator  = (empty($CLEAN_POST['advanced_show_creator'])  ? '' : self::get_cleaned($CLEAN_POST['advanced_show_creator'], 'checkbox'));
-        $this->advanced_show_useronly = (empty($CLEAN_POST['advanced_show_useronly']) ? '' : self::get_cleaned($CLEAN_POST['advanced_show_useronly'], 'checkbox'));
-        $this->advanced_metaboxes     = (empty($CLEAN_POST['advanced_metaboxes'])     ? '' : self::get_cleaned($CLEAN_POST['advanced_metaboxes'], 'checkbox'));
-        $this->submit_advanced        = (empty($CLEAN_POST['submit_advanced'])        ? '' : 1);
+        $this->advanced_api             = (empty($CLEAN_POST['advanced_api'])             ? '' : self::get_cleaned($CLEAN_POST['advanced_api'], 'text'));
+        $this->google_api_key           = (empty($CLEAN_POST['google_api_key'])           ? '' : self::get_cleaned($CLEAN_POST['google_api_key'], 'text'));
+        $this->remove_google_api_key    = (empty($CLEAN_POST['remove_google_api_key'])    ? '' : self::get_cleaned($CLEAN_POST['remove_google_api_key'], 'number'));
+        $this->bitly_api_key            = (empty($CLEAN_POST['bitly_api_key'])            ? '' : self::get_cleaned($CLEAN_POST['bitly_api_key'], 'text'));
+        $this->remove_bitly_api_key     = (empty($CLEAN_POST['remove_bitly_api_key'])     ? '' : self::get_cleaned($CLEAN_POST['remove_bitly_api_key'], 'number'));
+        $this->advanced_admin_only      = (empty($CLEAN_POST['advanced_admin_only'])      ? '' : self::get_cleaned($CLEAN_POST['advanced_admin_only'], 'checkbox'));
+        $this->advanced_keep_settings   = (empty($CLEAN_POST['advanced_keep_settings'])   ? '' : self::get_cleaned($CLEAN_POST['advanced_keep_settings'], 'checkbox'));
+        $this->advanced_keep_linkquery  = (empty($CLEAN_POST['advanced_keep_linkquery'])  ? '' : self::get_cleaned($CLEAN_POST['advanced_keep_linkquery'], 'checkbox'));
+        $this->advanced_keep_linkanchor = (empty($CLEAN_POST['advanced_keep_linkanchor']) ? '' : self::get_cleaned($CLEAN_POST['advanced_keep_linkanchor'], 'checkbox'));
+        $this->advanced_show_creator    = (empty($CLEAN_POST['advanced_show_creator'])    ? '' : self::get_cleaned($CLEAN_POST['advanced_show_creator'], 'checkbox'));
+        $this->advanced_show_useronly   = (empty($CLEAN_POST['advanced_show_useronly'])   ? '' : self::get_cleaned($CLEAN_POST['advanced_show_useronly'], 'checkbox'));
+        $this->advanced_metaboxes       = (empty($CLEAN_POST['advanced_metaboxes'])       ? '' : self::get_cleaned($CLEAN_POST['advanced_metaboxes'], 'checkbox'));
+        $this->submit_advanced          = (empty($CLEAN_POST['submit_advanced'])          ? '' : 1);
 
         $this->shortcode_activator       = (empty($CLEAN_POST['shortcode_activator'])       ? '' : self::get_cleaned($CLEAN_POST['shortcode_activator'], 'checkbox'));
         $this->shortcode_anonymous       = (empty($CLEAN_POST['shortcode_anonymous'])       ? '' : self::get_cleaned($CLEAN_POST['shortcode_anonymous'], 'checkbox'));
@@ -292,15 +294,24 @@ class reatlat_cub_Admin {
 	 */
 	public function enqueue_scripts()
     {
-        wp_enqueue_script( 'tippy-all',                 str_replace( '/admin', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/js/vendor/tippy.all.min.js', array(), null, false );
-        wp_enqueue_script( 'clipboard',                 str_replace( '/admin', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/js/vendor/clipboard.min.js', array(), null, false );
-        wp_enqueue_script( 'jquery-validate',           str_replace( '/admin', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/js/vendor/jquery.validate.min.js', array( 'jquery' ), null, false );
-        wp_enqueue_script( 'jquery-additional-methods', str_replace( '/admin', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/js/vendor/additional-methods.min.js', array( 'jquery' ), null, false );
-        wp_enqueue_script( $this->plugin_name.'-admin', str_replace( '/admin', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/js/reatlat_cub-admin' . $this->debug . '.js', array( 'jquery' ), null, true );
+        wp_enqueue_script( 'tippy-all',                        str_replace( '/admin', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/js/vendor/tippy.all.min.js', array(), null, false );
+        wp_enqueue_script( 'clipboard',                        str_replace( '/admin', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/js/vendor/clipboard.min.js', array(), null, false );
+        wp_enqueue_script( 'jquery-validate',                  str_replace( '/admin', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/js/vendor/jquery.validate.min.js', array( 'jquery' ), null, false );
+        wp_enqueue_script( 'jquery-additional-methods',        str_replace( '/admin', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/js/vendor/additional-methods.min.js', array( 'jquery' ), null, false );
+        wp_enqueue_script( $this->plugin_name.'-admin-script', str_replace( '/admin', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/js/reatlat_cub-admin' . $this->debug . '.js', array( 'jquery' ), null, true );
 
         // Enqueue jQuery UI and autocomplete
         wp_enqueue_script( 'jquery-ui-core' );
         wp_enqueue_script( 'jquery-ui-autocomplete' );
+
+        wp_localize_script(
+            $this->plugin_name . '-admin-script',
+            strtoupper($this->plugin_name) . '_APP',
+            array(
+                'AJAXURL' => admin_url( 'admin-ajax.php' ),
+                'DEBUG_JS' => CUB_PLUGIN_DEBUG
+            )
+        );
 	}
 
 	/**
@@ -359,7 +370,7 @@ class reatlat_cub_Admin {
         {
             array_push( $this->messages, array( __('Page to link is not a valid url. It has to start with http.', 'campaign-url-builder'), 'warning' ) );
         } else {
-            return esc_url_raw( strtok($string, '?') );
+            return esc_url_raw( $string );
         }
         return false;
 	}
@@ -380,14 +391,60 @@ class reatlat_cub_Admin {
 
 	public function get_full_link()
     {
-        //TODO: add pregmatch for keep anchor links
+        $target_url = parse_url( $this->campaign_page );
+
         $campaign_term    = $this->campaign_term ? '&utm_term=' . urlencode($this->campaign_term) : '';
         $campaign_content = $this->campaign_content ? '&utm_content=' . urlencode($this->campaign_content) : '';
 		$custom_pair_1    = ( $this->custom_key_1 && $this->custom_value_1 ) ? '&' . urlencode($this->custom_key_1) . '=' . urlencode($this->custom_value_1) : '';
 		$custom_pair_2    = ( $this->custom_key_2 && $this->custom_value_2 ) ? '&' . urlencode($this->custom_key_2) . '=' . urlencode($this->custom_value_2) : '';
 		$custom_pair_3    = ( $this->custom_key_3 && $this->custom_value_3 ) ? '&' . urlencode($this->custom_key_3) . '=' . urlencode($this->custom_value_3) : '';
 
-		return $this->campaign_page . '?utm_source=' . urlencode($this->campaign_source) . '&utm_medium=' . urlencode($this->campaign_medium) . '&utm_campaign=' . urlencode($this->campaign_name) . $campaign_term . $campaign_content . $custom_pair_1 . $custom_pair_2 . $custom_pair_3;
+		// Build full target link
+        $campaign_target_url = $target_url['scheme'] . '://' . $target_url['host'] . $target_url['path'];
+
+        $campaign_target_url .= '?utm_source=' . urlencode($this->campaign_source);
+        $campaign_target_url .= '&utm_medium=' . urlencode($this->campaign_medium);
+        $campaign_target_url .= '&utm_campaign=' . urlencode($this->campaign_name);
+        $campaign_target_url .= $campaign_term;
+        $campaign_target_url .= $campaign_content;
+        $campaign_target_url .= $custom_pair_1;
+        $campaign_target_url .= $custom_pair_2;
+        $campaign_target_url .= $custom_pair_3;
+
+        if ( get_option( $this->plugin_name . '_keep_linkquery' ) && isset($target_url['query']) )
+        {
+            $exclude_query_parameters = array('utm_source', 'utm_medium', 'utm_campaign');
+
+            if ( !empty( $campaign_term ) )
+                array_push($exclude_query_parameters, 'utm_term');
+
+            if ( !empty( $campaign_content ) )
+                array_push($exclude_query_parameters, 'utm_conten');
+
+            if ( !empty( $custom_pair_1 ) )
+                array_push($exclude_query_parameters, urlencode($this->custom_key_1) );
+
+            if ( !empty( $custom_pair_2 ) )
+                array_push($exclude_query_parameters, urlencode($this->custom_key_2) );
+
+            if ( !empty( $custom_pair_3 ) )
+                array_push($exclude_query_parameters, urlencode($this->custom_key_3) );
+
+            $target_url['query'] = explode('&', $target_url['query']);
+
+            foreach ( $target_url['query'] as $query_item ) {
+                if ( ! in_array( explode('=', $query_item)[0],  $exclude_query_parameters, true ) ) {
+                    $campaign_target_url .= '&' . $query_item;
+                }
+            }
+        }
+
+        if ( get_option( $this->plugin_name . '_keep_linkanchor' ) )
+        {
+            $campaign_target_url .= ( isset($target_url['fragment']) && !empty($target_url['fragment']) ) ? '#' . $target_url['fragment'] : '';
+        }
+
+        return $campaign_target_url;
 	}
 
 	private function add_link()
@@ -540,6 +597,8 @@ class reatlat_cub_Admin {
                 }
                 update_option( $this->plugin_name . '_admin_only', $this->advanced_admin_only );
                 update_option( $this->plugin_name . '_keep_settings', $this->advanced_keep_settings );
+                update_option( $this->plugin_name . '_keep_linkquery', $this->advanced_keep_linkquery );
+                update_option( $this->plugin_name . '_keep_linkanchor', $this->advanced_keep_linkanchor );
                 update_option( $this->plugin_name . '_show_creator', $this->advanced_show_creator );
                 update_option( $this->plugin_name . '_show_useronly', $this->advanced_show_useronly );
                 update_option( $this->plugin_name . '_metaboxes', $this->advanced_metaboxes );
