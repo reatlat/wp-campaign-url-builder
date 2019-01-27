@@ -166,6 +166,21 @@
         td {
             padding-bottom: 0;
         }
+
+        tr > th > label {
+            &.new-feature {
+                &:after {
+                    font-weight: bold;
+                    content: 'NEW';
+                    color: white;
+                    padding: 2px 3px;
+                    background: lighten($theme-color, 3%);
+                    display: inline-block;
+                    font-size: 9px;
+                    line-height: 1;
+                }
+            }
+        }
     }
 
     .reatlat_cub_notice {

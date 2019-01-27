@@ -68,10 +68,10 @@ gulp.task('build', function (callback) {
         'copy_license',
         'styles',
         'scripts'
-    ], [
-        'rev-manifest'
-    ], [
-        'fingerprint'
+    // ], [
+    //     'rev-manifest'
+    // ], [
+    //     'fingerprint'
     ], [
         'copy_release_to_temp'
     ], 'zip', callback)
@@ -85,16 +85,26 @@ gulp.task('build', function (callback) {
 gulp.task('styles', callback =>
     runSequence([
         'styles_admin',
-        'styles_public'
-    ], 'zip', callback)
+        'styles_admin_min',
+        'styles_public',
+        'styles_public_min'
+    ], callback)
 );
 
 gulp.task('styles_admin', () =>
     gulp.src(path.source + '/_styles/!(_)*-admin.scss')
         .pipe($.sass({errLogToConsole: true}).on('error', errorHandler('SASS')))
         .pipe($.autoprefixer('last 2 version'))
+        .pipe(gulp.dest(path.dist + '/admin/assets/css/'))
+);
+
+gulp.task('styles_admin_min', () =>
+    gulp.src(path.source + '/_styles/!(_)*-admin.scss')
+        .pipe($.sass({errLogToConsole: true}).on('error', errorHandler('SASS')))
+        .pipe($.autoprefixer('last 2 version'))
         .pipe($.stripCssComments({preserve: false}))
         .pipe($.csso(csso_options))
+        .pipe($.rename({suffix: '.min'}))
         .pipe(gulp.dest(path.dist + '/admin/assets/css/'))
 );
 
@@ -102,8 +112,17 @@ gulp.task('styles_public', () =>
     gulp.src(path.source + '/_styles/!(_)*-public.scss')
         .pipe($.sass({errLogToConsole: true}).on('error', errorHandler('SASS')))
         .pipe($.autoprefixer('last 2 version'))
+        .pipe(gulp.dest(path.dist + '/public/assets/css/'))
+);
+
+
+gulp.task('styles_public_min', () =>
+    gulp.src(path.source + '/_styles/!(_)*-public.scss')
+        .pipe($.sass({errLogToConsole: true}).on('error', errorHandler('SASS')))
+        .pipe($.autoprefixer('last 2 version'))
         .pipe($.stripCssComments({preserve: false}))
         .pipe($.csso(csso_options))
+        .pipe($.rename({suffix: '.min'}))
         .pipe(gulp.dest(path.dist + '/public/assets/css/'))
 );
 
@@ -120,8 +139,10 @@ gulp.task('clean_temp_folder', () =>
 gulp.task('scripts', callback =>
     runSequence([
         'javaScripts_admin',
+        'javaScripts_admin_min',
         'javaScripts_vendor_admin',
         'javaScripts_public',
+        'javaScripts_public_min',
         'javaScripts_vendor_public'
     ], callback)
 );
@@ -129,7 +150,14 @@ gulp.task('scripts', callback =>
 gulp.task('javaScripts_admin', () =>
     gulp.src(path.source + '/_scripts/!(_)*-admin.js')
         .pipe($.include({extension: '.js'}).on('error', errorHandler('Include *.js')))
-        .pipe($.if(!development, $.uglifyEs.default({output: {comments: /^!/}})))
+        .pipe(gulp.dest(path.dist + '/admin/assets/js/'))
+);
+
+gulp.task('javaScripts_admin_min', () =>
+    gulp.src(path.source + '/_scripts/!(_)*-admin.js')
+        .pipe($.include({extension: '.js'}).on('error', errorHandler('Include *.js')))
+        .pipe($.uglifyEs.default({output: {comments: /^!/}}))
+        .pipe($.rename({suffix: '.min'}))
         .pipe(gulp.dest(path.dist + '/admin/assets/js/'))
 );
 
@@ -141,7 +169,14 @@ gulp.task('javaScripts_vendor_admin', () =>
 gulp.task('javaScripts_public', () =>
     gulp.src(path.source + '/_scripts/!(_)*-public.js')
         .pipe($.include({extension: '.js'}).on('error', errorHandler('Include *.js')))
-        .pipe($.if(!development, $.uglifyEs.default({output: {comments: /^!/}})))
+        .pipe(gulp.dest(path.dist + '/public/assets/js/'))
+);
+
+gulp.task('javaScripts_public_min', () =>
+    gulp.src(path.source + '/_scripts/!(_)*-public.js')
+        .pipe($.include({extension: '.js'}).on('error', errorHandler('Include *.js')))
+        .pipe($.uglifyEs.default({output: {comments: /^!/}}))
+        .pipe($.rename({suffix: '.min'}))
         .pipe(gulp.dest(path.dist + '/public/assets/js/'))
 );
 

@@ -27,10 +27,10 @@ $plugin->enqueue_notices();
 		<li><a href="#reatlat_cub_tab-1" class="active"><span class="dashicons dashicons-dashboard"></span> <?php _e('Manage links', 'campaign-url-builder'); ?></a></li>
 		<li><a href="#reatlat_cub_tab-2"><span class="dashicons dashicons-admin-settings"></span> <?php _e('Settings', 'campaign-url-builder'); ?></a></li>
         <?php if ( current_user_can('administrator') || ! get_option( $this->plugin_name . '_admin_only' ) ) : ?>
-        <li><a href="#reatlat_cub_tab-3"><span class="dashicons dashicons-warning"></span> <?php _e('Advanced Settings', 'campaign-url-builder'); ?></a></li>
+        <li class="new-feature"><a href="#reatlat_cub_tab-3"><span class="dashicons dashicons-warning"></span> <?php _e('Advanced', 'campaign-url-builder'); ?></a></li>
         <?php endif; ?>
         <li class="new-feature"><a href="#reatlat_cub_tab-4"><span class="dashicons dashicons-editor-code"></span> <?php _e('Shortcode', 'campaign-url-builder'); ?></a></li>
-        <li><a href="#reatlat_cub_tab-5"><span class="dashicons dashicons-welcome-learn-more"></span> <?php _e('Knowledge base', 'campaign-url-builder'); ?></a></li>
+        <li><a href="#reatlat_cub_tab-5"><span class="dashicons dashicons-welcome-learn-more"></span> <?php _e('FAQ', 'campaign-url-builder'); ?></a></li>
         <li><a href="#reatlat_cub_tab-6"><span class="dashicons dashicons-info"></span> <?php _e('About', 'campaign-url-builder'); ?></a></li>
 	</ul>
 

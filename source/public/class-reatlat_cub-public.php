@@ -4,12 +4,14 @@ class reatlat_cub_Public
 {
 	private $plugin_name;
 	private $version;
+	private $debug;
 
 	// constructor
 	public function __construct( $plugin_name, $version )
     {
 		$this->plugin_name     = $plugin_name;
 		$this->version         = $version;
+		$this->debug           = CUB_PLUGIN_DEBUG ? '' : '.min';
 	}
 
 	/**
@@ -22,7 +24,7 @@ class reatlat_cub_Public
         wp_enqueue_script( 'jquery-validate',           str_replace( '/public', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/js/vendor/jquery.validate.min.js', array( 'jquery' ), null, false );
         wp_enqueue_script( 'jquery-additional-methods', str_replace( '/public', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/js/vendor/additional-methods.min.js', array( 'jquery' ), null, false );
 
-        wp_enqueue_script( $this->plugin_name . '-public-script', str_replace( '/public', '', plugin_dir_url( __FILE__ ) ) . 'public/assets/js/reatlat_cub-public.js', array( 'jquery' ), null, true );
+        wp_enqueue_script( $this->plugin_name . '-public-script', str_replace( '/public', '', plugin_dir_url( __FILE__ ) ) . 'public/assets/js/reatlat_cub-public' . $this->debug . '.js', array( 'jquery' ), null, true );
 
         wp_localize_script(
             $this->plugin_name . '-public-script',
@@ -30,7 +32,7 @@ class reatlat_cub_Public
             array(
                 'AJAXURL' => admin_url( 'admin-ajax.php' ),
                 'SC_ACTION' => $this->plugin_name . '_sc_create_link',
-                'DEBUG_JS' => true
+                'DEBUG_JS' => CUB_PLUGIN_DEBUG
             )
         );
 	}
@@ -41,7 +43,7 @@ class reatlat_cub_Public
 	function enqueue_styles()
     {
         if ( get_option( $this->plugin_name . '_shortcode_styles' ) ) {
-            wp_enqueue_style( $this->plugin_name, str_replace( '/public', '', plugin_dir_url( __FILE__ ) ) . 'public/assets/css/reatlat_cub-public.css', array(), $this->version, 'all' );
+            wp_enqueue_style( $this->plugin_name, str_replace( '/public', '', plugin_dir_url( __FILE__ ) ) . 'public/assets/css/reatlat_cub-public' . $this->debug . '.css', array(), $this->version, 'all' );
         }
 	}
 

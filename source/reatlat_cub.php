@@ -25,7 +25,7 @@ function activate_reatlat_cub()
 
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-reatlat_cub.php';
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-reatlat_cub-activator.php';
-	
+
 	$plugin_ = new reatlat_cub();
 	$activation = new reatlat_cub_Activator( $plugin_->get_plugin_name() );
 	$activation->run();
@@ -37,7 +37,7 @@ function deactivate_reatlat_cub()
 
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-reatlat_cub.php';
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-reatlat_cub-deactivator.php';
-	
+
 	$plugin_ = new reatlat_cub();
 	$plugin = new reatlat_cub_Deactivator( $plugin_->get_plugin_name() );
 	$plugin->deactivate();
@@ -50,6 +50,12 @@ register_deactivation_hook( __FILE__, 'deactivate_reatlat_cub' );
 define( 'CUB_VERSION',   '{% APP_VER %}');
 define( 'CUB_NAME',      'reatlat_cub');
 define( 'CUB_REAL_NAME', 'campaign-url-builder');
+
+if ( defined(SCRIPT_DEBUG) && SCRIPT_DEBUG && ! defined( 'CUB_PLUGIN_DEBUG' ) )
+    define( 'CUB_PLUGIN_DEBUG', true);
+
+if ( ! defined( 'CUB_PLUGIN_DEBUG' ) )
+    define( 'CUB_PLUGIN_DEBUG', false);
 
 require plugin_dir_path( __FILE__ ) . 'includes/class-reatlat_cub.php';
 

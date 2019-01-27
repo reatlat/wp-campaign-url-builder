@@ -35,11 +35,16 @@
             </p>
             <p>
                 <?php
+                printf( __('Introducing a new feature. Now you can keep original link query parameters and anchor fragment. Enable new feature in %sAdvanced%s tab.','campaign-url-builder'),
+                    '<a class="reatlat_cub_tab_link" href="#reatlat_cub_tab-3">',
+                    '</a>'); ?>
+            </p>
+            <p>
+                <?php
                 printf( __('The changelog, about developer, technologies cards moved to %sAbout%s tab.','campaign-url-builder'),
                     '<a class="reatlat_cub_tab_link" href="#reatlat_cub_tab-6">',
                     '</a>'); ?>
             </p>
-
         </div>
     </div>
 
