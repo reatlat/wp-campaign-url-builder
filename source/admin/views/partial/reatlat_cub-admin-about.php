@@ -14,6 +14,16 @@ $changelog = array(
         ),
     ),
     array(
+        'version' => '1.7.0',
+        'date'    => '2019/01/27',
+        'changes' => array(
+            __('Added new feature - keep links query parameters and anchor fragment', 'campaign-url-builder'),
+            __('Init JavaScript and CSS Debuging Variable (include uncompressed scripts/css)', 'campaign-url-builder'),
+            __('Refactor full_link_builder function', 'campaign-url-builder'),
+            __('Refactor backend JavaScript', 'campaign-url-builder')
+        ),
+    ),
+    array(
         'version' => '1.6.0',
         'date'    => '2019/01/14',
         'changes' => array(

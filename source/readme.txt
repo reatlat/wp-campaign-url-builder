@@ -46,6 +46,12 @@ Nothing for now
 
 == Changelog ==
 
+= 1.7.0 =
+* Added new feature - keep links query parameters and anchor fragment
+* Init JavaScript and CSS Debuging Variable (include uncompressed scripts/css)
+* Refactor full_link_builder function
+* Refactor backend JavaScript
+
 = 1.6.0 =
 * Fix Security Vulnerability - Missing Validation
 * Added Security Nonces for all POST requests
