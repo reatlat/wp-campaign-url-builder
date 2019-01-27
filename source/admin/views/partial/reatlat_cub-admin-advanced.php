@@ -33,6 +33,30 @@
 
             <tr>
                 <th scope="row">
+                    <label class="unclickable new-feature"><?php _e('Keep original query parameters link', 'campaign-url-builder'); ?> <span class="dashicons dashicons-editor-help tippy" title="<?php _e('Enable this option for keep original query parameters from campaign target link.', 'campaign-url-builder'); ?>"></span></label>
+                </th>
+                <td>
+                    <label class="tgl">
+                        <input type="checkbox" name="advanced_keep_linkquery" <?php checked(get_option( $this->plugin_name . '_keep_linkquery')); ?> />
+                        <span data-on="<?php _e('Enabled', 'campaign-url-builder'); ?>" data-off="<?php _e('Disabled', 'campaign-url-builder'); ?>"></span>
+                    </label>
+                </td>
+            </tr>
+
+            <tr>
+                <th scope="row">
+                    <label class="unclickable new-feature"><?php _e('Keep original anchor fragment link', 'campaign-url-builder'); ?> <span class="dashicons dashicons-editor-help tippy" title="<?php _e('Enable this option for keep original anchor/hashtag fragment from campaign target link.', 'campaign-url-builder'); ?>"></span></label>
+                </th>
+                <td>
+                    <label class="tgl">
+                        <input type="checkbox" name="advanced_keep_linkanchor" <?php checked(get_option( $this->plugin_name . '_keep_linkanchor')); ?> />
+                        <span data-on="<?php _e('Enabled', 'campaign-url-builder'); ?>" data-off="<?php _e('Disabled', 'campaign-url-builder'); ?>"></span>
+                    </label>
+                </td>
+            </tr>
+
+            <tr>
+                <th scope="row">
                     <label class="unclickable"><?php _e("Author's column in the table of UTM Links", 'campaign-url-builder'); ?> <span class="dashicons dashicons-editor-help tippy" title="<?php _e('Show or hide Author\'s column in the table of UTM Links', 'campaign-url-builder'); ?>"></span></label>
                 </th>
                 <td>
@@ -75,24 +99,24 @@
                 <div class="reatlat_cub_form__settings--api__bitly pvxs">
                     <input type="radio" name="advanced_api" id="advanced_api_bitly" required <?php checked(get_option( $this->plugin_name . '_advanced_api') === 'bitly' ); ?> value="bitly" />
                     <label for="advanced_api_bitly">
-                        <?php _e('Bitly URL Shortener API', 'campaign-url-builder'); ?>
+                        <?php _e('Bitly URL Shortener API endpoint', 'campaign-url-builder'); ?>
                     </label>
                     <div class="radio-if-active">
                         <table class="form-table">
                             <tr>
                                 <th scope="row" class="ptn">
-                                    <label for="bitly_api_key"><?php _e('Bitly API key', 'campaign-url-builder'); ?> </label>
+                                    <label for="bitly_api_key"><?php _e('Bitly OAuth key', 'campaign-url-builder'); ?> </label>
                                     <span class="description"><?php _e('(optional)', 'campaign-url-builder'); ?><br><?php _e('keep empty for use default one', 'campaign-url-builder'); ?></span>
                                 </th>
                                 <td>
                                     <?php if ( empty( get_option( $plugin->plugin_name . '_bitly_api_key' ) ) ) { ?>
-                                        <input name="bitly_api_key" type="text" id="bitly_api_key" placeholder="<?php _e('Paste you Bitly API key here...', 'campaign-url-builder'); ?>" value="" class="regular-text"><br>
+                                        <input name="bitly_api_key" type="text" id="bitly_api_key" placeholder="<?php _e('Paste you Bitly OAuth key here...', 'campaign-url-builder'); ?>" value="" class="regular-text"><br>
                                     <?php } else { ?>
                                         <?php
                                         $visible_bitly_api_key = str_repeat( '*', strlen( get_option( $plugin->plugin_name . '_bitly_api_key' ) ) - 5 ) . substr( get_option( $plugin->plugin_name . '_bitly_api_key' ), - 5 );
                                         ?>
                                         <input name="bitly_api_key" type="text" disabled id="bitly_api_key" value="<?php echo esc_attr( $visible_bitly_api_key ); ?>" class="regular-text"><br>
-                                        <?php _e('Reset API key', 'campaign-url-builder'); ?>: <input type="checkbox" name="remove_bitly_api_key" value="1">
+                                        <?php _e('Reset OAuth key', 'campaign-url-builder'); ?>: <input type="checkbox" name="remove_bitly_api_key" value="1">
                                     <?php } ?>
                                     <?php
                                     printf(
