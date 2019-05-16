@@ -286,7 +286,7 @@ class reatlat_cub_Admin {
 	 */
 	public function enqueue_styles()
     {
-		wp_enqueue_style( $this->plugin_name, CUB_PLUGIN_URL_PATH . 'assets/css/reatlat_cub-admin.css', array(), CUB_VERSION, 'all' );
+		wp_enqueue_style( $this->plugin_name, CUB_PLUGIN_URL_PATH . 'assets/css/reatlat_cub-admin.css', array(), $this->version, 'all' );
 	}
 
 	/**
@@ -294,13 +294,13 @@ class reatlat_cub_Admin {
 	 */
 	public function enqueue_scripts()
     {
-        wp_enqueue_script( 'tippy-all', CUB_PLUGIN_URL_PATH . 'assets/js/vendor/tippy.all.min.js', array(), CUB_VERSION, true );
-        wp_enqueue_script( 'clipboard', CUB_PLUGIN_URL_PATH . 'assets/js/vendor/clipboard.min.js', array(), CUB_VERSION, true );
-        wp_enqueue_script( 'jquery-validate', CUB_PLUGIN_URL_PATH . 'assets/js/vendor/jquery.validate.min.js', array( 'jquery' ), CUB_VERSION, true );
-        wp_enqueue_script( 'jquery-additional-methods', CUB_PLUGIN_URL_PATH . 'assets/js/vendor/additional-methods.min.js', array( 'jquery' ), CUB_VERSION, true );
+        wp_enqueue_script( 'tippy-all', CUB_PLUGIN_URL_PATH . 'assets/js/vendor/tippy.all.min.js', array(), $this->version, true );
+        wp_enqueue_script( 'clipboard', CUB_PLUGIN_URL_PATH . 'assets/js/vendor/clipboard.min.js', array(), '1.7.1', true );
+        wp_enqueue_script( 'jquery-validate', CUB_PLUGIN_URL_PATH . 'assets/js/vendor/jquery.validate.min.js', array( 'jquery' ), '1.17.0', true );
+        wp_enqueue_script( 'jquery-additional-methods', CUB_PLUGIN_URL_PATH . 'assets/js/vendor/additional-methods.min.js', array( 'jquery' ), '1.17.0', true );
 
         // TODO: fix dependency
-        wp_enqueue_script( $this->plugin_name.'-admin-script', CUB_PLUGIN_URL_PATH . 'assets/js/reatlat_cub-admin' . $this->debug . '.js', array( 'jquery' ), null, true );
+        wp_enqueue_script( $this->plugin_name.'-admin-script', CUB_PLUGIN_URL_PATH . 'assets/js/reatlat_cub-admin' . $this->debug . '.js', array(  'jquery', 'tippy-all', 'clipboard' ), null, true );
 
         // Enqueue jQuery UI and autocomplete
         wp_enqueue_script( 'jquery-ui-core' );
@@ -311,7 +311,8 @@ class reatlat_cub_Admin {
             strtoupper($this->plugin_name) . '_APP',
             array(
                 'AJAXURL' => admin_url( 'admin-ajax.php' ),
-                'DEBUG_JS' => CUB_PLUGIN_DEBUG
+                'DEBUG_JS' => CUB_PLUGIN_DEBUG,
+                'CLIPBOARD' => version_compare( get_bloginfo('version'), '5.2', '>=' ) ? 'ClipboardJS' : 'Clipboard'
             )
         );
 	}
