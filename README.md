@@ -1,7 +1,5 @@
 # WordPress - Campaign URL Builder
 [![](https://img.shields.io/badge/release-1.7.0-green.svg)](https://github.com/reatlat/wp-campaign-url-builder/releases/tag/v1.7.0)
-[![](https://img.shields.io/badge/npm-6.4.2-red.svg?logo=npm)](https://nodejs.org/en/)
-[![](https://img.shields.io/badge/Gulp-%5E3.9.1-DA4648.svg?logo=gulp)](https://gulpjs.com/)
 [![](https://img.shields.io/badge/Sass-ready-ff69b4.svg?logo=sass)](https://sass-lang.com/)
 [![](https://img.shields.io/badge/Docker-ready-blue.svg?logo=docker)](https://hub.docker.com/_/wordpress/)
 [![](https://img.shields.io/badge/PHP_5.6-ready-777BB4.svg?logo=php)](https://php.net/)
@@ -14,28 +12,9 @@ Enter your Campaign Name, Source, Medium (UTM link) etc.
 to generate a full link and a short link (trough the Google
 URL Shortener API) all in once.
 
-## Run plugin builder
-- `gulp dev` for local develop
-- `gulp build` for build release, you can find it on `./release` directory
-
 ## Prerequistes
 
-### NodeJS & GulpJS
-You must install [NodeJS](https://nodejs.org/en/download/current/) which comes with npm. 
-
-After you should update npm:
-```
-npm install npm -g
-```
-You must install [GulpJS](http://gulpjs.com/)
-```
-npm install gulp-cli -g
-npm install gulp -D
-```
-Install packages
-```
-npm install
-```
+- PrePros app
 
 ### Docker
 

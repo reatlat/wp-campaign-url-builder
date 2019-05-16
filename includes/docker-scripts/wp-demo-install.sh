@@ -13,7 +13,7 @@ if ! which wp > /dev/null; then
     # Install DEMO WordPress
     cd /var/www/html
     wp core install --allow-root \
-                    --url=localhost \
+                    --url="http://campaign-url-builder.com" \
                     --title="Campaign URL Builder"  \
                     --admin_user="admin" \
                     --admin_password="admin" \

@@ -3,7 +3,7 @@
  * Plugin Name:       Campaign URL Builder
  * Plugin URI:        https://wordpress.org/plugins/campaign-url-builder
  * Description:       Generates links for Analytics tools and short link. Enter your Campaign Name, Source, Medium (UTM link) to generate a full link and a short link (trough the Google URL Shortener API) all in once
- * Version:           {% APP_VER %}
+ * Version:           1.7.0
  * Author:            Alex Zappa a.k.a. re[at]lat
  * Author URI:        https://reatlat.net
  * Donate link:       https://www.paypal.me/reatlat/5usd
@@ -47,9 +47,11 @@ function deactivate_reatlat_cub()
 register_activation_hook( __FILE__, 'activate_reatlat_cub' );
 register_deactivation_hook( __FILE__, 'deactivate_reatlat_cub' );
 
-define( 'CUB_VERSION',   '{% APP_VER %}');
+define( 'CUB_VERSION',   '1.7.0');
 define( 'CUB_NAME',      'reatlat_cub');
 define( 'CUB_REAL_NAME', 'campaign-url-builder');
+define( 'CUB_PLUGIN_DIR_PATH', plugin_dir_path( __FILE__ ));
+define( 'CUB_PLUGIN_URL_PATH', plugin_dir_url( __FILE__ ));
 
 if ( defined(SCRIPT_DEBUG) && SCRIPT_DEBUG && ! defined( 'CUB_PLUGIN_DEBUG' ) )
     define( 'CUB_PLUGIN_DEBUG', true);

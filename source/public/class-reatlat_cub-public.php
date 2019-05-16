@@ -19,12 +19,13 @@ class reatlat_cub_Public
 	 */
 	function enqueue_scripts()
     {
-        wp_enqueue_script( 'tippy-all',                 str_replace( '/public', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/js/vendor/tippy.all.min.js', array(), null, false );
-        wp_enqueue_script( 'clipboard',                 str_replace( '/public', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/js/vendor/clipboard.min.js', array(), null, false );
-        wp_enqueue_script( 'jquery-validate',           str_replace( '/public', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/js/vendor/jquery.validate.min.js', array( 'jquery' ), null, false );
-        wp_enqueue_script( 'jquery-additional-methods', str_replace( '/public', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/js/vendor/additional-methods.min.js', array( 'jquery' ), null, false );
+        wp_enqueue_script( 'tippy-all', CUB_PLUGIN_URL_PATH . 'assets/js/vendor/tippy.all.min.js', array(), null, false );
+        wp_enqueue_script( 'clipboard', CUB_PLUGIN_URL_PATH . 'assets/js/vendor/clipboard.min.js', array(), null, false );
+        wp_enqueue_script( 'jquery-validate', CUB_PLUGIN_URL_PATH . 'assets/js/vendor/jquery.validate.min.js', array( 'jquery' ), null, false );
+        wp_enqueue_script( 'jquery-additional-methods', CUB_PLUGIN_URL_PATH . 'assets/js/vendor/additional-methods.min.js', array( 'jquery' ), null, false );
 
-        wp_enqueue_script( $this->plugin_name . '-public-script', str_replace( '/public', '', plugin_dir_url( __FILE__ ) ) . 'public/assets/js/reatlat_cub-public' . $this->debug . '.js', array( 'jquery' ), null, true );
+        // TODO: fix dependency
+        wp_enqueue_script( $this->plugin_name . '-public-script', CUB_PLUGIN_URL_PATH . 'assets/js/reatlat_cub-public' . $this->debug . '.js', array( 'jquery' ), null, true );
 
         wp_localize_script(
             $this->plugin_name . '-public-script',
@@ -43,7 +44,7 @@ class reatlat_cub_Public
 	function enqueue_styles()
     {
         if ( get_option( $this->plugin_name . '_shortcode_styles' ) ) {
-            wp_enqueue_style( $this->plugin_name, str_replace( '/public', '', plugin_dir_url( __FILE__ ) ) . 'public/assets/css/reatlat_cub-public' . $this->debug . '.css', array(), $this->version, 'all' );
+            wp_enqueue_style( $this->plugin_name,plugin_dir_url( __FILE__ ) . 'assets/css/reatlat_cub-public.css', array(), $this->version, 'all' );
         }
 	}
 

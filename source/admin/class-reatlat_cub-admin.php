@@ -286,7 +286,7 @@ class reatlat_cub_Admin {
 	 */
 	public function enqueue_styles()
     {
-		wp_enqueue_style( $this->plugin_name, str_replace( '/admin', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/css/reatlat_cub-admin' . $this->debug . '.css', array(), null, 'all' );
+		wp_enqueue_style( $this->plugin_name, CUB_PLUGIN_URL_PATH . 'assets/css/reatlat_cub-admin.css', array(), CUB_VERSION, 'all' );
 	}
 
 	/**
@@ -294,11 +294,13 @@ class reatlat_cub_Admin {
 	 */
 	public function enqueue_scripts()
     {
-        wp_enqueue_script( 'tippy-all',                        str_replace( '/admin', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/js/vendor/tippy.all.min.js', array(), null, false );
-        wp_enqueue_script( 'clipboard',                        str_replace( '/admin', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/js/vendor/clipboard.min.js', array(), null, false );
-        wp_enqueue_script( 'jquery-validate',                  str_replace( '/admin', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/js/vendor/jquery.validate.min.js', array( 'jquery' ), null, false );
-        wp_enqueue_script( 'jquery-additional-methods',        str_replace( '/admin', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/js/vendor/additional-methods.min.js', array( 'jquery' ), null, false );
-        wp_enqueue_script( $this->plugin_name.'-admin-script', str_replace( '/admin', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/js/reatlat_cub-admin' . $this->debug . '.js', array( 'jquery' ), null, true );
+        wp_enqueue_script( 'tippy-all', CUB_PLUGIN_URL_PATH . 'assets/js/vendor/tippy.all.min.js', array(), CUB_VERSION, true );
+        wp_enqueue_script( 'clipboard', CUB_PLUGIN_URL_PATH . 'assets/js/vendor/clipboard.min.js', array(), CUB_VERSION, true );
+        wp_enqueue_script( 'jquery-validate', CUB_PLUGIN_URL_PATH . 'assets/js/vendor/jquery.validate.min.js', array( 'jquery' ), CUB_VERSION, true );
+        wp_enqueue_script( 'jquery-additional-methods', CUB_PLUGIN_URL_PATH . 'assets/js/vendor/additional-methods.min.js', array( 'jquery' ), CUB_VERSION, true );
+
+        // TODO: fix dependency
+        wp_enqueue_script( $this->plugin_name.'-admin-script', CUB_PLUGIN_URL_PATH . 'assets/js/reatlat_cub-admin' . $this->debug . '.js', array( 'jquery' ), null, true );
 
         // Enqueue jQuery UI and autocomplete
         wp_enqueue_script( 'jquery-ui-core' );
