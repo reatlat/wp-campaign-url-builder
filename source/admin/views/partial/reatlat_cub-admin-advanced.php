@@ -33,7 +33,7 @@
 
             <tr>
                 <th scope="row">
-                    <label class="unclickable new-feature"><?php _e('Keep original query parameters link', 'campaign-url-builder'); ?> <span class="dashicons dashicons-editor-help tippy" data-tippy-content="<?php _e('Enable this option for keep original query parameters from campaign target link.', 'campaign-url-builder'); ?>"></span></label>
+                    <label class="unclickable"><?php _e('Keep original query parameters link', 'campaign-url-builder'); ?> <span class="dashicons dashicons-editor-help tippy" data-tippy-content="<?php _e('Enable this option for keep original query parameters from campaign target link.', 'campaign-url-builder'); ?>"></span></label>
                 </th>
                 <td>
                     <label class="tgl">
@@ -45,7 +45,7 @@
 
             <tr>
                 <th scope="row">
-                    <label class="unclickable new-feature"><?php _e('Keep original anchor fragment link', 'campaign-url-builder'); ?> <span class="dashicons dashicons-editor-help tippy" data-tippy-content="<?php _e('Enable this option for keep original anchor/hashtag fragment from campaign target link.', 'campaign-url-builder'); ?>"></span></label>
+                    <label class="unclickable"><?php _e('Keep original anchor fragment link', 'campaign-url-builder'); ?> <span class="dashicons dashicons-editor-help tippy" data-tippy-content="<?php _e('Enable this option for keep original anchor/hashtag fragment from campaign target link.', 'campaign-url-builder'); ?>"></span></label>
                 </th>
                 <td>
                     <label class="tgl">

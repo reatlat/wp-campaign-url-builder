@@ -421,7 +421,7 @@ class reatlat_cub_Admin {
                 array_push($exclude_query_parameters, 'utm_term');
 
             if ( !empty( $campaign_content ) )
-                array_push($exclude_query_parameters, 'utm_conten');
+                array_push($exclude_query_parameters, 'utm_content');
 
             if ( !empty( $custom_pair_1 ) )
                 array_push($exclude_query_parameters, urlencode($this->custom_key_1) );
@@ -497,44 +497,81 @@ class reatlat_cub_Admin {
 
 	private function get_shortlink($full_link)
     {
-        // TODO: remove Google endpoint in March 2019
-        if ( ( date('Y') < 2020 && date('m') < 3 ) && get_option( $this->plugin_name . '_advanced_api' ) === 'google' ) {
-            $key = get_option( $this->plugin_name . '_google_api_key' ) ? get_option( $this->plugin_name . '_google_api_key' ) : 'AIzaSyC9Kx8WJQ0yCtpi-sIV_-7_3iGzNRRfoWQ';
+        if ( get_option( $this->plugin_name . '_advanced_api' ) === 'rebrandly' ) {
 
-            $result = wp_remote_post( add_query_arg( 'key', $key, 'https://www.googleapis.com/urlshortener/v1/url' ), array(
-                'body' => json_encode( array( 'longUrl' => esc_url_raw( $full_link ) ) ),
-                'headers' => array( 'Content-Type' => 'application/json' ),
-            ) );
-
-            // Return the URL if the request got an error.
-            if ( is_wp_error( $result ) )
-                return 'n/a';
-
-            $result = json_decode( $result['body'] );
-
-            if ( isset($result->error->errors[0]->reason) && $result->error->errors[0]->reason === "keyInvalid" )
-            {
-                array_push( $this->messages, array( __('Google API key is not a valid.', 'campaign-url-builder'), 'warning' ) );
-                return 'n/a';
-            }
-
-            if ( $result->id )
-                return $result->id;
+            $response = wp_remote_post( 'https://api.rebrandly.com/v1/links', array(
+                    'method'      => 'POST',
+                    'headers'     => array(
+                        'apikey'       => $this->get_shortener_api_key('rebrandly'),
+                        'Content-Type' => 'application/json',
+                    ),
+                    'body'        => json_encode (array(
+                        'domain'       => 'rebrand.ly',
+                        'destination'  => $full_link
+                    ))
+                )
+            );
 
         } else { // if ( get_option( $this->plugin_name . '_advanced_api' ) === 'bitly' ) {
 
-            require plugin_dir_path(dirname(__FILE__) ) . 'vendors/bitly.php';
-            $params_bitly = array();
-            $params_bitly['access_token'] = get_option( $this->plugin_name . '_bitly_api_key' ) ? get_option( $this->plugin_name . '_bitly_api_key' ) : '13064f875b10a4e38709f8b963ca9f32acbc0937';
+            $response = wp_remote_post( 'https://api-ssl.bit.ly/v4/shorten', array(
+                    'method'      => 'POST',
+                    'headers'     => array(
+                        'Authorization'       => 'Bearer ' . $this->get_shortener_api_key('bitly'),
+                        'Content-Type' => 'application/json',
+                    ),
+                    'body'        => json_encode (array(
+                        'long_url'  => $full_link
+                    ))
+                )
+            );
 
-            $params_bitly['longUrl'] = $full_link;
-            $bitly = bitly_get('shorten', $params_bitly);
-
-            if( isset($bitly['data']['url']) && $bitly['data']['url'] )
-                return $bitly['data']['url'];
         }
 
+        if ( is_wp_error( $response ) ) {
+            $error_message = $response->get_error_message();
+            array_push($this->messages, array( sprintf(__('Something went wrong: %s', 'campaign-url-builder'), $error_message), 'error'));
+            return 'n/a';
+        }
+
+        // DEBUG
+        // echo 'Response:<pre>';
+        // print_r( $response );
+        // echo '</pre>';
+
+        $response = json_decode($response["body"], true);
+
+        if ( $this->is_shortener_vendor('rebrandly') && isset($response['shortUrl']) && $response['shortUrl'] )
+            return $response['shortUrl'];
+
+        if( $this->is_shortener_vendor('bitly') && isset($response['link']) && $response['link'] )
+            return $response['link'];
+
         return 'n/a';
+    }
+
+    private function is_shortener_vendor($vendor)
+    {
+	    return ( get_option( $this->plugin_name . '_advanced_api' ) === $vendor );
+    }
+
+    private function get_shortener_api_key($vendor)
+    {
+        switch ($vendor) {
+            case 'bitly':
+                $key = get_option( $this->plugin_name . '_bitly_api_key' ) ? get_option( $this->plugin_name . '_bitly_api_key' ) : '13064f875b10a4e38709f8b963ca9f32acbc0937';
+                return $key;
+                break;
+
+            case 'rebrandly':
+                $key = get_option( $this->plugin_name . '_rebrandly_api_key' ) ? get_option( $this->plugin_name . '_rebrandly_api_key' ) : 'd3ca01cdd8114a91a76314286cfdb32f';
+                return $key;
+                break;
+
+            default:
+                return '';
+                break;
+        }
     }
 
 	public function get_links()
@@ -609,34 +646,6 @@ class reatlat_cub_Admin {
                 if ( !empty($this->advanced_api) && $this->advanced_api != get_option( $this->plugin_name . '_advanced_api' ) )
                 {
                     update_option( $this->plugin_name . '_advanced_api', $this->advanced_api );
-                }
-
-                // Google API key
-                if ( !empty($this->google_api_key) && $this->google_api_key != get_option( $this->plugin_name . '_google_api_key' ) )
-                {
-                    update_option( $this->plugin_name . '_google_api_key', $this->google_api_key );
-                    array_push( $this->messages, array( __('Google API key has been updated.', 'campaign-url-builder'), 'success' ) );
-
-                    $result = wp_remote_post( add_query_arg( 'key', $this->google_api_key, 'https://www.googleapis.com/urlshortener/v1/url' ), array(
-                        'body' => json_encode( array( ) ),
-                        'headers' => array( 'Content-Type' => 'application/json' ),
-                    ) );
-
-                    if ( is_wp_error( $result ) )
-                        array_push( $this->messages, array( __('Can\'t check Google API key.', 'campaign-url-builder'), 'error' ) );
-
-                    $result = json_decode( $result['body'] );
-
-                    if ( isset($result->error->errors[0]->reason) && $result->error->errors[0]->reason === "keyInvalid" )
-                    {
-                        array_push( $this->messages, array( __('Google API key is not a valid.', 'campaign-url-builder'), 'error' ) );
-                    }
-                }
-
-                if ( !empty($this->remove_google_api_key) && $this->remove_google_api_key == 1 )
-                {
-                    update_option( $this->plugin_name . '_google_api_key', '' );
-                    array_push( $this->messages, array( __('Google API key is empty now.', 'campaign-url-builder'), 'success' ) );
                 }
 
                 // Bitly API key
