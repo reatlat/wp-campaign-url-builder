@@ -49,7 +49,7 @@
     </div>
 
     <div class="reatlat_promote_widget buymeacoffee">
-        <a href="https://www.paypal.me/reatlat/<?php echo rand(3,10); ?>usd" target="_blank" title="<?php _e('Buy me a coffee', 'campaign-url-builder'); ?>">
+        <a href="https://www.paypal.me/reatlat/<?php echo rand(3,10); ?>usd" target="_blank" class="tippy--hover" data-tippy-content="<?php _e('Buy me a coffee', 'campaign-url-builder'); ?>">
             <img src="<?php echo str_replace('/admin', '', plugin_dir_url( dirname(__DIR__) ) ); ?>admin/views/images/buymeacoffee.png" alt="<?php _e('Buy me a coffee', 'campaign-url-builder'); ?>">
         </a>
     </div>

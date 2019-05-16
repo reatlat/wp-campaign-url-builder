@@ -8,7 +8,7 @@
             <?php if ( current_user_can('administrator') ) : ?>
             <tr>
                 <th scope="row">
-                    <label class="unclickable"><?php _e('Show advanced settings only for Administrators', 'campaign-url-builder'); ?> <span class="dashicons dashicons-editor-help tippy" title="<?php _e('This option will enable advanced settings only for users with editor role Administrators', 'campaign-url-builder'); ?>"></span></label>
+                    <label class="unclickable"><?php _e('Show advanced settings only for Administrators', 'campaign-url-builder'); ?> <span class="dashicons dashicons-editor-help tippy" data-tippy-content="<?php _e('This option will enable advanced settings only for users with editor role Administrators', 'campaign-url-builder'); ?>"></span></label>
                 </th>
                 <td>
                     <label class="tgl">
@@ -21,7 +21,7 @@
 
             <tr>
                 <th scope="row">
-                    <label class="unclickable"><?php _e('Keep settings and data after delete the plugin', 'campaign-url-builder'); ?> <span class="dashicons dashicons-editor-help tippy" title="<?php _e('Enable this option for keep plugin settings and data(links) after you delete the plugin from WP', 'campaign-url-builder'); ?>"></span></label>
+                    <label class="unclickable"><?php _e('Keep settings and data after delete the plugin', 'campaign-url-builder'); ?> <span class="dashicons dashicons-editor-help tippy" data-tippy-content="<?php _e('Enable this option for keep plugin settings and data(links) after you delete the plugin from WP', 'campaign-url-builder'); ?>"></span></label>
                 </th>
                 <td>
                     <label class="tgl">
@@ -33,7 +33,7 @@
 
             <tr>
                 <th scope="row">
-                    <label class="unclickable new-feature"><?php _e('Keep original query parameters link', 'campaign-url-builder'); ?> <span class="dashicons dashicons-editor-help tippy" title="<?php _e('Enable this option for keep original query parameters from campaign target link.', 'campaign-url-builder'); ?>"></span></label>
+                    <label class="unclickable new-feature"><?php _e('Keep original query parameters link', 'campaign-url-builder'); ?> <span class="dashicons dashicons-editor-help tippy" data-tippy-content="<?php _e('Enable this option for keep original query parameters from campaign target link.', 'campaign-url-builder'); ?>"></span></label>
                 </th>
                 <td>
                     <label class="tgl">
@@ -45,7 +45,7 @@
 
             <tr>
                 <th scope="row">
-                    <label class="unclickable new-feature"><?php _e('Keep original anchor fragment link', 'campaign-url-builder'); ?> <span class="dashicons dashicons-editor-help tippy" title="<?php _e('Enable this option for keep original anchor/hashtag fragment from campaign target link.', 'campaign-url-builder'); ?>"></span></label>
+                    <label class="unclickable new-feature"><?php _e('Keep original anchor fragment link', 'campaign-url-builder'); ?> <span class="dashicons dashicons-editor-help tippy" data-tippy-content="<?php _e('Enable this option for keep original anchor/hashtag fragment from campaign target link.', 'campaign-url-builder'); ?>"></span></label>
                 </th>
                 <td>
                     <label class="tgl">
@@ -57,7 +57,7 @@
 
             <tr>
                 <th scope="row">
-                    <label class="unclickable"><?php _e("Author's column in the table of UTM Links", 'campaign-url-builder'); ?> <span class="dashicons dashicons-editor-help tippy" title="<?php _e('Show or hide Author\'s column in the table of UTM Links', 'campaign-url-builder'); ?>"></span></label>
+                    <label class="unclickable"><?php _e("Author's column in the table of UTM Links", 'campaign-url-builder'); ?> <span class="dashicons dashicons-editor-help tippy" data-tippy-content="<?php _e('Show or hide Author\'s column in the table of UTM Links', 'campaign-url-builder'); ?>"></span></label>
                 </th>
                 <td>
                     <label class="tgl">
@@ -69,7 +69,7 @@
 
             <tr>
                 <th scope="row">
-                    <label class="unclickable"><?php _e("Show only own links for each user", 'campaign-url-builder'); ?> <span class="description"><?php _e("(except for the administrator)", 'campaign-url-builder'); ?></span><span class="dashicons dashicons-editor-help tippy" title="<?php _e('Show only own links for each user, except for the administrator user role. Administrator can manage all links.', 'campaign-url-builder'); ?>"></span></label>
+                    <label class="unclickable"><?php _e("Show only own links for each user", 'campaign-url-builder'); ?> <span class="description"><?php _e("(except for the administrator)", 'campaign-url-builder'); ?></span><span class="dashicons dashicons-editor-help tippy" data-tippy-content="<?php _e('Show only own links for each user, except for the administrator user role. Administrator can manage all links.', 'campaign-url-builder'); ?>"></span></label>
                 </th>
                 <td>
                     <label class="tgl">
@@ -81,7 +81,7 @@
 
             <tr>
                 <th scope="row">
-                    <label class="unclickable"><?php _e("Show meta boxes on post/page editor", 'campaign-url-builder'); ?> <span class="dashicons dashicons-editor-help tippy" title="<?php _e('When a user edits a post, the edit screen is composed of several default boxes: Editor, Publish, Categories, Tags, etc. These boxes are meta boxes. You can add Campaign-URL-Builder meta boxes to an edit screen of any post type.', 'campaign-url-builder'); ?>"></span></label>
+                    <label class="unclickable"><?php _e("Show meta boxes on post/page editor", 'campaign-url-builder'); ?> <span class="dashicons dashicons-editor-help tippy" data-tippy-content="<?php _e('When a user edits a post, the edit screen is composed of several default boxes: Editor, Publish, Categories, Tags, etc. These boxes are meta boxes. You can add Campaign-URL-Builder meta boxes to an edit screen of any post type.', 'campaign-url-builder'); ?>"></span></label>
                 </th>
                 <td>
                     <label class="tgl">

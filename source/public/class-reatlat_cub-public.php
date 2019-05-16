@@ -19,12 +19,11 @@ class reatlat_cub_Public
 	 */
 	function enqueue_scripts()
     {
-        wp_enqueue_script( 'tippy-all', CUB_PLUGIN_URL_PATH . 'assets/js/vendor/tippy.all.min.js', array(), $this->version, true );
-        wp_enqueue_script( 'clipboard', CUB_PLUGIN_URL_PATH . 'assets/js/vendor/clipboard.min.js', array(), '1.7.1', true );
-        wp_enqueue_script( 'jquery-validate', CUB_PLUGIN_URL_PATH . 'assets/js/vendor/jquery.validate.min.js', array( 'jquery' ), '1.17.0', true );
-        wp_enqueue_script( 'jquery-additional-methods', CUB_PLUGIN_URL_PATH . 'assets/js/vendor/additional-methods.min.js', array( 'jquery' ), '1.17.0', true );
+        wp_enqueue_script( 'tippy-all','https://cdnjs.cloudflare.com/ajax/libs/tippy.js/3.4.1/tippy.all' . $this->debug . '.js', array(), '3.4.1', true );
+        wp_enqueue_script( 'clipboard','https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard' . $this->debug . '.js', array(), '2.0.4', true );
+        wp_enqueue_script( 'jquery-validate','https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate' . $this->debug . '.js', array( 'jquery' ), '1.19.0', true );
+        wp_enqueue_script( 'jquery-additional-methods','https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/additional-methods' . $this->debug . '.js', array( 'jquery' ), '1.19.0', true );
 
-        // TODO: fix dependency
         wp_enqueue_script( $this->plugin_name . '-public-script', CUB_PLUGIN_URL_PATH . 'assets/js/reatlat_cub-public' . $this->debug . '.js', array( 'jquery', 'tippy-all', 'clipboard' ), $this->version, true );
 
         wp_localize_script(

@@ -7,7 +7,18 @@ $changelog = array(
         'date'    => '2018/05/XX',
         'changes' => array(
             sprintf(
-                __('Added translation to Spanish and Portuguese, big Thank you for %sTihh Gonçalves%s', 'campaign-url-builder'),
+                __('template', 'campaign-url-builder'),
+                '<a target="_blank" href="https://www.tiago.art.br">',
+                '</a>'
+            ),
+        ),
+    ),
+    array(
+        'version' => '1.8.0',
+        'date'    => '2019/05/16',
+        'changes' => array(
+            sprintf(
+                __('', 'campaign-url-builder'),
                 '<a target="_blank" href="https://www.tiago.art.br">',
                 '</a>'
             ),
