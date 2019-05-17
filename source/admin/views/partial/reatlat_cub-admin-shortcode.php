@@ -12,9 +12,7 @@ $get_from = esc_attr( $plugin->plugin_real_name );
 
     <?php if ( current_user_can('administrator') || ! get_option( $this->plugin_name . '_admin_only' ) ) : ?>
 
-    <?php // TODO: remove Google in March 2019 ?>
-
-    <?php if ( ! ( get_option( $this->plugin_name . '_google_api_key' ) || get_option( $this->plugin_name . '_bitly_api_key' ) ) ) : ?>
+    <?php if ( ! ( get_option( $this->plugin_name . '_rebrandly_api_key' ) || get_option( $this->plugin_name . '_bitly_api_key' ) ) ) : ?>
         <h4><?php _e('Shortcodes status','campaign-url-builder'); ?>: <span class="alert"><?php _e('Disabled', 'campaign-url-builder'); ?></span> - <?php _e('For reason, you use default API key for Bitly or Goo.gl', 'campaign-url-builder'); ?></h4>
     <?php endif; ?>
 

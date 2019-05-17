@@ -82,8 +82,7 @@ class reatlat_cub
         $plugin_admin = new reatlat_cub_Admin( $this->plugin_real_name, $this->get_plugin_name(), $this->get_version() );
         $plugin_public = new reatlat_cub_Public( $this->get_plugin_name(), $this->get_version() );
 
-        //TODO: remove Google endpoint in March 2019
-		if ( ( get_option( $this->plugin_name . '_shortcode_activator') && get_option( $this->plugin_name . '_google_api_key' ) ) || ( get_option( $this->plugin_name . '_shortcode_activator') && get_option( $this->plugin_name . '_bitly_api_key' ) ) ) :
+		if ( ( get_option( $this->plugin_name . '_shortcode_activator') && get_option( $this->plugin_name . '_rebrandly_api_key' ) ) || ( get_option( $this->plugin_name . '_shortcode_activator') && get_option( $this->plugin_name . '_bitly_api_key' ) ) ) :
             $this->loader->add_action( 'init', $plugin_public, 'register_shortcodes' );
             $this->loader->add_action( 'wp_ajax_' . $this->get_plugin_name() . '_sc_create_link', $plugin_admin, 'ajax_create_link' );
             if ( get_option( $this->plugin_name . '_shortcode_anonymous') ) :

@@ -90,6 +90,23 @@
                     </label>
                 </td>
             </tr>
+
+            <tr>
+                <th scope="row">
+                    <label for=""><?php _e("Custom domain", 'campaign-url-builder'); ?>
+                        <span class="description"><?php _e("(optional)", 'campaign-url-builder'); ?></span>
+                        <span class="dashicons dashicons-editor-help tippy" data-tippy-content="<?php _e('Set your own custom domain for short links.', 'campaign-url-builder'); ?>"></span>
+                    </label>
+                </th>
+                <td>
+                    <?php if ( empty( get_option( $plugin->plugin_name . '_custom_domain' ) ) ) { ?>
+                        <input name="custom_domain" type="text" id="custom_domain" placeholder="<?php _e('go.example.com', 'campaign-url-builder'); ?>" value="" class="regular-text"><br>
+                    <?php } else { ?>
+                        <input name="custom_domain" type="text" disabled id="custom_domain" value="<?php $plugin->esc_custom_domain(); ?>" class="regular-text"><br>
+                        <?php _e('Reset custom domain', 'campaign-url-builder'); ?>: <input type="checkbox" name="remove_custom_domain" value="1">
+                    <?php } ?>
+                </td>
+            </tr>
         </table>
 
         <h2 class="title"><?php _e('URL Shortener API settings', 'campaign-url-builder'); ?></h2>

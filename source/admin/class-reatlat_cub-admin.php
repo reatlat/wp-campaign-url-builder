@@ -45,6 +45,8 @@ class reatlat_cub_Admin {
         $this->submit_settings        = (empty($CLEAN_POST['submit_settings'])        ? '' : 1);
 
         $this->advanced_api             = (empty($CLEAN_POST['advanced_api'])             ? '' : self::get_cleaned($CLEAN_POST['advanced_api'], 'text'));
+        $this->custom_domain            = (empty($CLEAN_POST['custom_domain'])            ? '' : self::get_cleaned($CLEAN_POST['custom_domain'], 'text'));
+        $this->remove_custom_domain     = (empty($CLEAN_POST['remove_custom_domain'])     ? '' : self::get_cleaned($CLEAN_POST['remove_custom_domain'], 'number'));
         $this->rebrandly_api_key        = (empty($CLEAN_POST['rebrandly_api_key'])        ? '' : self::get_cleaned($CLEAN_POST['rebrandly_api_key'], 'text'));
         $this->remove_rebrandly_api_key = (empty($CLEAN_POST['remove_rebrandly_api_key']) ? '' : self::get_cleaned($CLEAN_POST['remove_rebrandly_api_key'], 'number'));
         $this->bitly_api_key            = (empty($CLEAN_POST['bitly_api_key'])            ? '' : self::get_cleaned($CLEAN_POST['bitly_api_key'], 'text'));
@@ -499,6 +501,8 @@ class reatlat_cub_Admin {
     {
         if ( get_option( $this->plugin_name . '_advanced_api' ) === 'rebrandly' ) {
 
+            $domain = !empty($this->get_custom_domain()) ? $this->get_custom_domain() : 'rebrand.ly';
+
             $response = wp_remote_post( 'https://api.rebrandly.com/v1/links', array(
                     'method'      => 'POST',
                     'headers'     => array(
@@ -506,7 +510,7 @@ class reatlat_cub_Admin {
                         'Content-Type' => 'application/json',
                     ),
                     'body'        => json_encode (array(
-                        'domain'       => 'rebrand.ly',
+                        'domain'       => $domain,
                         'destination'  => $full_link
                     ))
                 )
@@ -517,8 +521,8 @@ class reatlat_cub_Admin {
             $response = wp_remote_post( 'https://api-ssl.bit.ly/v4/shorten', array(
                     'method'      => 'POST',
                     'headers'     => array(
-                        'Authorization'       => 'Bearer ' . $this->get_shortener_api_key('bitly'),
-                        'Content-Type' => 'application/json',
+                        'Authorization' => 'Bearer ' . $this->get_shortener_api_key('bitly'),
+                        'Content-Type'  => 'application/json',
                     ),
                     'body'        => json_encode (array(
                         'long_url'  => $full_link
@@ -585,7 +589,6 @@ class reatlat_cub_Admin {
 
     private function get_info_link($url)
     {
-        //TODO: add support for custom domains
         $url = strtr($url, array(
             '://goo.gl' => '://goo.gl/info',
             '://bit.ly' => '://bit.ly/info',
@@ -593,7 +596,8 @@ class reatlat_cub_Admin {
 
         // this part only for rebrandly
         $domain = parse_url($url);
-        if ( $domain['host'] === 'rebrand.ly' )
+        $custom_domain = !empty($this->get_custom_domain()) ? $this->get_custom_domain() : false;
+        if ( $domain['host'] === 'rebrand.ly' || $domain['host'] === $custom_domain )
             $url .= '.stats';
 
         return $url;
@@ -603,6 +607,16 @@ class reatlat_cub_Admin {
     {
         $url = $this->get_info_link( esc_url_raw($url) );
         echo esc_url_raw( $url );
+    }
+
+    private function get_custom_domain()
+    {
+        return get_option( $this->plugin_name . '_custom_domain' );
+    }
+
+    public function esc_custom_domain()
+    {
+        echo esc_attr( $this->get_custom_domain() );
     }
 
 	public function get_links()
@@ -677,6 +691,20 @@ class reatlat_cub_Admin {
                 if ( !empty($this->advanced_api) && $this->advanced_api != get_option( $this->plugin_name . '_advanced_api' ) )
                 {
                     update_option( $this->plugin_name . '_advanced_api', $this->advanced_api );
+                }
+
+                // Custom domain name
+                if ( !empty($this->custom_domain) && $this->custom_domain != get_option( $this->plugin_name . '_custom_domain' ) )
+                {
+                    // TODO check if user pass URL
+                    update_option( $this->plugin_name . '_custom_domain', $this->custom_domain );
+                    array_push( $this->messages, array( __('Custom domain name has been updated.', 'campaign-url-builder'), 'success' ) );
+                }
+
+                if ( !empty($this->remove_custom_domain) && $this->remove_custom_domain == 1 )
+                {
+                    update_option( $this->plugin_name . '_custom_domain', '' );
+                    array_push( $this->messages, array( __('Custom domain name is reset to default.', 'campaign-url-builder'), 'success' ) );
                 }
 
                 // Rebrandly API key
