@@ -33,6 +33,18 @@
 
             <tr>
                 <th scope="row">
+                    <label class="unclickable"><?php _e('Enforce UTM field naming consistency', 'campaign-url-builder'); ?> <span class="dashicons dashicons-editor-help tippy" data-tippy-content="<?php _e('Automatically sanitize all UTM names. (discard all characters which are non-alphanumeric, convert all uppercase letters to lowercase, convert spaces to hyphen)', 'campaign-url-builder'); ?>"></span></label>
+                </th>
+                <td>
+                    <label class="tgl">
+                        <input type="checkbox" name="advanced_enforce_link_sanitize" <?php checked(get_option( $plugin->plugin_name . '_enforce_link_sanitize')); ?> />
+                        <span data-on="<?php _e('Enabled', 'campaign-url-builder'); ?>" data-off="<?php _e('Disabled', 'campaign-url-builder'); ?>"></span>
+                    </label>
+                </td>
+            </tr>
+
+            <tr>
+                <th scope="row">
                     <label class="unclickable"><?php _e('Keep original query parameters link', 'campaign-url-builder'); ?> <span class="dashicons dashicons-editor-help tippy" data-tippy-content="<?php _e('Enable this option for keep original query parameters from campaign target link.', 'campaign-url-builder'); ?>"></span></label>
                 </th>
                 <td>

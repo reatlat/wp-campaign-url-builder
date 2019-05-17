@@ -44,21 +44,22 @@ class reatlat_cub_Admin {
         $this->remove_campaign_source = (empty($CLEAN_POST['remove_campaign_source']) ? '' : self::get_cleaned($CLEAN_POST['remove_campaign_source'], 'text'));
         $this->submit_settings        = (empty($CLEAN_POST['submit_settings'])        ? '' : 1);
 
-        $this->advanced_api             = (empty($CLEAN_POST['advanced_api'])             ? '' : self::get_cleaned($CLEAN_POST['advanced_api'], 'text'));
-        $this->custom_domain            = (empty($CLEAN_POST['custom_domain'])            ? '' : self::get_cleaned($CLEAN_POST['custom_domain'], 'text'));
-        $this->remove_custom_domain     = (empty($CLEAN_POST['remove_custom_domain'])     ? '' : self::get_cleaned($CLEAN_POST['remove_custom_domain'], 'number'));
-        $this->rebrandly_api_key        = (empty($CLEAN_POST['rebrandly_api_key'])        ? '' : self::get_cleaned($CLEAN_POST['rebrandly_api_key'], 'text'));
-        $this->remove_rebrandly_api_key = (empty($CLEAN_POST['remove_rebrandly_api_key']) ? '' : self::get_cleaned($CLEAN_POST['remove_rebrandly_api_key'], 'number'));
-        $this->bitly_api_key            = (empty($CLEAN_POST['bitly_api_key'])            ? '' : self::get_cleaned($CLEAN_POST['bitly_api_key'], 'text'));
-        $this->remove_bitly_api_key     = (empty($CLEAN_POST['remove_bitly_api_key'])     ? '' : self::get_cleaned($CLEAN_POST['remove_bitly_api_key'], 'number'));
-        $this->advanced_admin_only      = (empty($CLEAN_POST['advanced_admin_only'])      ? '' : self::get_cleaned($CLEAN_POST['advanced_admin_only'], 'checkbox'));
-        $this->advanced_keep_settings   = (empty($CLEAN_POST['advanced_keep_settings'])   ? '' : self::get_cleaned($CLEAN_POST['advanced_keep_settings'], 'checkbox'));
-        $this->advanced_keep_linkquery  = (empty($CLEAN_POST['advanced_keep_linkquery'])  ? '' : self::get_cleaned($CLEAN_POST['advanced_keep_linkquery'], 'checkbox'));
-        $this->advanced_keep_linkanchor = (empty($CLEAN_POST['advanced_keep_linkanchor']) ? '' : self::get_cleaned($CLEAN_POST['advanced_keep_linkanchor'], 'checkbox'));
-        $this->advanced_show_creator    = (empty($CLEAN_POST['advanced_show_creator'])    ? '' : self::get_cleaned($CLEAN_POST['advanced_show_creator'], 'checkbox'));
-        $this->advanced_show_useronly   = (empty($CLEAN_POST['advanced_show_useronly'])   ? '' : self::get_cleaned($CLEAN_POST['advanced_show_useronly'], 'checkbox'));
-        $this->advanced_metaboxes       = (empty($CLEAN_POST['advanced_metaboxes'])       ? '' : self::get_cleaned($CLEAN_POST['advanced_metaboxes'], 'checkbox'));
-        $this->submit_advanced          = (empty($CLEAN_POST['submit_advanced'])          ? '' : 1);
+        $this->advanced_api                   = (empty($CLEAN_POST['advanced_api'])                    ? '' : self::get_cleaned($CLEAN_POST['advanced_api'], 'text'));
+        $this->custom_domain                  = (empty($CLEAN_POST['custom_domain'])                   ? '' : self::get_cleaned($CLEAN_POST['custom_domain'], 'text'));
+        $this->remove_custom_domain           = (empty($CLEAN_POST['remove_custom_domain'])            ? '' : self::get_cleaned($CLEAN_POST['remove_custom_domain'], 'number'));
+        $this->rebrandly_api_key              = (empty($CLEAN_POST['rebrandly_api_key'])               ? '' : self::get_cleaned($CLEAN_POST['rebrandly_api_key'], 'text'));
+        $this->remove_rebrandly_api_key       = (empty($CLEAN_POST['remove_rebrandly_api_key'])        ? '' : self::get_cleaned($CLEAN_POST['remove_rebrandly_api_key'], 'number'));
+        $this->bitly_api_key                  = (empty($CLEAN_POST['bitly_api_key'])                   ? '' : self::get_cleaned($CLEAN_POST['bitly_api_key'], 'text'));
+        $this->remove_bitly_api_key           = (empty($CLEAN_POST['remove_bitly_api_key'])            ? '' : self::get_cleaned($CLEAN_POST['remove_bitly_api_key'], 'number'));
+        $this->advanced_admin_only            = (empty($CLEAN_POST['advanced_admin_only'])             ? '' : self::get_cleaned($CLEAN_POST['advanced_admin_only'], 'checkbox'));
+        $this->advanced_keep_settings         = (empty($CLEAN_POST['advanced_keep_settings'])          ? '' : self::get_cleaned($CLEAN_POST['advanced_keep_settings'], 'checkbox'));
+        $this->advanced_enforce_link_sanitize = (empty($CLEAN_POST['advanced_enforce_link_sanitize'])  ? '' : self::get_cleaned($CLEAN_POST['advanced_enforce_link_sanitize'], 'checkbox'));
+        $this->advanced_keep_linkquery        = (empty($CLEAN_POST['advanced_keep_linkquery'])         ? '' : self::get_cleaned($CLEAN_POST['advanced_keep_linkquery'], 'checkbox'));
+        $this->advanced_keep_linkanchor       = (empty($CLEAN_POST['advanced_keep_linkanchor'])        ? '' : self::get_cleaned($CLEAN_POST['advanced_keep_linkanchor'], 'checkbox'));
+        $this->advanced_show_creator          = (empty($CLEAN_POST['advanced_show_creator'])           ? '' : self::get_cleaned($CLEAN_POST['advanced_show_creator'], 'checkbox'));
+        $this->advanced_show_useronly         = (empty($CLEAN_POST['advanced_show_useronly'])          ? '' : self::get_cleaned($CLEAN_POST['advanced_show_useronly'], 'checkbox'));
+        $this->advanced_metaboxes             = (empty($CLEAN_POST['advanced_metaboxes'])              ? '' : self::get_cleaned($CLEAN_POST['advanced_metaboxes'], 'checkbox'));
+        $this->submit_advanced                = (empty($CLEAN_POST['submit_advanced'])                 ? '' : 1);
 
         $this->shortcode_activator       = (empty($CLEAN_POST['shortcode_activator'])       ? '' : self::get_cleaned($CLEAN_POST['shortcode_activator'], 'checkbox'));
         $this->shortcode_anonymous       = (empty($CLEAN_POST['shortcode_anonymous'])       ? '' : self::get_cleaned($CLEAN_POST['shortcode_anonymous'], 'checkbox'));
@@ -397,18 +398,18 @@ class reatlat_cub_Admin {
     {
         $target_url = parse_url( $this->campaign_page );
 
-        $campaign_term    = $this->campaign_term ? '&utm_term=' . urlencode($this->campaign_term) : '';
-        $campaign_content = $this->campaign_content ? '&utm_content=' . urlencode($this->campaign_content) : '';
-		$custom_pair_1    = ( $this->custom_key_1 && $this->custom_value_1 ) ? '&' . urlencode($this->custom_key_1) . '=' . urlencode($this->custom_value_1) : '';
-		$custom_pair_2    = ( $this->custom_key_2 && $this->custom_value_2 ) ? '&' . urlencode($this->custom_key_2) . '=' . urlencode($this->custom_value_2) : '';
-		$custom_pair_3    = ( $this->custom_key_3 && $this->custom_value_3 ) ? '&' . urlencode($this->custom_key_3) . '=' . urlencode($this->custom_value_3) : '';
+        $campaign_term    = $this->campaign_term ? '&utm_term=' . $this->urlencode($this->campaign_term) : '';
+        $campaign_content = $this->campaign_content ? '&utm_content=' . $this->urlencode($this->campaign_content) : '';
+		$custom_pair_1    = ( $this->custom_key_1 && $this->custom_value_1 ) ? '&' . $this->urlencode($this->custom_key_1) . '=' . $this->urlencode($this->custom_value_1) : '';
+		$custom_pair_2    = ( $this->custom_key_2 && $this->custom_value_2 ) ? '&' . $this->urlencode($this->custom_key_2) . '=' . $this->urlencode($this->custom_value_2) : '';
+		$custom_pair_3    = ( $this->custom_key_3 && $this->custom_value_3 ) ? '&' . $this->urlencode($this->custom_key_3) . '=' . $this->urlencode($this->custom_value_3) : '';
 
 		// Build full target link
         $campaign_target_url = $target_url['scheme'] . '://' . $target_url['host'] . $target_url['path'];
 
-        $campaign_target_url .= '?utm_source=' . urlencode($this->campaign_source);
-        $campaign_target_url .= '&utm_medium=' . urlencode($this->campaign_medium);
-        $campaign_target_url .= '&utm_campaign=' . urlencode($this->campaign_name);
+        $campaign_target_url .= '?utm_source=' . $this->urlencode($this->campaign_source);
+        $campaign_target_url .= '&utm_medium=' . $this->urlencode($this->campaign_medium);
+        $campaign_target_url .= '&utm_campaign=' . $this->urlencode($this->campaign_name);
         $campaign_target_url .= $campaign_term;
         $campaign_target_url .= $campaign_content;
         $campaign_target_url .= $custom_pair_1;
@@ -426,13 +427,13 @@ class reatlat_cub_Admin {
                 array_push($exclude_query_parameters, 'utm_content');
 
             if ( !empty( $custom_pair_1 ) )
-                array_push($exclude_query_parameters, urlencode($this->custom_key_1) );
+                array_push($exclude_query_parameters, $this->urlencode($this->custom_key_1) );
 
             if ( !empty( $custom_pair_2 ) )
-                array_push($exclude_query_parameters, urlencode($this->custom_key_2) );
+                array_push($exclude_query_parameters, $this->urlencode($this->custom_key_2) );
 
             if ( !empty( $custom_pair_3 ) )
-                array_push($exclude_query_parameters, urlencode($this->custom_key_3) );
+                array_push($exclude_query_parameters, $this->urlencode($this->custom_key_3) );
 
             $target_url['query'] = explode('&', $target_url['query']);
 
@@ -619,6 +620,14 @@ class reatlat_cub_Admin {
         echo esc_attr( $this->get_custom_domain() );
     }
 
+    private function urlencode($string)
+    {
+        if ( get_option( $this->plugin_name . '_enforce_link_sanitize' ) )
+            $string = sanitize_title($string);
+
+        return urlencode($string);
+    }
+
 	public function get_links()
     {
         if ( current_user_can('administrator') || ! get_option( $this->plugin_name . '_show_useronly' ) )
@@ -681,6 +690,7 @@ class reatlat_cub_Admin {
                 }
                 update_option( $this->plugin_name . '_admin_only', $this->advanced_admin_only );
                 update_option( $this->plugin_name . '_keep_settings', $this->advanced_keep_settings );
+                update_option( $this->plugin_name . '_enforce_link_sanitize', $this->advanced_enforce_link_sanitize );
                 update_option( $this->plugin_name . '_keep_linkquery', $this->advanced_keep_linkquery );
                 update_option( $this->plugin_name . '_keep_linkanchor', $this->advanced_keep_linkanchor );
                 update_option( $this->plugin_name . '_show_creator', $this->advanced_show_creator );
