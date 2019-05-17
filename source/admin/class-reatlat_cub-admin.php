@@ -313,8 +313,7 @@ class reatlat_cub_Admin {
             strtoupper($this->plugin_name) . '_APP',
             array(
                 'AJAXURL' => admin_url( 'admin-ajax.php' ),
-                'DEBUG_JS' => CUB_PLUGIN_DEBUG,
-                'CLIPBOARD' => version_compare( get_bloginfo('version'), '5.2', '>=' ) ? 'ClipboardJS' : 'Clipboard'
+                'DEBUG_JS' => CUB_PLUGIN_DEBUG
             )
         );
 	}

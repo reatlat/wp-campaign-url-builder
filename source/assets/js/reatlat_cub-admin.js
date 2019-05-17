@@ -63,7 +63,7 @@ jQuery(function ($) {
              */
             _copyToClipboard() {
                 this._debugLog('copy to clipboard activated');
-                new window[REATLAT_CUB_APP.CLIPBOARD]('td[data-copy]');
+                new window.ClipboardJS('td[data-copy]');
             }
 
             /**

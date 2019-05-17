@@ -32,8 +32,7 @@ class reatlat_cub_Public
             array(
                 'AJAXURL' => admin_url( 'admin-ajax.php' ),
                 'SC_ACTION' => $this->plugin_name . '_sc_create_link',
-                'DEBUG_JS' => CUB_PLUGIN_DEBUG,
-                'CLIPBOARD' => version_compare( get_bloginfo('version'), '5.2', '>=' ) ? 'ClipboardJS' : 'Clipboard'
+                'DEBUG_JS' => CUB_PLUGIN_DEBUG
             )
         );
 	}
