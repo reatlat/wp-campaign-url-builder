@@ -1,8 +1,9 @@
 <?php
 $get_from = esc_attr($plugin->plugin_real_name);
+
 $widgets = array(
     'news' => false,
-    'notice' => false
+    'notice' => (bool)(empty(get_option( $this->plugin_name . '_rebrandly_api_key' )) && empty(get_option( $this->plugin_name . '_bitly_api_key' )))
 );
 ?>
 
@@ -17,8 +18,9 @@ $widgets = array(
             <div class="notice__container">
                 <p>
                     <?php
-                    printf(__('Starting March 2019, Campaign URL Builder plugin will be turning down support for goo.gl URL shortener. Previously created links will continue to redirect to their intended destination. Please see this %sblog post%s for more details.', 'campaign-url-builder'),
-                        '<a target="_blank" href="https://reatlat.net/transitioning-google-url-shortener-to-bitly/?utm_source=wp_plugin&utm_medium=notice_sidebar&utm_campaign=' . $get_from . '">',
+                    printf(__('The plugin use default API keys, but we strongly recommend to use your own key for %s. %sRead more%s', 'campaign-url-builder'),
+                        ucfirst($plugin->get_shortener_vendor()),
+                        '<a class="reatlat_cub_tab_link" href="#reatlat_cub_tab-5">',
                         '</a>'
                     );
                     ?>
@@ -43,6 +45,11 @@ $widgets = array(
         </div>
     <?php endif; ?>
 
+    <div class="reatlat_promote_widget ami-banner pan">
+        <a href="https://ami.reatlat.net/?utm_source=wp_plugin&utm_medium=ami-banner_sidebar&utm_campaign=<?php echo $get_from; ?>&url=<?php bloginfo('url'); ?>" target="_blank">
+            <img src="https://ami.reatlat.net/assets/images/ami-banner.png" alt="<?php _e('Am I Responsive', 'campaign-url-builder'); ?>" width="400">
+        </a>
+    </div>
 
     <div class="reatlat_promote_widget buymeacoffee">
         <a href="https://www.paypal.me/reatlat/<?php echo rand(3, 10); ?>usd" target="_blank" class="tippy--hover"

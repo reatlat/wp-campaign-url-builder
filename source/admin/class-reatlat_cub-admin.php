@@ -560,7 +560,13 @@ class reatlat_cub_Admin {
 	    return ( get_option( $this->plugin_name . '_advanced_api' ) === $vendor );
     }
 
-    private function get_shortener_api_key($vendor)
+    public function get_shortener_vendor()
+    {
+        $vendor = get_option( $this->plugin_name . '_advanced_api' ) ? get_option( $this->plugin_name . '_advanced_api' ) : 'bitly';
+        return $vendor;
+    }
+
+    public function get_shortener_api_key($vendor)
     {
         $key = '';
 
@@ -573,7 +579,6 @@ class reatlat_cub_Admin {
                 $key = get_option( $this->plugin_name . '_rebrandly_api_key' ) ? get_option( $this->plugin_name . '_rebrandly_api_key' ) : 'd3ca01cdd8114a91a76314286cfdb32f';
                 break;
         }
-
 
         return $key;
     }

@@ -15,13 +15,16 @@ $changelog = array(
     ),
     array(
         'version' => '1.8.0',
-        'date'    => '2019/05/16',
+        'date'    => '2019/05/17',
         'changes' => array(
-            sprintf(
-                __('', 'campaign-url-builder'),
-                '<a target="_blank" href="https://www.tiago.art.br">',
-                '</a>'
-            ),
+            __('Finally destroy Goo.gl API endpoint', 'campaign-url-builder'),
+            __('Add new shortener API endpoint, ReBrendly', 'campaign-url-builder'),
+            __('Added support custom domains', 'campaign-url-builder'),
+            __('Reduced the weight of the plugin', 'campaign-url-builder'),
+            __('Compatible with WordPress version 5.2', 'campaign-url-builder'),
+            __('Refactor shortener API function', 'campaign-url-builder'),
+            __('Migrate Bit.ly API v3 to v4', 'campaign-url-builder'),
+            __('Added new options to enforce UTM field naming consistency', 'campaign-url-builder'),
         ),
     ),
     array(
