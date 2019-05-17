@@ -583,6 +583,28 @@ class reatlat_cub_Admin {
         echo esc_attr( $key );
     }
 
+    private function get_info_link($url)
+    {
+        //TODO: add support for custom domains
+        $url = strtr($url, array(
+            '://goo.gl' => '://goo.gl/info',
+            '://bit.ly' => '://bit.ly/info',
+        ));
+
+        // this part only for rebrandly
+        $domain = parse_url($url);
+        if ( $domain['host'] === 'rebrand.ly' )
+            $url .= '.stats';
+
+        return $url;
+    }
+
+    public function esc_info_link($url)
+    {
+        $url = $this->get_info_link( esc_url_raw($url) );
+        echo esc_url_raw( $url );
+    }
+
 	public function get_links()
     {
         if ( current_user_can('administrator') || ! get_option( $this->plugin_name . '_show_useronly' ) )

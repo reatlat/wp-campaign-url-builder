@@ -47,17 +47,7 @@
 
                     <?php if ( $plugin->strpos_array( esc_url_raw( $link->campaign_short_link ), array('://goo.gl', '://bit.ly', '://rebrand.ly') ) ) : ?>
                         <td data-info="true" class="campaign_info tippy--hover" data-tippy-content="<?php _e('Open Analytics data', 'campaign-url-builder'); ?>">
-                            <?php
-                                //TODO: add support for custom domains
-                                $info_link = strtr($link->campaign_short_link, array(
-                                    '://goo.gl' => '://goo.gl/info',
-                                    '://bit.ly' => '://bit.ly/info',
-                                ));
-
-                                if (strpos($info_link, '://rebrand.ly') !== false)
-                                    $info_link .= '.stats';
-                            ?>
-                            <a target="_blank" href="<?php echo esc_url_raw($info_link); ?>"><span class='dashicons dashicons-chart-area'></span></a>
+                            <a target="_blank" href="<?php $plugin->esc_info_link($link->campaign_short_link); ?>"><span class='dashicons dashicons-chart-area'></span></a>
                         </td>
                     <?php else : ?>
                         <td class="campaign_info"></td>
