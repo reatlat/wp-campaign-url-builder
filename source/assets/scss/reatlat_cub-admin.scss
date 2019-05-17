@@ -167,6 +167,7 @@
             padding-bottom: 0;
         }
 
+        div > label,
         tr > th > label {
             &.new-feature {
                 &:after {
@@ -565,6 +566,22 @@
                 text-decoration: none;
             }
 
+            &.ami-banner {
+                a {
+                    display: block;
+                    text-align: center;
+                    @include transit();
+                    img {
+                        display: block;
+                        width: 100%;
+                        height: auto;
+                    }
+
+                    &:hover {
+                        transform: scale(1.15);
+                    }
+                }
+            }
 
             &.buymeacoffee {
                 background: $sunflower;

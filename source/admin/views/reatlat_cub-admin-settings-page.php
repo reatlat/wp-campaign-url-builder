@@ -26,10 +26,10 @@ $plugin->enqueue_notices();
 		<li><a href="#reatlat_cub_tab-0"><span class="dashicons dashicons-plus"></span> <?php _e('Create link', 'campaign-url-builder'); ?></a></li>
 		<li><a href="#reatlat_cub_tab-1" class="active"><span class="dashicons dashicons-dashboard"></span> <?php _e('Manage links', 'campaign-url-builder'); ?></a></li>
 		<li><a href="#reatlat_cub_tab-2"><span class="dashicons dashicons-admin-settings"></span> <?php _e('Settings', 'campaign-url-builder'); ?></a></li>
-        <?php if ( current_user_can('administrator') || ! get_option( $this->plugin_name . '_admin_only' ) ) : ?>
+        <?php if ( current_user_can('administrator') || ! get_option( $plugin->plugin_name . '_admin_only' ) ) : ?>
         <li class="new-feature"><a href="#reatlat_cub_tab-3"><span class="dashicons dashicons-warning"></span> <?php _e('Advanced', 'campaign-url-builder'); ?></a></li>
         <?php endif; ?>
-        <li class="new-feature"><a href="#reatlat_cub_tab-4"><span class="dashicons dashicons-editor-code"></span> <?php _e('Shortcode', 'campaign-url-builder'); ?></a></li>
+        <li><a href="#reatlat_cub_tab-4"><span class="dashicons dashicons-editor-code"></span> <?php _e('Shortcode', 'campaign-url-builder'); ?></a></li>
         <li><a href="#reatlat_cub_tab-5"><span class="dashicons dashicons-welcome-learn-more"></span> <?php _e('FAQ', 'campaign-url-builder'); ?></a></li>
         <li><a href="#reatlat_cub_tab-6"><span class="dashicons dashicons-info"></span> <?php _e('About', 'campaign-url-builder'); ?></a></li>
 	</ul>
@@ -39,7 +39,7 @@ $plugin->enqueue_notices();
         <?php include dirname( __FILE__ ) . '/partial/reatlat_cub-admin-create.php'; ?>
         <?php include dirname( __FILE__ ) . '/partial/reatlat_cub-admin-manage.php'; ?>
         <?php include dirname( __FILE__ ) . '/partial/reatlat_cub-admin-settings.php'; ?>
-        <?php if ( current_user_can('administrator') || ! get_option( $this->plugin_name . '_admin_only' ) ) : ?>
+        <?php if ( current_user_can('administrator') || ! get_option( $plugin->plugin_name . '_admin_only' ) ) : ?>
         <?php include dirname( __FILE__ ) . '/partial/reatlat_cub-admin-advanced.php'; ?>
         <?php endif; ?>
         <?php include dirname( __FILE__ ) . '/partial/reatlat_cub-admin-shortcode.php'; ?>

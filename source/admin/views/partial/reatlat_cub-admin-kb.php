@@ -43,6 +43,14 @@ $get_from = esc_attr( $plugin->plugin_real_name );
 
     <hr>
 
+    <h3><?php _e('Rebrandly API key', 'campaign-url-builder'); ?></h3>
+    <p>
+        <?php _e('How do I get my own Rebrandly API access key?', 'campaign-url-builder'); ?>
+        <a href="https://app.rebrandly.com/account/api-keys"><?php _e('Create new API key on your Rebrandly dashboard.', 'campaign-url-builder'); ?>.</a>
+    </p>
+
+    <hr>
+
     <h3><?php _e('You did not find an answer?', 'campaign-url-builder'); ?></h3>
     <p>
         <?php

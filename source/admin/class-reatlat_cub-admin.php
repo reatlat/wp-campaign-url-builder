@@ -44,19 +44,22 @@ class reatlat_cub_Admin {
         $this->remove_campaign_source = (empty($CLEAN_POST['remove_campaign_source']) ? '' : self::get_cleaned($CLEAN_POST['remove_campaign_source'], 'text'));
         $this->submit_settings        = (empty($CLEAN_POST['submit_settings'])        ? '' : 1);
 
-        $this->advanced_api             = (empty($CLEAN_POST['advanced_api'])             ? '' : self::get_cleaned($CLEAN_POST['advanced_api'], 'text'));
-        $this->google_api_key           = (empty($CLEAN_POST['google_api_key'])           ? '' : self::get_cleaned($CLEAN_POST['google_api_key'], 'text'));
-        $this->remove_google_api_key    = (empty($CLEAN_POST['remove_google_api_key'])    ? '' : self::get_cleaned($CLEAN_POST['remove_google_api_key'], 'number'));
-        $this->bitly_api_key            = (empty($CLEAN_POST['bitly_api_key'])            ? '' : self::get_cleaned($CLEAN_POST['bitly_api_key'], 'text'));
-        $this->remove_bitly_api_key     = (empty($CLEAN_POST['remove_bitly_api_key'])     ? '' : self::get_cleaned($CLEAN_POST['remove_bitly_api_key'], 'number'));
-        $this->advanced_admin_only      = (empty($CLEAN_POST['advanced_admin_only'])      ? '' : self::get_cleaned($CLEAN_POST['advanced_admin_only'], 'checkbox'));
-        $this->advanced_keep_settings   = (empty($CLEAN_POST['advanced_keep_settings'])   ? '' : self::get_cleaned($CLEAN_POST['advanced_keep_settings'], 'checkbox'));
-        $this->advanced_keep_linkquery  = (empty($CLEAN_POST['advanced_keep_linkquery'])  ? '' : self::get_cleaned($CLEAN_POST['advanced_keep_linkquery'], 'checkbox'));
-        $this->advanced_keep_linkanchor = (empty($CLEAN_POST['advanced_keep_linkanchor']) ? '' : self::get_cleaned($CLEAN_POST['advanced_keep_linkanchor'], 'checkbox'));
-        $this->advanced_show_creator    = (empty($CLEAN_POST['advanced_show_creator'])    ? '' : self::get_cleaned($CLEAN_POST['advanced_show_creator'], 'checkbox'));
-        $this->advanced_show_useronly   = (empty($CLEAN_POST['advanced_show_useronly'])   ? '' : self::get_cleaned($CLEAN_POST['advanced_show_useronly'], 'checkbox'));
-        $this->advanced_metaboxes       = (empty($CLEAN_POST['advanced_metaboxes'])       ? '' : self::get_cleaned($CLEAN_POST['advanced_metaboxes'], 'checkbox'));
-        $this->submit_advanced          = (empty($CLEAN_POST['submit_advanced'])          ? '' : 1);
+        $this->advanced_api                   = (empty($CLEAN_POST['advanced_api'])                    ? '' : self::get_cleaned($CLEAN_POST['advanced_api'], 'text'));
+        $this->custom_domain                  = (empty($CLEAN_POST['custom_domain'])                   ? '' : self::get_cleaned($CLEAN_POST['custom_domain'], 'text'));
+        $this->remove_custom_domain           = (empty($CLEAN_POST['remove_custom_domain'])            ? '' : self::get_cleaned($CLEAN_POST['remove_custom_domain'], 'number'));
+        $this->rebrandly_api_key              = (empty($CLEAN_POST['rebrandly_api_key'])               ? '' : self::get_cleaned($CLEAN_POST['rebrandly_api_key'], 'text'));
+        $this->remove_rebrandly_api_key       = (empty($CLEAN_POST['remove_rebrandly_api_key'])        ? '' : self::get_cleaned($CLEAN_POST['remove_rebrandly_api_key'], 'number'));
+        $this->bitly_api_key                  = (empty($CLEAN_POST['bitly_api_key'])                   ? '' : self::get_cleaned($CLEAN_POST['bitly_api_key'], 'text'));
+        $this->remove_bitly_api_key           = (empty($CLEAN_POST['remove_bitly_api_key'])            ? '' : self::get_cleaned($CLEAN_POST['remove_bitly_api_key'], 'number'));
+        $this->advanced_admin_only            = (empty($CLEAN_POST['advanced_admin_only'])             ? '' : self::get_cleaned($CLEAN_POST['advanced_admin_only'], 'checkbox'));
+        $this->advanced_keep_settings         = (empty($CLEAN_POST['advanced_keep_settings'])          ? '' : self::get_cleaned($CLEAN_POST['advanced_keep_settings'], 'checkbox'));
+        $this->advanced_enforce_link_sanitize = (empty($CLEAN_POST['advanced_enforce_link_sanitize'])  ? '' : self::get_cleaned($CLEAN_POST['advanced_enforce_link_sanitize'], 'checkbox'));
+        $this->advanced_keep_linkquery        = (empty($CLEAN_POST['advanced_keep_linkquery'])         ? '' : self::get_cleaned($CLEAN_POST['advanced_keep_linkquery'], 'checkbox'));
+        $this->advanced_keep_linkanchor       = (empty($CLEAN_POST['advanced_keep_linkanchor'])        ? '' : self::get_cleaned($CLEAN_POST['advanced_keep_linkanchor'], 'checkbox'));
+        $this->advanced_show_creator          = (empty($CLEAN_POST['advanced_show_creator'])           ? '' : self::get_cleaned($CLEAN_POST['advanced_show_creator'], 'checkbox'));
+        $this->advanced_show_useronly         = (empty($CLEAN_POST['advanced_show_useronly'])          ? '' : self::get_cleaned($CLEAN_POST['advanced_show_useronly'], 'checkbox'));
+        $this->advanced_metaboxes             = (empty($CLEAN_POST['advanced_metaboxes'])              ? '' : self::get_cleaned($CLEAN_POST['advanced_metaboxes'], 'checkbox'));
+        $this->submit_advanced                = (empty($CLEAN_POST['submit_advanced'])                 ? '' : 1);
 
         $this->shortcode_activator       = (empty($CLEAN_POST['shortcode_activator'])       ? '' : self::get_cleaned($CLEAN_POST['shortcode_activator'], 'checkbox'));
         $this->shortcode_anonymous       = (empty($CLEAN_POST['shortcode_anonymous'])       ? '' : self::get_cleaned($CLEAN_POST['shortcode_anonymous'], 'checkbox'));
@@ -286,7 +289,7 @@ class reatlat_cub_Admin {
 	 */
 	public function enqueue_styles()
     {
-		wp_enqueue_style( $this->plugin_name, str_replace( '/admin', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/css/reatlat_cub-admin' . $this->debug . '.css', array(), null, 'all' );
+		wp_enqueue_style( $this->plugin_name, CUB_PLUGIN_URL_PATH . 'assets/css/reatlat_cub-admin.css', array(), $this->version, 'all' );
 	}
 
 	/**
@@ -294,11 +297,12 @@ class reatlat_cub_Admin {
 	 */
 	public function enqueue_scripts()
     {
-        wp_enqueue_script( 'tippy-all',                        str_replace( '/admin', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/js/vendor/tippy.all.min.js', array(), null, false );
-        wp_enqueue_script( 'clipboard',                        str_replace( '/admin', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/js/vendor/clipboard.min.js', array(), null, false );
-        wp_enqueue_script( 'jquery-validate',                  str_replace( '/admin', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/js/vendor/jquery.validate.min.js', array( 'jquery' ), null, false );
-        wp_enqueue_script( 'jquery-additional-methods',        str_replace( '/admin', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/js/vendor/additional-methods.min.js', array( 'jquery' ), null, false );
-        wp_enqueue_script( $this->plugin_name.'-admin-script', str_replace( '/admin', '', plugin_dir_url( __FILE__ ) ) . 'admin/assets/js/reatlat_cub-admin' . $this->debug . '.js', array( 'jquery' ), null, true );
+        wp_enqueue_script( 'tippy-all','https://cdnjs.cloudflare.com/ajax/libs/tippy.js/3.4.1/tippy.all' . $this->debug . '.js', array(), '3.4.1', true );
+        wp_enqueue_script( 'clipboard','https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard' . $this->debug . '.js', array(), '2.0.4', true );
+        wp_enqueue_script( 'jquery-validate','https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate' . $this->debug . '.js', array( 'jquery' ), '1.19.0', true );
+        wp_enqueue_script( 'jquery-additional-methods','https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/additional-methods' . $this->debug . '.js', array( 'jquery' ), '1.19.0', true );
+
+        wp_enqueue_script( $this->plugin_name.'-admin-script', CUB_PLUGIN_URL_PATH . 'assets/js/reatlat_cub-admin' . $this->debug . '.js', array(  'jquery', 'tippy-all', 'clipboard' ), null, true );
 
         // Enqueue jQuery UI and autocomplete
         wp_enqueue_script( 'jquery-ui-core' );
@@ -393,18 +397,18 @@ class reatlat_cub_Admin {
     {
         $target_url = parse_url( $this->campaign_page );
 
-        $campaign_term    = $this->campaign_term ? '&utm_term=' . urlencode($this->campaign_term) : '';
-        $campaign_content = $this->campaign_content ? '&utm_content=' . urlencode($this->campaign_content) : '';
-		$custom_pair_1    = ( $this->custom_key_1 && $this->custom_value_1 ) ? '&' . urlencode($this->custom_key_1) . '=' . urlencode($this->custom_value_1) : '';
-		$custom_pair_2    = ( $this->custom_key_2 && $this->custom_value_2 ) ? '&' . urlencode($this->custom_key_2) . '=' . urlencode($this->custom_value_2) : '';
-		$custom_pair_3    = ( $this->custom_key_3 && $this->custom_value_3 ) ? '&' . urlencode($this->custom_key_3) . '=' . urlencode($this->custom_value_3) : '';
+        $campaign_term    = $this->campaign_term ? '&utm_term=' . $this->urlencode($this->campaign_term) : '';
+        $campaign_content = $this->campaign_content ? '&utm_content=' . $this->urlencode($this->campaign_content) : '';
+		$custom_pair_1    = ( $this->custom_key_1 && $this->custom_value_1 ) ? '&' . $this->urlencode($this->custom_key_1) . '=' . $this->urlencode($this->custom_value_1) : '';
+		$custom_pair_2    = ( $this->custom_key_2 && $this->custom_value_2 ) ? '&' . $this->urlencode($this->custom_key_2) . '=' . $this->urlencode($this->custom_value_2) : '';
+		$custom_pair_3    = ( $this->custom_key_3 && $this->custom_value_3 ) ? '&' . $this->urlencode($this->custom_key_3) . '=' . $this->urlencode($this->custom_value_3) : '';
 
 		// Build full target link
         $campaign_target_url = $target_url['scheme'] . '://' . $target_url['host'] . $target_url['path'];
 
-        $campaign_target_url .= '?utm_source=' . urlencode($this->campaign_source);
-        $campaign_target_url .= '&utm_medium=' . urlencode($this->campaign_medium);
-        $campaign_target_url .= '&utm_campaign=' . urlencode($this->campaign_name);
+        $campaign_target_url .= '?utm_source=' . $this->urlencode($this->campaign_source);
+        $campaign_target_url .= '&utm_medium=' . $this->urlencode($this->campaign_medium);
+        $campaign_target_url .= '&utm_campaign=' . $this->urlencode($this->campaign_name);
         $campaign_target_url .= $campaign_term;
         $campaign_target_url .= $campaign_content;
         $campaign_target_url .= $custom_pair_1;
@@ -419,16 +423,16 @@ class reatlat_cub_Admin {
                 array_push($exclude_query_parameters, 'utm_term');
 
             if ( !empty( $campaign_content ) )
-                array_push($exclude_query_parameters, 'utm_conten');
+                array_push($exclude_query_parameters, 'utm_content');
 
             if ( !empty( $custom_pair_1 ) )
-                array_push($exclude_query_parameters, urlencode($this->custom_key_1) );
+                array_push($exclude_query_parameters, $this->urlencode($this->custom_key_1) );
 
             if ( !empty( $custom_pair_2 ) )
-                array_push($exclude_query_parameters, urlencode($this->custom_key_2) );
+                array_push($exclude_query_parameters, $this->urlencode($this->custom_key_2) );
 
             if ( !empty( $custom_pair_3 ) )
-                array_push($exclude_query_parameters, urlencode($this->custom_key_3) );
+                array_push($exclude_query_parameters, $this->urlencode($this->custom_key_3) );
 
             $target_url['query'] = explode('&', $target_url['query']);
 
@@ -495,44 +499,137 @@ class reatlat_cub_Admin {
 
 	private function get_shortlink($full_link)
     {
-        // TODO: remove Google endpoint in March 2019
-        if ( ( date('Y') < 2020 && date('m') < 3 ) && get_option( $this->plugin_name . '_advanced_api' ) === 'google' ) {
-            $key = get_option( $this->plugin_name . '_google_api_key' ) ? get_option( $this->plugin_name . '_google_api_key' ) : 'AIzaSyC9Kx8WJQ0yCtpi-sIV_-7_3iGzNRRfoWQ';
+        if ( get_option( $this->plugin_name . '_advanced_api' ) === 'rebrandly' ) {
 
-            $result = wp_remote_post( add_query_arg( 'key', $key, 'https://www.googleapis.com/urlshortener/v1/url' ), array(
-                'body' => json_encode( array( 'longUrl' => esc_url_raw( $full_link ) ) ),
-                'headers' => array( 'Content-Type' => 'application/json' ),
-            ) );
+            $domain = !empty($this->get_custom_domain()) ? $this->get_custom_domain() : 'rebrand.ly';
 
-            // Return the URL if the request got an error.
-            if ( is_wp_error( $result ) )
-                return 'n/a';
-
-            $result = json_decode( $result['body'] );
-
-            if ( isset($result->error->errors[0]->reason) && $result->error->errors[0]->reason === "keyInvalid" )
-            {
-                array_push( $this->messages, array( __('Google API key is not a valid.', 'campaign-url-builder'), 'warning' ) );
-                return 'n/a';
-            }
-
-            if ( $result->id )
-                return $result->id;
+            $response = wp_remote_post( 'https://api.rebrandly.com/v1/links', array(
+                    'method'      => 'POST',
+                    'headers'     => array(
+                        'apikey'       => $this->get_shortener_api_key('rebrandly'),
+                        'Content-Type' => 'application/json',
+                    ),
+                    'body'        => json_encode (array(
+                        'domain'       => $domain,
+                        'destination'  => $full_link
+                    ))
+                )
+            );
 
         } else { // if ( get_option( $this->plugin_name . '_advanced_api' ) === 'bitly' ) {
 
-            require plugin_dir_path(dirname(__FILE__) ) . 'vendors/bitly.php';
-            $params_bitly = array();
-            $params_bitly['access_token'] = get_option( $this->plugin_name . '_bitly_api_key' ) ? get_option( $this->plugin_name . '_bitly_api_key' ) : '13064f875b10a4e38709f8b963ca9f32acbc0937';
+            $response = wp_remote_post( 'https://api-ssl.bit.ly/v4/shorten', array(
+                    'method'      => 'POST',
+                    'headers'     => array(
+                        'Authorization' => 'Bearer ' . $this->get_shortener_api_key('bitly'),
+                        'Content-Type'  => 'application/json',
+                    ),
+                    'body'        => json_encode (array(
+                        'long_url'  => $full_link
+                    ))
+                )
+            );
 
-            $params_bitly['longUrl'] = $full_link;
-            $bitly = bitly_get('shorten', $params_bitly);
-
-            if( isset($bitly['data']['url']) && $bitly['data']['url'] )
-                return $bitly['data']['url'];
         }
 
+        if ( is_wp_error( $response ) ) {
+            $error_message = $response->get_error_message();
+            array_push($this->messages, array( sprintf(__('Something went wrong: %s', 'campaign-url-builder'), $error_message), 'error'));
+            return 'n/a';
+        }
+
+        // DEBUG
+        // echo 'Response:<pre>';
+        // print_r( $response );
+        // echo '</pre>';
+
+        $response = json_decode($response["body"], true);
+
+        if ( $this->is_shortener_vendor('rebrandly') && isset($response['shortUrl']) && $response['shortUrl'] )
+            return $response['shortUrl'];
+
+        if( $this->is_shortener_vendor('bitly') && isset($response['link']) && $response['link'] )
+            return $response['link'];
+
         return 'n/a';
+    }
+
+    public function is_shortener_vendor($vendor)
+    {
+	    return ( get_option( $this->plugin_name . '_advanced_api' ) === $vendor );
+    }
+
+    public function get_shortener_vendor()
+    {
+        $vendor = get_option( $this->plugin_name . '_advanced_api' ) ? get_option( $this->plugin_name . '_advanced_api' ) : 'bitly';
+        return $vendor;
+    }
+
+    public function get_shortener_api_key($vendor)
+    {
+        $key = '';
+
+        switch ($vendor) {
+            case 'bitly':
+                $key = get_option( $this->plugin_name . '_bitly_api_key' ) ? get_option( $this->plugin_name . '_bitly_api_key' ) : '13064f875b10a4e38709f8b963ca9f32acbc0937';
+                break;
+
+            case 'rebrandly':
+                $key = get_option( $this->plugin_name . '_rebrandly_api_key' ) ? get_option( $this->plugin_name . '_rebrandly_api_key' ) : 'd3ca01cdd8114a91a76314286cfdb32f';
+                break;
+        }
+
+        return $key;
+    }
+
+    public function esc_shortener_api_key($vendor, $visible = false)
+    {
+        $key = $this->get_shortener_api_key($vendor);
+
+        if ( !$visible )
+            $key = str_repeat( '*', strlen( $key ) - 5 ) . substr( $key, - 5 );
+
+        echo esc_attr( $key );
+    }
+
+    private function get_info_link($url)
+    {
+        $url = strtr($url, array(
+            '://goo.gl' => '://goo.gl/info',
+            '://bit.ly' => '://bit.ly/info',
+        ));
+
+        // this part only for rebrandly
+        $domain = parse_url($url);
+        $custom_domain = !empty($this->get_custom_domain()) ? $this->get_custom_domain() : false;
+        if ( $domain['host'] === 'rebrand.ly' || $domain['host'] === $custom_domain )
+            $url .= '.stats';
+
+        return $url;
+    }
+
+    public function esc_info_link($url)
+    {
+        $url = $this->get_info_link( esc_url_raw($url) );
+        echo esc_url_raw( $url );
+    }
+
+    private function get_custom_domain()
+    {
+        return get_option( $this->plugin_name . '_custom_domain' );
+    }
+
+    public function esc_custom_domain()
+    {
+        echo esc_attr( $this->get_custom_domain() );
+    }
+
+    private function urlencode($string)
+    {
+        if ( get_option( $this->plugin_name . '_enforce_link_sanitize' ) )
+            $string = sanitize_title($string);
+
+        return urlencode($string);
     }
 
 	public function get_links()
@@ -597,6 +694,7 @@ class reatlat_cub_Admin {
                 }
                 update_option( $this->plugin_name . '_admin_only', $this->advanced_admin_only );
                 update_option( $this->plugin_name . '_keep_settings', $this->advanced_keep_settings );
+                update_option( $this->plugin_name . '_enforce_link_sanitize', $this->advanced_enforce_link_sanitize );
                 update_option( $this->plugin_name . '_keep_linkquery', $this->advanced_keep_linkquery );
                 update_option( $this->plugin_name . '_keep_linkanchor', $this->advanced_keep_linkanchor );
                 update_option( $this->plugin_name . '_show_creator', $this->advanced_show_creator );
@@ -609,32 +707,31 @@ class reatlat_cub_Admin {
                     update_option( $this->plugin_name . '_advanced_api', $this->advanced_api );
                 }
 
-                // Google API key
-                if ( !empty($this->google_api_key) && $this->google_api_key != get_option( $this->plugin_name . '_google_api_key' ) )
+                // Custom domain name
+                if ( !empty($this->custom_domain) && $this->custom_domain != get_option( $this->plugin_name . '_custom_domain' ) )
                 {
-                    update_option( $this->plugin_name . '_google_api_key', $this->google_api_key );
-                    array_push( $this->messages, array( __('Google API key has been updated.', 'campaign-url-builder'), 'success' ) );
-
-                    $result = wp_remote_post( add_query_arg( 'key', $this->google_api_key, 'https://www.googleapis.com/urlshortener/v1/url' ), array(
-                        'body' => json_encode( array( ) ),
-                        'headers' => array( 'Content-Type' => 'application/json' ),
-                    ) );
-
-                    if ( is_wp_error( $result ) )
-                        array_push( $this->messages, array( __('Can\'t check Google API key.', 'campaign-url-builder'), 'error' ) );
-
-                    $result = json_decode( $result['body'] );
-
-                    if ( isset($result->error->errors[0]->reason) && $result->error->errors[0]->reason === "keyInvalid" )
-                    {
-                        array_push( $this->messages, array( __('Google API key is not a valid.', 'campaign-url-builder'), 'error' ) );
-                    }
+                    // TODO check if user pass URL
+                    update_option( $this->plugin_name . '_custom_domain', $this->custom_domain );
+                    array_push( $this->messages, array( __('Custom domain name has been updated.', 'campaign-url-builder'), 'success' ) );
                 }
 
-                if ( !empty($this->remove_google_api_key) && $this->remove_google_api_key == 1 )
+                if ( !empty($this->remove_custom_domain) && $this->remove_custom_domain == 1 )
                 {
-                    update_option( $this->plugin_name . '_google_api_key', '' );
-                    array_push( $this->messages, array( __('Google API key is empty now.', 'campaign-url-builder'), 'success' ) );
+                    update_option( $this->plugin_name . '_custom_domain', '' );
+                    array_push( $this->messages, array( __('Custom domain name is reset to default.', 'campaign-url-builder'), 'success' ) );
+                }
+
+                // Rebrandly API key
+                if ( !empty($this->rebrandly_api_key) && $this->rebrandly_api_key != get_option( $this->plugin_name . '_rebrandly_api_key' ) )
+                {
+                    update_option( $this->plugin_name . '_rebrandly_api_key', $this->rebrandly_api_key );
+                    array_push( $this->messages, array( __('Rebrandly API key has been updated.', 'campaign-url-builder'), 'success' ) );
+                }
+
+                if ( !empty($this->remove_rebrandly_api_key) && $this->remove_rebrandly_api_key == 1 )
+                {
+                    update_option( $this->plugin_name . '_rebrandly_api_key', '' );
+                    array_push( $this->messages, array( __('Rebrandly API key is empty now.', 'campaign-url-builder'), 'success' ) );
                 }
 
                 // Bitly API key

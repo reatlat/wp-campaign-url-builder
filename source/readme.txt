@@ -1,9 +1,9 @@
 === Campaign URL Builder ===
 Contributors: reatlat
-Donate link: https://paypal.me/reatlat/5usd
+Donate link: https://paypal.me/reatlat/10usd
 Tags: utm, tracking link, google analytics, analytics, link generator, googl, google url shortener, minify link
 Requires at least: 3.0.1
-Tested up to: 5.0.3
+Tested up to: 5.2
 Requires PHP: 5.6 or later
 Stable tag: 1.7.0
 License: GPLv3 or later
@@ -45,6 +45,16 @@ on GitHub <https://github.com/reatlat/wp-campaign-url-builder/issues>
 Nothing for now
 
 == Changelog ==
+
+= 1.8.0 =
+* Finally destroy Goo.gl API endpoint
+* Add new shortener API endpoint, ReBrendly
+* Added support custom domains
+* Reduced the weight of the plugin
+* Compatible with WordPress version 5.2
+* Refactor shortener API function
+* Migrate Bit.ly API v3 to v4
+* Added new options to enforce UTM field naming consistency
 
 = 1.7.0 =
 * Added new feature - keep links query parameters and anchor fragment

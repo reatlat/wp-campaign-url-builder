@@ -63,7 +63,7 @@ jQuery(function ($) {
              */
             _copyToClipboard() {
                 this._debugLog('copy to clipboard activated');
-                new Clipboard('td[data-copy]');
+                new window.ClipboardJS('td[data-copy]');
             }
 
             /**

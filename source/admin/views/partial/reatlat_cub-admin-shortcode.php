@@ -12,9 +12,7 @@ $get_from = esc_attr( $plugin->plugin_real_name );
 
     <?php if ( current_user_can('administrator') || ! get_option( $this->plugin_name . '_admin_only' ) ) : ?>
 
-    <?php // TODO: remove Google in March 2019 ?>
-
-    <?php if ( ! ( get_option( $this->plugin_name . '_google_api_key' ) || get_option( $this->plugin_name . '_bitly_api_key' ) ) ) : ?>
+    <?php if ( ! ( get_option( $this->plugin_name . '_rebrandly_api_key' ) || get_option( $this->plugin_name . '_bitly_api_key' ) ) ) : ?>
         <h4><?php _e('Shortcodes status','campaign-url-builder'); ?>: <span class="alert"><?php _e('Disabled', 'campaign-url-builder'); ?></span> - <?php _e('For reason, you use default API key for Bitly or Goo.gl', 'campaign-url-builder'); ?></h4>
     <?php endif; ?>
 
@@ -23,7 +21,7 @@ $get_from = esc_attr( $plugin->plugin_real_name );
         <table class="form-table">
             <tr>
                 <th scope="row">
-                    <label class="unclickable"><?php _e('Front-end shortcodes (global)', 'campaign-url-builder'); ?> <span class="dashicons dashicons-editor-help tippy" title="<?php _e('This option will enable front-end shortcodes globaly for all visitors(except anonymous).', 'campaign-url-builder'); ?>"></span></label>
+                    <label class="unclickable"><?php _e('Front-end shortcodes (global)', 'campaign-url-builder'); ?> <span class="dashicons dashicons-editor-help tippy" data-tippy-content="<?php _e('This option will enable front-end shortcodes globaly for all visitors(except anonymous).', 'campaign-url-builder'); ?>"></span></label>
                 </th>
                 <td>
                     <label class="tgl">
@@ -35,7 +33,7 @@ $get_from = esc_attr( $plugin->plugin_real_name );
 
             <tr>
                 <th scope="row">
-                    <label class="unclickable"><?php _e('Allow anonymous users', 'campaign-url-builder'); ?> <span class="dashicons dashicons-editor-help tippy" title="<?php _e('Any website visitor can generate a link', 'campaign-url-builder'); ?>"></span></label>
+                    <label class="unclickable"><?php _e('Allow anonymous users', 'campaign-url-builder'); ?> <span class="dashicons dashicons-editor-help tippy" data-tippy-content="<?php _e('Any website visitor can generate a link', 'campaign-url-builder'); ?>"></span></label>
                 </th>
                 <td>
                     <label class="tgl">
@@ -47,7 +45,7 @@ $get_from = esc_attr( $plugin->plugin_real_name );
 
             <tr>
                 <th scope="row">
-                    <label class="unclickable"><?php _e('Default styles', 'campaign-url-builder'); ?> <span class="dashicons dashicons-editor-help tippy" title="<?php _e('Use default CSS styles for front-end shortcoes.', 'campaign-url-builder'); ?>"></span></label>
+                    <label class="unclickable"><?php _e('Default styles', 'campaign-url-builder'); ?> <span class="dashicons dashicons-editor-help tippy" data-tippy-content="<?php _e('Use default CSS styles for front-end shortcoes.', 'campaign-url-builder'); ?>"></span></label>
                 </th>
                 <td>
                     <label class="tgl">
@@ -61,7 +59,7 @@ $get_from = esc_attr( $plugin->plugin_real_name );
             <!--
             <tr>
                 <th scope="row">
-                    <label class="unclickable"><?php _e("Google reCaptcha", 'campaign-url-builder'); ?> <span class="dashicons dashicons-editor-help tippy" title="<?php _e('Activate Google reCaptcha version 3', 'campaign-url-builder'); ?>"></span></label>
+                    <label class="unclickable"><?php _e("Google reCaptcha", 'campaign-url-builder'); ?> <span class="dashicons dashicons-editor-help tippy" data-tippy-content="<?php _e('Activate Google reCaptcha version 3', 'campaign-url-builder'); ?>"></span></label>
                 </th>
                 <td>
                     <label class="tgl">
