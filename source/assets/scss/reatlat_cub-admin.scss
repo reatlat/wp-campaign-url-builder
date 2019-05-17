@@ -167,6 +167,7 @@
             padding-bottom: 0;
         }
 
+        div > label,
         tr > th > label {
             &.new-feature {
                 &:after {

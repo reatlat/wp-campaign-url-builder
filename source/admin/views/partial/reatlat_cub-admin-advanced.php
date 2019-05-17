@@ -12,7 +12,7 @@
                 </th>
                 <td>
                     <label class="tgl">
-                        <input type="checkbox" name="advanced_admin_only" <?php checked(get_option( $this->plugin_name . '_admin_only')); ?> />
+                        <input type="checkbox" name="advanced_admin_only" <?php checked(get_option( $plugin->plugin_name . '_admin_only')); ?> />
                         <span data-on="<?php _e('Enabled', 'campaign-url-builder'); ?>" data-off="<?php _e('Disabled', 'campaign-url-builder'); ?>"></span>
                     </label>
                 </td>
@@ -25,7 +25,7 @@
                 </th>
                 <td>
                     <label class="tgl">
-                        <input type="checkbox" name="advanced_keep_settings" <?php checked(get_option( $this->plugin_name . '_keep_settings')); ?> />
+                        <input type="checkbox" name="advanced_keep_settings" <?php checked(get_option( $plugin->plugin_name . '_keep_settings')); ?> />
                         <span data-on="<?php _e('Enabled', 'campaign-url-builder'); ?>" data-off="<?php _e('Disabled', 'campaign-url-builder'); ?>"></span>
                     </label>
                 </td>
@@ -37,7 +37,7 @@
                 </th>
                 <td>
                     <label class="tgl">
-                        <input type="checkbox" name="advanced_keep_linkquery" <?php checked(get_option( $this->plugin_name . '_keep_linkquery')); ?> />
+                        <input type="checkbox" name="advanced_keep_linkquery" <?php checked(get_option( $plugin->plugin_name . '_keep_linkquery')); ?> />
                         <span data-on="<?php _e('Enabled', 'campaign-url-builder'); ?>" data-off="<?php _e('Disabled', 'campaign-url-builder'); ?>"></span>
                     </label>
                 </td>
@@ -49,7 +49,7 @@
                 </th>
                 <td>
                     <label class="tgl">
-                        <input type="checkbox" name="advanced_keep_linkanchor" <?php checked(get_option( $this->plugin_name . '_keep_linkanchor')); ?> />
+                        <input type="checkbox" name="advanced_keep_linkanchor" <?php checked(get_option( $plugin->plugin_name . '_keep_linkanchor')); ?> />
                         <span data-on="<?php _e('Enabled', 'campaign-url-builder'); ?>" data-off="<?php _e('Disabled', 'campaign-url-builder'); ?>"></span>
                     </label>
                 </td>
@@ -61,7 +61,7 @@
                 </th>
                 <td>
                     <label class="tgl">
-                        <input type="checkbox" name="advanced_show_creator" <?php checked(get_option( $this->plugin_name . '_show_creator')); ?> />
+                        <input type="checkbox" name="advanced_show_creator" <?php checked(get_option( $plugin->plugin_name . '_show_creator')); ?> />
                         <span data-on="<?php _e('Enabled', 'campaign-url-builder'); ?>" data-off="<?php _e('Disabled', 'campaign-url-builder'); ?>"></span>
                     </label>
                 </td>
@@ -73,7 +73,7 @@
                 </th>
                 <td>
                     <label class="tgl">
-                        <input type="checkbox" name="advanced_show_useronly" <?php checked(get_option( $this->plugin_name . '_show_useronly')); ?> />
+                        <input type="checkbox" name="advanced_show_useronly" <?php checked(get_option( $plugin->plugin_name . '_show_useronly')); ?> />
                         <span data-on="<?php _e('Enabled', 'campaign-url-builder'); ?>" data-off="<?php _e('Disabled', 'campaign-url-builder'); ?>"></span>
                     </label>
                 </td>
@@ -85,7 +85,7 @@
                 </th>
                 <td>
                     <label class="tgl">
-                        <input type="checkbox" name="advanced_metaboxes" <?php checked(get_option( $this->plugin_name . '_metaboxes')); ?> />
+                        <input type="checkbox" name="advanced_metaboxes" <?php checked(get_option( $plugin->plugin_name . '_metaboxes')); ?> />
                         <span data-on="<?php _e('Enabled', 'campaign-url-builder'); ?>" data-off="<?php _e('Disabled', 'campaign-url-builder'); ?>"></span>
                     </label>
                 </td>
@@ -97,7 +97,7 @@
             <div class="reatlat_cub_form__settings--api__checkbox">
 
                 <div class="reatlat_cub_form__settings--api__bitly pvxs">
-                    <input type="radio" name="advanced_api" id="advanced_api_bitly" required <?php checked(get_option( $this->plugin_name . '_advanced_api') === 'bitly' ); ?> value="bitly" />
+                    <input type="radio" name="advanced_api" id="advanced_api_bitly" required <?php checked($plugin->is_shortener_vendor( 'bitly' ) ); ?> value="bitly" />
                     <label for="advanced_api_bitly">
                         <?php _e('Bitly URL Shortener API endpoint', 'campaign-url-builder'); ?>
                     </label>
@@ -112,10 +112,7 @@
                                     <?php if ( empty( get_option( $plugin->plugin_name . '_bitly_api_key' ) ) ) { ?>
                                         <input name="bitly_api_key" type="text" id="bitly_api_key" placeholder="<?php _e('Paste you Bitly OAuth key here...', 'campaign-url-builder'); ?>" value="" class="regular-text"><br>
                                     <?php } else { ?>
-                                        <?php
-                                        $visible_bitly_api_key = str_repeat( '*', strlen( get_option( $plugin->plugin_name . '_bitly_api_key' ) ) - 5 ) . substr( get_option( $plugin->plugin_name . '_bitly_api_key' ), - 5 );
-                                        ?>
-                                        <input name="bitly_api_key" type="text" disabled id="bitly_api_key" value="<?php echo esc_attr( $visible_bitly_api_key ); ?>" class="regular-text"><br>
+                                        <input name="bitly_api_key" type="text" disabled id="bitly_api_key" value="<?php $plugin->esc_shortener_api_key('bitly'); ?>" class="regular-text"><br>
                                         <?php _e('Reset OAuth key', 'campaign-url-builder'); ?>: <input type="checkbox" name="remove_bitly_api_key" value="1">
                                     <?php } ?>
                                     <?php
@@ -133,35 +130,30 @@
                     </div>
                 </div>
 
-                <?php // TODO: remove Google endpoint option in March 2019 ?>
-                <?php if ( date('Y') < 2020 && date('m') < 3 ) : ?>
-                <div class="reatlat_cub_form__settings--api__google pvxs">
-                    <input type="radio" name="advanced_api" id="advanced_api_google" required <?php checked(get_option( $this->plugin_name . '_advanced_api') === 'google' ); ?> value="google" />
-                    <label for="advanced_api_google">
-                        <?php _e('Google URL Shortener API (Supported up to March 2019)', 'campaign-url-builder'); ?>
+                <div class="reatlat_cub_form__settings--api__rebrandly pvxs">
+                    <input type="radio" name="advanced_api" id="advanced_api_rebrandly" required <?php checked($plugin->is_shortener_vendor( 'rebrandly' ) ); ?> value="rebrandly" />
+                    <label for="advanced_api_rebrandly" class="new-feature">
+                        <?php _e('Rebrandly URL Shortener API', 'campaign-url-builder'); ?>
                     </label>
                     <div class="radio-if-active">
                         <table class="form-table">
                             <tr>
                                 <th scope="row" class="ptn">
-                                    <label for="google_api_key"><?php _e('Google API key', 'campaign-url-builder'); ?> </label>
+                                    <label for="rebrandly_api_key"><?php _e('Rebrandly API key', 'campaign-url-builder'); ?> </label>
                                     <span class="description"><?php _e('(optional)', 'campaign-url-builder'); ?><br><?php _e('keep empty for use default one', 'campaign-url-builder'); ?></span>
                                 </th>
                                 <td>
-                                    <?php if ( empty( get_option( $plugin->plugin_name . '_google_api_key' ) ) ) { ?>
-                                        <input name="google_api_key" type="text" id="google_api_key" placeholder="<?php _e('Paste you Google API key here...', 'campaign-url-builder'); ?>" value="" class="regular-text"><br>
+                                    <?php if ( empty( get_option( $plugin->plugin_name . '_rebrandly_api_key' ) ) ) { ?>
+                                        <input name="rebrandly_api_key" type="text" id="rebrandly_api_key" placeholder="<?php _e('Paste you Rebrandly API key here...', 'campaign-url-builder'); ?>" value="" class="regular-text"><br>
                                     <?php } else { ?>
-                                        <?php
-                                        $visible_google_api_key = str_repeat( '*', strlen( get_option( $plugin->plugin_name . '_google_api_key' ) ) - 5 ) . substr( get_option( $plugin->plugin_name . '_google_api_key' ), - 5 );
-                                        ?>
-                                        <input name="google_api_key" type="text" disabled id="google_api_key" value="<?php echo esc_attr( $visible_google_api_key ); ?>" class="regular-text"><br>
-                                        <?php _e('Reset API key', 'campaign-url-builder'); ?>: <input type="checkbox" name="remove_google_api_key" value="1">
+                                        <input name="rebrandly_api_key" type="text" disabled id="rebrandly_api_key" value="<?php $plugin->esc_shortener_api_key('rebrandly'); ?>" class="regular-text"><br>
+                                        <?php _e('Reset API key', 'campaign-url-builder'); ?>: <input type="checkbox" name="remove_rebrandly_api_key" value="1">
                                     <?php } ?>
                                     <?php
                                     printf(
-                                        __('%sHow to get your %sGoogle API key%s?%s', 'campaign-url-builder'),
+                                        __('%sHow to get your %sRebrandly API key%s?%s', 'campaign-url-builder'),
                                         '<p class="description">',
-                                        '<a class="reatlat_cub_tab_link" href="#reatlat_cub_tab-4">',
+                                        '<a class="reatlat_cub_tab_link" href="#reatlat_cub_tab-5">',
                                         '</a>',
                                         '</p>'
                                     );
@@ -171,7 +163,6 @@
                         </table>
                     </div>
                 </div>
-                <?php endif; ?>
             </div>
         </div>
 

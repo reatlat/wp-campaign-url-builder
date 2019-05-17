@@ -45,14 +45,17 @@
                 ?>
                 <tr class="reatlat_cub_link-on-list <?php if ( $key === 0 ) { echo 'first-link'; } ?>" data-link-key="<?php echo $key; ?>" data-link-id="<?php echo esc_attr( $link->id ); ?>">
 
-                    <?php if ( $plugin->strpos_array( esc_url_raw( $link->campaign_short_link ), array('://goo.gl', '://bit.ly') ) ) : ?>
+                    <?php if ( $plugin->strpos_array( esc_url_raw( $link->campaign_short_link ), array('://goo.gl', '://bit.ly', '://rebrand.ly') ) ) : ?>
                         <td data-info="true" class="campaign_info tippy--hover" data-tippy-content="<?php _e('Open Analytics data', 'campaign-url-builder'); ?>">
                             <?php
                                 //TODO: add support for custom domains
                                 $info_link = strtr($link->campaign_short_link, array(
                                     '://goo.gl' => '://goo.gl/info',
-                                    '://bit.ly' => '://bit.ly/info'
+                                    '://bit.ly' => '://bit.ly/info',
                                 ));
+
+                                if (strpos($info_link, '://rebrand.ly') !== false)
+                                    $info_link .= '.stats';
                             ?>
                             <a target="_blank" href="<?php echo esc_url_raw($info_link); ?>"><span class='dashicons dashicons-chart-area'></span></a>
                         </td>
@@ -83,7 +86,11 @@
                     <td class="campaign_remove_link tippy--hover" data-tippy-content="<?php _e('Remove link','campaign-url-builder'); ?>">
                         <form method="POST">
                             <input name="remove_link_id" type="number" value="<?php echo esc_attr( $link->id ); ?>" hidden>
-                            <button type="submit" name="remove_link_id_submit" class="campaign_remove_link__inner js-remove-link" onclick="return confirm('<?php _e('Campaign URL Builder', 'campaign-url-builder'); ?>\n\n<?php _e('Remove link', 'campaign-url-builder'); ?>: <?php echo esc_url_raw( $link->campaign_full_link ); ?>\n\n<?php _e('Are you sure?', 'campaign-url-builder'); ?>')"><span class="dashicons dashicons-trash"></span></button>
+                            <button type="submit" name="remove_link_id_submit"
+                                    class="campaign_remove_link__inner js-remove-link"
+                                    onclick="return confirm('<?php _e('Campaign URL Builder', 'campaign-url-builder'); ?>\n\n<?php _e('Remove link', 'campaign-url-builder'); ?>: <?php echo esc_url_raw( $link->campaign_full_link ); ?>\n\n<?php _e('Are you sure?', 'campaign-url-builder'); ?>')">
+                                <span class="dashicons dashicons-trash"></span>
+                            </button>
                         </form>
                     </td>
                     <?php endif; ?>

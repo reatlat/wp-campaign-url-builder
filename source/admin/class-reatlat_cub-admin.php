@@ -45,8 +45,8 @@ class reatlat_cub_Admin {
         $this->submit_settings        = (empty($CLEAN_POST['submit_settings'])        ? '' : 1);
 
         $this->advanced_api             = (empty($CLEAN_POST['advanced_api'])             ? '' : self::get_cleaned($CLEAN_POST['advanced_api'], 'text'));
-        $this->google_api_key           = (empty($CLEAN_POST['google_api_key'])           ? '' : self::get_cleaned($CLEAN_POST['google_api_key'], 'text'));
-        $this->remove_google_api_key    = (empty($CLEAN_POST['remove_google_api_key'])    ? '' : self::get_cleaned($CLEAN_POST['remove_google_api_key'], 'number'));
+        $this->rebrandly_api_key        = (empty($CLEAN_POST['rebrandly_api_key'])        ? '' : self::get_cleaned($CLEAN_POST['rebrandly_api_key'], 'text'));
+        $this->remove_rebrandly_api_key = (empty($CLEAN_POST['remove_rebrandly_api_key']) ? '' : self::get_cleaned($CLEAN_POST['remove_rebrandly_api_key'], 'number'));
         $this->bitly_api_key            = (empty($CLEAN_POST['bitly_api_key'])            ? '' : self::get_cleaned($CLEAN_POST['bitly_api_key'], 'text'));
         $this->remove_bitly_api_key     = (empty($CLEAN_POST['remove_bitly_api_key'])     ? '' : self::get_cleaned($CLEAN_POST['remove_bitly_api_key'], 'number'));
         $this->advanced_admin_only      = (empty($CLEAN_POST['advanced_admin_only'])      ? '' : self::get_cleaned($CLEAN_POST['advanced_admin_only'], 'checkbox'));
@@ -550,28 +550,37 @@ class reatlat_cub_Admin {
         return 'n/a';
     }
 
-    private function is_shortener_vendor($vendor)
+    public function is_shortener_vendor($vendor)
     {
 	    return ( get_option( $this->plugin_name . '_advanced_api' ) === $vendor );
     }
 
     private function get_shortener_api_key($vendor)
     {
+        $key = '';
+
         switch ($vendor) {
             case 'bitly':
                 $key = get_option( $this->plugin_name . '_bitly_api_key' ) ? get_option( $this->plugin_name . '_bitly_api_key' ) : '13064f875b10a4e38709f8b963ca9f32acbc0937';
-                return $key;
                 break;
 
             case 'rebrandly':
                 $key = get_option( $this->plugin_name . '_rebrandly_api_key' ) ? get_option( $this->plugin_name . '_rebrandly_api_key' ) : 'd3ca01cdd8114a91a76314286cfdb32f';
-                return $key;
-                break;
-
-            default:
-                return '';
                 break;
         }
+
+
+        return $key;
+    }
+
+    public function esc_shortener_api_key($vendor, $visible = false)
+    {
+        $key = $this->get_shortener_api_key($vendor);
+
+        if ( !$visible )
+            $key = str_repeat( '*', strlen( $key ) - 5 ) . substr( $key, - 5 );
+
+        echo esc_attr( $key );
     }
 
 	public function get_links()
@@ -646,6 +655,19 @@ class reatlat_cub_Admin {
                 if ( !empty($this->advanced_api) && $this->advanced_api != get_option( $this->plugin_name . '_advanced_api' ) )
                 {
                     update_option( $this->plugin_name . '_advanced_api', $this->advanced_api );
+                }
+
+                // Rebrandly API key
+                if ( !empty($this->rebrandly_api_key) && $this->rebrandly_api_key != get_option( $this->plugin_name . '_rebrandly_api_key' ) )
+                {
+                    update_option( $this->plugin_name . '_rebrandly_api_key', $this->rebrandly_api_key );
+                    array_push( $this->messages, array( __('Rebrandly API key has been updated.', 'campaign-url-builder'), 'success' ) );
+                }
+
+                if ( !empty($this->remove_rebrandly_api_key) && $this->remove_rebrandly_api_key == 1 )
+                {
+                    update_option( $this->plugin_name . '_rebrandly_api_key', '' );
+                    array_push( $this->messages, array( __('Rebrandly API key is empty now.', 'campaign-url-builder'), 'success' ) );
                 }
 
                 // Bitly API key
