@@ -14,6 +14,14 @@ $changelog = array(
         ),
     ),
     array(
+        'version' => '1.8.1',
+        'date'    => '2019/05/20',
+        'changes' => array(
+            __('Fix export to CSV action', 'campaign-url-builder'),
+            __('Fix rebrandly custom domains', 'campaign-url-builder'),
+        ),
+    ),
+    array(
         'version' => '1.8.0',
         'date'    => '2019/05/17',
         'changes' => array(

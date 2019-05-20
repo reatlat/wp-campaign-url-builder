@@ -215,7 +215,7 @@ class reatlat_cub_Admin {
      */
     public function ajax_export_csv()
     {
-        if ( isset($_POST['Campaign-URL-Builder__export_to_csv--nonce']) && wp_verify_nonce( $_POST['Campaign-URL-Builder__export_to_csv--nonce'], 'export_to_csv' ) ) :
+        if ( isset($_POST['Campaign-URL-Builder__export_to_csv--nonce']) && wp_verify_nonce( $_POST['Campaign-URL-Builder__export_to_csv--nonce'], 'reatlat_cub_export_csv' ) ) :
 
             $links = self::get_links();
 
@@ -227,23 +227,15 @@ class reatlat_cub_Admin {
             {
                 foreach ( $links as $key => $link )
                 {
-                    $info_link = strtr($link->campaign_short_link, array(
-                        '://goo.gl' => '://goo.gl/info',
-                        '://bit.ly' => '://bit.ly/info'
-                    ));
-
-                    $username = sanitize_user( get_userdata($link->user_id)->display_name );
-                    $userrole = implode(', ', get_userdata($link->user_id)->roles);
-
                     array_push($array, array(
                         $key + 1,
                         $link->id,
                         $link->campaign_name,
                         $link->campaign_short_link,
-                        $info_link,
+                        $this->get_info_link($link->campaign_short_link),
                         $link->campaign_full_link,
-                        $username,
-                        $userrole
+                        sanitize_user( get_userdata($link->user_id)->display_name ),
+                        implode(', ', get_userdata($link->user_id)->roles)
                     ));
                 }
             }
@@ -313,7 +305,8 @@ class reatlat_cub_Admin {
             strtoupper($this->plugin_name) . '_APP',
             array(
                 'AJAXURL' => admin_url( 'admin-ajax.php' ),
-                'DEBUG_JS' => CUB_PLUGIN_DEBUG
+                'DEBUG_JS' => CUB_PLUGIN_DEBUG,
+                'CUSTOM_DOMAIN' => $this->get_custom_domain()
             )
         );
 	}
@@ -501,7 +494,7 @@ class reatlat_cub_Admin {
     {
         if ( get_option( $this->plugin_name . '_advanced_api' ) === 'rebrandly' ) {
 
-            $domain = !empty($this->get_custom_domain()) ? $this->get_custom_domain() : 'rebrand.ly';
+            $domain_data["fullName"] = !empty($this->get_custom_domain()) ? $this->get_custom_domain() : 'rebrand.ly';
 
             $response = wp_remote_post( 'https://api.rebrandly.com/v1/links', array(
                     'method'      => 'POST',
@@ -510,7 +503,7 @@ class reatlat_cub_Admin {
                         'Content-Type' => 'application/json',
                     ),
                     'body'        => json_encode (array(
-                        'domain'       => $domain,
+                        'domain'       => $domain_data,
                         'destination'  => $full_link
                     ))
                 )
@@ -518,6 +511,7 @@ class reatlat_cub_Admin {
 
         } else { // if ( get_option( $this->plugin_name . '_advanced_api' ) === 'bitly' ) {
 
+            // BitLy apply custom domain automaticaly then you add it to your account
             $response = wp_remote_post( 'https://api-ssl.bit.ly/v4/shorten', array(
                     'method'      => 'POST',
                     'headers'     => array(

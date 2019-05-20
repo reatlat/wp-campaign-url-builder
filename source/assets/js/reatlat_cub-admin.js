@@ -218,6 +218,8 @@ jQuery(function ($) {
                             }
                         }).done(function (data) {
                             if ( data !== 'error' ) {
+                                window['Campaign-URL-Builder-WPAdmin']._debugLog('Export to CSV status:', data);
+
                                 var timestamp, element;
 
                                 timestamp = new Date();
