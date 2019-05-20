@@ -1,5 +1,5 @@
 # WordPress - Campaign URL Builder
-[![](https://img.shields.io/badge/release-1.8.0-green.svg)](https://github.com/reatlat/wp-campaign-url-builder/releases/tag/v1.8.0)
+[![](https://img.shields.io/badge/release-1.8.1-green.svg)](https://github.com/reatlat/wp-campaign-url-builder/releases/tag/v1.8.1)
 [![](https://img.shields.io/badge/Sass-ready-ff69b4.svg?logo=sass)](https://sass-lang.com/)
 [![](https://img.shields.io/badge/Docker-ready-blue.svg?logo=docker)](https://hub.docker.com/_/wordpress/)
 [![](https://img.shields.io/badge/PHP_5.6-ready-777BB4.svg?logo=php)](https://php.net/)
