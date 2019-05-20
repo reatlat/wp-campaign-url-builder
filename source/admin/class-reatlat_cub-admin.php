@@ -215,7 +215,7 @@ class reatlat_cub_Admin {
      */
     public function ajax_export_csv()
     {
-        if ( isset($_POST['Campaign-URL-Builder__export_to_csv--nonce']) && wp_verify_nonce( $_POST['Campaign-URL-Builder__export_to_csv--nonce'], 'export_to_csv' ) ) :
+        if ( isset($_POST['Campaign-URL-Builder__export_to_csv--nonce']) && wp_verify_nonce( $_POST['Campaign-URL-Builder__export_to_csv--nonce'], 'reatlat_cub_export_csv' ) ) :
 
             $links = self::get_links();
 
