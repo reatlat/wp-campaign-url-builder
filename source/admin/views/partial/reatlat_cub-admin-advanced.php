@@ -105,7 +105,7 @@
 
             <tr>
                 <th scope="row">
-                    <label for=""><?php _e("Custom domain", 'campaign-url-builder'); ?>
+                    <label for="custom_domain"><?php _e("Custom domain", 'campaign-url-builder'); ?>
                         <span class="description"><?php _e("(optional)", 'campaign-url-builder'); ?></span>
                         <span class="dashicons dashicons-editor-help tippy" data-tippy-content="<?php _e('Set your own custom domain for short links.', 'campaign-url-builder'); ?>"></span>
                     </label>
