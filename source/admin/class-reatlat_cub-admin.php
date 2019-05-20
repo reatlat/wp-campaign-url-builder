@@ -511,6 +511,7 @@ class reatlat_cub_Admin {
 
         } else { // if ( get_option( $this->plugin_name . '_advanced_api' ) === 'bitly' ) {
 
+            // BitLy apply custom domain automaticaly then you add it to your account
             $response = wp_remote_post( 'https://api-ssl.bit.ly/v4/shorten', array(
                     'method'      => 'POST',
                     'headers'     => array(
