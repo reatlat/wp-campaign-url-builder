@@ -1056,5 +1056,5 @@ msgid "Alex Zappa a.k.a. re[at]lat"
 msgstr "Alex Zappa a.k.a. re[at]lat"
 
 #. Author URI of the plugin
-msgid "https://reatlat.net"
-msgstr "https://reatlat.net/ru"
+msgid "https://alex.zappa.dev"
+msgstr "https://alex.zappa.dev/ru"
