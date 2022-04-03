@@ -1,36 +1,32 @@
-version: '2'
+version: "3.9"
 
 services:
+  db:
+    image: mysql:5.7
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: somewordpress
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
 
   wordpress:
-    image: wordpress
     depends_on:
-      - mysql
-    ports:
-      - 80:80
-      - 443:443
+      - db
+    image: wordpress:latest
     volumes:
-      - ./wp-data:/var/www/html
-      - ./includes/docker-scripts:/docker-scripts
+      - wordpress_data:/var/www/html
       - ./source:/var/www/html/wp-content/plugins/campaign-url-builder
-    environment:
-      # WORDPRESS_DB_HOST: # ... (defaults to the IP and port of the linked mysql container)
-      # WORDPRESS_DB_USER: # ... (defaults to "root")
-      WORDPRESS_DB_PASSWORD: root_password # (defaults to the value of the MYSQL_ROOT_PASSWORD environment variable from the linked mysql container)
-      # WORDPRESS_DB_NAME: # ... (defaults to "wordpress")
-      WORDPRESS_TABLE_PREFIX: wp_ # ... (defaults to "", only set this when you need to override the default table prefix in wp-config.php)
-
-  mysql:
-    image: mariadb
-    environment:
-      MYSQL_ROOT_PASSWORD: root_password
-
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    links:
-      - mysql:db
     ports:
-      - 8181:80
+      - "8000:80"
+    restart: always
     environment:
-      MYSQL_USERNAME: root
-      MYSQL_ROOT_PASSWORD: root_password
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_NAME: wordpress
+volumes:
+  db_data: {}
+  wordpress_data: {}

@@ -204,12 +204,12 @@ $changelog = array(
     <div class="reatlat_cub_container__widget">
         <div class="reatlat_promote_title"><?php _e('Developed by', 'campaign-url-builder'); ?></div>
         <div class="author-card">
-            <a target="_blank" href="https://reatlat.net/?utm_source=wp_plugin&utm_medium=authorcard_sidebar&utm_campaign=<?php echo $get_from; ?>">
+            <a target="_blank" href="https://alex.zappa.dev/<?php echo $get_from; ?>">
                 <img src="<?php echo get_avatar_url('reatlat@gmail.com', array("size"=>160) ); ?>" alt="Alex Zappa a.k.a. re[at]lat">
             </a>
             <h3>Alex Zappa <small>a.k.a. re[at]lat</small></h3>
             <h4><?php _e('Software Engineer', 'campaign-url-builder'); ?></h4>
-            <p><a target="_blank" href="https://reatlat.net/?utm_source=wp_plugin&utm_medium=logo_sidebar&utm_campaign=<?php echo $get_from; ?>"><?php _e('Homepage', 'campaign-url-builder'); ?></a> | <a target="_blank" href="https://github.com/reatlat">GitHub</a></p>
+            <p><a target="_blank" href="https://alex.zappa.dev/<?php echo $get_from; ?>"><?php _e('Homepage', 'campaign-url-builder'); ?></a> | <a target="_blank" href="https://github.com/reatlat">GitHub</a></p>
 
         </div>
     </div>

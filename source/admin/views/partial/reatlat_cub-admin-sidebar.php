@@ -70,7 +70,7 @@ $widgets = array(
 
     <div class="reatlat_promote_widget author-card">
         <a target="_blank"
-           href="https://reatlat.net/contact/?utm_source=wp_plugin&utm_medium=authorcard_sidebar&utm_campaign=<?php echo $get_from; ?>">
+           href="https://alex.zappa.dev/<?php echo $get_from; ?>">
             <img src="<?php echo str_replace('/admin', '', plugin_dir_url(dirname(__DIR__))); ?>admin/views/images/help-sign.png"
                  alt="">
             <h2 class="mtn"><?php _e('Looking for WordPress Developer?', 'campaign-url-builder'); ?></h2>

@@ -7,7 +7,7 @@ $get_from = esc_attr( $plugin->plugin_real_name );
 
     <p class="description">
         <?php _e('Shortcode works only if you use your own Bitly API key or Goo.gl API Key', 'campaign-url-builder'); ?>.
-        How to get your <a target="_blank" href=https://reatlat.net/how-do-i-find-my-bitly-oauth-access-token/?utm_source=wp_plugin&utm_medium=shortcode_tab&utm_campaign=<?php echo $get_from; ?>"><?php _e('Bitly API key', 'campaign-url-builder'); ?></a>?
+        How to get your <a target="_blank" href=https://alex.zappa.dev/<?php echo $get_from; ?>"><?php _e('Bitly API key', 'campaign-url-builder'); ?></a>?
     </p>
 
     <?php if ( current_user_can('administrator') || ! get_option( $this->plugin_name . '_admin_only' ) ) : ?>
@@ -127,7 +127,7 @@ $get_from = esc_attr( $plugin->plugin_real_name );
 
     <h3><?php _e('Tools', 'campaign-url-builder'); ?></h3>
     <p>
-        <a class="button button-primary button-shortcode-generator" href="https://reatlat.net/wp-plugin-campaign-url-builder/?utm_source=wp_plugin&utm_medium=shortcode_tab&utm_campaign=<?php echo $get_from; ?>#generator" target="_blank"><span class="dashicons dashicons-hammer"></span><?php _e('Shortcode generator', 'campaign-url-builder'); ?></a>
+        <a class="button button-primary button-shortcode-generator" href="https://alex.zappa.dev/<?php echo $get_from; ?>#generator" target="_blank"><span class="dashicons dashicons-hammer"></span><?php _e('Shortcode generator', 'campaign-url-builder'); ?></a>
     </p>
 
     <hr>
@@ -145,7 +145,7 @@ $get_from = esc_attr( $plugin->plugin_real_name );
 
     <div class="reatlat_cub__shortcode-example">
         <span>
-            [Campaign-URL-Builder wrapper="MegaWrapperClass" wrapper-inline-style="background:#ccc;padding:15px;" form="MegaFormClass" form-inline-style="padding:10px; background:#c19393" campaign_page="https://reatlat.net" utm_source="" utm_medium="" utm_campaign="" utm_term="" utm_content=""]
+            [Campaign-URL-Builder wrapper="MegaWrapperClass" wrapper-inline-style="background:#ccc;padding:15px;" form="MegaFormClass" form-inline-style="padding:10px; background:#c19393" campaign_page="https://alex.zappa.dev" utm_source="" utm_medium="" utm_campaign="" utm_term="" utm_content=""]
         </span>
     </div>
 

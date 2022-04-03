@@ -20,7 +20,7 @@ $plugin->enqueue_notices();
 
     <?php include dirname( __FILE__ ) . '/partial/reatlat_cub-admin-notice-clipboard.php'; ?>
 
-    <h1><span class="dashicons dashicons-share-alt"></span> <?php _e('Campaign URL Builder', 'campaign-url-builder'); ?> <i class="reatlat_cub_by">by <a href="https://reatlat.net/?utm_source=wp_plugin&utm_medium=title_header&utm_campaign=<?php echo esc_attr( $plugin->plugin_real_name ); ?>" target="_blank">re[at]lat</a></i> </h1>
+    <h1><span class="dashicons dashicons-share-alt"></span> <?php _e('Campaign URL Builder', 'campaign-url-builder'); ?> <i class="reatlat_cub_by">by <a href="https://alex.zappa.dev/<?php echo esc_attr( $plugin->plugin_real_name ); ?>" target="_blank">re[at]lat</a></i> </h1>
 
 	<ul class="reatlat_cub_tabs">
 		<li><a href="#reatlat_cub_tab-0"><span class="dashicons dashicons-plus"></span> <?php _e('Create link', 'campaign-url-builder'); ?></a></li>

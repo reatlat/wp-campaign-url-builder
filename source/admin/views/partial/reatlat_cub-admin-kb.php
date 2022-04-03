@@ -14,7 +14,7 @@ $get_from = esc_attr( $plugin->plugin_real_name );
     <p>
         <?php printf(
                 __('Shortcode option, works well, but still needs improvements. Read this %sarticle%s about all shortcode features.', 'campaign-url-builder'),
-        '<a target="_blank" href="https://reatlat.net/campaign-url-builder-introducing-shortcodes/?utm_source=wp_plugin&utm_medium=kb_tab&utm_campaign=' . $get_from . '">',
+        '<a target="_blank" href="https://alex.zappa.dev/' . $get_from . '">',
         '</a>');
         ?>
     </p>
@@ -38,7 +38,7 @@ $get_from = esc_attr( $plugin->plugin_real_name );
     <h3><?php _e('Bitly API key', 'campaign-url-builder'); ?></h3>
     <p>
         <?php _e('How do I get my own Bitly OAuth access token?', 'campaign-url-builder'); ?>
-        <a href="https://reatlat.net/how-do-i-find-my-bitly-oauth-access-token/?utm_source=wp_plugin&utm_medium=kb_tab&utm_campaign=<?php echo $get_from; ?>"><?php _e('read article', 'campaign-url-builder'); ?>.</a>
+        <a href="https://alex.zappa.dev/<?php echo $get_from; ?>"><?php _e('read article', 'campaign-url-builder'); ?>.</a>
     </p>
 
     <hr>
