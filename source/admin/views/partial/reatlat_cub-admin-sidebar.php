@@ -45,13 +45,7 @@ $widgets = array(
         </div>
     <?php endif; ?>
 
-    <div class="reatlat_promote_widget ami-banner pan">
-        <a href="https://ami.reatlat.net/?utm_source=wp_plugin&utm_medium=ami-banner_sidebar&utm_campaign=<?php echo $get_from; ?>&url=<?php bloginfo('url'); ?>" target="_blank">
-            <img src="https://ami.reatlat.net/assets/images/ami-banner.png" alt="<?php _e('Am I Responsive', 'campaign-url-builder'); ?>" width="400">
-        </a>
-    </div>
-
-    <div class="reatlat_promote_widget buymeacoffee">
+    <div class="reatlat_promote_widget buymeacoffee pan">
         <a href="https://www.paypal.me/reatlat/<?php echo rand(3, 10); ?>usd" target="_blank" class="tippy--hover"
            data-tippy-content="<?php _e('Buy me a coffee', 'campaign-url-builder'); ?>">
             <img src="<?php echo str_replace('/admin', '', plugin_dir_url(dirname(__DIR__))); ?>admin/views/images/buymeacoffee.png"
@@ -59,7 +53,8 @@ $widgets = array(
         </a>
     </div>
 
-    <div class="reatlat_promote_widget rateus">
+    <?php /*
+    <div class="reatlat_promote_widget rateus pan">
         <a target="_blank"
            href="https://wordpress.org/support/view/plugin-reviews/<?php echo $get_from; ?>?rate=5#postform">
             <span class="reatlat_promote_title"><?php _e('Rate it to show your support!', 'campaign-url-builder'); ?></span>
@@ -68,7 +63,7 @@ $widgets = array(
         </a>
     </div>
 
-    <div class="reatlat_promote_widget author-card">
+     <div class="reatlat_promote_widget author-card pan">
         <a target="_blank"
            href="https://alex.zappa.dev/<?php echo $get_from; ?>">
             <img src="<?php echo str_replace('/admin', '', plugin_dir_url(dirname(__DIR__))); ?>admin/views/images/help-sign.png"
@@ -76,6 +71,7 @@ $widgets = array(
             <h2 class="mtn"><?php _e('Looking for WordPress Developer?', 'campaign-url-builder'); ?></h2>
             <h3><?php _e('Hire me to make custom integration for your WordPress project.', 'campaign-url-builder'); ?></h3>
         </a>
-    </div>
-
+    </div> 
+    */ ?>
+    
 </div>
