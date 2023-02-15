@@ -92,11 +92,11 @@ class reatlat_cub_Public
 
             ?>
 
-            <div class="Campaign-URL-Builder Campaign-URL-Builder--form-wrapper <?php echo $atts['wrapper']; ?>" <?php if ( $atts['wrapper-inline-style'] ) { echo 'style="' . $atts['wrapper-inline-style'] . '"'; } ?>>
-                <form action="#" method="post" class="Campaign-URL-Builder--form-wrapper__form <?php echo $atts['form']; ?>" <?php if ( $atts['form-inline-style'] ) { echo 'style="' . $atts['form-inline-style'] . '"'; } ?>>
+            <div class="Campaign-URL-Builder Campaign-URL-Builder--form-wrapper <?php echo esc_attr($atts['wrapper']); ?>" <?php if ( $atts['wrapper-inline-style'] ) { echo 'style="' . esc_attr($atts['wrapper-inline-style']) . '"'; } ?>>
+                <form action="#" method="post" class="Campaign-URL-Builder--form-wrapper__form <?php echo esc_attr($atts['form']); ?>" <?php if ( $atts['form-inline-style'] ) { echo 'style="' . esc_attr($atts['form-inline-style']) . '"'; } ?>>
 
                     <input id="campaign_page"
-                           class="campaign_page input-regular-text <?php echo $atts['input-class']; ?>"
+                           class="campaign_page input-regular-text <?php echo esc_attr($atts['input-class']); ?>"
                            name="campaign_page"
                            placeholder="<?php _e('Website URL', 'campaign-url-builder'); ?>"
                            type="<?php if( $atts['hidden'] && in_array('campaign_page', $atts['hidden'] )) { echo 'hidden'; } else { echo 'text'; } ?>"
@@ -104,7 +104,7 @@ class reatlat_cub_Public
                            <?php if ( $atts['type'] === 'preset' && $atts['campaign_page'] ) : ?>readonly="readonly"<?php endif; ?>>
 
                     <input id="campaign_source"
-                           class="campaign_source input-regular-text <?php echo $atts['input-class']; ?>"
+                           class="campaign_source input-regular-text <?php echo esc_attr($atts['input-class']); ?>"
                            name="campaign_source"
                            placeholder="<?php _e('Campaign Source', 'campaign-url-builder'); ?>"
                            type="<?php if( $atts['hidden'] && in_array('utm_source', $atts['hidden'] )) { echo 'hidden'; } else { echo 'text'; } ?>"
@@ -112,7 +112,7 @@ class reatlat_cub_Public
                            <?php if ( $atts['type'] === 'preset' && $atts['utm_source'] ) : ?>readonly="readonly"<?php endif; ?>>
 
                     <input id="campaign_medium"
-                           class="campaign_medium input-regular-text <?php echo $atts['input-class']; ?>"
+                           class="campaign_medium input-regular-text <?php echo esc_attr($atts['input-class']); ?>"
                            name="campaign_medium"
                            placeholder="<?php _e('Campaign Medium', 'campaign-url-builder'); ?>"
                            type="<?php if( $atts['hidden'] && in_array('utm_medium', $atts['hidden'] )) { echo 'hidden'; } else { echo 'text'; } ?>"
@@ -120,7 +120,7 @@ class reatlat_cub_Public
                            <?php if ( $atts['type'] === 'preset' && $atts['utm_medium'] ) : ?>readonly="readonly"<?php endif; ?>>
 
                     <input id="campaign_name"
-                           class="campaign_name input-regular-text <?php echo $atts['input-class']; ?>"
+                           class="campaign_name input-regular-text <?php echo esc_attr($atts['input-class']); ?>"
                            name="campaign_name"
                            placeholder="<?php _e('Campaign Name, Product, promo code, or slogan.', 'campaign-url-builder'); ?>"
                            type="<?php if( $atts['hidden'] && in_array('utm_campaign', $atts['hidden'] )) { echo 'hidden'; } else { echo 'text'; } ?>"
@@ -128,7 +128,7 @@ class reatlat_cub_Public
                            <?php if ( $atts['type'] === 'preset' && $atts['utm_campaign'] ) : ?>readonly="readonly"<?php endif; ?>>
 
                     <input id="campaign_term"
-                           class="campaign_term input-regular-text <?php echo $atts['input-class']; ?>"
+                           class="campaign_term input-regular-text <?php echo esc_attr($atts['input-class']); ?>"
                            name="campaign_term"
                            placeholder="<?php _e('Identify the paid keywords', 'campaign-url-builder'); ?>"
                            type="<?php if( $atts['hidden'] && in_array('utm_term', $atts['hidden'] )) { echo 'hidden'; } else { echo 'text'; } ?>"
@@ -136,7 +136,7 @@ class reatlat_cub_Public
                            <?php if ( $atts['type'] === 'preset' && $atts['utm_term'] ) : ?>readonly="readonly"<?php endif; ?>>
 
                     <input id="campaign_content"
-                           class="campaign_content input-regular-text <?php echo $atts['input-class']; ?>"
+                           class="campaign_content input-regular-text <?php echo esc_attr($atts['input-class']); ?>"
                            name="campaign_content"
                            placeholder="<?php _e('Use to differentiate ads', 'campaign-url-builder'); ?>"
                            type="<?php if( $atts['hidden'] && in_array('utm_content', $atts['hidden'] )) { echo 'hidden'; } else { echo 'text'; } ?>"
@@ -146,16 +146,16 @@ class reatlat_cub_Public
 
                     <?php for ($x = 0; $x <= 2; $x++) : ?>
                         <input id="custom_key_<?php echo $x+1; ?>"
-                               class="custom_key input-regular-text <?php echo $atts['input-class']; ?>"
+                               class="custom_key input-regular-text <?php echo esc_attr($atts['input-class']); ?>"
                                name="custom_key_<?php echo $x+1; ?>"
                                type="hidden"
-                               value="<?php if ( isset( $atts['custom_parameters'][$x][0] ) ) { echo $atts['custom_parameters'][$x][0]; } ?>"
+                               value="<?php if ( isset( $atts['custom_parameters'][$x][0] ) ) { echo esc_attr($atts['custom_parameters'][$x][0]); } ?>"
                                readonly="readonly">
                         <input id="custom_value_<?php echo $x+1; ?>"
-                               class="custom_value input-regular-text <?php echo $atts['input-class']; ?>"
+                               class="custom_value input-regular-text <?php echo esc_attr($atts['input-class']); ?>"
                                name="custom_value_<?php echo $x+1; ?>"
                                type="hidden"
-                               value="<?php if ( isset( $atts['custom_parameters'][$x][1] ) ) { echo $atts['custom_parameters'][$x][1]; } ?>"
+                               value="<?php if ( isset( $atts['custom_parameters'][$x][1] ) ) { echo esc_attr($atts['custom_parameters'][$x][1]); } ?>"
                                readonly="readonly">
                     <?php endfor; ?>
 
