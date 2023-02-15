@@ -1,11 +1,11 @@
 === Campaign URL Builder ===
-Contributors: reatlat
+Contributors: reatlat, sunnypixels
 Donate link: https://paypal.me/reatlat/10usd
 Tags: utm, tracking link, google analytics, analytics, link generator, googl, google url shortener, minify link
 Requires at least: 3.0.1
-Tested up to: 5.2
+Tested up to: 6.1
 Requires PHP: 5.6 or later
-Stable tag: 1.8.1
+Stable tag: 1.8.2
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -45,6 +45,9 @@ on GitHub <https://github.com/reatlat/wp-campaign-url-builder/issues>
 Nothing for now
 
 == Changelog ==
+
+= 1.8.2 =
+* Fix vulnerability issues
 
 = 1.8.1 =
 * Fix export to CSV action

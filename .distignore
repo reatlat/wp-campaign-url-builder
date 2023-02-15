@@ -1,0 +1,12 @@
+/.wordpress-org
+/.git
+/.github
+/node_modules
+/includes
+/public_html
+/database
+
+.distignore
+.gitignore
+.gitattributes
+README.md
