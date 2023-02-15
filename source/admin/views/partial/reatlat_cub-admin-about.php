@@ -14,6 +14,13 @@ $changelog = array(
         ),
     ),
     array(
+        'version' => '1.8.2',
+        'date'    => '2023/02/15',
+        'changes' => array(
+            __('Fix vulnerability issues', 'campaign-url-builder'),
+        ),
+    ),
+    array(
         'version' => '1.8.1',
         'date'    => '2019/05/20',
         'changes' => array(
@@ -193,23 +200,24 @@ $changelog = array(
     </div>
 
     <hr>
-
+    <?php /*
     <h3><?php _e('Debug info', 'campaign-url-builder'); ?></h3>
     <p>
         <?php _e('Coming soon...', 'campaign-url-builder'); ?>
     </p>
 
     <hr>
+    */ ?>
 
     <div class="reatlat_cub_container__widget">
         <div class="reatlat_promote_title"><?php _e('Developed by', 'campaign-url-builder'); ?></div>
         <div class="author-card">
-            <a target="_blank" href="https://reatlat.net/?utm_source=wp_plugin&utm_medium=authorcard_sidebar&utm_campaign=<?php echo $get_from; ?>">
-                <img src="<?php echo get_avatar_url('reatlat@gmail.com', array("size"=>160) ); ?>" alt="Alex Zappa a.k.a. re[at]lat">
+            <a target="_blank" href="https://alex.zappa.dev/?utm_source=wp_plugin&utm_medium=authorcard_sidebar&utm_campaign=<?php echo $get_from; ?>">
+                <img src="<?php echo get_avatar_url('alex@zappa.dev', array("size"=>160) ); ?>" alt="Alex Zappa">
             </a>
-            <h3>Alex Zappa <small>a.k.a. re[at]lat</small></h3>
-            <h4><?php _e('Software Engineer', 'campaign-url-builder'); ?></h4>
-            <p><a target="_blank" href="https://reatlat.net/?utm_source=wp_plugin&utm_medium=logo_sidebar&utm_campaign=<?php echo $get_from; ?>"><?php _e('Homepage', 'campaign-url-builder'); ?></a> | <a target="_blank" href="https://github.com/reatlat">GitHub</a></p>
+            <h3>Alex Zappa</h3>
+            <h4><?php _e('Sr. Software Engineer', 'campaign-url-builder'); ?></h4>
+            <p><a target="_blank" href="https://alex.zappa.dev/?utm_source=wp_plugin&utm_medium=logo_sidebar&utm_campaign=<?php echo $get_from; ?>"><?php _e('Homepage', 'campaign-url-builder'); ?></a> | <a target="_blank" href="https://github.com/reatlat">GitHub</a></p>
 
         </div>
     </div>

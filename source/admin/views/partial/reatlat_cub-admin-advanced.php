@@ -161,7 +161,7 @@
 
                 <div class="reatlat_cub_form__settings--api__rebrandly pvxs">
                     <input type="radio" name="advanced_api" id="advanced_api_rebrandly" required <?php checked($plugin->is_shortener_vendor( 'rebrandly' ) ); ?> value="rebrandly" />
-                    <label for="advanced_api_rebrandly" class="new-feature">
+                    <label for="advanced_api_rebrandly">
                         <?php _e('Rebrandly URL Shortener API', 'campaign-url-builder'); ?>
                     </label>
                     <div class="radio-if-active">

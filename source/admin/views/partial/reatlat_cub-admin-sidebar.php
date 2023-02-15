@@ -45,19 +45,6 @@ $widgets = array(
         </div>
     <?php endif; ?>
 
-    <div class="reatlat_promote_widget ami-banner pan">
-        <a href="https://ami.reatlat.net/?utm_source=wp_plugin&utm_medium=ami-banner_sidebar&utm_campaign=<?php echo $get_from; ?>&url=<?php bloginfo('url'); ?>" target="_blank">
-            <img src="https://ami.reatlat.net/assets/images/ami-banner.png" alt="<?php _e('Am I Responsive', 'campaign-url-builder'); ?>" width="400">
-        </a>
-    </div>
-
-    <div class="reatlat_promote_widget buymeacoffee">
-        <a href="https://www.paypal.me/reatlat/<?php echo rand(3, 10); ?>usd" target="_blank" class="tippy--hover"
-           data-tippy-content="<?php _e('Buy me a coffee', 'campaign-url-builder'); ?>">
-            <img src="<?php echo str_replace('/admin', '', plugin_dir_url(dirname(__DIR__))); ?>admin/views/images/buymeacoffee.png"
-                 alt="<?php _e('Buy me a coffee', 'campaign-url-builder'); ?>">
-        </a>
-    </div>
 
     <div class="reatlat_promote_widget rateus">
         <a target="_blank"
@@ -68,14 +55,5 @@ $widgets = array(
         </a>
     </div>
 
-    <div class="reatlat_promote_widget author-card">
-        <a target="_blank"
-           href="https://reatlat.net/contact/?utm_source=wp_plugin&utm_medium=authorcard_sidebar&utm_campaign=<?php echo $get_from; ?>">
-            <img src="<?php echo str_replace('/admin', '', plugin_dir_url(dirname(__DIR__))); ?>admin/views/images/help-sign.png"
-                 alt="">
-            <h2 class="mtn"><?php _e('Looking for WordPress Developer?', 'campaign-url-builder'); ?></h2>
-            <h3><?php _e('Hire me to make custom integration for your WordPress project.', 'campaign-url-builder'); ?></h3>
-        </a>
-    </div>
 
 </div>
