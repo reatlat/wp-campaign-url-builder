@@ -17,4 +17,6 @@ temp/*
 release/*
 svn/*
 tests/*
+public_html/*
+database/*
 
