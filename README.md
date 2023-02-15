@@ -1,22 +1,10 @@
 # WordPress - Campaign URL Builder
-[![](https://img.shields.io/badge/release-1.8.1-green.svg)](https://github.com/reatlat/wp-campaign-url-builder/releases/tag/v1.8.1)
-[![](https://img.shields.io/badge/Sass-ready-ff69b4.svg?logo=sass)](https://sass-lang.com/)
-[![](https://img.shields.io/badge/Docker-ready-blue.svg?logo=docker)](https://hub.docker.com/_/wordpress/)
-[![](https://img.shields.io/badge/PHP_5.6-ready-777BB4.svg?logo=php)](https://php.net/)
-[![](https://img.shields.io/badge/PHP_7.2-ready-777BB4.svg?logo=php)](https://php.net/)
-[![](https://img.shields.io/badge/PHP_7.3-ready-777BB4.svg?logo=php)](https://php.net/)
-[![](https://img.shields.io/badge/WordPress-5.0.3-blue.svg?logo=wordpress)](https://wordpress.org/)
+[![](https://img.shields.io/badge/release-1.8.2-green.svg)](https://github.com/reatlat/wp-campaign-url-builder/releases/tag/v1.8.2)
 
 Generates links for Analytics tools and short link.
 Enter your Campaign Name, Source, Medium (UTM link) etc.
 to generate a full link and a short link (trough the Google
 URL Shortener API) all in once.
-
-## Prerequistes
-
-- PrePros app,
-
-PS: a bit later will refactor it to new gulp v4
 
 ### Docker
 

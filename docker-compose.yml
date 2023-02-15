@@ -9,9 +9,9 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./public_html:/var/www/html
-      - ./includes/docker-scripts:/docker-scripts
-      - ./source:/var/www/html/wp-content/plugins/campaign-url-builder
+      - ./_public_html:/var/www/html
+      - ./_includes/docker-scripts:/docker-scripts
+      - ./:/var/www/html/wp-content/plugins/campaign-url-builder
     environment:
       WORDPRESS_DB_HOST: mysql
       WORDPRESS_DB_USER: wordpress
@@ -22,7 +22,7 @@ services:
     platform: linux/x86_64
     image: mysql:5.7
     volumes:
-      - ./database:/var/lib/mysql
+      - ./_database:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: wordpress
@@ -30,8 +30,5 @@ services:
       MYSQL_PASSWORD: wordpress
 
 volumes:
-  database: {}
-  public_html: {}
-  wp-seeds: {}
-  theme: {}
-  plugins: {}
+  _database: {}
+  _public_html: {}

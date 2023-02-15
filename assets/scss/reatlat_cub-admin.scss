@@ -1,0 +1,668 @@
+@import "vars";
+@import "mixins/import-now";
+
+
+#reatlat_cub {
+
+    @import "vendors/import-now";
+
+    @import "radio-button";
+
+    &.wrap {
+        &.ru_RU {
+            .tgl {
+                width: 130px;
+            }
+        }
+    }
+
+    &.wrap--metabox {
+        display: inline-block;
+        margin: 0;
+        .reatlat_cub_tabs_container {
+            width: 100%;
+
+            table {
+                margin-top: 12px;
+            }
+        }
+    }
+
+    .clickable {
+        cursor: pointer;
+    }
+    .unclickable {
+        cursor: default;
+    }
+
+    label {
+        &.error {
+            color: $red;
+            position: relative;
+            margin-left: 5px;
+        }
+        &.label--full-width {
+            display: block;
+        }
+    }
+    input.error {
+        border-color: $red;
+        box-shadow: 0 0 2px rgba($red,.8);
+    }
+
+    .description {
+        font-weight: 400;
+    }
+    .reatlat_cub_container {
+        display: block;
+        overflow: hidden;
+        width: 100%;
+        margin: 15px 0;
+
+        .reatlat_cub_container__widget {
+            background-color: $white;
+            padding: 10px;
+            margin: 15px 0;
+            border: 1px solid #E5E5E5;
+            position: relative;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+            overflow: hidden;
+
+            // Author card item
+            .author-card {
+                img {
+                    float: left;
+                    width: 80px;
+                    height: 80px;
+                    margin-right: 15px;
+                }
+                h3 {
+                    padding-top: 5px;
+                    margin-bottom: 0;
+                }
+                h4 {
+                    margin: 0;
+                }
+            }
+
+            &.technologies {
+                text-align: center;
+                img {
+                    //width: 20%;
+                    padding: 0 3%;
+                    max-width: 100px;
+                }
+            }
+        }
+
+        .changelog {
+            .changelog__container {
+                max-height: 220px;
+                overflow: auto;
+                border: 1px solid rgba(0,0,0,.1);
+                background: $white;
+                padding: 10px;
+                h4:nth-of-type(1) {
+                    margin-top: 0;
+                }
+                // fix for show scrollbar for OSX systems
+                &::-webkit-scrollbar {
+                    -webkit-appearance: none;
+                    width: 7px;
+                    background: rgba(0,0,0,.1);
+                }
+                &::-webkit-scrollbar-thumb {
+                    border-radius: 4px;
+                    background-color: rgba(0,0,0,.5);
+                    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+                }
+            }
+            h4 {
+                margin-bottom: 0;
+            }
+            ul {
+                list-style: initial;
+                margin-left: 25px;
+                margin-top: 5px;
+            }
+        }
+    }
+
+    h1 span.dashicons {
+        font-size: 32px;
+        width: 50px;
+    }
+    h3 {
+        font-size: 1.1em;
+    }
+    .reatlat_cub_by {
+        font-weight: bold;
+        font-size: 0.5em;
+    }
+    .reatlat_cub_error {
+        color: $red;
+    }
+
+    select {
+        min-width: 200px;
+    }
+
+    .color-reatlat_cub-primary {
+        color: $theme-color;
+    }
+
+    a span {
+        text-decoration: none;
+    }
+
+    .dashicons {
+        color: $theme-color;
+        &.alert {
+            color: $red;
+        }
+    }
+
+    .reatlat_cub_form {
+        td {
+            padding-bottom: 0;
+        }
+
+        div > label,
+        tr > th > label {
+            &.new-feature {
+                &:after {
+                    font-weight: bold;
+                    content: 'NEW';
+                    color: white;
+                    padding: 2px 3px;
+                    background: lighten($theme-color, 3%);
+                    display: inline-block;
+                    font-size: 9px;
+                    line-height: 1;
+                }
+            }
+        }
+    }
+
+    .reatlat_cub_notice {
+        position: fixed;
+        z-index: 999999;
+        top: 45px;
+        left: 50%;
+        margin-left: -150px;
+        user-select: none;
+        cursor: default !important;
+        .reatlat_cub_notice__inner {
+            width: 300px;
+            padding: 15px 30px;
+            border: 1px solid $theme-color;
+            background: $white;
+            h3 {
+                margin: 0;
+            }
+            p {
+                margin: 10px 0 0;
+            }
+        }
+
+        &--clipboard {
+
+        }
+        &--success {
+
+        }
+        &--error {
+            .reatlat_cub_notice__inner {
+                border: 1px solid $red;
+                background: lighten($red, 50%);
+            }
+
+        }
+    }
+
+    .reatlat_cub_tabs {
+        border-bottom: 1px solid $grey;
+        padding-bottom: 0;
+        padding-left: 10px;
+        list-style: none;
+        li {
+            display: inline-block;
+            margin: 0;
+            padding: 0;
+            &.new-feature {
+                position: relative;
+                a {
+                    &:after {
+                        z-index: 10;
+                        position: absolute;
+                        right: 2px;
+                        top: 0px;
+                        font-weight: bold;
+                        content: 'NEW';
+                        color: white;
+                        padding: 2px 3px;
+                        background: lighten($theme-color, 3%);
+                        display: inline-block;
+                        font-size: 9px;
+                        line-height: 1;
+                    }
+                    &.active {
+                        &:after {
+                            background: transparent !important;
+                            color: $theme-color !important;
+                        }
+                    }
+                    &:hover {
+                        &:after {
+                            background: lighten($theme-color, 6%);
+                        }
+                    }
+                }
+            }
+            &:focus,
+            &:active,
+            &:hover,
+            a:focus,
+            a:active,
+            a:hover {
+                outline: 0 !important;
+                outline-width: 0 !important;
+                outline-style: none;
+                box-shadow: none;
+            }
+            a {
+                font-weight: bold;
+                display: inline-block;
+                margin: 0 2.5px;
+                margin-bottom: -1px;
+                padding: 10px 15px;
+                text-decoration: none;
+                color: #333;
+                border: 1px solid #aaa;
+                background: $grey;
+                &:hover {
+                    color: $white;
+                    background-color: #888;
+                    span:before {
+                        color: $white;
+                    }
+                }
+                &.active {
+                    cursor: default;
+                    color: #333 !important;
+                    border-bottom-color: #f1f1f1 !important;
+                    background-color: transparent !important;
+                    span:before {
+                        color: #666 !important;
+                    }
+                }
+                span:before {
+                    color: #666;
+                }
+            }
+        }
+    }
+
+    .reatlat_cub_tab {
+        display: none;
+        &.active {
+            display: block;
+        }
+
+        label {
+            .dashicons {
+                color: initial;
+                opacity: .6;
+                cursor: help;
+                @include transit();
+                &:hover {
+                    color: $theme-color;
+                }
+            }
+        }
+
+        .reatlat_cub__shortcode-example {
+                font-family: monospace;
+                font-size: 12px;
+                background: rgba(black,.05);
+                padding: 15px;
+                cursor: text;
+        }
+    }
+
+    .reatlat_cub_tabs_container {
+        float: left;
+        width: 100%;
+        @media (min-width: $min-width) {
+            width: 66%;
+        }
+        position: relative;
+
+        .reatlat_cub_result__table_pagination {
+            position: absolute;
+            top: 34px;
+            right: 1px;
+            button {
+                position: relative;
+                top: -2px;
+                cursor: pointer;
+                .dashicons {
+                    color: $default;
+                }
+            }
+
+            &--metabox {
+                top: 0;
+            }
+        }
+
+        .export_to_csv {
+            cursor: pointer;
+            position: absolute;
+            top: 0px;
+            right: 1px;
+            line-height: 20px;
+            user-select: none;
+        }
+
+        .reatlat_cub_result {
+            position: relative;
+            table{
+                background: transparent;
+                thead {
+                    background: $white;
+                }
+            }
+            td {
+                vertical-align: middle;
+            }
+        }
+
+        .reatlat_cub_result [data-info]:hover,
+        .reatlat_cub_result [data-copy]:hover {
+            background-color: $grey;
+            .dashicons-clipboard {
+                opacity: 1;
+            }
+        }
+        td {
+            position: relative;
+        }
+        tr {
+            &.reatlat_cub_custom-params {
+                display: none;
+            }
+            &.reatlat_cub_yellow-highlight {
+                background: #fbffce;
+                &:nth-child(odd) {
+                    background: $parchment;
+                }
+            }
+        }
+        th.campaign_info,
+        td.campaign_info {
+            position: relative;
+            width: 40px;
+            text-align: center;
+            a {
+                position: absolute;
+                display: inline-block;
+                left: 0;
+                right: 0;
+                text-align: center;
+                margin: auto;
+                top: 0;
+                bottom: 0;
+                .dashicons {
+                    //padding-top: 35%;
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    text-align: center;
+                    margin: auto;
+                    top: 0;
+                    bottom: 0;
+                    width: 40px;
+                    height: 40px;
+                    line-height: 40px;
+                    &:before {
+                        padding: 10px;
+                        border-radius: 50%;
+                        //background: rgba(black, .5);
+                        color: #555;
+                        width: 40px;
+                        height: 40px;
+                        line-height: 40px;
+                    }
+                }
+            }
+        }
+        th.campaign_name,
+        td.campaign_name {
+            @media (min-width: $xl) {
+                width: 15%;
+            }
+        }
+        th.campaign_short_link,
+        td.campaign_short_link {
+            @media (min-width: $xl) {
+                width: 15%;
+            }
+        }
+        th.campaign_full_link,
+        td.campaign_full_link {
+            //width: 15%;
+        }
+        th.campaign_user_id,
+        td.campaign_user_id {
+            @media (min-width: $xl) {
+                width: 110px;
+            }
+        }
+        th.campaign_remove_link,
+        td.campaign_remove_link {
+            position: relative;
+            width: 20px;
+            text-align: center;
+            .campaign_remove_link__inner {
+                border: none;
+                width: 100%;
+                background: transparent;
+                cursor: pointer;
+                position: absolute;
+                display: inline-block;
+                left: 0;
+                right: 0;
+                text-align: center;
+                margin: auto;
+                top: 0;
+                bottom: 0;
+                outline: none;
+                .dashicons {
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    text-align: center;
+                    margin: auto;
+                    top: 0;
+                    bottom: 0;
+                    width: 20px;
+                    height: 20px;
+                    line-height: 20px;
+                    &:before {
+                        color: $red;
+                        width: 20px;
+                        height: 20px;
+                        line-height: 20px;
+                    }
+                }
+                &:hover {
+                    color: $white;
+                    background-color: $red;
+                    span:before {
+                        color: $white;
+                    }
+                }
+            }
+        }
+        td[data-copy] {
+            position: relative;
+            cursor: pointer;
+            .dashicons-clipboard {
+                opacity: 0;
+                position: absolute;
+                left: 0;
+                right: 0;
+                text-align: center;
+                margin: auto;
+                top: 0;
+                bottom: 0;
+                width: 40px;
+                height: 40px;
+                line-height: 40px;
+                &:before {
+                    padding: 10px;
+                    border-radius: 50%;
+                    background: rgba(black, .5);
+                    color: $white;
+                    width: 40px;
+                    height: 40px;
+                    line-height: 40px;
+                }
+            }
+        }
+
+    }
+
+    .reatlat_cub_promote_container {
+        float: left;
+        width: 100%;
+        @media (min-width: $min-width) {
+            width: 31%;
+            margin: 0 0 0 2%;
+        }
+        .reatlat_promote_widget {
+            background-color: $white;
+            padding: 10px;
+            margin: 15px 0;
+            border: 1px solid #E5E5E5;
+            position: relative;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+            overflow: hidden;
+            .dashicons {
+                color: $theme-color !important;
+            }
+            .reatlat_promote_title {
+                font-size: 1.2em;
+                font-weight: bold;
+                color: #222;
+                margin-bottom: 12.5px;
+                span:before{
+                    color: #222;
+                }
+            }
+
+            a {
+                text-decoration: none;
+            }
+
+            &.ami-banner {
+                a {
+                    display: block;
+                    text-align: center;
+                    @include transit();
+                    img {
+                        display: block;
+                        width: 100%;
+                        height: auto;
+                    }
+
+                    &:hover {
+                        transform: scale(1.15);
+                    }
+                }
+            }
+
+            &.buymeacoffee {
+                background: $sunflower;
+                a {
+                    display: block;
+                    text-align: center;
+                    padding: 10px;
+                    @include transit();
+                    &:hover {
+                        transform: scale(1.15);
+                    }
+                    img {
+                        margin: auto;
+                        max-width: 300px;
+                        width: 100%;
+                    }
+                }
+            }
+            &.rateus {
+                background: linear-gradient(to bottom, $blue 0%, $blue calc(50% + 20px), $deepsea calc(50% + 20px), $deepsea 100%);
+                a {
+                    min-height: 100px;
+                    display: block;
+                    text-align: center;
+                    @include transit();
+                    .reatlat_promote_title {
+                        display: block;
+                        color: $sunflower;
+                        padding: 10px 0 0;
+                        margin: auto;
+                    }
+                    img {
+                        margin: auto;
+                        max-width: 200px;
+                        @include transit();
+                    }
+                    &:hover img {
+                        transform: scale(1.15);
+                    }
+                }
+            }
+            &.notice-note {
+                background: $parchment;
+            }
+            &.news-note {
+                background: mix($theme-color, $white, 30%);
+            }
+
+            &.author-card {
+                background: linear-gradient(to bottom, $white 0, $white 60%, rgba($black, .1));
+                a {
+                    display: block;
+                }
+                img {
+                    float: left;
+                    width: 80px;
+                    height: 80px;
+                    margin-right: 15px;
+                }
+                h3 {
+                    padding-top: 5px;
+                    margin-bottom: 0;
+                }
+                h4 {
+                    margin: 0;
+                }
+            }
+        }
+    }
+
+    .button {
+        &.button-shortcode-generator {
+            .dashicons {
+                color: white;
+                margin: 3px 5px 0 0;
+            }
+        }
+    }
+
+    // colors
+    .alert {
+        color: $red;
+    }
+}

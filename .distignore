@@ -2,10 +2,11 @@
 /.git
 /.github
 /node_modules
-/includes
-/public_html
-/database
+/_includes
+/_public_html
+/_database
 
+docker-compose.yml
 .distignore
 .gitignore
 .gitattributes
